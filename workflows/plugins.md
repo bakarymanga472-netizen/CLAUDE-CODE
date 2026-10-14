@@ -19,8 +19,15 @@ Source : reel de @hudsonbrendon (« 5 plugins »). Les 5 outils ont été vérif
 - task-observer écrit des fichiers d'observation dans le dossier. Relis ses propositions avant de les accepter.
 - claude-code-setup : demande « recommande-moi des automatisations pour ce projet ». Il propose, tu choisis.
 
-## Non installés
+## Installés à la demande (tu l'as voulu, contre mon avis pour OmniRoute)
 
-**OmniRoute** : envoie tes requêtes vers des fournisseurs gratuits inconnus quand ton quota est atteint. Ton code sort de chez toi, le modèle n'est plus Claude, les « 1,6 milliard de tokens » ne sont pas vérifiables et des critiques de sécurité existent. Refusé.
+Les deux s'installent avec `scripts/installer-plugins.sh` mais **ne changent pas ton Claude par défaut** : ils ne servent que si tu les lances.
 
-**Headroom** : proxy local de compression. Réel, mais un test indépendant sur de vraies sessions Claude Code mesure ~3,7 % d'économie. Optionnel via `scripts/installer-plugins.sh --headroom`, puis `headroom wrap claude`.
+**OmniRoute** (`npm install -g omniroute`) : passerelle locale vers des centaines de fournisseurs, avec bascule automatique quand un quota est atteint.
+- Utilisation : `omniroute` (tableau de bord sur http://localhost:20128), connecte tes fournisseurs, puis `omniroute run claude`.
+- Risques : ton code part chez les fournisseurs que tu connectes ; avec un fournisseur gratuit, ce n'est plus Claude qui répond ; les « 1,6 milliard de tokens gratuits » ne sont pas vérifiables. Les fonctions de type « TLS stealth » servent à se faire passer pour d'autres clients : faire passer un abonnement par là peut violer ses conditions d'utilisation et faire suspendre ton compte.
+- Règle : jamais de projet client ni de secret via OmniRoute.
+
+**Headroom** (`pipx install "headroom-ai[all]"`) : proxy local qui compresse les sorties d'outils.
+- Utilisation : `headroom wrap claude`.
+- Un test indépendant sur de vraies sessions Claude Code mesure ~3,7 % d'économie. Mesure toi-même avant de l'adopter.
