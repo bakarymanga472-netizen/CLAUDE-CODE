@@ -1,0 +1,19 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Obsidian : état local de l'interface (garde la config partagée si tu veux)
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+
+# Claude Code : réglages locaux personnels
+.claude/settings.local.json
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+*.swp
