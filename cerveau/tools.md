@@ -7,4 +7,7 @@
 | GitHub | Versioning de ce dossier | git / MCP GitHub | — |
 | Obsidian | Lire/éditer ce dossier comme un coffre (vault) | Ouvrir ce dossier dans Obsidian | — |
 | Notion | Tâches ouvertes par projet entre les sessions | Connecteur Notion (MCP) | `NOTION_TOKEN` (si API directe) |
+| claude-mem | Mémoire entre sessions (plugin) | `.claude/settings.json` | — |
+| claude-code-setup | Recommandations d'automatisations (plugin officiel) | `.claude/settings.json` | — |
+| task-observer | Amélioration des skills (skill) | `.claude/skills/task-observer/` | — |
 | _ajoute ici_ | | | |

@@ -17,6 +17,8 @@
 | `.claude/skills/` | Skills (chargés automatiquement par Claude Code) |
 | `.claude/agents/` | Sous-agents (routage des modèles) |
 | `workflows/` | Procédures pas-à-pas |
+| `workflows/plugins.md` | Plugins installés et refusés (avec raisons) |
+| `.claude/settings.json` | Plugins activés pour ce dossier |
 | `scripts/` | Scripts pour tâches répétitives |
 | `.env` | Secrets (jamais commité) |
 
