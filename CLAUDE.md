@@ -1,6 +1,6 @@
 # Point d'entrée
 
-Claude Code charge automatiquement CE fichier (racine du dossier où tu lances `claude`).
-Il importe le cerveau :
-
 @cerveau/CLAUDE.md
+
+# Compact instructions
+Lors d'un /compact, garde : décisions prises, fichiers modifiés, erreurs non résolues, prochaine étape. Jette : sorties d'outils, explorations abandonnées.

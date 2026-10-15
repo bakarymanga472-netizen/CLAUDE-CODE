@@ -12,10 +12,11 @@ Structure en 20 points pour qu'un agent ne reparte pas de zéro à chaque sessio
 │   ├── memoire/          ← 6. journal des sessions + 13. maintenant.md (court terme)
 │   ├── index.md          ← 7. où tout se trouve
 │   ├── tools.md          ← 8. apps connectées
-│   └── regles-projets.md ← 15. les projets ne se mélangent pas
 ├── projets/<nom>/        ← 9. un dossier par projet, 10. contexte.md dans chacun
 ├── .claude/skills/       ← 16. skills
-├── .claude/agents/       ← sous-agent léger utilisé par le routage (4)
+├── .claude/agents/       ← sous-agents eclaireur (Haiku) et verificateur
+├── .claude/rules/        ← 15. règles projets, chargées seulement dans projets/
+├── .claude/hooks/        ← mémoire injectée au démarrage
 ├── workflows/            ← 17. procédures
 ├── scripts/              ← 18. tâches répétitives
 ├── .env.example          ← 19. modèle du fichier de secrets
@@ -35,3 +36,6 @@ Structure en 20 points pour qu'un agent ne reparte pas de zéro à chaque sessio
 - Claude Code ne charge pas automatiquement `cerveau/CLAUDE.md` si tu le lances depuis la racine. Un `CLAUDE.md` racine l'importe donc avec `@cerveau/CLAUDE.md`.
 - Les skills ne sont détectés que dans `.claude/skills/<nom>/SKILL.md`, pas dans un dossier `skills/` quelconque.
 - Un `CLAUDE.md` ne change pas de modèle tout seul. Le routage passe par un sous-agent (`.claude/agents/eclaireur.md`, `model: haiku`).
+
+## Économie de tokens
+Voir `workflows/economie-tokens.md`.

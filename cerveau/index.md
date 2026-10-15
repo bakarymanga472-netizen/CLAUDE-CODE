@@ -10,12 +10,14 @@
 | `cerveau/contexte/voix.md` | Ta voix / ton style |
 | `cerveau/contexte/objectifs.md` | Tes objectifs |
 | `cerveau/tools.md` | Apps et outils connectés |
-| `cerveau/regles-projets.md` | Règles d'isolation entre projets |
 | `cerveau/memoire/maintenant.md` | Mémoire court terme (en cours, prochaines actions) |
 | `cerveau/memoire/sessions/` | Journal long terme, un fichier par session |
 | `projets/<nom>/contexte.md` | État de chaque projet |
 | `.claude/skills/` | Skills (chargés automatiquement par Claude Code) |
-| `.claude/agents/` | Sous-agents (routage des modèles) |
+| `.claude/agents/` | Sous-agents : `eclaireur` (Haiku, recherche), `verificateur` (tests, logs) |
+| `.claude/rules/projets.md` | Règles projets, chargées seulement dans `projets/` |
+| `.claude/hooks/session-start.sh` | Injecte `maintenant.md` au démarrage |
+| `workflows/economie-tokens.md` | Réflexes pour consommer moins |
 | `workflows/` | Procédures pas-à-pas |
 | `workflows/plugins.md` | Plugins installés et refusés (avec raisons) |
 | `.claude/settings.json` | Plugins activés pour ce dossier |

@@ -1,4 +1,25 @@
 {
+  "model": "opusplan",
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/node_modules/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          { "type": "command", "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/session-start.sh", "timeout": 10 }
+        ]
+      }
+    ]
+  },
+  "skillOverrides": {
+    "task-observer": "user-invocable-only"
+  },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": { "source": "github", "repo": "anthropics/claude-plugins-official" }
