@@ -42,6 +42,28 @@ Conclusion : **ne pas mettre d'argent réel**. Le gain venait du marché haussie
 - **Novex Terminal : introuvable** (aucune trace publique), donc pas intégré.
 - MacroMicro n'a qu'une API payante (offre entreprise) : remplacée par les données gratuites de la Fed. World Monitor n'a pas d'historique exploitable : remplacé par l'indice géopolitique académique qui le couvre depuis 1985.
 
+## Système « 7 agents sur l'or » (reel Sentinel / Vortex / Phantom / Oracle / Kronos)
+`python3 tester_or.py` → `resultats/rapport_or.md` et journal Kronos `resultats/journal_or_kronos.csv`.
+
+| Agent | Rôle | Donnée réelle |
+|---|---|---|
+| Sentinelle | Macro : taux réels US 10 ans en baisse → +1 | Fed (FRED DFII10) |
+| Bouclier | Valeur refuge : tension géopolitique élevée → +1 | Indice Caldara-Iacoviello |
+| Vortex | Structure technique : tendance MM50/MM200 | Future or COMEX |
+| Phantom | Institutionnels COMEX : position nette des fonds (rapport COT) | CFTC, hebdomadaire |
+| Atlas | Dollar en baisse → +1 | Fed (FRED DTWEXBGS) |
+| Oracle | Probabilité de hausse à 20 j selon le consensus, apprise sur le passé seulement | — |
+| Kronos | Exécution le lendemain, stop 3 ATR, journal des trades | — |
+
+| 2008 → aujourd'hui | Rendement | Pire baisse | vs hasard |
+|---|---|---|---|
+| Oracle 5 agents | +6 % | -29 % | 31e percentile |
+| Consensus fort | +51 % | -18 % | — |
+| **Acheter et garder l'or** | **+379 %** | -44 % | — |
+
+Depuis 2024 : Oracle -6 %, consensus -8 %, or +98 %. **Le système fait moins bien que des entrées au hasard.**
+Les « iceberg orders » du reel demandent des données de carnet d'ordres COMEX payantes : remplacés par le rapport COT public (hebdomadaire).
+
 ## Limites du test
 - Paramètres fixés à l'avance, non optimisés ; 10 cryptos seulement ; journalier.
 - Les 10 cryptos sont choisies avec ce qu'on sait aujourd'hui (biais du survivant : elles ont toutes survécu).
