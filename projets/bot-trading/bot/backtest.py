@@ -19,7 +19,7 @@ def _lignes(marches, fng):
     return _CACHE[cle]
 
 
-def executer(marches_df, fng_s, cfg, debut, fin, capital_initial=10_000.0, graine=0):
+def executer(marches_df, fng_s, cfg, debut, fin, capital_initial=10_000.0, graine=0, ctx=None):
     rng = np.random.default_rng(graine)
     marches, fng = _lignes(marches_df, fng_s)
     dates = marches_df["BTCUSDT"].loc[debut:fin].index
@@ -98,7 +98,7 @@ def executer(marches_df, fng_s, cfg, debut, fin, capital_initial=10_000.0, grain
 
         facteur = 0.5 if (cfg.agent_risque and drawdown > 0.20) else 1.0   # coupe-circuit
         places = cfg.max_positions - len(positions) + len(ordres_vente)
-        props = agents.coordinateur(marches, fng, t, cfg, positions)
+        props = agents.coordinateur(marches, fng, t, cfg, positions, ctx)
         if cfg.aleatoire:
             props = [p for p in props if rng.random() < cfg.proba_aleatoire]
             rng.shuffle(props)

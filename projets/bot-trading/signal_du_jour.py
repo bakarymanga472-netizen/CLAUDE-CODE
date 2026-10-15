@@ -50,6 +50,16 @@ def main():
     cfg = agents.Config()
     pf = charger_pf()
     print(f"Clôture du {t.date()} — Fear & Greed : {fng.get(t, '?')}")
+    try:
+        ctx = agents.contexte_macro_geo(data.macro(True), data.geopolitique(True), marches_df["BTCUSDT"].index)
+        a = ctx.get(t, {})
+        lib = {-1: "défavorable", 0: "neutre", 1: "favorable"}
+        print(f"Info macro (taux + dollar) : {lib.get(a.get('macro'), '?')} | "
+              f"tension géopolitique : {'élevée' if a.get('geo') == -1 else 'normale'} "
+              f"(à titre d'info : ces agents n'ont pas amélioré le backtest)")
+        print("Contexte en direct : https://www.worldmonitor.app — macro : https://www.macromicro.me")
+    except Exception as e:
+        print(f"Données macro/géopolitique indisponibles ({e}).")
 
     # Sorties proposées
     for sym, p in list(pf["positions"].items()):

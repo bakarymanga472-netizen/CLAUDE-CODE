@@ -31,6 +31,8 @@ class Config:
     agent_sentiment: bool = True
     agent_flux: bool = True
     agent_risque: bool = True
+    agent_macro: bool = False        # MacroMicro-like (taux 10 ans + dollar)
+    agent_geopolitique: bool = False  # World Monitor-like (indice de risque géopolitique)
     top_scanner: int = 5            # nb d'actifs retenus par le scanner
     max_positions: int = 4
     risque_par_trade: float = 0.01  # 1 % du capital risqué par trade (stop à 2 ATR)
@@ -107,11 +109,35 @@ def taille_position(capital, ligne, cfg, facteur_risque=1.0):
     return qte, stop
 
 
+# ---------- Agent 6 : macro (inspiré de MacroMicro) ----------
+def contexte_macro_geo(macro_df, gpr, dates):
+    """Prépare, pour chaque jour, les avis macro et géopolitique (données du passé seulement).
+    Décalages de publication : FRED +1 jour, indice géopolitique +2 jours."""
+    idx = pd.DatetimeIndex(dates)
+    m = macro_df.sort_index().ffill()
+    taux_haut = m["DGS10"] > m["DGS10"].rolling(50).mean()
+    dollar_haut = m["DTWEXBGS"] > m["DTWEXBGS"].rolling(50).mean()
+    score_macro = pd.Series(0, index=m.index)
+    score_macro[taux_haut & dollar_haut] = -1      # conditions financières qui se resserrent
+    score_macro[~taux_haut & ~dollar_haut] = 1     # conditions qui se détendent
+    score_macro = score_macro.shift(1, freq="D").reindex(idx, method="ffill").fillna(0)
+
+    g = gpr.sort_index()
+    g7 = g.rolling(7).mean()
+    seuil = g7.rolling(365, min_periods=200).quantile(0.90)
+    score_geo = -(g7 > seuil).astype(int)        # -1 si tension géopolitique dans le top 10 % de l'année
+    score_geo = score_geo.shift(2, freq="D").reindex(idx, method="ffill").fillna(0)
+    return {t: {"macro": int(a), "geo": int(b)} for t, a, b in zip(idx, score_macro.values, score_geo.values)}
+
+
 # ---------- Coordinateur ----------
-def coordinateur(marches, fng, t, cfg, positions):
+def coordinateur(marches, fng, t, cfg, positions, ctx=None):
     """`marches` : {symbole: {date: ligne}} ; `fng` : {date: valeur}.
     Retourne la liste des propositions d'achat triées, chacune avec l'avis de chaque agent."""
     sent = sentiment(fng, t, cfg)
+    avis = (ctx or {}).get(t, {"macro": 0, "geo": 0})
+    mac = avis["macro"] if cfg.agent_macro else 0
+    geo = avis["geo"] if cfg.agent_geopolitique else 0
     propositions = []
     for sym in scanner(marches, t, cfg):
         if sym in positions:
@@ -121,10 +147,11 @@ def coordinateur(marches, fng, t, cfg, positions):
         if cfg.aleatoire:
             ok = True
         else:
-            ok = s >= 2 and sent >= 0 and f >= 0
+            ok = s >= 2 and sent >= 0 and f >= 0 and mac >= 0 and geo >= 0
         if ok:
             propositions.append({"symbole": sym, "date": t, "prix": ligne["close"],
-                                 "setups": s, "sentiment": sent, "flux": f, "score": s + sent + f})
+                                 "setups": s, "sentiment": sent, "flux": f, "macro": mac, "geo": geo,
+                                 "score": s + sent + f + mac})
     propositions.sort(key=lambda p: -p["score"])
     return propositions
 

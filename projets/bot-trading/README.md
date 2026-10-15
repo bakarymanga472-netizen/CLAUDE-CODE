@@ -9,6 +9,8 @@ Version honnête du reel « 350 bots Grok » : 5 agents spécialisés + un coord
 | Sentiment | Indice Fear & Greed : veto si avidité ≥ 80 | `sentiment` |
 | Flux | Volume anormal (proxy « baleines », pas de vraie donnée on-chain) | `flux` |
 | Risque | 1 % du capital risqué par trade, stop 2 ATR puis suiveur 3 ATR, coupe-circuit à -20 % | `taille_position` |
+| Macro (optionnel) | Inspiré de MacroMicro : veto si taux US 10 ans ET dollar au-dessus de leur moyenne 50 j (données Fed/FRED) | `contexte_macro_geo` |
+| Géopolitique (optionnel) | Inspiré de World Monitor : veto si l'indice de risque géopolitique (Caldara-Iacoviello) est dans le top 10 % de l'année | `contexte_macro_geo` |
 | Coordinateur | Achète si setups ≥ 2/3, pas de veto, flux ≥ 0 | `coordinateur` |
 
 ## Utilisation
@@ -26,6 +28,19 @@ python3 signal_du_jour.py --grok   # + avis de Grok si XAI_API_KEY est dans l'en
 - Agents inutiles ou nuisibles : **sentiment** (fait perdre du rendement), **flux** (effet nul).
 
 Conclusion : **ne pas mettre d'argent réel**. Le gain venait du marché haussier 2020-2021, pas d'un avantage durable.
+
+## Ajout des agents macro et géopolitique (reel « 3 sites de trading cachés »)
+| 2024 → aujourd'hui | Rendement | Pire baisse | vs hasard |
+|---|---|---|---|
+| Bot 5 agents | +10 % | -22 % | 48e percentile |
+| + macro | **-20 %** | -25 % | — |
+| + géopolitique | +19 % | -21 % | ≈ médiane du hasard (+11 %) |
+| 7 agents | **-20 %** | -25 % | 0e percentile |
+
+- **Macro : nuisible.** Ses jours de veto (37 % du temps) ont été suivis de *meilleures* hausses du BTC que les autres. Désactivé par défaut.
+- **Géopolitique : léger mieux, pas significatif.** Désactivé par défaut ; affiché à titre d'info dans `signal_du_jour.py`.
+- **Novex Terminal : introuvable** (aucune trace publique), donc pas intégré.
+- MacroMicro n'a qu'une API payante (offre entreprise) : remplacée par les données gratuites de la Fed. World Monitor n'a pas d'historique exploitable : remplacé par l'indice géopolitique académique qui le couvre depuis 1985.
 
 ## Limites du test
 - Paramètres fixés à l'avance, non optimisés ; 10 cryptos seulement ; journalier.

@@ -7,6 +7,7 @@ Savoir si un bot multi-agents (inspiré du reel « 350 bots Grok ») bat le hasa
 
 ## Où on en est
 V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 2024 (48e percentile). Agents sentiment et flux inutiles. Voir resultats/rapport.md.
+2026-10-15 : agents macro (MacroMicro) et géopolitique (World Monitor) ajoutés et testés : macro nuisible, géopolitique marginal. Les deux désactivés par défaut.
 
 ## Décisions prises (et pourquoi)
 - Paper trading uniquement, validation humaine obligatoire.

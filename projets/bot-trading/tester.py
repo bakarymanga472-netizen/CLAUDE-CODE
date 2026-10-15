@@ -36,6 +36,7 @@ def main():
     rafraichir = "--rafraichir" in sys.argv
     marches, fng = data.tout_charger(rafraichir)
     marches = {s: agents.indicateurs(d) for s, d in marches.items()}
+    ctx = agents.contexte_macro_geo(data.macro(rafraichir), data.geopolitique(rafraichir), marches["BTCUSDT"].index)
     fin_donnees = marches["BTCUSDT"].index[-1].date()
 
     base = agents.Config()
@@ -43,7 +44,11 @@ def main():
                  replace(base, nom="sans agent sentiment", agent_sentiment=False),
                  replace(base, nom="sans agent flux", agent_flux=False),
                  replace(base, nom="sans agent setups", agent_setups=False),
-                 replace(base, nom="sans agent risque", agent_risque=False)]
+                 replace(base, nom="sans agent risque", agent_risque=False),
+                 replace(base, nom="+ agent macro (MacroMicro)", agent_macro=True),
+                 replace(base, nom="+ agent géopolitique (World Monitor)", agent_geopolitique=True),
+                 replace(base, nom="**7 agents (5 + macro + géopolitique)**", agent_macro=True, agent_geopolitique=True)]
+    complet7 = variantes[-1]
 
     out = [f"# Résultats du bot multi-agents\n",
            f"Données Binance journalières jusqu'au {fin_donnees}. Capital fictif 10 000 USDT. "
@@ -54,13 +59,16 @@ def main():
 
     for titre, (debut, fin) in PERIODES.items():
         out += [f"\n## Période {titre}\n", tete]
-        courbe, trades = executer(marches, fng, base, debut, fin)
+        courbe, trades = executer(marches, fng, base, debut, fin, ctx=ctx)
         m = metriques(courbe, trades)
         resume[titre] = {"bot": m}
-        out.append(ligne("**Bot complet (5 agents)**", m))
+        out.append(ligne("**Bot 5 agents**", m))
         for v in variantes[1:]:
-            c, tr = executer(marches, fng, v, debut, fin)
-            out.append(ligne(v.nom, metriques(c, tr)))
+            c, tr = executer(marches, fng, v, debut, fin, ctx=ctx)
+            mv = metriques(c, tr)
+            if v is complet7:
+                m7 = mv
+            out.append(ligne(v.nom, mv))
         btc = metriques(achat_conserve(marches, ["BTCUSDT"], debut, fin))
         panier = metriques(achat_conserve(marches, data.UNIVERS, debut, fin))
         resume[titre].update({"btc": btc, "panier": panier})
@@ -80,10 +88,11 @@ def main():
             dds.append(mh["drawdown_max"])
         rends = np.array(rends)
         rang = (rends < m["rendement_total"]).mean()
+        rang7 = (rends < m7["rendement_total"]).mean()
         resume[titre]["rang_hasard"] = rang
         out.append(f"| {N_ALEATOIRES} bots au hasard (médiane) | {pct(np.median(rends))} | — | {pct(np.median(dds))} | — | — | — | — |")
-        out.append(f"\nLe bot fait mieux que **{rang * 100:.0f} %** des {N_ALEATOIRES} bots qui achètent au hasard "
-                   f"(même gestion du risque, même nombre de trades environ).")
+        out.append(f"\nMieux que les {N_ALEATOIRES} bots qui achètent au hasard (même gestion du risque) : "
+                   f"bot 5 agents **{rang * 100:.0f} %**, bot 7 agents **{rang7 * 100:.0f} %**.")
         if titre.startswith("complète"):
             courbe.to_csv(ICI / "resultats" / "courbe_bot.csv")
             trades.to_csv(ICI / "resultats" / "trades.csv", index=False)
