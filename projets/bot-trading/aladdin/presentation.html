@@ -51,6 +51,24 @@ svg{display:block;width:100%;height:auto}
 .desk b{font-family:var(--f-display);font-size:14px;letter-spacing:.06em;display:block}
 .desk small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
 .foot{font-size:12.5px;color:var(--muted);line-height:1.5}
+.calc{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:16px}
+.champ{display:flex;align-items:center;gap:6px;border:1px solid rgba(233,185,73,.5);border-radius:12px;padding:6px 12px;background:rgba(233,185,73,.06)}
+.champ input{width:110px;background:none;border:0;color:var(--ink);font-family:var(--f-display);font-size:22px;font-weight:600;outline:none;font-variant-numeric:tabular-nums}
+.champ:focus-within{box-shadow:0 0 0 2px rgba(233,185,73,.45)}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.res div{border-left:3px solid var(--line);padding:4px 0 4px 12px}
+.res small{display:block;color:var(--muted);font-size:12.5px}
+.res strong{display:block;font-family:var(--f-display);font-size:24px;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.res em{font-style:normal;font-size:13px}
+.mois-wrap{overflow-x:auto}
+.mois-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;margin-top:10px;font-family:var(--f-mono);font-size:12px}
+.mois-liste span{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--line);padding:3px 0}
+.aide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.aide div{background:rgba(255,255,255,.025);border-radius:12px;padding:12px}
+.aide b{font-family:var(--f-display);font-size:13.5px}
+.aide p{margin:6px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+@media (max-width:900px){.res{grid-template-columns:1fr}.aide{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.aide{grid-template-columns:1fr}}
 @media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.mid{grid-template-columns:1fr}.desks{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:480px){.k .val{font-size:24px}.desks{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
@@ -68,6 +86,25 @@ svg{display:block;width:100%;height:auto}
   </header>
 
   <section class="kpis" id="kpis"></section>
+
+  <section class="card comprendre">
+    <div class="ttl"><b>Comprendre tes gains et pertes</b><span>2025-01-01 → aujourd'hui</span></div>
+    <div class="calc">
+      <label for="montant">Si j'avais mis</label>
+      <div class="champ"><input id="montant" type="number" min="10" step="10" value="1000" inputmode="numeric"><span>€</span></div>
+      <label for="montant">le 1er janvier 2025…</label>
+    </div>
+    <div class="res" id="res"></div>
+    <div class="ttl" style="margin-top:18px"><b>Mois par mois</b><div class="legend"><span><i style="background:var(--up)"></i>mois gagnant</span><span><i style="background:var(--down)"></i>mois perdant</span><span><i style="background:#3a3f55"></i>tout en cash</span></div></div>
+    <div class="mois-wrap"><svg id="mois" viewBox="0 0 1000 220" role="img" aria-label="Gain ou perte de chaque mois en euros"></svg></div>
+    <div class="mois-liste" id="moisListe"></div>
+    <div class="aide">
+      <div><b>Un trade</b><p id="exTrade"></p></div>
+      <div><b>Pire baisse</b><p>La plus grosse chute entre un sommet et un creux. C'est ce que tu dois être capable de supporter sans paniquer.</p></div>
+      <div><b>Mois à 0 €</b><p>Aucune crypto n'était en tendance : Aladdin était 100 % en cash. Il ne gagne rien, mais il ne perd rien non plus pendant que le BTC chute.</p></div>
+      <div><b>38 % de trades gagnants</b><p>Plus de trades perdants que gagnants, mais les pertes sont coupées vite et les gains durent : c'est ce qui rend le total positif.</p></div>
+    </div>
+  </section>
 
   <section class="mid">
     <div class="card">
@@ -139,6 +176,36 @@ document.getElementById('jours').textContent='suivi en direct : jour '+D.jours_l
 document.getElementById('alloc').innerHTML=poids.map(([k,v])=>'<div class="bar"><span>'+k+'</span><span class="t"><i style="width:'+(v*100).toFixed(1)+'%'+(k==='CASH'?';background:#3a3f55':'')+'"></i></span><span class="p">'+fr(v*100,1)+' %</span></div>').join('');
 
 document.getElementById('wf').innerHTML='<b style="color:var(--ink)">Walk-forward 2017-2024</b> (choix chaque année avec le passé seulement) : '+pc(D.wf.par_an)+'/an, pire baisse '+pc(D.wf.pire)+', Sharpe '+fr(D.wf.sharpe,2)+'.<br><br><b style="color:var(--ink)">48 structures testées</b>. Retenue : momentum 120 jours sur 5 cryptos, taille ajustée au risque.<br><br><b style="color:var(--ink)">Pourquoi pas 99 % de réussite</b> : vendre à +1 % donne 97 % de trades gagnants mais moitié moins de gains que garder le BTC.';
+
+// ---- Comprendre gains et pertes ----
+const MOIS = [["2025-01",0.0506,0.0829],["2025-02",-0.1202,-0.1765],["2025-03",-0.023,-0.0213],["2025-04",-0.0023,0.1408],["2025-05",-0.0007,0.1106],["2025-06",0.0195,0.0244],["2025-07",0.1763,0.0804],["2025-08",0.0356,-0.0649],["2025-09",0.037,0.0536],["2025-10",-0.0206,-0.0389],["2025-11",-0.0767,-0.1756],["2025-12",-0.0077,-0.03],["2026-01",0.0047,-0.1016],["2026-02",0,-0.1494],["2026-03",0,0.0196],["2026-04",0,0.1181],["2026-05",0,-0.035],["2026-06",-0.0034,-0.2043],["2026-07",-0.0022,0.0727],["2026-08",0.0236,0.2495],["2026-09",0.0378,0.0642],["2026-10",-0.0446,-0.0232]];
+const NOMS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const eur=x=>(x>=0?'+':'−')+fr(Math.abs(x),0)+' €';
+function comprendre(){
+  let m=parseFloat(document.getElementById('montant').value); if(!(m>0)) m=1000;
+  const bas=Math.min(10000,...D.courbe.map(x=>x[1]));
+  const fin=m*(1+D.rendement), pire=m*bas/10000, btc=m*(1+btcFin);
+  document.getElementById('res').innerHTML=
+   '<div style="border-color:'+(fin>=m?'var(--up)':'var(--down)')+'"><small>Aujourd\'hui avec Aladdin</small><strong>'+fr(fin,0)+' €</strong><em class="'+(fin>=m?'up':'down')+'">'+eur(fin-m)+'</em></div>'+
+   '<div style="border-color:var(--down)"><small>Ton point le plus bas (fin de semaine)</small><strong>'+fr(pire,0)+' €</strong><em class="down">'+eur(pire-m)+' par rapport à ta mise · plus forte chute depuis un sommet : '+pc(D.pire_baisse)+'</em></div>'+
+   '<div style="border-color:var(--btc)"><small>Si tu avais juste gardé du BTC</small><strong>'+fr(btc,0)+' €</strong><em class="'+(btc>=m?'up':'down')+'">'+eur(btc-m)+'</em></div>';
+  // barres mensuelles en euros (gain/perte du mois sur la valeur du début de mois)
+  let v=m; const g=MOIS.map(([d,r])=>{const x=v*r; v*=1+r; return [d,x,r];});
+  const W=1000,H=220,P={l:60,r:30,t:10,b:26}, mx=Math.max(...g.map(x=>Math.abs(x[1])))||1;
+  const bw=(W-P.l-P.r)/g.length, Y0=P.t+(H-P.t-P.b)/2, sc=(H-P.t-P.b)/2/mx;
+  let s='<line x1="'+P.l+'" x2="'+(W-P.r)+'" y1="'+Y0+'" y2="'+Y0+'" stroke="rgba(255,255,255,.18)"/>';
+  [mx,-mx].forEach(t=>{s+='<text x="'+(P.l-8)+'" y="'+(Y0-t*sc+4)+'" text-anchor="end" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+eur(t)+'</text>';});
+  g.forEach(([d,x,r],i)=>{const h=Math.max(Math.abs(x)*sc,r===0?2:1), y=x>=0?Y0-h:Y0, c=r===0?'#3a3f55':x>=0?'#4cc38a':'#ef6b6b';
+    const nm=NOMS[+d.slice(5)-1]+' '+d.slice(2,4);
+    s+='<rect x="'+(P.l+i*bw+2).toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+(bw-4).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" fill="'+c+'"><title>'+nm+' : '+eur(x)+' ('+pc(r)+')</title></rect>';
+    if(i%3===0) s+='<text x="'+(P.l+i*bw+bw/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+nm+'</text>';});
+  document.getElementById('mois').innerHTML=s;
+  document.getElementById('moisListe').innerHTML=g.map(([d,x,r])=>'<span><em style="font-style:normal">'+NOMS[+d.slice(5)-1]+' '+d.slice(0,4)+'</em><b class="'+(r===0?'':x>=0?'up':'down')+'">'+(r===0?'cash':eur(x))+'</b></span>').join('');
+  const sol=D.log.find(t=>t.actif==='SOL')||D.log[0], wSol=D.poids[sol.actif]||0.1;
+  document.getElementById('exTrade').textContent=sol.actif+' a fait '+(sol.r>=0?'+':'')+fr(sol.r,1)+' %, mais Aladdin n\'y avait mis que '+fr(wSol*100,0)+' % du portefeuille : sur '+fr(m,0)+' €, ça fait '+eur(m*wSol*sol.r/100)+'.';
+}
+document.getElementById('montant').addEventListener('input',comprendre);
+comprendre();
 
 const desks=[['MOMENTUM','retenu · 120 j',1,'#e9b949'],['MOYENNES','testé · écarté',0,'#6f9cff'],['REBOND','testé · écarté',0,'#f0a35e'],['RISQUE','vol cible 15 %',1,'#4cc38a'],['COMITÉ','walk-forward',1,'#ef6b6b'],['LIVE','journal papier',1,'#a98bff']];
 document.getElementById('desks').innerHTML=desks.map(([n,s,on,c])=>'<div class="card desk'+(on?' on':'')+'"><span class="dot" style="background:'+c+'"></span><div class="face"></div><b>'+n+'</b><small>'+s+'</small></div>').join('');
