@@ -9,6 +9,7 @@ Savoir si un bot multi-agents (inspiré du reel « 350 bots Grok ») bat le hasa
 V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 2024 (48e percentile). Agents sentiment et flux inutiles. Voir resultats/rapport.md.
 2026-10-15 : agents macro (MacroMicro) et géopolitique (World Monitor) ajoutés et testés : macro nuisible, géopolitique marginal. Les deux désactivés par défaut.
 2026-10-15 : système 7 agents sur l'or testé 2008-2026 : +6 % contre +379 % pour l'or acheté-gardé, sous le hasard (31e percentile). Ne pas trader.
+2026-10-15 : Aladdin (aladdin/) : 48 structures, walk-forward 2017-2024 +22 %/an, coffre-fort 2025+ +5,5 % (pire baisse -17 %). Suivi papier en direct démarré le 2026-10-14 (resultats/aladdin_journal.csv).
 
 ## Décisions prises (et pourquoi)
 - Paper trading uniquement, validation humaine obligatoire.
@@ -16,6 +17,7 @@ V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 20
 - Grok = avis facultatif, jamais décideur.
 
 ## Prochaine étape
+Lancer `python3 -m aladdin.live` chaque jour pendant 3 mois avant toute décision.
 Soit abandonner, soit tester une nouvelle idée sur 2024+ (hors échantillon) avant toute optimisation. Pas d'argent réel.
 
 ## Tâches Notion
