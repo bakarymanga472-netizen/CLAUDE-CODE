@@ -27,3 +27,4 @@
 ## Projets actifs
 <!-- Mis à jour par scripts/nouveau-projet.sh -->
 - `projets/crm-chantiers/` — créé le 2026-10-14
+- `projets/bot-trading/` — créé le 2026-10-15
