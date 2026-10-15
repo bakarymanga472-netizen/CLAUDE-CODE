@@ -35,3 +35,27 @@ Le meilleur taux de réussite des 48 structures (70 %, rebond RSI-2) rapporte +2
 - Le coffre-fort est maintenant ouvert : toute modification future doit être validée par le suivi en direct, pas par l'historique.
 - La sélection a préféré les cryptos parce que 2020-2024 leur a été favorable. En 2025-2026 l'or et les actions ont mieux fait.
 - Pas d'argent réel. Le suivi en direct ne vaut quelque chose qu'après plusieurs mois.
+
+## Aladdin Rebond — la structure à 70 % et plus (figée le 2026-10-15)
+Issue du comité d'enquête (`enquete.py`) puis du réglage des sorties (`sorties.py`).
+- **Entrée** : SPY ou or, RSI-2 < 5 alors que le cours est au-dessus de sa MM200 (achat d'un repli dans une tendance haussière).
+- **Sortie** : objectif +1 %, stop -10 %, ou 20 jours de bourse maximum. 50 % du capital par actif.
+
+| Période | Trades | Réussite |
+|---|---|---|
+| 2008-2019 (choix du réglage) | 89 | 84 % |
+| 2020-2024 (validation) | 40 | 78 % |
+| 2025 → 2026-10-14 (vérification) | 14 | 79 % |
+
+### Ce que l'enquête a trouvé sur les trades perdants
+- Au moment d'acheter, perdants et gagnants ont les mêmes indicateurs (volatilité, tendance, RSI) : aucun filtre d'entrée ne les sépare, la boucle de correction a rejeté tous les filtres.
+- Causes : chocs soudains pendant le trade (44 %), cassure de la tendance de fond (20 %), bruit sans cause (19 %), volatilité extrême à l'entrée (13 %).
+- Solution retenue : jouer sur la sortie (prendre un petit gain vite, stop large).
+
+### Prix à payer
+Peu de trades (~7 par an) et petits gains : capital souvent en cash. Rendement bien inférieur à « garder SPY ou l'or » sur 2025-2026.
+
+## Test sur le vrai marché : Alpaca
+`python3 -m aladdin.alpaca` (vers 15 h 40 heure de New York, jours de bourse) envoie de vrais ordres au cours de clôture sur un compte **paper** Alpaca (vrais prix, argent fictif).
+`--verifier` affiche les décisions sans rien envoyer. Clés à mettre dans l'environnement : `ALPACA_API_KEY_ID`, `ALPACA_API_SECRET_KEY`.
+Note : le connecteur trade GLD (ETF or) ; le backtest utilisait le future COMEX.
