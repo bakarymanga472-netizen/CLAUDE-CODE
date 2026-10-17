@@ -28,15 +28,30 @@ def main():
     px = donnees.prix(rafraichir=True)
     port, trades = portefeuille(px, ACTIFS, REGLE)
     t = px.index[-1]
-    live = trades[trades.date >= DEPART]
+    live = trades[trades.date >= DEPART].copy()
+    # Un trade dont la « sortie » tombe sur la dernière clôture sans condition de sortie atteinte est encore OUVERT
+    live["statut"] = "clôturé"
+    for i, x in live.iterrows():
+        if x.sortie == t:
+            c = px[x.actif].dropna()
+            c = c[c.diff().ne(0) | (c.index == c.index[0])]
+            gain = c.loc[t] / c.loc[x.date] - 1
+            jours = (c.index > x.date).sum()
+            if not (gain >= REGLE["tp"] or gain <= -REGLE["sl"] or jours >= REGLE["duree"]):
+                live.loc[i, "statut"] = "ouvert"
     r = port.loc[DEPART:]
     valeur = 10_000 * (1 + r).prod()
     print(f"Aladdin Rebond — suivi en direct depuis le {DEPART.date()} — dernière clôture {t.date()}")
     print(f"Portefeuille fictif : {valeur:,.0f} USD (départ 10 000)")
     if len(live):
-        print(f"Trades : {len(live)} — gagnants {(live.rendement > 0).mean() * 100:.0f} %")
+        clos = live[live.statut == "clôturé"]
+        if len(clos):
+            print(f"Trades clôturés : {len(clos)} — gagnants {(clos.rendement > 0).mean() * 100:.0f} %")
+        else:
+            print("Aucun trade clôturé pour l'instant.")
         for x in live.itertuples():
-            print(f"  {x.date.date()} {x.actif:8s} {x.rendement * 100:+.2f} %")
+            etiquette = "EN COURS, latent" if x.statut == "ouvert" else "clôturé"
+            print(f"  {x.date.date()} {x.actif:8s} {x.rendement * 100:+.2f} % ({etiquette})")
     else:
         print(f"Aucun trade encore : la règle attend un repli (RSI-2 < {REGLE['seuil']}) dans une tendance haussière.")
     # Où en est chaque actif aujourd'hui
