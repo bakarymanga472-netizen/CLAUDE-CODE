@@ -71,14 +71,7 @@ def main():
         L.append(f"| {x['strategie']} {x['params']} | {x['symbole']} | {x['unite']} | {x['donnees'].split(' (')[0]} | {ligne(x['tout'])} | "
                  f"{p(t.get('reussite'))} / {r(t.get('R_moyen'))} | {r(s.get('R_moyen'))} | {r(h['R_moyen_median'])} | "
                  f"{'—' if h['percentile_R'] is None else format(h['percentile_R'], '.0%')} |")
-    L += ["\nForex long terme = paires EUR/USDT, GBP/USDT, AUD/USDT de Binance (approximation de l'EUR/USD, etc.), coûts forex de détail.\n",
-          "## Contrôle sur le vrai forex (Yahoo, 60 derniers jours, 5 min)\n",
-          "| Stratégie | Paire | Trades | Réussite | R moyen | Profit factor | Rendement 1 % | Pire baisse 1 % |", "|---|---|---|---|---|---|---|---|"]
-    for y in o["yahoo_60j"]:
-        if "erreur" in y:
-            L.append(f"| — | {y['symbole']} | erreur de téléchargement | | | | | |")
-        else:
-            L.append(f"| {y['strategie']} {y['params']} | {y['symbole']} | {ligne(y)} |")
+    L += ["\nForex = vraies cotations FXCM (bid/ask, 1 minute agrégée), coût = spread réel de la barre d'entrée + 0,1 pip.\n"]
     L += ["\n## Ray Fu : croisement 20/50 jours\n", "| Marché | Version | Trades | Réussite | ≤ 2023 : rendement/an, pire baisse, Sharpe | 2024+ : rendement/an, pire baisse, Sharpe |", "|---|---|---|---|---|---|"]
     for sym, d in o["rayfu"].items():
         for nom, m in d.items():

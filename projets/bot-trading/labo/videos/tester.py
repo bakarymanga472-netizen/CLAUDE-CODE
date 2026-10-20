@@ -4,10 +4,11 @@ Usage : python3 -m labo.videos.tester → rapports/videos_youtube.md / .json
 
 Règles fixées AVANT exécution (2026-10-21) :
 - développement ≤ 2023-12-31, test ≥ 2024-01-01 (chronologique) ;
-- coûts : crypto 0,24 % du prix aller-retour (2 × 0,10 % de frais + 2 × 0,02 % de glissement) ; forex en pips aller-retour
-  (EUR/USD 1,0 · GBP/USD 1,3 · AUD/USD 1,2 · USD/JPY 1,2 · USD/CAD 1,5), stress ×2 ;
-- forex long terme : paires EUR/USDT, GBP/USDT, AUD/USDT de Binance comme APPROXIMATION de l'EUR/USD, etc.
-  (Dukascopy indisponible depuis ce serveur) ; contrôle sur les 60 derniers jours de vrai forex Yahoo ;
+- coûts : crypto 0,24 % du prix aller-retour (2 × 0,10 % de frais + 2 × 0,02 % de glissement) ; forex = spread RÉEL mesuré
+  (archive FXCM bid/ask, barre d'entrée) + 0,1 pip de glissement ; stress ×2 ;
+- forex : vrai forex FXCM 1 minute (EUR/USD, GBP/USD, AUD/USD, USD/JPY, USD/CAD), 2021 → 2026, agrégé en 5 min / 1 h.
+  (Changement de source AVANT le test complet : l'approximation Binance EUR/USDT… avait des mèches de faible liquidité
+  qui touchent les stops serrés plus souvent que le vrai marché, et les paires GBP/AUD y ont été retirées en 2023.)
 - hasard : mêmes distances de stop, même objectif, entrées tirées au hasard (30 tirages ; 10 en 5 minutes) ;
 - améliorations testées (hypothèses déclarées avant) : H1 objectif à 1R ; H2 seulement dans le sens de la moyenne 50 jours ;
   H3 pas de stop plus petit que la moitié de la médiane des stops passés ; H4 = H1 + H2 + H3 ;
@@ -21,7 +22,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from .. import donnees, validation as V
+from .. import donnees, donnees_fxcm, validation as V
 from ..couts import Couts
 from ..moteur import simuler
 from .. import bracket as B
@@ -30,16 +31,14 @@ from .outils import sma
 
 ICI = Path(__file__).resolve().parents[2]
 FIN_DEV, DEBUT_TEST = "2023-12-31", "2024-01-01"
-PIPS = {"EURUSD": 1.0, "GBPUSD": 1.3, "AUDUSD": 1.2, "USDJPY": 1.2, "USDCAD": 1.5}
-PROXY = {"EURUSDT": "EURUSD", "GBPUSDT": "GBPUSD", "AUDUSDT": "AUDUSD"}
+PAIRES = ["EURUSD", "GBPUSD", "AUDUSD", "USDJPY", "USDCAD"]
 N_HASARD = 30
 
 
 def cout_prix(sym, df, facteur=1.0):
-    if sym in PROXY or sym.replace("=X", "") in PIPS:
-        paire = PROXY.get(sym, sym.replace("=X", ""))
-        pip = 0.01 if "JPY" in paire else 0.0001
-        return pd.Series(PIPS[paire] * pip * facteur, index=df.index).values
+    if "spread" in df.columns:                        # forex : spread réel de la barre d'entrée + 0,1 pip de glissement
+        pip = 0.01 if "JPY" in sym else 0.0001
+        return ((df.spread + 0.1 * pip) * facteur).values
     return (df.close * 0.0024 * facteur).values
 
 
@@ -114,15 +113,6 @@ def _m(r, a, b):
             "sharpe": V.sharpe_annuel(x)}
 
 
-def charger_yahoo_5m(sym):
-    import urllib.request
-    u = f"https://query1.finance.yahoo.com/v8/finance/chart/{sym}?range=60d&interval=5m"
-    r = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"}), timeout=60).read())["chart"]["result"][0]
-    q = r["indicators"]["quote"][0]
-    df = pd.DataFrame({k: q[k] for k in ("open", "high", "low", "close")}, index=pd.to_datetime(r["timestamp"], unit="s")).dropna()
-    return df[(df.high > df.low) | (df.high == df.low)]
-
-
 def main():
     resultats = []
     # Roro : SOL, BTC, ETH sur 1 h, 2 h, 4 h, 1 j depuis le 2020-09-14 (sa période)
@@ -131,39 +121,28 @@ def main():
             df = donnees.charger(sym, tf)[0].loc["2020-09-14":]
             for p in roro.GRILLE:
                 resultats.append({**evaluer_bracket("roro", roro, sym, df, p, None), "unite": tf})
-    # Deleuze et Kasper : forex 5 min (approximation Binance) puis vrai forex Yahoo 60 jours
-    for sym in PROXY:
-        df = donnees.charger(sym, "5m")[0].loc["2021-01-01":]
+    # Deleuze et Kasper : vrai forex 5 min (FXCM) ; Nico : forex 1 h et crypto 4 h
+    for sym in PAIRES:
+        df = donnees_fxcm.charger(sym, "5min").loc["2021-01-01":]
         for mod, nom, be in ((deleuze, "deleuze", deleuze.BE_R), (kasper, "kasper", None)):
             for p in mod.GRILLE:
                 resultats.append({**evaluer_bracket(nom, mod, sym, df, p, be), "unite": "5m"})
-        h1 = df.resample("1h").agg({"open": "first", "high": "max", "low": "min", "close": "last"}).dropna()
+        h1 = donnees_fxcm.charger(sym, "1h").loc["2021-01-01":]
         for p in nico.GRILLE:
             resultats.append({**evaluer_bracket("nico (approximation)", nico, sym, h1, p, None), "unite": "1h"})
     for sym in ("SOLUSDT", "BTCUSDT", "ETHUSDT"):
         df = donnees.charger(sym, "4h")[0].loc["2020-09-14":]
         for p in nico.GRILLE:
             resultats.append({**evaluer_bracket("nico (approximation)", nico, sym, df, p, None), "unite": "4h"})
-    yahoo = []
-    for sym in ("EURUSD=X", "GBPUSD=X", "AUDUSD=X", "USDJPY=X", "USDCAD=X"):
-        try:
-            df = charger_yahoo_5m(sym)
-        except Exception as e:
-            yahoo.append({"symbole": sym, "erreur": repr(e)})
-            continue
-        for mod, nom, be in ((deleuze, "deleuze", deleuze.BE_R), (kasper, "kasper", None)):
-            for p in mod.GRILLE:
-                t = B.executer(df, mod.signaux(df, **p), cout_prix(sym, df), be_R=be)
-                yahoo.append({"strategie": nom, "symbole": sym, "params": p, **B.mesures(t)})
     # Ray Fu : Apple, SPY (Yahoo), BTC
     ray = {}
     for sym in ("AAPL", "SPY"):
         df = donnees.charger_yahoo(sym)[0]
         ray[sym] = evaluer_rayfu(sym, df, Couts(commission=0.0, demi_spread_base=0.0001, glissement_sigma=0.02))
     ray["BTCUSDT"] = evaluer_rayfu("BTCUSDT", donnees.charger("BTCUSDT", "1d")[0], Couts())
-    o = {"resultats": resultats, "yahoo_60j": yahoo, "rayfu": ray}
+    o = {"resultats": resultats, "rayfu": ray}
     (ICI / "rapports" / "videos_youtube.json").write_text(json.dumps(o, indent=1, ensure_ascii=False, default=str))
-    print(f"{len(resultats)} évaluations bracket, {len(yahoo)} contrôles Yahoo, Ray Fu sur {list(ray)}")
+    print(f"{len(resultats)} évaluations stop/objectif, Ray Fu sur {list(ray)}")
 
 
 if __name__ == "__main__":
