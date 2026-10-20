@@ -8,9 +8,10 @@ Règles fixées AVANT exécution (2026-10-21) :
   (EUR/USD 1,0 · GBP/USD 1,3 · AUD/USD 1,2 · USD/JPY 1,2 · USD/CAD 1,5), stress ×2 ;
 - forex long terme : paires EUR/USDT, GBP/USDT, AUD/USDT de Binance comme APPROXIMATION de l'EUR/USD, etc.
   (Dukascopy indisponible depuis ce serveur) ; contrôle sur les 60 derniers jours de vrai forex Yahoo ;
-- hasard : mêmes distances de stop, même objectif, entrées tirées au hasard (30 tirages) ;
+- hasard : mêmes distances de stop, même objectif, entrées tirées au hasard (30 tirages ; 10 en 5 minutes) ;
 - améliorations testées (hypothèses déclarées avant) : H1 objectif à 1R ; H2 seulement dans le sens de la moyenne 50 jours ;
   H3 pas de stop plus petit que la moitié de la médiane des stops passés ; H4 = H1 + H2 + H3 ;
+  H5 (ajoutée avant exécution, tirée de la vidéo de Roro) : n'entrer que sur une bougie de retournement dans le sens du trade ;
 - une amélioration est ACCEPTÉE seulement si, en développement ET en test, la réussite monte ET le R moyen ne baisse pas,
   avec au moins 30 trades en test.
 """
@@ -55,6 +56,9 @@ def variante(df, sig, h):
         m = sma(df.close, 50 * bpj(df)).reindex(s.index)
         c = df.close.reindex(s.index)
         s = s[((s.sens > 0) & (c > m)) | ((s.sens < 0) & (c < m))]
+    if h == "H5":
+        o, c = df.open.reindex(s.index), df.close.reindex(s.index)
+        s = s[((s.sens > 0) & (c > o)) | ((s.sens < 0) & (c < o))]
     if h in ("H3", "H4"):
         dist = (df.close.reindex(s.index) - s.stop).abs() / df.close.reindex(s.index)
         med = dist.expanding().median().shift(1)
@@ -73,13 +77,14 @@ def evaluer_bracket(nom, mod, sym, df, p, be):
     res = {"strategie": nom, "symbole": sym, "params": p, "donnees": f"{df.index[0].date()} → {df.index[-1].date()} ({len(df)} barres)",
            "dev": B.mesures(periode(base, "1900", FIN_DEV)), "test": B.mesures(periode(base, DEBUT_TEST, "2100")),
            "tout": B.mesures(base), "stress_couts_x2": B.mesures(B.executer(df, sig, cout_prix(sym, df, 2.0), be_R=be))}
-    hz = [B.hasard(df, sig, cp, g, be_R=be) for g in range(N_HASARD)]
+    n_h = N_HASARD if len(df) < 100_000 else 10          # 5 minutes : 10 tirages (temps de calcul)
+    hz = [B.hasard(df, sig, cp, g, be_R=be) for g in range(n_h)]
     rh = [x.R.mean() for x in hz if len(x)]
     wh = [(x.R > 0).mean() for x in hz if len(x)]
     res["hasard"] = {"R_moyen_median": float(np.median(rh)) if rh else None, "reussite_mediane": float(np.median(wh)) if wh else None,
                      "percentile_R": float((np.array(rh) < res["tout"].get("R_moyen", -9)).mean()) if rh else None}
     res["ameliorations"] = {}
-    for h in ("H1", "H2", "H3", "H4"):
+    for h in ("H1", "H2", "H3", "H4", "H5"):
         tv = B.executer(df, variante(df, sig, h), cp, be_R=be)
         d, t = B.mesures(periode(tv, "1900", FIN_DEV)), B.mesures(periode(tv, DEBUT_TEST, "2100"))
         ok = all(x.get("trades", 0) and y.get("trades", 0) and x["reussite"] > y["reussite"] and x["R_moyen"] >= y["R_moyen"]
