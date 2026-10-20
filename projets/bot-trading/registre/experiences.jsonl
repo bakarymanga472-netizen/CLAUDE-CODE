@@ -190,3 +190,15 @@
 {"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.376, "criteres": "criteres-v1-2026-10-20"}
 {"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.246, "criteres": "criteres-v1-2026-10-20"}
 {"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": -0.097, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.127, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.902, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.487, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.159, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.034, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.87, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.307, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.927, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.457, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.568, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.629, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:09+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.782, "criteres": "criteres-v1-2026-10-20"}
