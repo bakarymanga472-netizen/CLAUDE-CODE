@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 
 from .couts import Couts, cout_unitaire, financement_par_barre
-from .donnees import BARRES_PAR_JOUR
+from .donnees import BARRES_PAR_JOUR, par_an
 
 VOL_CIBLE = 0.40
 SEUIL_REEQUILIBRAGE = 0.10
@@ -19,7 +19,7 @@ HEURES = {"1d": 24, "4h": 4, "1h": 1}
 
 def taille(df, cible, intervalle, vol_cible=VOL_CIBLE):
     bpj = BARRES_PAR_JOUR[intervalle]
-    vol = np.log(df.close).diff().rolling(30 * bpj, min_periods=10 * bpj).std() * np.sqrt(365 * bpj)
+    vol = np.log(df.close).diff().rolling(30 * bpj, min_periods=10 * bpj).std() * np.sqrt(par_an(df.index))
     return (cible.clip(-1, 1) * (vol_cible / vol).clip(upper=1.0)).fillna(0.0)
 
 
@@ -32,10 +32,16 @@ def _hysteresis(w):
     return out
 
 
-def simuler(df, cible, intervalle, couts=Couts(), vol_cible=VOL_CIBLE, dimensionner=True):
+def simuler(df, cible, intervalle, couts=Couts(), vol_cible=VOL_CIBLE, dimensionner=True, execution="ouverture"):
+    """execution = "ouverture" : exécuté à l'ouverture de la barre t+retard, rendement ouverture → ouverture.
+    execution = "cloture" : exécuté à la CLÔTURE de la barre t+retard (ordre au cours de clôture), rendement clôture → clôture."""
     voulu = taille(df, cible, intervalle, vol_cible) if dimensionner else cible.clip(-1, 1).fillna(0.0)
-    w = pd.Series(_hysteresis(voulu.values), index=df.index).shift(couts.retard_barres).fillna(0.0)
-    r_oo = (df.open.shift(-1) / df.open - 1).fillna(0.0)
+    decale = couts.retard_barres + (1 if execution == "cloture" else 0)
+    w = pd.Series(_hysteresis(voulu.values), index=df.index).shift(decale).fillna(0.0)
+    if execution == "cloture":
+        r_oo = df.close.pct_change().fillna(0.0)          # la position exécutée à la clôture t-1 porte t-1 → t
+    else:
+        r_oo = (df.open.shift(-1) / df.open - 1).fillna(0.0)
     cu = cout_unitaire(df, couts)
     rotation = w.diff().abs().fillna(w.abs())
     cout = rotation * cu
@@ -84,7 +90,8 @@ def mesures(net, trades_df, intervalle, w=None):
         return None
     courbe = (1 + net).cumprod()
     annees = max((net.index[-1] - net.index[0]).days / 365.25, 1e-9)
-    vol = net.std() * np.sqrt(365 * bpj)
+    k = par_an(net.index)
+    vol = net.std() * np.sqrt(k)
     t = trades_df
     gains, pertes = (t.net[t.net > 0].sum(), -t.net[t.net <= 0].sum()) if len(t) else (0, 0)
     an = (1 + net).groupby(net.index.year).prod() - 1
@@ -92,7 +99,7 @@ def mesures(net, trades_df, intervalle, w=None):
         "rendement_total": float(courbe.iloc[-1] - 1),
         "rendement_annuel": float(courbe.iloc[-1] ** (1 / annees) - 1),
         "volatilite": float(vol),
-        "sharpe": float(net.mean() * 365 * bpj / vol) if vol > 0 else 0.0,
+        "sharpe": float(net.mean() * k / vol) if vol > 0 else 0.0,
         "pire_baisse": float((courbe / courbe.cummax() - 1).min()),
         "trades": int(len(t)),
         "reussite": float((t.net > 0).mean()) if len(t) else np.nan,

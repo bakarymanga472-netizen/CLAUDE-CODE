@@ -18,7 +18,10 @@ def journalier(net):
 
 def sharpe_annuel(r_jour):
     s = r_jour.std()
-    return float(r_jour.mean() / s * np.sqrt(365)) if s > 0 else 0.0
+    if s == 0 or len(r_jour) < 3:
+        return 0.0
+    from .donnees import par_an
+    return float(r_jour.mean() / s * np.sqrt(par_an(r_jour.index)))
 
 
 # ---------- Walk-forward ----------

@@ -1,0 +1,170 @@
+{
+ "regle": {
+  "seuil": 5,
+  "tp": 0.01,
+  "sl": 0.1,
+  "duree": 20
+ },
+ "donnees": {
+  "SPY": "f9c84d7757bbfc4e",
+  "GLD": "f7b66bafce3ae12a"
+ },
+ "criteres": {
+  "version": "rebond-demo-v1-2026-10-21",
+  "sharpe_2020plus_couts_x3_min": 0.0,
+  "percentile_hasard_min": 0.95,
+  "trades_2020plus_min": 30
+ },
+ "periodes": {
+  "2008-2019": {
+   "base": {
+    "trades": 81,
+    "reussite": 0.8271604938271605,
+    "gain_moyen": 0.016997785861027046,
+    "perte_moyenne": -0.02706535161638259,
+    "pire_trade": -0.09841100240305578,
+    "profit_factor": 3.0055603109693423,
+    "rendement_annuel": 0.03199896755460929,
+    "pire_baisse": -0.0708849793276809,
+    "sharpe": 0.7781116102674998,
+    "exposition": 0.10906984442237669
+   },
+   "couts_x3": {
+    "trades": 81,
+    "reussite": 0.8271604938271605,
+    "gain_moyen": 0.01571062961497265,
+    "perte_moyenne": -0.028094535010950605,
+    "pire_trade": -0.0995638418738829,
+    "profit_factor": 2.676199643689939,
+    "rendement_annuel": 0.027721609542698644,
+    "pire_baisse": -0.07138502235904554,
+    "sharpe": 0.6782796998331855,
+    "exposition": 0.10906984442237669
+   },
+   "retard_1_seance": {
+    "trades": 81,
+    "reussite": 0.7530864197530864,
+    "gain_moyen": 0.0197541150529485,
+    "perte_moyenne": -0.02432249490543951,
+    "pire_trade": -0.13232920194404862,
+    "profit_factor": 2.477132841253819,
+    "rendement_annuel": 0.02975401591306137,
+    "pire_baisse": -0.08028011440419669,
+    "sharpe": 0.7368692988952551,
+    "exposition": 0.10906984442237669
+   },
+   "achat_conservation_50_50": {
+    "rendement_annuel": 0.07784467289582575,
+    "pire_baisse": -0.3248985092836145,
+    "sharpe": 0.6316033822683826
+   }
+  },
+  "2020-2024": {
+   "base": {
+    "trades": 39,
+    "reussite": 0.7948717948717948,
+    "gain_moyen": 0.018274589618342118,
+    "perte_moyenne": -0.02328659104603764,
+    "pire_trade": -0.07816805167528906,
+    "profit_factor": 3.0409790179711664,
+    "rendement_annuel": 0.038763460524813276,
+    "pire_baisse": -0.0628299440033635,
+    "sharpe": 0.8036426018974122,
+    "exposition": 0.12201907790143085
+   },
+   "couts_x3": {
+    "trades": 39,
+    "reussite": 0.7948717948717948,
+    "gain_moyen": 0.017074924157478005,
+    "perte_moyenne": -0.02440321563085998,
+    "pire_trade": -0.0795067374589733,
+    "profit_factor": 2.711336575928767,
+    "rendement_annuel": 0.03402358475170808,
+    "pire_baisse": -0.06282994400336361,
+    "sharpe": 0.710292645078621,
+    "exposition": 0.12201907790143085
+   },
+   "retard_1_seance": {
+    "trades": 39,
+    "reussite": 0.6666666666666666,
+    "gain_moyen": 0.021003473668302106,
+    "perte_moyenne": -0.020914579316141782,
+    "pire_trade": -0.11989698437290663,
+    "profit_factor": 2.0085007066904486,
+    "rendement_annuel": 0.02723438850985227,
+    "pire_baisse": -0.0742688947869129,
+    "sharpe": 0.5681830759575344,
+    "exposition": 0.12201907790143085
+   },
+   "achat_conservation_50_50": {
+    "rendement_annuel": 0.13607802223025312,
+    "pire_baisse": -0.2031513647230886,
+    "sharpe": 0.9820330379726647
+   }
+  },
+  "2025+ (déjà vu pendant la sélection)": {
+   "base": {
+    "trades": 17,
+    "reussite": 0.8235294117647058,
+    "gain_moyen": 0.01830703357317398,
+    "perte_moyenne": -0.04626627760777865,
+    "pire_trade": -0.07802798979595127,
+    "profit_factor": 1.8465462915718758,
+    "rendement_annuel": 0.03271468674284894,
+    "pire_baisse": -0.05858939148149667,
+    "sharpe": 0.5330101794389887,
+    "exposition": 0.15666666666666668
+   },
+   "couts_x3": {
+    "trades": 17,
+    "reussite": 0.8235294117647058,
+    "gain_moyen": 0.016767487443245317,
+    "perte_moyenne": -0.04780701123091876,
+    "pire_trade": -0.08060285722706195,
+    "profit_factor": 1.636753118850869,
+    "rendement_annuel": 0.025225864700827882,
+    "pire_baisse": -0.05966886336515398,
+    "sharpe": 0.4190760859040663,
+    "exposition": 0.15666666666666668
+   },
+   "retard_1_seance": {
+    "trades": 17,
+    "reussite": 0.5882352941176471,
+    "gain_moyen": 0.025763211886342962,
+    "perte_moyenne": -0.020312334230878557,
+    "pire_trade": -0.061938996444102834,
+    "profit_factor": 1.811932985678795,
+    "rendement_annuel": 0.03211085028571237,
+    "pire_baisse": -0.05217386193871032,
+    "sharpe": 0.5550517672967813,
+    "exposition": 0.15666666666666668
+   },
+   "achat_conservation_50_50": {
+    "rendement_annuel": 0.24026262066292525,
+    "pire_baisse": -0.1288626233971678,
+    "sharpe": 1.410209135286785
+   }
+  }
+ },
+ "positions_ouvertes": {
+  "SPY": false,
+  "GLD": false
+ },
+ "hasard_2020plus": {
+  "reussite_mediane": 0.7723285486443381,
+  "reussite_c5_c95": [
+   0.6790039491004827,
+   0.8500531914893616
+  ],
+  "sharpe_median": 0.43795200567951514,
+  "percentile_sharpe_regle": 0.79,
+  "percentile_reussite_regle": 0.72
+ },
+ "dsr_2020plus": {
+  "lignee_1662_var_nulle": 0.06331822574715718
+ },
+ "statut": "non validée",
+ "raisons": [
+  "ne bat que 79% des entrées au hasard (Sharpe)"
+ ]
+}

@@ -59,12 +59,27 @@ def charger(symbole, intervalle, rafraichir=False):
     return df, hashlib.sha256(cache.read_bytes()).hexdigest()[:16]
 
 
-def qualite(df, intervalle):
+def par_an(index):
+    """Barres par an. Marché continu (week-ends présents, crypto) : exactement 365 × barres par jour, comme avant.
+    Calendrier de bourse (pas de week-end) : nombre observé (~252 actions, ~260 FX)."""
+    if len(index) < 3:
+        return 365.0
+    if (pd.DatetimeIndex(index).dayofweek >= 5).any():
+        pas = pd.Series(index).diff().median()
+        return 365.0 * max(round(pd.Timedelta(days=1) / pas), 1)
+    return len(index) / max((index[-1] - index[0]).days / 365.25, 1e-9)
+
+
+def qualite(df, intervalle, calendrier="continu"):
     """Contrôle qualité : profondeur, trous, doublons, incohérences OHLC, rendements extrêmes."""
     pas = pd.Timedelta(milliseconds=MS[intervalle])
     ecarts = df.index.to_series().diff().dropna()
-    trous = ecarts[ecarts > pas]
-    attendu = int((df.index[-1] - df.index[0]) / pas) + 1
+    if calendrier == "bourse":                      # week-ends et jours fériés normaux : un trou = plus de 5 jours
+        trous = ecarts[ecarts > pd.Timedelta(days=5)]
+        attendu = len(df) + int(sum((e.days - 1) for e in trous))
+    else:
+        trous = ecarts[ecarts > pas]
+        attendu = int((df.index[-1] - df.index[0]) / pas) + 1
     r = np.log(df.close).diff().dropna()
     z = (r - r.rolling(500, min_periods=100).mean()) / r.rolling(500, min_periods=100).std()
     return {
@@ -88,3 +103,39 @@ def suffisant(q, min_annees=4, max_manquant=0.02):
     """Règle fixée à l'avance : au moins 4 ans et moins de 2 % de barres manquantes."""
     return q["annees"] >= min_annees and q["barres_manquantes"] / q["barres_attendues"] <= max_manquant \
         and q["doublons"] == 0 and q["ohlc_incoherents"] == 0
+
+
+YAHOO = "https://query1.finance.yahoo.com/v8/finance/chart/{s}?period1=946684800&period2={fin}&interval=1d"
+
+
+def charger_yahoo(symbole, rafraichir=False):
+    """Bougies journalières Yahoo en SÉANCES réelles (pas de week-ends reportés), OHLC ajustés des dividendes et
+    divisions via le ratio adjclose/close. Renvoie (DataFrame, empreinte)."""
+    DOSSIER.mkdir(parents=True, exist_ok=True)
+    cache = DOSSIER / f"yahoo_{symbole.replace('=', '_').replace('^', '')}_1d.csv"
+    if rafraichir or not cache.exists():
+        req = urllib.request.Request(YAHOO.format(s=symbole, fin=int(time.time())), headers={"User-Agent": "Mozilla/5.0"})
+        for essai in range(5):
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    res = json.loads(r.read())["chart"]["result"][0]
+                break
+            except Exception:
+                if essai == 4:
+                    raise
+                time.sleep(2 ** essai)
+        q = res["indicators"]["quote"][0]
+        df = pd.DataFrame({k: q[k] for k in ("open", "high", "low", "close", "volume")},
+                          index=pd.to_datetime(res["timestamp"], unit="s").normalize())
+        adj = res["indicators"].get("adjclose", [{}])[0].get("adjclose")
+        if adj:
+            ratio = pd.Series(adj, index=df.index) / df.close
+            for k in ("open", "high", "low", "close"):
+                df[k] = df[k] * ratio
+        df = df.dropna(subset=["close"])
+        df = df[~df.index.duplicated(keep="last")]
+        df = df[df.index < pd.Timestamp.now(tz="UTC").tz_localize(None).normalize()]   # séance du jour exclue
+        df.index.name = "t"
+        df.to_csv(cache)
+    df = pd.read_csv(cache, index_col=0, parse_dates=True)
+    return df, hashlib.sha256(cache.read_bytes()).hexdigest()[:16]

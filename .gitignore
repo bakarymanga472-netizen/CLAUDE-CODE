@@ -20,3 +20,4 @@ Thumbs.db
 projets/*/data/
 __pycache__/
 projets/*/audit/donnees/
+projets/*/memoire/*/index.db

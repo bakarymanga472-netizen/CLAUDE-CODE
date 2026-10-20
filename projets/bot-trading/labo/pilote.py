@@ -17,7 +17,21 @@ from .moteur import mesures, simuler
 from .strategies import CANDIDATES, achat_conservation
 
 ICI = Path(__file__).resolve().parent.parent
-INTERVALLES = ["1d", "4h", "1h"]
+INTERVALLES_CRYPTO = ["1d", "4h", "1h"]
+COUTS_BOURSE = Couts(commission=0.0, demi_spread_base=0.0001, glissement_sigma=0.02)   # ETF / FX majeurs, hypothèse
+
+
+def source(symbole):
+    """crypto (Binance, 3 unités de temps, coûts crypto) ou yahoo (séances, 1d, coûts bourse)."""
+    if symbole.endswith("USDT"):
+        return {"type": "crypto", "intervalles": INTERVALLES_CRYPTO, "couts": Couts(), "calendrier": "continu",
+                "financement_modelise": True}
+    return {"type": "yahoo", "intervalles": ["1d"], "couts": COUTS_BOURSE, "calendrier": "bourse",
+            "financement_modelise": not symbole.endswith("=X")}   # FX : swap de financement non modélisé
+
+
+def charger(symbole, tf):
+    return donnees.charger(symbole, tf) if symbole.endswith("USDT") else donnees.charger_yahoo(symbole)
 N_HASARD = 100
 
 
@@ -42,9 +56,13 @@ def resume_jour(r, trades_df):
 def evaluer(symbole):
     out = {"instrument": symbole, "criteres": K.VERSION, "donnees": {}, "caracteristiques": {}}
     resultats, stress, retard, jour, donnees_tf, reg_tf = {}, {}, {}, {}, {}, {}
+    src = source(symbole)
+    INTERVALLES = src["intervalles"]
+    cts = src["couts"]
+    out["source"] = {k: v for k, v in src.items() if k != "couts"}
     for tf in INTERVALLES:
-        df, h = donnees.charger(symbole, tf)
-        q = donnees.qualite(df, tf)
+        df, h = charger(symbole, tf)
+        q = donnees.qualite(df, tf, src["calendrier"])
         q["empreinte"], q["suffisant"] = h, donnees.suffisant(q)
         out["donnees"][tf] = q
         out["caracteristiques"][tf] = caracteristiques.decrire(df.loc[:K.DEVELOPPEMENT[1]], tf)
@@ -54,17 +72,17 @@ def evaluer(symbole):
             for p in s.GRILLE:
                 k = cle(s, p, tf)
                 c = s.cible(df, bpj, **p)
-                resultats[k] = simuler(df, c, tf)
-                stress[k] = simuler(df, c, tf, Couts().stresse(K.STRESS_COUTS))
-                retard[k] = simuler(df, c, tf, Couts().stresse(1.0, retard=2))
+                resultats[k] = simuler(df, c, tf, cts)
+                stress[k] = simuler(df, c, tf, cts.stresse(K.STRESS_COUTS))
+                retard[k] = simuler(df, c, tf, cts.stresse(1.0, retard=2))
                 jour[k] = V.journalier(resultats[k]["net"])
                 m = V.sharpe_annuel(jour[k].loc[:K.VALIDATION[1]])
                 V.enregistrer_experience(symbole, k, h, {"sharpe_dev_val": round(m, 3), "criteres": K.VERSION})
 
     # Références sur données journalières
     d1 = donnees_tf["1d"]
-    ref_brut = simuler(d1, achat_conservation.cible(d1, 1), "1d", dimensionner=False)
-    ref_vol = simuler(d1, achat_conservation.cible(d1, 1), "1d")
+    ref_brut = simuler(d1, achat_conservation.cible(d1, 1), "1d", cts, dimensionner=False)
+    ref_vol = simuler(d1, achat_conservation.cible(d1, 1), "1d", cts)
     refs = {"achat_conservation": V.journalier(ref_brut["net"]), "achat_conservation_vol_ciblee": V.journalier(ref_vol["net"])}
 
     debut, fin_val = K.DEVELOPPEMENT[0], K.VALIDATION[1]
@@ -101,7 +119,7 @@ def evaluer(symbole):
         sh_h = []
         for g in range(N_HASARD):
             c = pd.Series(V.hasard(len(dfr), expo, duree, g), index=dfr.index)
-            r = V.journalier(simuler(dfr, c, tf_ref)["net"]).loc[oos_debut:oos_fin]
+            r = V.journalier(simuler(dfr, c, tf_ref, cts)["net"]).loc[oos_debut:oos_fin]
             sh_h.append(V.sharpe_annuel(r))
         pct_hasard = float((np.array(sh_h) < V.sharpe_annuel(wf)).mean())
         p_sup = V.bootstrap_difference(wf, refs["achat_conservation_vol_ciblee"].loc[oos_debut:oos_fin])
@@ -111,7 +129,7 @@ def evaluer(symbole):
         for rg in regimes.REGIMES:
             r = wf[reg.reindex(wf.index) == rg]
             par_reg[rg] = {"jours": int(len(r)), "sharpe": V.sharpe_annuel(r) if len(r) >= 30 else None,
-                           "rendement_annualise": float(r.mean() * 365) if len(r) >= 30 else None}
+                           "rendement_annualise": float(r.mean() * donnees.par_an(wf.index)) if len(r) >= 30 else None}
         # Coffre : configuration figée = meilleure sur tout ≤ 2023, appliquée 2024+
         scores = {k: V.sharpe_annuel(jour[k].loc[debut:fin_val]) for k in cles}
         finale = max(scores, key=scores.get)
@@ -135,6 +153,8 @@ def evaluer(symbole):
         tf = nom.split("|")[-1] if "|" in nom else "1d"
         if not out["donnees"][tf]["suffisant"]:
             raisons.append("données insuffisantes")
+        if not src["financement_modelise"]:
+            raisons.append("données insuffisantes : coût de financement (swap) non modélisé")
         if f["sharpe_oos"] < K.SHARPE_MIN_OOS:
             raisons.append(f"Sharpe hors échantillon {f['sharpe_oos']:.2f} < {K.SHARPE_MIN_OOS}")
         if f["dsr"] < K.DSR_MIN:
@@ -184,7 +204,8 @@ def rapport(o):
     for tf, q in o["donnees"].items():
         L.append(f"| {tf} | {q['debut'][:10]} → {q['fin'][:10]} ({q['annees']} ans) | {q['barres']} | {q['barres_manquantes']} | {q['plus_long_trou']} | "
                  f"{q['doublons']} | {q['ohlc_incoherents']} | {q['rendements_sup_8_sigma']} | `{q['empreinte']}` | {'oui' if q['suffisant'] else 'NON'} |")
-    L += ["\nSource : Binance spot. Limites : un seul marché (pas de prix consolidé), pas de carnet d'ordres historique → spread et glissement modélisés, pas mesurés.\n",
+    L += [f"\nSource : {'Binance spot' if o['source']['type'] == 'crypto' else 'Yahoo (séances réelles, OHLC ajustés)'}"
+          f"{'' if o['source']['financement_modelise'] else ' — ATTENTION : swap de financement FX non modélisé'}. Limites : un seul marché (pas de prix consolidé), pas de carnet d'ordres historique → spread et glissement modélisés, pas mesurés.\n",
           "## 2. Caractéristiques du marché (période de développement)\n",
           "| Unité | Vol annuelle | Asymétrie | Excès d'aplatissement | Autocorr. 1 barre | Ratio de variance 1 sem. | 1 mois | Pire baisse |", "|---|---|---|---|---|---|---|---|"]
     for tf, c in o["caracteristiques"].items():
