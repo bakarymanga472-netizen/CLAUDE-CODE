@@ -18,11 +18,12 @@ V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 20
 - Grok = avis facultatif, jamais décideur.
 
 2026-10-20 : Mission 1 phase 1 — catalogue de recherche + inventaire des données : recherche/catalogue.md. Verdict +45 %/mois : irréaliste.
+2026-10-20 : labo par instrument (pilote BTC), mémoire post-trade, boucle d'amélioration, audit indépendant d'Aladdin. BTC : aucune stratégie validée (DSR, pas mieux que l'achat-conservation de façon significative ; coffre 2024+ sous l'achat-conservation). 3 hypothèses d'amélioration testées : 3 rejetées. Audit : momentum Aladdin rejeté, Rebond limité à la démo après correction de live_rebond.py, alpaca.py (ordres en double) et desks.py.
 
 ## Prochaine étape
-Attendre le feu vert sur recherche/catalogue.md avant de coder (ordre : moteur + DSR/PBO, S1 trend, S3 carry funding).
-Lancer `python3 -m aladdin.live` chaque jour pendant 3 mois avant toute décision.
-Soit abandonner, soit tester une nouvelle idée sur 2024+ (hors échantillon) avant toute optimisation. Pas d'argent réel.
+1. Décision humaine sur les corrections de l'audit (anomalies 4, 5, 8, 9) — ne pas lancer alpaca.py avant correction.
+2. Généraliser le labo à ETH puis au FX (OANDA démo) ; ajouter le carry funding (S3).
+3. Brancher la mémoire post-trade sur le suivi papier réel.
 
 ## Tâches Notion
 Base/page Notion : _lien_

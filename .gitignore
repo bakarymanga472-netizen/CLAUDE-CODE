@@ -19,3 +19,4 @@ Thumbs.db
 *.swp
 projets/*/data/
 __pycache__/
+projets/*/audit/donnees/

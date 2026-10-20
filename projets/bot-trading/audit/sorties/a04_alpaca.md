@@ -1,0 +1,8 @@
+# Audit 04 — alpaca.py (tests hors ligne)
+
+- **A. Double lancement le même jour** : 4 ordres d'achat envoyés (SPY 328, GLD 328, SPY 328, GLD 328) — aucune vérification des ordres ouverts (/v2/orders?status=open).
+- **B. Position chez le courtier absente du journal** : date d'entrée de repli = dernière barre (alpaca.py:83) → « SPY: en position, gain +0.00 %, 0 j → on garde » ; ce repli n'est jamais enregistré, donc la durée vaut 0 chaque jour et la sortie à 20 jours ne se déclenche jamais.
+- **C. Marché fermé (is_open=False)** : 2 ordre(s) envoyé(s) quand même — l'horloge n'est qu'affichée (alpaca.py:73). Un jour férié, le dernier prix (veille) est ajouté comme une nouvelle barre datée du jour (alpaca.py:59), ce qui fausse RSI-2 et MM200.
+- **D. Erreur HTTP sur GLD après l'ordre SPY** : exception HTTPError ; ordres envoyés 1 ; journal écrit : False → l'ordre SPY n'est pas journalisé (prix et date d'entrée perdus, cf. B). Aucun try/except, aucune relance, aucune alerte.
+- **E. Durée** : 28 jours calendaires = 16–20 séances SPY (médiane 19) au lieu de 20 ; 62% des dates d'entrée donnent un compte différent de 20. De plus alpaca.py vend à la clôture du jour où la condition est vue (prix de 15 h 40), le backtest à la clôture SUIVANTE ; l'entrée aussi est décalée d'une séance.
+- **F. Autres écarts backtest ↔ exécution (lecture du code)** : objectif/stop mesurés depuis le prix indicatif de 15 h 40 (alpaca.py:80-84) et non le prix d'exécution MOC ; données IEX (`feed=iex`, ~2-3 % du volume) au lieu des clôtures consolidées ; GLD au lieu de GC=F ; la quantité utilise l'equity totale (pas le cash disponible) ; ordres MOC refusés après 15 h 50 ET sans contrôle de l'heure.

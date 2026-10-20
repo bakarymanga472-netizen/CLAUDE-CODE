@@ -68,3 +68,15 @@ Les « iceberg orders » du reel demandent des données de carnet d'ordres COMEX
 - Paramètres fixés à l'avance, non optimisés ; 10 cryptos seulement ; journalier.
 - Les 10 cryptos sont choisies avec ce qu'on sait aujourd'hui (biais du survivant : elles ont toutes survécu).
 - Grok n'est pas testé (pas de clé API) et ne donne qu'un avis, il ne décide rien.
+
+## Labo par instrument, mémoire post-trade, amélioration continue, audit (2026-10-20)
+
+| Module | Rôle | Commande |
+|---|---|---|
+| `labo/` | Données + contrôle qualité, caractéristiques, 4 stratégies concurrentes (modules indépendants), 3 unités de temps, coûts variables, régimes, walk-forward, références, DSR/PBO, coffre, fiche | `python3 -m labo.pilote BTCUSDT` → `rapports/labo_BTCUSDT.md` |
+| `memoire/` | Journal immuable chaîné (SHA-256), corrections séparées, diagnostic 4 catégories, analyse pertes/gains, 4 registres de connaissances, rapports | `python3 -m memoire.exemple_fictif` → `rapports/exemple_fictif/` (DONNÉES FICTIVES) |
+| `amelioration/` | Seuils fixés à l'avance, surveillance, détecteurs de changement évalués, hypothèses avec protocole, validation en 8 étapes, versions (jamais de remplacement automatique), garde-fous | `python3 -m amelioration.boucle declarer` / `tester` / `rapport` → `rapports/amelioration_BTCUSDT.md` |
+| `audit/` | Audit indépendant d'Aladdin (lecture seule) | `audit/rapport_audit_aladdin.md` |
+| `tests/` | 33 tests (look-ahead, moteur, statistiques, immuabilité, diagnostic, prévention, décision, versions, garde-fous, reproductibilité) | `python3 -m unittest discover -s tests -t .` |
+
+Critères de décision : `labo/criteres.py` et `amelioration/boucle.py:DECISION`, fixés avant les tests. Registres en ajout seul : `registre/`, `amelioration/registre/`.
