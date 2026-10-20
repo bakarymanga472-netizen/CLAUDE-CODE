@@ -17,7 +17,10 @@ V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 20
 - Pas de 350 bots : 5 agents suffisent pour tester l'idée.
 - Grok = avis facultatif, jamais décideur.
 
+2026-10-20 : Mission 1 phase 1 — catalogue de recherche + inventaire des données : recherche/catalogue.md. Verdict +45 %/mois : irréaliste.
+
 ## Prochaine étape
+Attendre le feu vert sur recherche/catalogue.md avant de coder (ordre : moteur + DSR/PBO, S1 trend, S3 carry funding).
 Lancer `python3 -m aladdin.live` chaque jour pendant 3 mois avant toute décision.
 Soit abandonner, soit tester une nouvelle idée sur 2024+ (hors échantillon) avant toute optimisation. Pas d'argent réel.
 
