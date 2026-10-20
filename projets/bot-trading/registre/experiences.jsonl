@@ -322,3 +322,195 @@
 {"date": "2026-10-20T17:52:33+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 0.454, "criteres": "criteres-v1-2026-10-20"}
 {"date": "2026-10-20T17:52:33+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": -0.459, "criteres": "criteres-v1-2026-10-20"}
 {"date": "2026-10-20T17:52:34+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": -1.863, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T19:07:40+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.26657183685494934}
+{"date": "2026-10-20T19:07:40+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.26587511025572774}
+{"date": "2026-10-20T19:07:41+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.24592516605387782}
+{"date": "2026-10-20T19:07:42+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.25517788271786623}
+{"date": "2026-10-20T19:07:43+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.24057101738922523}
+{"date": "2026-10-20T19:07:43+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.26249814635477137}
+{"date": "2026-10-20T19:08:02+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.16755979651846695}
+{"date": "2026-10-20T19:08:03+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.17618651794758958}
+{"date": "2026-10-20T19:08:03+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.14882985474275665}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.16255013869913731}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.17504245151631748}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.15930805332377965}
+{"date": "2026-10-20T19:08:13+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.14472615977094805}
+{"date": "2026-10-20T19:08:13+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.1316311261326714}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.09755897179750196}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.11964181114925133}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.08846356873081934}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.10472940037972865}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.13519573514069275}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.11435379986446396}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.17796517706161177}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.09149516393279926}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.20857825818620357}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.18542255686984824}
+{"date": "2026-10-20T19:08:52+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.4834420042500339}
+{"date": "2026-10-20T19:08:53+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.4693491679722006}
+{"date": "2026-10-20T19:08:54+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.40887647588653653}
+{"date": "2026-10-20T19:08:55+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.42736575940490484}
+{"date": "2026-10-20T19:08:56+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.4458271854387289}
+{"date": "2026-10-20T19:08:56+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.4495455487252268}
+{"date": "2026-10-20T19:09:15+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.33334509101303655}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.2957635232383984}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.25832634062901993}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.2911194654979723}
+{"date": "2026-10-20T19:09:17+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.29229914302370924}
+{"date": "2026-10-20T19:09:17+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.27959969411799535}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.25829705925281626}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.2707536097894757}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.24341493083486312}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.21975435511922856}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.27298451681154856}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.2708682191422485}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.0724579107861338}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.01801216690041812}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.14748973006703406}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.0636158295761124}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": 0.04236341518903616}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.09231172246683306}
+{"date": "2026-10-20T19:10:09+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.3402196264568111}
+{"date": "2026-10-20T19:10:10+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.30830867951030233}
+{"date": "2026-10-20T19:10:11+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.2863931064491413}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.30913625873226197}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.33233063810298763}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.30032370849273}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.2558156142267234}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.22370119643335576}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.2039357212398114}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.23390601214974902}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.20844617940529267}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.22585916833783076}
+{"date": "2026-10-20T19:10:43+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.17384912463968463}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.17251453768663183}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.20329464783002496}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.16692372475657416}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.1574741788435504}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.19055025024787633}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": 0.05264069972813758}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": 0.06464225014361968}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": 0.028205475649799226}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": 0.10605866397203573}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.09250818673522493}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": 0.028205475649799226}
+{"date": "2026-10-20T19:12:11+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.024636027141396892}
+{"date": "2026-10-20T19:12:12+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.0798604163456419}
+{"date": "2026-10-20T19:12:13+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.04212186390737608}
+{"date": "2026-10-20T19:12:13+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.022448460901936036}
+{"date": "2026-10-20T19:12:14+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.059503492057662345}
+{"date": "2026-10-20T19:12:14+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.059503492057662345}
+{"date": "2026-10-20T19:12:22+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.0319102001912634}
+{"date": "2026-10-20T19:12:22+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.047597357260057704}
+{"date": "2026-10-20T19:12:23+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.03493012690285997}
+{"date": "2026-10-20T19:12:23+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.01733736550751974}
+{"date": "2026-10-20T19:12:24+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.07470053111969471}
+{"date": "2026-10-20T19:12:24+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.07470053111969471}
+{"date": "2026-10-20T19:12:36+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2911135847472777}
+{"date": "2026-10-20T19:12:37+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2174836344613158}
+{"date": "2026-10-20T19:12:38+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.0950601731255639}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.16446630229240375}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11790689245343704}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21381723918616943}
+{"date": "2026-10-20T19:12:49+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.28609252737030644}
+{"date": "2026-10-20T19:12:50+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.22946819604010685}
+{"date": "2026-10-20T19:12:51+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14913757832275515}
+{"date": "2026-10-20T19:12:51+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.18472798951232355}
+{"date": "2026-10-20T19:12:52+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13405711465589262}
+{"date": "2026-10-20T19:12:52+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23885520484835374}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": 0.033216646065152}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.11844650445987946}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.020400941891897395}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.07057445394890312}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.05564965888926229}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.044320510313873594}
+{"date": "2026-10-20T19:14:34+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14067220952385434}
+{"date": "2026-10-20T19:14:35+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.14407301306734258}
+{"date": "2026-10-20T19:14:35+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.09498904048237183}
+{"date": "2026-10-20T19:14:36+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14059975250130982}
+{"date": "2026-10-20T19:14:37+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11660448781851641}
+{"date": "2026-10-20T19:14:37+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.11660448781851641}
+{"date": "2026-10-20T19:14:44+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.1465391469339196}
+{"date": "2026-10-20T19:14:44+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.16815962880077182}
+{"date": "2026-10-20T19:14:45+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1603006607227934}
+{"date": "2026-10-20T19:14:45+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.17507814921316203}
+{"date": "2026-10-20T19:14:46+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1528320476331324}
+{"date": "2026-10-20T19:14:46+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.1528320476331324}
+{"date": "2026-10-20T19:14:58+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.3158658400352977}
+{"date": "2026-10-20T19:14:58+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.21936204645745813}
+{"date": "2026-10-20T19:14:59+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.08456188584821082}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.13669549265110886}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1858596000474839}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21853447783589527}
+{"date": "2026-10-20T19:15:11+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.30837007777612596}
+{"date": "2026-10-20T19:15:11+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2765336766890711}
+{"date": "2026-10-20T19:15:12+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.0993743444302022}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.13067147570182855}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1798236466259895}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21701060608334719}
+{"date": "2026-10-20T19:15:33+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.05735265685171317}
+{"date": "2026-10-20T19:15:33+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.20260260428511537}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1025667131396436}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.12200839280707751}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1002543743434481}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.08363482179906614}
+{"date": "2026-10-20T19:16:50+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14048306638694832}
+{"date": "2026-10-20T19:16:50+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.07734987410916146}
+{"date": "2026-10-20T19:16:51+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1329690291668263}
+{"date": "2026-10-20T19:16:51+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.08716884916203696}
+{"date": "2026-10-20T19:16:52+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.15037460108374381}
+{"date": "2026-10-20T19:16:52+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.15037460108374381}
+{"date": "2026-10-20T19:17:00+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.12575133129404484}
+{"date": "2026-10-20T19:17:00+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.04807438986528074}
+{"date": "2026-10-20T19:17:01+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13818045379246868}
+{"date": "2026-10-20T19:17:01+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.06684536648862409}
+{"date": "2026-10-20T19:17:02+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11623360937391713}
+{"date": "2026-10-20T19:17:02+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.11623360937391713}
+{"date": "2026-10-20T19:17:13+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2965435027088656}
+{"date": "2026-10-20T19:17:14+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2183627644526319}
+{"date": "2026-10-20T19:17:15+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.08134059451298056}
+{"date": "2026-10-20T19:17:15+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14351368566713996}
+{"date": "2026-10-20T19:17:16+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.020321174166653057}
+{"date": "2026-10-20T19:17:16+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2039536665574761}
+{"date": "2026-10-20T19:17:26+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.33337625698927387}
+{"date": "2026-10-20T19:17:27+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2452753171842909}
+{"date": "2026-10-20T19:17:27+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.09330515914676467}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.20438278346817604}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.009960906029606099}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2224176054378168}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.08502441659517435}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.1223741799471513}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.11622058010535544}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.058391553026306275}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13668137055055524}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.10815700363447353}
+{"date": "2026-10-20T19:19:06+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.07886141053507972}
+{"date": "2026-10-20T19:19:07+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.07308384296833907}
+{"date": "2026-10-20T19:19:07+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.053286324553848005}
+{"date": "2026-10-20T19:19:08+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14021636093114073}
+{"date": "2026-10-20T19:19:09+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.05886111683736162}
+{"date": "2026-10-20T19:19:09+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.05886111683736162}
+{"date": "2026-10-20T19:19:17+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.07351811159775119}
+{"date": "2026-10-20T19:19:17+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.09373565983784407}
+{"date": "2026-10-20T19:19:18+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.024670965784107}
+{"date": "2026-10-20T19:19:18+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1589725393135943}
+{"date": "2026-10-20T19:19:19+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.058930144054633385}
+{"date": "2026-10-20T19:19:19+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.058930144054633385}
+{"date": "2026-10-20T19:19:30+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.3091337724859526}
+{"date": "2026-10-20T19:19:31+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.21034461589572806}
+{"date": "2026-10-20T19:19:32+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14299347740116422}
+{"date": "2026-10-20T19:19:32+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1813951422484816}
+{"date": "2026-10-20T19:19:33+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.059537608439761774}
+{"date": "2026-10-20T19:19:33+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23297855088402536}
+{"date": "2026-10-20T19:19:43+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2856120999074935}
+{"date": "2026-10-20T19:19:44+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.22601315678241735}
+{"date": "2026-10-20T19:19:44+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.17413820369632688}
+{"date": "2026-10-20T19:19:45+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1464466052159432}
+{"date": "2026-10-20T19:19:46+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.05514962311552328}
+{"date": "2026-10-20T19:19:46+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23598710603301554}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": 0.01215252782429743}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.016964240591972345}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.06047258526287186}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.005673308682396152}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.019626976665649644}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.05480864064050006}
