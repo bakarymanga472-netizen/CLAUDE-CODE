@@ -1,4 +1,4 @@
-"""Suivi papier QUOTIDIEN de la stratégie combinée (variantes B10 et A5, levier 1). Aucun ordre envoyé.
+"""Suivi papier QUOTIDIEN de la stratégie combinée (B10, A5 et la combinaison D1, levier 1). Aucun ordre envoyé.
 
 Après chaque clôture de New York : rafraîchit les 16 ETF, rejoue la règle figée et note les positions ouvertes et les
 ordres « au cours de clôture » à passer à la séance suivante. Départ du suivi : 2026-10-21.
@@ -10,6 +10,7 @@ from pathlib import Path
 
 from . import donnees
 from .combine import UNIVERS, VARIANTES, backtest, indicateurs
+from .combine80 import VARIANTES80
 
 ICI = Path(__file__).resolve().parent.parent
 JOURNAL = ICI / "resultats" / "suivi_combine.jsonl"
@@ -22,8 +23,9 @@ def main():
     c = charger()
     ind = indicateurs(c)
     entree = {"horodatage": datetime.now(timezone.utc).isoformat(timespec="seconds"), "derniere_cloture": str(c.index[-1].date())}
-    for nom in ("B10", "A5"):
-        _, _, e = backtest(c, ind, etat=True, **VARIANTES[nom])
+    regles = {"B10": VARIANTES["B10"], "A5": VARIANTES["A5"], "D1": VARIANTES80["D1"]}
+    for nom, v in regles.items():
+        _, _, e = backtest(c, ind, etat=True, **v)
         entree[nom] = e
         print(f"{nom} — clôture {c.index[-1].date()} : ouvertes {list(e['ouvertes'])} ; "
               f"à acheter à la prochaine clôture {e['a_acheter']} ; à vendre {e['a_vendre']}")

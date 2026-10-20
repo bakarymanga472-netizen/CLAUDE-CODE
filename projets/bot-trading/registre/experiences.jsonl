@@ -618,3 +618,15 @@
 {"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L4", "donnees": "-", "sharpe_tout": 0.5276076575699823}
 {"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L6", "donnees": "-", "sharpe_tout": 0.5025378827043204}
 {"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L10", "donnees": "-", "sharpe_tout": 0.4765417210078556}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C1|K5|L1", "donnees": "-", "sharpe_choix": 0.5225640733950018}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C1T|K5|L1", "donnees": "-", "sharpe_choix": 0.5091411173065766}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C05|K5|L1", "donnees": "-", "sharpe_choix": 0.478502973829409}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C05T|K5|L1", "donnees": "-", "sharpe_choix": 0.4694811157360823}
+{"date": "2026-10-20T19:37:14+00:00", "instrument": "combine:etf16", "experience": "C1|K5|L1", "donnees": "-", "sharpe_choix": 0.5225640733950018}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C1T|K5|L1", "donnees": "-", "sharpe_choix": 0.5091411173065766}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C05|K5|L1", "donnees": "-", "sharpe_choix": 0.478502973829409}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C05T|K5|L1", "donnees": "-", "sharpe_choix": 0.4694811157360823}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D1|K5|L1", "donnees": "-", "sharpe_choix": 0.5642847464385461}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D2|K5|L1", "donnees": "-", "sharpe_choix": 0.5448696377778879}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D3|K5|L1", "donnees": "-", "sharpe_choix": 0.3947783269981207}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D4|K5|L1", "donnees": "-", "sharpe_choix": 0.573325169916164}

@@ -52,15 +52,18 @@ def charger():
 
 def indicateurs(c):
     return {"rsi": c.apply(lambda s: rsi(s.dropna(), 2)).reindex(c.index),
-            "mm200": c.rolling(200).mean(), "mm5": c.rolling(5).mean()}
+            "mm200": c.rolling(200).mean(), "mm50": c.rolling(50).mean(), "mm5": c.rolling(5).mean()}
 
 
-def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False):
+def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, tp=0.01, tendance_forte=False,
+             stop=0.10, duree=20):
     """Boucle quotidienne au niveau du portefeuille. Renvoie (rendements quotidiens, trades)
     et, si etat=True, l'état final : positions ouvertes et ordres à passer à la prochaine clôture."""
     cv, rs, m200, m5 = c.values, ind["rsi"].values, ind["mm200"].values, ind["mm5"].values
     n, a = cv.shape
     sig = signal if signal is not None else (rs < seuil) & (cv > m200)
+    if tendance_forte and signal is None:
+        sig = sig & (ind["mm50"].values > m200)
     w = levier / K
     ouvertes, a_entrer, a_sortir = {}, [], set()       # ouvertes : j -> (indice d'entrée, prix d'entrée)
     rend, trades = np.zeros(n), []
@@ -90,6 +93,8 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False):
             g = cv[i, j] / e_p - 1
             if sortie == "A":
                 fin = g >= 0.01 or g <= -0.10 or (i - e_i) >= 20
+            elif sortie == "C":                       # hybride A + B : objectif, ou rebond au-dessus de la MM5 SI en gain
+                fin = g >= tp or (cv[i, j] > m5[i, j] and g > 0) or g <= -stop or (i - e_i) >= duree
             else:
                 fin = cv[i, j] > m5[i, j] or g <= -0.10 or (i - e_i) >= 10
             if fin:
