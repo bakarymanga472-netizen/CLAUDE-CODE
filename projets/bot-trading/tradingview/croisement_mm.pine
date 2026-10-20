@@ -1,0 +1,15 @@
+//@version=5
+// Labo — Croisement de moyennes mobiles. Réplique de labo/strategies/croisement_mm.py
+// Graphique : BINANCE:BTCUSDT, unité 1D.
+strategy("Labo Croisement MM", overlay=true, initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.15,
+     slippage=0, pyramiding=0, process_orders_on_close=false)
+court = input.int(50, "Moyenne courte")
+long_ = input.int(200, "Moyenne longue")
+haussier = ta.sma(close, court) > ta.sma(close, long_)
+if haussier and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+if strategy.position_size > 0 and not haussier
+    strategy.close("Long")
+plot(ta.sma(close, court), color=color.orange)
+plot(ta.sma(close, long_), color=color.blue)
