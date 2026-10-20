@@ -32,5 +32,29 @@ class Combine(unittest.TestCase):
             self.assertLessEqual(n, combine.K)
 
 
+class Limites(unittest.TestCase):
+    def setUp(self):
+        self.c = univers_fictif(a=6, graine=3)
+        rng = np.random.default_rng(1)
+        self.o = self.c.shift(1).fillna(self.c) * (1 + rng.normal(0, 0.002, self.c.shape))
+        self.h = np.maximum(self.c, self.o) * (1 + np.abs(rng.normal(0, 0.004, self.c.shape)))
+
+    def test_pas_de_futur_avec_limites(self):
+        ind = combine.indicateurs(self.c, self.o, self.h)
+        r1, _ = combine.backtest(self.c, ind, sortie="C", seuil=10, limite=True)
+        c2, o2, h2 = self.c.copy(), self.o.copy(), self.h.copy()
+        for d in (c2, o2, h2):
+            d.iloc[450:] *= 1.3
+        r2, _ = combine.backtest(c2, combine.indicateurs(c2, o2, h2), sortie="C", seuil=10, limite=True)
+        pd.testing.assert_series_equal(r1.iloc[:450], r2.iloc[:450])
+
+    def test_vente_limite_au_moins_au_prix_limite(self):
+        ind = combine.indicateurs(self.c, self.o, self.h)
+        _, t = combine.backtest(self.c, ind, sortie="C", seuil=10, limite=True)
+        lim = t[t.motif == "limite"]
+        self.assertTrue(len(lim) > 0)
+        self.assertTrue((lim.rendement > -0.01).all())   # une vente limite se fait au-dessus du prix d'entrée (+0,1 %) moins les frais
+
+
 if __name__ == "__main__":
     unittest.main()

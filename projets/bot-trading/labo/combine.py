@@ -50,13 +50,33 @@ def charger():
     return c
 
 
-def indicateurs(c):
+def charger_ohlc():
+    """Clôtures + ouvertures + plus hauts alignés sur le calendrier du SPY (pour les ordres limites intrajournaliers)."""
+    d = {s: donnees.charger_yahoo(s)[0] for s in UNIVERS}
+    c = pd.DataFrame({s: x.close for s, x in d.items()}).sort_index()
+    c = c.loc[c.index >= c.SPY.first_valid_index()]
+    o = pd.DataFrame({s: x.open for s, x in d.items()}).reindex(c.index)
+    h = pd.DataFrame({s: x.high for s, x in d.items()}).reindex(c.index)
+    return c, o, h
+
+
+def indicateurs(c, o=None, h=None):
+    ind = _indicateurs(c)
+    if o is not None:
+        ind["open"], ind["high"] = o, h
+    ref = c["SPY"] if "SPY" in c.columns else c.iloc[:, 0]
+    spy_vol = ref.pct_change().rolling(20).std()
+    ind["spy_vol_rang"] = spy_vol.expanding(250).rank(pct=True)
+    return ind
+
+
+def _indicateurs(c):
     return {"rsi": c.apply(lambda s: rsi(s.dropna(), 2)).reindex(c.index),
             "mm200": c.rolling(200).mean(), "mm50": c.rolling(50).mean(), "mm5": c.rolling(5).mean()}
 
 
 def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, tp=0.01, tendance_forte=False,
-             stop=0.10, duree=20):
+             stop=0.10, duree=20, limite=False, filtre_vol=False, marge_limite=0.0005):
     """Boucle quotidienne au niveau du portefeuille. Renvoie (rendements quotidiens, trades)
     et, si etat=True, l'état final : positions ouvertes et ordres à passer à la prochaine clôture."""
     cv, rs, m200, m5 = c.values, ind["rsi"].values, ind["mm200"].values, ind["mm5"].values
@@ -64,12 +84,32 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
     sig = signal if signal is not None else (rs < seuil) & (cv > m200)
     if tendance_forte and signal is None:
         sig = sig & (ind["mm50"].values > m200)
+    if filtre_vol and signal is None:                  # F3 : pas d'entrée quand la volatilité du marché est extrême
+        sig = sig & ~(ind["spy_vol_rang"].values[:, None] > 0.8)
+    if limite:
+        ov, hv = ind["open"].values, ind["high"].values
+    limites = {}                                       # j -> prix limite de vente valable pour la séance suivante
     w = levier / K
     ouvertes, a_entrer, a_sortir = {}, [], set()       # ouvertes : j -> (indice d'entrée, prix d'entrée)
+    motifs = {}
     rend, trades = np.zeros(n), []
     for i in range(1, n):
-        # 1) rendement de la journée pour les positions détenues depuis la clôture précédente
         r = 0.0
+        # 0) F1 : ventes à cours limité pendant la séance (ordre posé à la clôture précédente)
+        if limite:
+            for j in list(ouvertes):
+                L = limites.get(j)
+                if L is not None and np.isfinite(hv[i, j]) and hv[i, j] >= L * (1 + marge_limite) and j not in a_sortir:
+                    e_i, e_p = ouvertes.pop(j)
+                    prix = max(L, ov[i, j]) if np.isfinite(ov[i, j]) else L
+                    r += w * (prix / cv[i - 1, j] - 1) - w * COUT
+                    chemin = np.append(cv[e_i:i, j], prix) / e_p - 1
+                    trades.append({"actif": c.columns[j], "entree": c.index[e_i], "sortie": c.index[i],
+                                   "rendement": prix / e_p - 1 - 2 * COUT, "seances": i - e_i, "motif": "limite",
+                                   "mfe": float(np.nanmax(chemin)), "mae": float(np.nanmin(chemin)), "i_entree": e_i, "j": j})
+                    limites.pop(j, None)
+                    a_entrer = [x for x in a_entrer if x != j]
+        # 1) rendement de la journée pour les positions détenues depuis la clôture précédente
         for j in ouvertes:
             if np.isfinite(cv[i, j]) and np.isfinite(cv[i - 1, j]):
                 r += w * (cv[i, j] / cv[i - 1, j] - 1)
@@ -78,8 +118,11 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
         # 2) exécutions à la clôture i : sorties décidées hier, puis entrées décidées hier
         for j in list(a_sortir):
             e_i, e_p = ouvertes.pop(j)
+            chemin = cv[e_i:i + 1, j] / e_p - 1
             trades.append({"actif": c.columns[j], "entree": c.index[e_i], "sortie": c.index[i],
-                           "rendement": cv[i, j] / e_p - 1 - 2 * COUT, "seances": i - e_i})
+                           "rendement": cv[i, j] / e_p - 1 - 2 * COUT, "seances": i - e_i,
+                           "motif": motifs.pop(j, ""), "mfe": float(np.nanmax(chemin)), "mae": float(np.nanmin(chemin)),
+                           "i_entree": e_i, "j": j})
             r -= w * COUT
         a_sortir.clear()
         for j in a_entrer:
@@ -97,8 +140,17 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
                 fin = g >= tp or (cv[i, j] > m5[i, j] and g > 0) or g <= -stop or (i - e_i) >= duree
             else:
                 fin = cv[i, j] > m5[i, j] or g <= -0.10 or (i - e_i) >= 10
+            if limite and sortie == "C":
+                # F1 : l'objectif et le « rebond au-dessus de la MM5 en gain » deviennent un ordre limite pour demain.
+                # clôture(t+1) > MM5(t+1)  ⇔  clôture(t+1) > moyenne des 4 dernières clôtures (connue ce soir).
+                fin = g <= -stop or (i - e_i) >= duree
+                p4 = np.nanmean(cv[i - 3:i + 1, j])
+                limites[j] = min(e_p * (1 + tp), max(p4, e_p * 1.001))
             if fin:
                 a_sortir.add(j)
+                limites.pop(j, None)
+                motifs[j] = ("stop" if g <= -(stop if sortie == "C" else 0.10) else
+                             "durée" if (i - e_i) >= (duree if sortie == "C" else 20 if sortie == "A" else 10) else "objectif/rebond")
         libres = K - (len(ouvertes) - len(a_sortir))
         if libres > 0:
             cand = [j for j in range(a) if sig[i, j] and j not in ouvertes]
@@ -108,7 +160,8 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
         return pd.Series(rend, index=c.index), pd.DataFrame(trades), {
             "ouvertes": {c.columns[j]: {"entree": str(c.index[e_i].date()), "prix": float(e_p),
                                         "gain_latent": float(cv[-1, j] / e_p - 1)} for j, (e_i, e_p) in ouvertes.items()},
-            "a_acheter": [c.columns[j] for j in a_entrer], "a_vendre": [c.columns[j] for j in a_sortir]}
+            "a_acheter": [c.columns[j] for j in a_entrer], "a_vendre": [c.columns[j] for j in a_sortir],
+            "ventes_limites_demain": {c.columns[j]: round(float(L), 4) for j, L in limites.items() if j in ouvertes}}
     return pd.Series(rend, index=c.index), pd.DataFrame(trades)
 
 
