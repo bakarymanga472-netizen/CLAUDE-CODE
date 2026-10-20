@@ -55,7 +55,7 @@ def poids(closes, long_seul, vol_cible=VOL_PORTEFEUILLE):
     return w.div(tot.clip(lower=1.0), axis=0)
 
 
-def executer(symboles, long_seul=True, facteur_couts=1.0, retard=1, signal_constant=None):
+def executer(symboles, long_seul=True, facteur_couts=1.0, retard=1, signal_constant=None, vol_cible=VOL_PORTEFEUILLE):
     data, cts = {}, {}
     for s in symboles:
         df, _ = charger(s, "1d")
@@ -66,7 +66,7 @@ def executer(symboles, long_seul=True, facteur_couts=1.0, retard=1, signal_const
     for s in symboles:                                   # NaN avant la première cotation, report ensuite (week-ends)
         premier = data[s].index[0]
         closes.loc[:premier - pd.Timedelta(days=1), s] = np.nan
-    w = poids(closes, long_seul) if signal_constant is None else _poids_constant(closes)
+    w = poids(closes, long_seul, vol_cible) if signal_constant is None else _poids_constant(closes)
     nets = {}
     for s in symboles:
         df = data[s]
