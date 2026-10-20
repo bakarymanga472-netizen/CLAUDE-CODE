@@ -76,7 +76,7 @@ def _indicateurs(c):
 
 
 def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, tp=0.01, tendance_forte=False,
-             stop=0.10, duree=20, limite=False, filtre_vol=False, marge_limite=0.0005):
+             stop=0.10, duree=20, limite=False, filtre_vol=False, marge_limite=0.0005, taux_emprunt=EMPRUNT, cfd=False):
     """Boucle quotidienne au niveau du portefeuille. Renvoie (rendements quotidiens, trades)
     et, si etat=True, l'état final : positions ouvertes et ordres à passer à la prochaine clôture."""
     cv, rs, m200, m5 = c.values, ind["rsi"].values, ind["mm200"].values, ind["mm5"].values
@@ -114,7 +114,8 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
             if np.isfinite(cv[i, j]) and np.isfinite(cv[i - 1, j]):
                 r += w * (cv[i, j] / cv[i - 1, j] - 1)
         expo = w * len(ouvertes)
-        r -= max(expo - 1.0, 0.0) * EMPRUNT / 252
+        # financement : courtier sur marge = intérêts sur la part empruntée ; CFD = financement sur TOUTE la position
+        r -= (expo if cfd else max(expo - 1.0, 0.0)) * taux_emprunt / 252
         # 2) exécutions à la clôture i : sorties décidées hier, puis entrées décidées hier
         for j in list(a_sortir):
             e_i, e_p = ouvertes.pop(j)
