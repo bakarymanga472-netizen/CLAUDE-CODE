@@ -514,3 +514,51 @@
 {"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.005673308682396152}
 {"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.019626976665649644}
 {"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.05480864064050006}
+{"date": "2026-10-20T19:21:22+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14725805729034755}
+{"date": "2026-10-20T19:21:22+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.020938009609202904}
+{"date": "2026-10-20T19:21:23+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13000820907032587}
+{"date": "2026-10-20T19:21:23+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.058400372075241506}
+{"date": "2026-10-20T19:21:24+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13353219958593354}
+{"date": "2026-10-20T19:21:24+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.13353219958593354}
+{"date": "2026-10-20T19:21:32+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14293571328374807}
+{"date": "2026-10-20T19:21:32+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.0002356545954500714}
+{"date": "2026-10-20T19:21:33+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.10445694667944096}
+{"date": "2026-10-20T19:21:33+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.03395085472387055}
+{"date": "2026-10-20T19:21:34+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.14213294295613071}
+{"date": "2026-10-20T19:21:34+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.14213294295613071}
+{"date": "2026-10-20T19:21:46+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.36050510297389543}
+{"date": "2026-10-20T19:21:47+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2634377940603528}
+{"date": "2026-10-20T19:21:48+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14933534345172544}
+{"date": "2026-10-20T19:21:48+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.17697046480067663}
+{"date": "2026-10-20T19:21:49+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.16036583293492873}
+{"date": "2026-10-20T19:21:49+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2782259523240488}
+{"date": "2026-10-20T19:22:00+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.36887592339281106}
+{"date": "2026-10-20T19:22:01+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.27308952665619685}
+{"date": "2026-10-20T19:22:02+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.20548876774580585}
+{"date": "2026-10-20T19:22:02+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.20070516931463347}
+{"date": "2026-10-20T19:22:03+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1845685893859489}
+{"date": "2026-10-20T19:22:03+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.28864146628735377}
+{"date": "2026-10-20T19:22:21+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.022236625796324894}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.21268603001967065}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.17643518217162352}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.012834678501140685}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.13132712936285398}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.16387518987996863}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.12303529936105044}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.009432802215331989}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.07751926818237845}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.2150814762924023}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.07062039192702485}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.05752281961480817}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.05092392452729051}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.21795081798104357}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.036322997691563934}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.0625604017796352}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.02293217724666004}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.016867655012672317}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14564072911990758}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.055755256728262016}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13424455236699306}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.049278787724210585}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1912789386745778}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.17110035385537098}

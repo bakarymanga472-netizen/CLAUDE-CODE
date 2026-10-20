@@ -88,6 +88,31 @@ def main():
         acc = [h for h in a if a[h]["acceptee"]]
         L.append(f"| {x['strategie']} {x['params']} | {x['symbole']} | {x['unite']} | {p(x['test'].get('reussite'))} / {r(x['test'].get('R_moyen'))} | "
                  + " | ".join(c) + f" | {', '.join(acc) or 'aucune'} |")
+    # Synthèse
+    essais, pos = 0, []
+    for x in o["resultats"]:
+        var = {"base": {"dev": x["dev"], "test": x["test"]}, **{h: v for h, v in x["ameliorations"].items()}}
+        for h, v in var.items():
+            essais += 1
+            d, t = v["dev"], v["test"]
+            if d.get("trades", 0) >= 30 and t.get("trades", 0) >= 30 and d["R_moyen"] > 0 and t["R_moyen"] > 0:
+                pos.append((x, h, d, t))
+    pos.sort(key=lambda z: -z[3]["R_moyen"])
+    L += ["\n## Synthèse\n",
+          f"- Variantes testées : **{essais}** (stratégies × marchés × unités × hypothèses). "
+          f"Variantes gagnantes à la fois en développement (≤ 2023) ET en test (2024+) : **{len(pos)}**.",
+          "- « Bat le hasard » compare aux mêmes stops et objectifs avec des entrées au hasard : avec des stops très serrés, le hasard "
+          "perd beaucoup à cause des coûts ; battre le hasard ne veut donc PAS dire gagner de l'argent.",
+          "- Une hypothèse « acceptée » améliore la réussite sans baisser le R moyen ; la stratégie peut rester perdante.",
+          "- Incertitude : avec 100 trades, le R moyen est connu à environ ± 0,13 R près (règle approximative : 1,3 / √n). "
+          "Aucune des variantes ci-dessous ne dépasse nettement cette marge, et sur " + str(essais) + " essais, quelques-unes "
+          "devaient passer par hasard.\n",
+          "| Stratégie | Marché | Unité | Variante | Dév. : trades / réussite / R | Test : trades / réussite / R |", "|---|---|---|---|---|---|"]
+    for x, h, d, t in pos:
+        L.append(f"| {x['strategie']} | {x['symbole']} | {x['unite']} | {h} | {d['trades']} / {p(d['reussite'])} / {r(d['R_moyen'])} | "
+                 f"{t['trades']} / {p(t['reussite'])} / {r(t['R_moyen'])} |")
+    L += ["\n**Statut : aucune stratégie des vidéos n'est validée.** Les meilleures variantes sont à placer, au mieux, "
+          "en suivi papier (données futures) avant toute conclusion."]
     (ICI / "rapports" / "videos_youtube.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
 
