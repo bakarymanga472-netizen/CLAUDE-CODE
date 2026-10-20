@@ -57,7 +57,7 @@ def _zip_csv(contenu):
 
 
 def _archive(genre, symbole, mois):
-    """genre : 'fundingRate' ou 'klines1d'. Cache du zip brut ; renvoie le texte CSV ou None."""
+    """genre : 'fundingRate', 'klines1d' ou 'markPrice1d'. Cache du zip brut ; renvoie le texte CSV ou None."""
     rep = DOSSIER / "brut" / symbole / genre
     rep.mkdir(parents=True, exist_ok=True)
     f = rep / f"{mois}.zip"
@@ -67,6 +67,8 @@ def _archive(genre, symbole, mois):
     if not f.exists():
         if genre == "fundingRate":
             url = f"{ARCHIVES}/fundingRate/{symbole}/{symbole}-fundingRate-{mois}.zip"
+        elif genre == "markPrice1d":
+            url = f"{ARCHIVES}/markPriceKlines/{symbole}/1d/{symbole}-1d-{mois}.zip"
         else:
             url = f"{ARCHIVES}/klines/{symbole}/1d/{symbole}-1d-{mois}.zip"
         b = _telecharger(url)
@@ -124,6 +126,13 @@ def funding(symbole, jusqu_a=None):
 
 def klines_perp(symbole, jusqu_a=None):
     df, manquants = _assembler("klines1d", symbole, lire_klines_csv, jusqu_a)
+    df = df[~df.index.duplicated(keep="first")]
+    return df, manquants, _empreinte(df)
+
+
+def mark_perp(symbole, jusqu_a=None):
+    """Klines 1d du MARK PRICE (prix qui déclenche les liquidations chez Binance)."""
+    df, manquants = _assembler("markPrice1d", symbole, lire_klines_csv, jusqu_a)
     df = df[~df.index.duplicated(keep="first")]
     return df, manquants, _empreinte(df)
 

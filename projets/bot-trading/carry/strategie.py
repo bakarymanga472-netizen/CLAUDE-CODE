@@ -66,13 +66,15 @@ def indicateur(fund, n, jours):
         .set_axis(jours)
 
 
-def aligner(spot, perp, fund):
+def aligner(spot, perp, fund, mark=None):
     """Cadre journalier commun. Le dernier jour exige le paiement de t+1 00:00 et l'ouverture de t+1."""
     fj = funding_journalier(fund)
     dernier_paiement = fund.index.max()
     jours = spot.index.intersection(perp.index)
     jours = jours[(jours >= fund.index.min().normalize()) & (jours + pd.Timedelta(days=1) <= dernier_paiement)]
     df = pd.DataFrame({"s_open": spot.open, "f_open": perp.open, "f_high": perp.high}).loc[jours]
+    # prix de contrôle de liquidation : plus haut du dernier prix perp (déclaré) ; mark price en sensibilité
+    df["m_high"] = mark.high.reindex(jours).fillna(perp.high.reindex(jours)) if mark is not None else df["f_high"]
     df["s_next"] = spot.open.reindex(jours + pd.Timedelta(days=1)).values
     df["f_next"] = perp.open.reindex(jours + pd.Timedelta(days=1)).values
     df["funding_jour"] = fj.reindex(jours).fillna(0.0)
@@ -97,14 +99,14 @@ def positions(fund, jours, p):
 
 
 # ---------- Simulation ----------
-def simuler(df, pos, c=CoutsCarry(), clore_a_la_fin=True):
+def simuler(df, pos, c=CoutsCarry(), clore_a_la_fin=True, liquidation_sur="f_high"):
     """Boucle journalière en unités monétaires (capital initial 1). Renvoie rendements nets, détail et trades."""
     n = len(df)
     E = 1.0
     cash, qs, qp, mg = 1.0, 0.0, 0.0, 0.0
     net, funding_recu, couts, expo, liq = (np.zeros(n) for _ in range(5))
     pos = pos.reindex(df.index).fillna(0.0).values
-    so, fo, fh = df.s_open.values, df.f_open.values, df.f_high.values
+    so, fo, fh = df.s_open.values, df.f_open.values, df[liquidation_sur].values
     sn, fn, fj = df.s_next.values, df.f_next.values, df.funding_jour.values
     en_pos = False
     for i in range(n):
@@ -179,10 +181,14 @@ def seuil_liquidation(levier, mm):
     return (1 / levier - mm) / (1 + mm)
 
 
-def liquidations_quotidiennes(perp, debut, fin, leviers=(1, 2, 3, 5), mm=0.004):
-    """Rééquilibrage chaque jour à l'ouverture ; pire cas = plus haut du jour. Compte les jours de liquidation."""
+def liquidations_quotidiennes(perp, debut, fin, leviers=(1, 2, 3, 5), mm=0.004, haut=None):
+    """Rééquilibrage chaque jour à l'ouverture ; pire cas = plus haut du jour (dernier prix, ou `haut` fourni,
+    p. ex. le mark price). Compte les jours de liquidation."""
     p = perp.loc[debut:fin]
-    hausse = p.high / p.open - 1
+    h = p.high if haut is None else haut.reindex(p.index).fillna(p.high)
+    hausse = h / p.open - 1
+    repli = 0 if haut is None else int(haut.reindex(p.index).isna().sum())
     return {"hausse_intrajour_max": float(hausse.max()), "date_max": str(hausse.idxmax().date()),
+            "jours_repli_dernier_prix": repli,
             **{f"levier_{l}": {"seuil_hausse": round(seuil_liquidation(l, mm), 4),
                                "jours_liquides": int((hausse >= seuil_liquidation(l, mm)).sum())} for l in leviers}}

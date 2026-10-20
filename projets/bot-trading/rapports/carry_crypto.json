@@ -1,0 +1,1841 @@
+{
+ "criteres_version": "carry-criteres-v1-2026-10-20",
+ "criteres": {
+  "selection": "variante au meilleur Sharpe en DÉVELOPPEMENT, par symbole (5 variantes chacune)",
+  "rendement_annuel_validation_min": 0.0,
+  "sharpe_validation_min": 0.5,
+  "rendement_annuel_validation_stress_x3_min": 0.0,
+  "liquidations_levier1_max": 0,
+  "dsr_min": 0.95,
+  "pire_baisse_dev_val_min": -0.2,
+  "controle_rendement_annuel_min": 0.0
+ },
+ "grille": [
+  "passive",
+  "cond_N3_in10_out0",
+  "cond_N3_in20_out0",
+  "cond_N21_in10_out0",
+  "cond_N21_in20_out0"
+ ],
+ "n_variantes_total": 10,
+ "periodes": {
+  "developpement": [
+   "2020-01-01",
+   "2022-12-31"
+  ],
+  "validation": [
+   "2023-01-01",
+   "2023-12-31"
+  ],
+  "controle": [
+   "2024-01-01",
+   "2100-01-01"
+  ]
+ },
+ "hypotheses_couts": {
+  "commission_spot": 0.001,
+  "commission_perp": 0.0005,
+  "glissement_spot": 0.0002,
+  "glissement_perp": 0.0002,
+  "marge_maintenance": 0.004,
+  "bande": 0.05
+ },
+ "symboles": {
+  "BTCUSDT": {
+   "donnees": {
+    "funding": {
+     "debut": "2020-01-01 00:00:00",
+     "fin": "2026-09-30 16:00:00",
+     "paiements": 7395,
+     "paiements_attendus_8h": 7395,
+     "manquants": 0,
+     "nb_trous": 0,
+     "plus_long_trou": "aucun",
+     "trous_detail": [],
+     "ecarts_inferieurs_8h": 0,
+     "heures_hors_grille_00_08_16": 0,
+     "jours_pas_3_paiements": 0,
+     "intervalles_h": [
+      8.0
+     ],
+     "doublons": 0,
+     "taux_min": -0.003,
+     "taux_max": 0.003,
+     "taux_moyen_annualise": 0.117211,
+     "part_negatifs": 0.140095,
+     "aberrants_abs_sup_0_3pct": 0,
+     "au_plafond_abs_0_3pct": 2,
+     "aberrants_z_sup_10": 0,
+     "nan": 0
+    },
+    "funding_mois_absents": [],
+    "perp_1d": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-30",
+     "barres": 2465,
+     "manquantes": 0,
+     "nb_trous": 0,
+     "prix_non_positifs": 0
+    },
+    "perp_mois_absents": [],
+    "spot_1d": {
+     "intervalle": "1d",
+     "debut": "2017-08-17 00:00:00",
+     "fin": "2026-10-19 00:00:00",
+     "annees": 9.2,
+     "barres": 3351,
+     "barres_attendues": 3351,
+     "barres_manquantes": 0,
+     "plus_long_trou": "aucun",
+     "nb_trous": 0,
+     "doublons": 0,
+     "prix_non_positifs": 0,
+     "ohlc_incoherents": 0,
+     "volume_nul": 0,
+     "rendements_sup_8_sigma": 1
+    },
+    "mark_1d": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-30",
+     "barres": 2456,
+     "manquantes": 9,
+     "nb_trous": 6,
+     "prix_non_positifs": 0
+    },
+    "mark_mois_absents": [],
+    "empreintes": {
+     "funding": "6056d3342cdcf6ff",
+     "perp": "b40c82a4ec5389e1",
+     "spot": "b8ab886f48468540",
+     "mark": "814cf0543021ae48"
+    },
+    "controle_croise_okx": {
+     "paiements_communs": 217,
+     "debut": "2026-07-20 16:00:00",
+     "fin": "2026-09-30 16:00:00",
+     "correlation": 0.517141,
+     "binance_annualise": 0.063661,
+     "okx_annualise": 0.056545,
+     "ecart_absolu_moyen_par_paiement": 2.6e-05,
+     "meme_signe": 0.907834
+    },
+    "base_perp_spot_ouverture": {
+     "developpement": {
+      "moyenne": 4e-06,
+      "min": -0.00786,
+      "max": 0.002911
+     },
+     "validation": {
+      "moyenne": -0.000269,
+      "min": -0.000706,
+      "max": 0.000916
+     },
+     "controle": {
+      "moyenne": -0.000307,
+      "min": -0.000981,
+      "max": 0.001183
+     }
+    },
+    "funding_annualise_par_annee": {
+     "2020": 0.171926,
+     "2021": 0.306084,
+     "2022": 0.041649,
+     "2023": 0.078657,
+     "2024": 0.119242,
+     "2025": 0.051264,
+     "2026": 0.029355
+    },
+    "cadre_backtest": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-29",
+     "jours": 2464
+    }
+   },
+   "variantes": {
+    "passive": {
+     "developpement": {
+      "rendement_total": 0.271166,
+      "rendement_annuel": 0.083323,
+      "volatilite": 0.009313,
+      "sharpe": 8.585829,
+      "pire_baisse": -0.013296,
+      "trades": 1,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.439472,
+      "annees_positives": "3/3",
+      "part_temps_expose": 1.0,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.294502,
+      "couts_sur_capital": 0.019201,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.037099,
+      "rendement_annuel": 0.037229,
+      "volatilite": 0.002614,
+      "sharpe": 13.93972,
+      "pire_baisse": -0.000455,
+      "trades": 1,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.439472,
+      "annees_positives": "1/1",
+      "part_temps_expose": 1.0,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.05093,
+      "couts_sur_capital": 0.002885,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": 0.229369,
+       "rendement_annuel": 0.071308,
+       "volatilite": 0.009717,
+       "sharpe": 7.082721,
+       "pire_baisse": -0.016265,
+       "trades": 1,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.361297,
+       "annees_positives": "3/3",
+       "part_temps_expose": 1.0,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.290093,
+       "couts_sur_capital": 0.056613,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.03247,
+       "rendement_annuel": 0.032583,
+       "volatilite": 0.002855,
+       "sharpe": 11.19524,
+       "pire_baisse": -0.00085,
+       "trades": 1,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.361297,
+       "annees_positives": "1/1",
+       "part_temps_expose": 1.0,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.049124,
+       "couts_sur_capital": 0.008352,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": 0.079793,
+      "2021": 0.157503,
+      "2022": 0.017044,
+      "2023": 0.037099
+     },
+     "dsr_dev_val": 0.994406
+    },
+    "cond_N3_in10_out0": {
+     "developpement": {
+      "rendement_total": 0.198432,
+      "rendement_annuel": 0.062239,
+      "volatilite": 0.010318,
+      "sharpe": 5.848196,
+      "pire_baisse": -0.025114,
+      "trades": 35,
+      "reussite": 0.342857,
+      "profit_factor": 6.031827,
+      "esperance_trade": 0.005427,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.710766,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.287092,
+      "couts_sur_capital": 0.088302,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.01879,
+      "rendement_annuel": 0.018855,
+      "volatilite": 0.004377,
+      "sharpe": 4.255235,
+      "pire_baisse": -0.002303,
+      "trades": 8,
+      "reussite": 0.75,
+      "profit_factor": 104.633011,
+      "esperance_trade": 0.007425,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.668493,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.039987,
+      "couts_sur_capital": 0.017482,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": 0.028297,
+       "rendement_annuel": 0.009351,
+       "volatilite": 0.016558,
+       "sharpe": 0.569516,
+       "pire_baisse": -0.09689,
+       "trades": 35,
+       "reussite": 0.142857,
+       "profit_factor": 1.219226,
+       "esperance_trade": 0.000952,
+       "annees_positives": "2/3",
+       "part_temps_expose": 0.710766,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.273997,
+       "couts_sur_capital": 0.245219,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": -0.010426,
+       "rendement_annuel": -0.010462,
+       "volatilite": 0.010837,
+       "sharpe": -0.961725,
+       "pire_baisse": -0.023786,
+       "trades": 8,
+       "reussite": 0.25,
+       "profit_factor": 1.970286,
+       "esperance_trade": 0.002719,
+       "annees_positives": "0/1",
+       "part_temps_expose": 0.668493,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.033648,
+       "couts_sur_capital": 0.044391,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": 0.069437,
+      "2021": 0.146081,
+      "2022": -0.022216,
+      "2023": 0.01879
+     },
+     "dsr_dev_val": 0.211124
+    },
+    "cond_N3_in20_out0": {
+     "developpement": {
+      "rendement_total": 0.226657,
+      "rendement_annuel": 0.07052,
+      "volatilite": 0.009087,
+      "sharpe": 7.492739,
+      "pire_baisse": -0.008452,
+      "trades": 7,
+      "reussite": 0.857143,
+      "profit_factor": 586.810255,
+      "esperance_trade": 0.030538,
+      "annees_positives": "3/3",
+      "part_temps_expose": 0.426095,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.249052,
+      "couts_sur_capital": 0.022809,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.015381,
+      "rendement_annuel": 0.015435,
+      "volatilite": 0.002998,
+      "sharpe": 5.092432,
+      "pire_baisse": -0.001777,
+      "trades": 3,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.018438,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.342466,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.024562,
+      "couts_sur_capital": 0.006734,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": 0.17675,
+       "rendement_annuel": 0.05579,
+       "volatilite": 0.010807,
+       "sharpe": 5.021489,
+       "pire_baisse": -0.019006,
+       "trades": 7,
+       "reussite": 0.714286,
+       "profit_factor": 26.805735,
+       "esperance_trade": 0.024338,
+       "annees_positives": "2/3",
+       "part_temps_expose": 0.426095,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.243389,
+       "couts_sur_capital": 0.067012,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.004327,
+       "rendement_annuel": 0.004342,
+       "volatilite": 0.006527,
+       "sharpe": 0.664775,
+       "pire_baisse": -0.009518,
+       "trades": 3,
+       "reussite": 0.666667,
+       "profit_factor": 10.854628,
+       "esperance_trade": 0.012613,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.342466,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.023388,
+       "couts_sur_capital": 0.01929,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": 0.067579,
+      "2021": 0.148309,
+      "2022": 0.000609,
+      "2023": 0.015381
+     },
+     "dsr_dev_val": 0.838334
+    },
+    "cond_N21_in10_out0": {
+     "developpement": {
+      "rendement_total": 0.244062,
+      "rendement_annuel": 0.075562,
+      "volatilite": 0.009325,
+      "sharpe": 7.804298,
+      "pire_baisse": -0.008452,
+      "trades": 7,
+      "reussite": 0.571429,
+      "profit_factor": 68.221058,
+      "esperance_trade": 0.032658,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.600365,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.272359,
+      "couts_sur_capital": 0.027423,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.031087,
+      "rendement_annuel": 0.031195,
+      "volatilite": 0.003066,
+      "sharpe": 9.986644,
+      "pire_baisse": -0.001991,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.036061,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.778082,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.044624,
+      "couts_sur_capital": 0.005666,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": 0.18559,
+       "rendement_annuel": 0.058429,
+       "volatilite": 0.011231,
+       "sharpe": 5.054062,
+       "pire_baisse": -0.014759,
+       "trades": 7,
+       "reussite": 0.571429,
+       "profit_factor": 11.879595,
+       "esperance_trade": 0.025437,
+       "annees_positives": "2/3",
+       "part_temps_expose": 0.600365,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.266757,
+       "couts_sur_capital": 0.080282,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.021839,
+       "rendement_annuel": 0.021915,
+       "volatilite": 0.005611,
+       "sharpe": 3.853414,
+       "pire_baisse": -0.005967,
+       "trades": 2,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.027776,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.778082,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.042295,
+       "couts_sur_capital": 0.016136,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": 0.077169,
+      "2021": 0.156668,
+      "2022": -0.001497,
+      "2023": 0.031087
+     },
+     "dsr_dev_val": 0.962141
+    },
+    "cond_N21_in20_out0": {
+     "developpement": {
+      "rendement_total": 0.233824,
+      "rendement_annuel": 0.072602,
+      "volatilite": 0.009101,
+      "sharpe": 7.694062,
+      "pire_baisse": -0.007937,
+      "trades": 4,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.054936,
+      "annees_positives": "3/3",
+      "part_temps_expose": 0.508212,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.252838,
+      "couts_sur_capital": 0.018832,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.002293,
+      "rendement_annuel": 0.002301,
+      "volatilite": 0.001347,
+      "sharpe": 1.701283,
+      "pire_baisse": -0.000486,
+      "trades": 1,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.043146,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.016438,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.003941,
+      "couts_sur_capital": 0.001172,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": 0.192917,
+       "rendement_annuel": 0.060606,
+       "volatilite": 0.010215,
+       "sharpe": 5.756363,
+       "pire_baisse": -0.013395,
+       "trades": 4,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.045937,
+       "annees_positives": "2/3",
+       "part_temps_expose": 0.508212,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.248666,
+       "couts_sur_capital": 0.055543,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.000387,
+       "rendement_annuel": 0.000388,
+       "volatilite": 0.002702,
+       "sharpe": 0.144575,
+       "pire_baisse": -0.002387,
+       "trades": 1,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.033895,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.016438,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.003803,
+       "couts_sur_capital": 0.0034,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": 0.070784,
+      "2021": 0.15085,
+      "2022": 0.001227,
+      "2023": 0.002293
+     },
+     "dsr_dev_val": 0.782011
+    }
+   },
+   "retenue": {
+    "variante": "passive",
+    "dsr_dev_val": 0.994406,
+    "sharpe_max_attendu_hasard_journalier": 0.311119,
+    "pire_baisse_dev_val": -0.013296,
+    "p_bootstrap_retenue_pas_mieux_que_passive": null,
+    "tests_avant_controle": {
+     "rendement_val": true,
+     "sharpe_val": true,
+     "stress_val": true,
+     "liquidations": true,
+     "dsr": true,
+     "pire_baisse_dev_val": true,
+     "controle": true
+    }
+   },
+   "liquidation_quotidienne": {
+    "toute_periode": {
+     "hausse_intrajour_max": 0.361823,
+     "date_max": "2021-07-26",
+     "jours_repli_dernier_prix": 0,
+     "levier_1": {
+      "seuil_hausse": 0.992,
+      "jours_liquides": 0
+     },
+     "levier_2": {
+      "seuil_hausse": 0.494,
+      "jours_liquides": 0
+     },
+     "levier_3": {
+      "seuil_hausse": 0.328,
+      "jours_liquides": 1
+     },
+     "levier_5": {
+      "seuil_hausse": 0.1952,
+      "jours_liquides": 4
+     }
+    },
+    "toute_periode_mark_price": {
+     "hausse_intrajour_max": 0.361823,
+     "date_max": "2021-07-26",
+     "jours_repli_dernier_prix": 9,
+     "levier_1": {
+      "seuil_hausse": 0.992,
+      "jours_liquides": 0
+     },
+     "levier_2": {
+      "seuil_hausse": 0.494,
+      "jours_liquides": 0
+     },
+     "levier_3": {
+      "seuil_hausse": 0.328,
+      "jours_liquides": 1
+     },
+     "levier_5": {
+      "seuil_hausse": 0.1952,
+      "jours_liquides": 3
+     }
+    },
+    "simulation_retenue_liquidations": 0
+   },
+   "sensibilite_mark_price_post_hoc": {
+    "liquidations": 0,
+    "developpement": {
+     "rendement_total": 0.271166,
+     "rendement_annuel": 0.083323,
+     "volatilite": 0.009313,
+     "sharpe": 8.585829,
+     "pire_baisse": -0.013296,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.439472,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.294502,
+     "couts_sur_capital": 0.019201,
+     "debut": "2020-01-01",
+     "fin": "2022-12-31"
+    },
+    "validation": {
+     "rendement_total": 0.037099,
+     "rendement_annuel": 0.037229,
+     "volatilite": 0.002614,
+     "sharpe": 13.93972,
+     "pire_baisse": -0.000455,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.439472,
+     "annees_positives": "1/1",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.05093,
+     "couts_sur_capital": 0.002885,
+     "debut": "2023-01-01",
+     "fin": "2023-12-31"
+    },
+    "controle": {
+     "rendement_total": 0.091894,
+     "rendement_annuel": 0.032565,
+     "volatilite": 0.002857,
+     "sharpe": 11.198148,
+     "pire_baisse": -0.003108,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.439472,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.133186,
+     "couts_sur_capital": 0.012527,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "pire_baisse_dev_val": -0.013296,
+    "dsr_dev_val": 0.994406,
+    "par_annee": {
+     "2020": 0.079793,
+     "2021": 0.157503,
+     "2022": 0.017044,
+     "2023": 0.037099,
+     "2024": 0.058438,
+     "2025": 0.02344,
+     "2026": 0.007981
+    }
+   },
+   "controle": {
+    "ouvert_le": "2026-10-20T17:30:01+00:00",
+    "premiere_ouverture": false,
+    "retenue": {
+     "rendement_total": 0.091894,
+     "rendement_annuel": 0.032565,
+     "volatilite": 0.002857,
+     "sharpe": 11.198148,
+     "pire_baisse": -0.003108,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.439472,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.133186,
+     "couts_sur_capital": 0.012527,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "retenue_stress_x3": {
+     "rendement_total": 0.07249,
+     "rendement_annuel": 0.025838,
+     "volatilite": 0.003408,
+     "sharpe": 7.474738,
+     "pire_baisse": -0.005198,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.361297,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.127405,
+     "couts_sur_capital": 0.035863,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "par_annee": {
+     "2024": 0.058438,
+     "2025": 0.02344,
+     "2026": 0.007981
+    },
+    "toutes_variantes": {
+     "passive": {
+      "rendement_total": 0.091894,
+      "rendement_annuel": 0.032565,
+      "volatilite": 0.002857,
+      "sharpe": 11.198148,
+      "pire_baisse": -0.003108,
+      "trades": 1,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.439472,
+      "annees_positives": "3/3",
+      "part_temps_expose": 1.0,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.133186,
+      "couts_sur_capital": 0.012527,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N3_in10_out0": {
+      "rendement_total": 0.066268,
+      "rendement_annuel": 0.023665,
+      "volatilite": 0.00359,
+      "sharpe": 6.506328,
+      "pire_baisse": -0.00406,
+      "trades": 9,
+      "reussite": 0.444444,
+      "profit_factor": 19.30169,
+      "esperance_trade": 0.00874,
+      "annees_positives": "3/3",
+      "part_temps_expose": 0.584247,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.106225,
+      "couts_sur_capital": 0.026378,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N3_in20_out0": {
+      "rendement_total": 0.053105,
+      "rendement_annuel": 0.01904,
+      "volatilite": 0.002732,
+      "sharpe": 6.892643,
+      "pire_baisse": -0.001223,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.03156,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.291127,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.071771,
+      "couts_sur_capital": 0.00705,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N21_in10_out0": {
+      "rendement_total": 0.066648,
+      "rendement_annuel": 0.023798,
+      "volatilite": 0.003019,
+      "sharpe": 7.778037,
+      "pire_baisse": -0.002233,
+      "trades": 3,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.026138,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.509472,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.097099,
+      "couts_sur_capital": 0.012475,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N21_in20_out0": {
+      "rendement_total": 0.050108,
+      "rendement_annuel": 0.017982,
+      "volatilite": 0.002687,
+      "sharpe": 6.623401,
+      "pire_baisse": -0.002032,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.026064,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.371884,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.069387,
+      "couts_sur_capital": 0.008582,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     }
+    }
+   },
+   "statut": "candidate démo",
+   "par_annee_toute_periode": {
+    "passive": {
+     "2020": 0.079793,
+     "2021": 0.157503,
+     "2022": 0.017044,
+     "2023": 0.037099,
+     "2024": 0.058438,
+     "2025": 0.02344,
+     "2026": 0.007981
+    },
+    "cond_N3_in10_out0": {
+     "2020": 0.069437,
+     "2021": 0.146081,
+     "2022": -0.022216,
+     "2023": 0.01879,
+     "2024": 0.053889,
+     "2025": 0.007488,
+     "2026": 0.004226
+    },
+    "cond_N3_in20_out0": {
+     "2020": 0.067579,
+     "2021": 0.148309,
+     "2022": 0.000609,
+     "2023": 0.015381,
+     "2024": 0.050037,
+     "2025": 0.002922,
+     "2026": 0.0
+    },
+    "cond_N21_in10_out0": {
+     "2020": 0.077169,
+     "2021": 0.156668,
+     "2022": -0.001497,
+     "2023": 0.031087,
+     "2024": 0.054052,
+     "2025": 0.011951,
+     "2026": 0.0
+    },
+    "cond_N21_in20_out0": {
+     "2020": 0.070784,
+     "2021": 0.15085,
+     "2022": 0.001227,
+     "2023": 0.002293,
+     "2024": 0.044406,
+     "2025": 0.005459,
+     "2026": 0.0
+    }
+   },
+   "achat_conservation": {
+    "developpement": {
+     "rendement_total": 1.298988,
+     "rendement_annuel": 0.320063,
+     "volatilite": 0.7394,
+     "sharpe": 0.756738,
+     "pire_baisse": -0.766293,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "2/3"
+    },
+    "validation": {
+     "rendement_total": 1.55617,
+     "rendement_annuel": 1.564422,
+     "volatilite": 0.440596,
+     "sharpe": 2.349369,
+     "pire_baisse": -0.200027,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "1/1"
+    },
+    "controle": {
+     "rendement_total": 0.978632,
+     "rendement_annuel": 0.282423,
+     "volatilite": 0.472985,
+     "sharpe": 0.760409,
+     "pire_baisse": -0.529718,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "1/3"
+    },
+    "par_annee": {
+     "2020": 3.019828,
+     "2021": 0.597895,
+     "2022": -0.642084,
+     "2023": 1.55617,
+     "2024": 1.213058,
+     "2025": -0.063347,
+     "2026": -0.045461
+    }
+   }
+  },
+  "ETHUSDT": {
+   "donnees": {
+    "funding": {
+     "debut": "2020-01-01 00:00:00",
+     "fin": "2026-09-30 16:00:00",
+     "paiements": 7395,
+     "paiements_attendus_8h": 7395,
+     "manquants": 0,
+     "nb_trous": 0,
+     "plus_long_trou": "aucun",
+     "trous_detail": [],
+     "ecarts_inferieurs_8h": 0,
+     "heures_hors_grille_00_08_16": 0,
+     "jours_pas_3_paiements": 0,
+     "intervalles_h": [
+      8.0
+     ],
+     "doublons": 0,
+     "taux_min": -0.003563,
+     "taux_max": 0.00375,
+     "taux_moyen_annualise": 0.138367,
+     "part_negatifs": 0.137796,
+     "aberrants_abs_sup_0_3pct": 5,
+     "au_plafond_abs_0_3pct": 5,
+     "aberrants_z_sup_10": 0,
+     "nan": 0
+    },
+    "funding_mois_absents": [],
+    "perp_1d": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-30",
+     "barres": 2465,
+     "manquantes": 0,
+     "nb_trous": 0,
+     "prix_non_positifs": 0
+    },
+    "perp_mois_absents": [],
+    "spot_1d": {
+     "intervalle": "1d",
+     "debut": "2017-08-17 00:00:00",
+     "fin": "2026-10-19 00:00:00",
+     "annees": 9.2,
+     "barres": 3351,
+     "barres_attendues": 3351,
+     "barres_manquantes": 0,
+     "plus_long_trou": "aucun",
+     "nb_trous": 0,
+     "doublons": 0,
+     "prix_non_positifs": 0,
+     "ohlc_incoherents": 0,
+     "volume_nul": 0,
+     "rendements_sup_8_sigma": 1
+    },
+    "mark_1d": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-30",
+     "barres": 2462,
+     "manquantes": 3,
+     "nb_trous": 3,
+     "prix_non_positifs": 0
+    },
+    "mark_mois_absents": [],
+    "empreintes": {
+     "funding": "b3ea37d0bee75236",
+     "perp": "5a294416971436ec",
+     "spot": "3250264d4c9cb191",
+     "mark": "3b49ff4ab020d9d8"
+    },
+    "controle_croise_okx": {
+     "paiements_communs": 217,
+     "debut": "2026-07-20 16:00:00",
+     "fin": "2026-09-30 16:00:00",
+     "correlation": 0.501681,
+     "binance_annualise": 0.048774,
+     "okx_annualise": 0.046618,
+     "ecart_absolu_moyen_par_paiement": 2.9e-05,
+     "meme_signe": 0.843318
+    },
+    "base_perp_spot_ouverture": {
+     "developpement": {
+      "moyenne": 0.000124,
+      "min": -0.006501,
+      "max": 0.005181
+     },
+     "validation": {
+      "moyenne": -0.000228,
+      "min": -0.000893,
+      "max": 0.000895
+     },
+     "controle": {
+      "moyenne": -0.000304,
+      "min": -0.002538,
+      "max": 0.001407
+     }
+    },
+    "funding_annualise_par_annee": {
+     "2020": 0.274148,
+     "2021": 0.375373,
+     "2022": 0.007873,
+     "2023": 0.082595,
+     "2024": 0.129614,
+     "2025": 0.049287,
+     "2026": 0.019327
+    },
+    "cadre_backtest": {
+     "debut": "2020-01-01",
+     "fin": "2026-09-29",
+     "jours": 2464
+    }
+   },
+   "variantes": {
+    "passive": {
+     "developpement": {
+      "rendement_total": -0.157435,
+      "rendement_annuel": -0.055539,
+      "volatilite": 0.218856,
+      "sharpe": -0.112565,
+      "pire_baisse": -0.378964,
+      "trades": 1,
+      "reussite": 0.0,
+      "profit_factor": 0.0,
+      "esperance_trade": -0.049936,
+      "annees_positives": "1/3",
+      "part_temps_expose": 0.999088,
+      "liquidations": 1,
+      "funding_encaisse_sur_capital": 0.259043,
+      "couts_sur_capital": 0.02139,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.038473,
+      "rendement_annuel": 0.038607,
+      "volatilite": 0.002941,
+      "sharpe": 12.840077,
+      "pire_baisse": -0.000481,
+      "trades": 1,
+      "reussite": 0.0,
+      "profit_factor": 0.0,
+      "esperance_trade": -0.049936,
+      "annees_positives": "1/1",
+      "part_temps_expose": 1.0,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.035446,
+      "couts_sur_capital": 0.002367,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": -0.203046,
+       "rendement_annuel": -0.07291,
+       "volatilite": 0.220019,
+       "sharpe": -0.194326,
+       "pire_baisse": -0.38251,
+       "trades": 1,
+       "reussite": 0.0,
+       "profit_factor": 0.0,
+       "esperance_trade": -0.130962,
+       "annees_positives": "1/3",
+       "part_temps_expose": 0.999088,
+       "liquidations": 1,
+       "funding_encaisse_sur_capital": 0.253559,
+       "couts_sur_capital": 0.062357,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.032741,
+       "rendement_annuel": 0.032856,
+       "volatilite": 0.003131,
+       "sharpe": 10.291897,
+       "pire_baisse": -0.00078,
+       "trades": 1,
+       "reussite": 0.0,
+       "profit_factor": 0.0,
+       "esperance_trade": -0.130962,
+       "annees_positives": "1/1",
+       "part_temps_expose": 1.0,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.033417,
+       "couts_sur_capital": 0.0067,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": -0.292031,
+      "2021": 0.194523,
+      "2022": -0.00369,
+      "2023": 0.038473
+     },
+     "dsr_dev_val": 0.0
+    },
+    "cond_N3_in10_out0": {
+     "developpement": {
+      "rendement_total": -0.187807,
+      "rendement_annuel": -0.067034,
+      "volatilite": 0.218862,
+      "sharpe": -0.168415,
+      "pire_baisse": -0.380239,
+      "trades": 27,
+      "reussite": 0.259259,
+      "profit_factor": 0.730358,
+      "esperance_trade": -0.003793,
+      "annees_positives": "1/3",
+      "part_temps_expose": 0.739051,
+      "liquidations": 1,
+      "funding_encaisse_sur_capital": 0.259303,
+      "couts_sur_capital": 0.053204,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.023493,
+      "rendement_annuel": 0.023574,
+      "volatilite": 0.004409,
+      "sharpe": 5.269634,
+      "pire_baisse": -0.004937,
+      "trades": 7,
+      "reussite": 0.571429,
+      "profit_factor": 22.264225,
+      "esperance_trade": 0.009375,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.736986,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.030148,
+      "couts_sur_capital": 0.010992,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": -0.291814,
+       "rendement_annuel": -0.108719,
+       "volatilite": 0.220251,
+       "sharpe": -0.372417,
+       "pire_baisse": -0.388911,
+       "trades": 27,
+       "reussite": 0.185185,
+       "profit_factor": 0.484262,
+       "esperance_trade": -0.008995,
+       "annees_positives": "1/3",
+       "part_temps_expose": 0.739051,
+       "liquidations": 1,
+       "funding_encaisse_sur_capital": 0.250249,
+       "couts_sur_capital": 0.148893,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": -0.003682,
+       "rendement_annuel": -0.003695,
+       "volatilite": 0.01021,
+       "sharpe": -0.356234,
+       "pire_baisse": -0.024966,
+       "trades": 7,
+       "reussite": 0.285714,
+       "profit_factor": 2.512539,
+       "esperance_trade": 0.00417,
+       "annees_positives": "0/1",
+       "part_temps_expose": 0.736986,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.025841,
+       "couts_sur_capital": 0.028394,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": -0.297614,
+      "2021": 0.181557,
+      "2022": -0.021346,
+      "2023": 0.023493
+     },
+     "dsr_dev_val": 0.0
+    },
+    "cond_N3_in20_out0": {
+     "developpement": {
+      "rendement_total": -0.170267,
+      "rendement_annuel": -0.060361,
+      "volatilite": 0.218829,
+      "sharpe": -0.135959,
+      "pire_baisse": -0.378917,
+      "trades": 5,
+      "reussite": 0.8,
+      "profit_factor": 0.747692,
+      "esperance_trade": -0.017714,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.513686,
+      "liquidations": 1,
+      "funding_encaisse_sur_capital": 0.238536,
+      "couts_sur_capital": 0.01614,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.017205,
+      "rendement_annuel": 0.017265,
+      "volatilite": 0.003146,
+      "sharpe": 5.423666,
+      "pire_baisse": -0.002084,
+      "trades": 3,
+      "reussite": 0.666667,
+      "profit_factor": 395.671601,
+      "esperance_trade": 0.020077,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.364384,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.019215,
+      "couts_sur_capital": 0.004835,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": -0.205676,
+       "rendement_annuel": -0.073932,
+       "volatilite": 0.220019,
+       "sharpe": -0.199331,
+       "pire_baisse": -0.382132,
+       "trades": 5,
+       "reussite": 0.8,
+       "profit_factor": 0.627285,
+       "esperance_trade": -0.026535,
+       "annees_positives": "1/3",
+       "part_temps_expose": 0.513686,
+       "liquidations": 1,
+       "funding_encaisse_sur_capital": 0.233857,
+       "couts_sur_capital": 0.047364,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.00545,
+       "rendement_annuel": 0.005469,
+       "volatilite": 0.006624,
+       "sharpe": 0.823817,
+       "pire_baisse": -0.009977,
+       "trades": 3,
+       "reussite": 0.333333,
+       "profit_factor": 10.809436,
+       "esperance_trade": 0.01367,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.364384,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.018243,
+       "couts_sur_capital": 0.013818,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": -0.297745,
+      "2021": 0.181467,
+      "2022": 5.1e-05,
+      "2023": 0.017205
+     },
+     "dsr_dev_val": 0.0
+    },
+    "cond_N21_in10_out0": {
+     "developpement": {
+      "rendement_total": -0.162304,
+      "rendement_annuel": -0.057363,
+      "volatilite": 0.218842,
+      "sharpe": -0.121405,
+      "pire_baisse": -0.379701,
+      "trades": 5,
+      "reussite": 0.6,
+      "profit_factor": 0.807055,
+      "esperance_trade": -0.013597,
+      "annees_positives": "1/3",
+      "part_temps_expose": 0.663321,
+      "liquidations": 1,
+      "funding_encaisse_sur_capital": 0.253439,
+      "couts_sur_capital": 0.021421,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.030696,
+      "rendement_annuel": 0.030803,
+      "volatilite": 0.003294,
+      "sharpe": 9.179495,
+      "pire_baisse": -0.002219,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.036531,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.775342,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.030136,
+      "couts_sur_capital": 0.004169,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": -0.208595,
+       "rendement_annuel": -0.075068,
+       "volatilite": 0.22005,
+       "sharpe": -0.204842,
+       "pire_baisse": -0.385247,
+       "trades": 5,
+       "reussite": 0.4,
+       "profit_factor": 0.658104,
+       "esperance_trade": -0.025308,
+       "annees_positives": "1/3",
+       "part_temps_expose": 0.663321,
+       "liquidations": 1,
+       "funding_encaisse_sur_capital": 0.247392,
+       "couts_sur_capital": 0.062429,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.020593,
+       "rendement_annuel": 0.020664,
+       "volatilite": 0.005753,
+       "sharpe": 3.546066,
+       "pire_baisse": -0.006178,
+       "trades": 2,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.027483,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.775342,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.028298,
+       "couts_sur_capital": 0.011764,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": -0.294012,
+      "2021": 0.186853,
+      "2022": -0.000248,
+      "2023": 0.030696
+     },
+     "dsr_dev_val": 0.0
+    },
+    "cond_N21_in20_out0": {
+     "developpement": {
+      "rendement_total": -0.169751,
+      "rendement_annuel": -0.060166,
+      "volatilite": 0.21883,
+      "sharpe": -0.135012,
+      "pire_baisse": -0.380048,
+      "trades": 3,
+      "reussite": 0.666667,
+      "profit_factor": 0.779594,
+      "esperance_trade": -0.025926,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.554745,
+      "liquidations": 1,
+      "funding_encaisse_sur_capital": 0.238556,
+      "couts_sur_capital": 0.016087,
+      "debut": "2020-01-01",
+      "fin": "2022-12-31"
+     },
+     "validation": {
+      "rendement_total": 0.010436,
+      "rendement_annuel": 0.010472,
+      "volatilite": 0.002055,
+      "sharpe": 5.054337,
+      "pire_baisse": -0.000596,
+      "trades": 1,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.052902,
+      "annees_positives": "1/1",
+      "part_temps_expose": 0.131507,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.009857,
+      "couts_sur_capital": 0.001092,
+      "debut": "2023-01-01",
+      "fin": "2023-12-31"
+     },
+     "stress_x3": {
+      "developpement": {
+       "rendement_total": -0.205325,
+       "rendement_annuel": -0.073795,
+       "volatilite": 0.220016,
+       "sharpe": -0.198666,
+       "pire_baisse": -0.385592,
+       "trades": 3,
+       "reussite": 0.666667,
+       "profit_factor": 0.658842,
+       "esperance_trade": -0.040967,
+       "annees_positives": "1/3",
+       "part_temps_expose": 0.554745,
+       "liquidations": 1,
+       "funding_encaisse_sur_capital": 0.2336,
+       "couts_sur_capital": 0.047201,
+       "debut": "2020-01-01",
+       "fin": "2022-12-31"
+      },
+      "validation": {
+       "rendement_total": 0.00778,
+       "rendement_annuel": 0.007807,
+       "volatilite": 0.00318,
+       "sharpe": 2.438376,
+       "pire_baisse": -0.002497,
+       "trades": 1,
+       "reussite": 1.0,
+       "profit_factor": null,
+       "esperance_trade": 0.042163,
+       "annees_positives": "1/1",
+       "part_temps_expose": 0.131507,
+       "liquidations": 0,
+       "funding_encaisse_sur_capital": 0.009412,
+       "couts_sur_capital": 0.003134,
+       "debut": "2023-01-01",
+       "fin": "2023-12-31"
+      }
+     },
+     "par_annee_dev_val": {
+      "2020": -0.298803,
+      "2021": 0.183836,
+      "2022": 0.000176,
+      "2023": 0.010436
+     },
+     "dsr_dev_val": 0.0
+    }
+   },
+   "retenue": {
+    "variante": "passive",
+    "dsr_dev_val": 0.0,
+    "sharpe_max_attendu_hasard_journalier": 0.311119,
+    "pire_baisse_dev_val": -0.378964,
+    "p_bootstrap_retenue_pas_mieux_que_passive": null,
+    "tests_avant_controle": {
+     "rendement_val": true,
+     "sharpe_val": true,
+     "stress_val": true,
+     "liquidations": false,
+     "dsr": false,
+     "pire_baisse_dev_val": false,
+     "controle": true
+    }
+   },
+   "liquidation_quotidienne": {
+    "toute_periode": {
+     "hausse_intrajour_max": 2.019538,
+     "date_max": "2020-03-13",
+     "jours_repli_dernier_prix": 0,
+     "levier_1": {
+      "seuil_hausse": 0.992,
+      "jours_liquides": 1
+     },
+     "levier_2": {
+      "seuil_hausse": 0.494,
+      "jours_liquides": 1
+     },
+     "levier_3": {
+      "seuil_hausse": 0.328,
+      "jours_liquides": 1
+     },
+     "levier_5": {
+      "seuil_hausse": 0.1952,
+      "jours_liquides": 11
+     }
+    },
+    "toute_periode_mark_price": {
+     "hausse_intrajour_max": 0.308808,
+     "date_max": "2021-01-03",
+     "jours_repli_dernier_prix": 3,
+     "levier_1": {
+      "seuil_hausse": 0.992,
+      "jours_liquides": 0
+     },
+     "levier_2": {
+      "seuil_hausse": 0.494,
+      "jours_liquides": 0
+     },
+     "levier_3": {
+      "seuil_hausse": 0.328,
+      "jours_liquides": 0
+     },
+     "levier_5": {
+      "seuil_hausse": 0.1952,
+      "jours_liquides": 10
+     }
+    },
+    "simulation_retenue_liquidations": 1
+   },
+   "sensibilite_mark_price_post_hoc": {
+    "liquidations": 0,
+    "developpement": {
+     "rendement_total": 0.348184,
+     "rendement_annuel": 0.104789,
+     "volatilite": 0.011767,
+     "sharpe": 8.462313,
+     "pire_baisse": -0.010844,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.520192,
+     "annees_positives": "2/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.38514,
+     "couts_sur_capital": 0.031657,
+     "debut": "2020-01-01",
+     "fin": "2022-12-31"
+    },
+    "validation": {
+     "rendement_total": 0.038473,
+     "rendement_annuel": 0.038607,
+     "volatilite": 0.002941,
+     "sharpe": 12.840077,
+     "pire_baisse": -0.000481,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.520192,
+     "annees_positives": "1/1",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.056717,
+     "couts_sur_capital": 0.003788,
+     "debut": "2023-01-01",
+     "fin": "2023-12-31"
+    },
+    "controle": {
+     "rendement_total": 0.085811,
+     "rendement_annuel": 0.030465,
+     "volatilite": 0.00312,
+     "sharpe": 9.604271,
+     "pire_baisse": -0.00446,
+     "trades": 1,
+     "reussite": 1.0,
+     "profit_factor": null,
+     "esperance_trade": 0.520192,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.141249,
+     "couts_sur_capital": 0.020809,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "pire_baisse_dev_val": -0.010844,
+    "dsr_dev_val": 0.999425,
+    "par_annee": {
+     "2020": 0.132818,
+     "2021": 0.194523,
+     "2022": -0.00369,
+     "2023": 0.038473,
+     "2024": 0.062423,
+     "2025": 0.018761,
+     "2026": 0.003194
+    }
+   },
+   "controle": {
+    "ouvert_le": "2026-10-20T17:30:01+00:00",
+    "premiere_ouverture": false,
+    "retenue": {
+     "rendement_total": 0.085811,
+     "rendement_annuel": 0.030465,
+     "volatilite": 0.00312,
+     "sharpe": 9.604271,
+     "pire_baisse": -0.00446,
+     "trades": 1,
+     "reussite": 0.0,
+     "profit_factor": 0.0,
+     "esperance_trade": -0.049936,
+     "annees_positives": "3/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.088275,
+     "couts_sur_capital": 0.013005,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "retenue_stress_x3": {
+     "rendement_total": 0.055879,
+     "rendement_annuel": 0.020018,
+     "volatilite": 0.003888,
+     "sharpe": 5.091069,
+     "pire_baisse": -0.007139,
+     "trades": 1,
+     "reussite": 0.0,
+     "profit_factor": 0.0,
+     "esperance_trade": -0.130962,
+     "annees_positives": "2/3",
+     "part_temps_expose": 1.0,
+     "liquidations": 0,
+     "funding_encaisse_sur_capital": 0.08235,
+     "couts_sur_capital": 0.03619,
+     "debut": "2024-01-01",
+     "fin": "2026-09-29"
+    },
+    "par_annee": {
+     "2024": 0.062423,
+     "2025": 0.018761,
+     "2026": 0.003194
+    },
+    "toutes_variantes": {
+     "passive": {
+      "rendement_total": 0.085811,
+      "rendement_annuel": 0.030465,
+      "volatilite": 0.00312,
+      "sharpe": 9.604271,
+      "pire_baisse": -0.00446,
+      "trades": 1,
+      "reussite": 0.0,
+      "profit_factor": 0.0,
+      "esperance_trade": -0.049936,
+      "annees_positives": "3/3",
+      "part_temps_expose": 1.0,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.088275,
+      "couts_sur_capital": 0.013005,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N3_in10_out0": {
+      "rendement_total": 0.059263,
+      "rendement_annuel": 0.021208,
+      "volatilite": 0.003725,
+      "sharpe": 5.626178,
+      "pire_baisse": -0.007808,
+      "trades": 10,
+      "reussite": 0.4,
+      "profit_factor": 12.954477,
+      "esperance_trade": 0.00742,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.515454,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.069256,
+      "couts_sur_capital": 0.021354,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N3_in20_out0": {
+      "rendement_total": 0.05657,
+      "rendement_annuel": 0.020261,
+      "volatilite": 0.002792,
+      "sharpe": 7.173414,
+      "pire_baisse": -0.001392,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.034581,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.301097,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.052393,
+      "couts_sur_capital": 0.005615,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N21_in10_out0": {
+      "rendement_total": 0.061494,
+      "rendement_annuel": 0.021992,
+      "volatilite": 0.003117,
+      "sharpe": 6.969368,
+      "pire_baisse": -0.002277,
+      "trades": 4,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.018687,
+      "annees_positives": "3/3",
+      "part_temps_expose": 0.431705,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.063457,
+      "couts_sur_capital": 0.010812,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     },
+     "cond_N21_in20_out0": {
+      "rendement_total": 0.054924,
+      "rendement_annuel": 0.019682,
+      "volatilite": 0.002851,
+      "sharpe": 6.827419,
+      "pire_baisse": -0.002378,
+      "trades": 2,
+      "reussite": 1.0,
+      "profit_factor": null,
+      "esperance_trade": 0.032639,
+      "annees_positives": "2/3",
+      "part_temps_expose": 0.307079,
+      "liquidations": 0,
+      "funding_encaisse_sur_capital": 0.051107,
+      "couts_sur_capital": 0.005792,
+      "debut": "2024-01-01",
+      "fin": "2026-09-29"
+     }
+    }
+   },
+   "statut": "non validée",
+   "par_annee_toute_periode": {
+    "passive": {
+     "2020": -0.292031,
+     "2021": 0.194523,
+     "2022": -0.00369,
+     "2023": 0.038473,
+     "2024": 0.062423,
+     "2025": 0.018761,
+     "2026": 0.003194
+    },
+    "cond_N3_in10_out0": {
+     "2020": -0.297614,
+     "2021": 0.181557,
+     "2022": -0.021346,
+     "2023": 0.023493,
+     "2024": 0.059648,
+     "2025": 0.001377,
+     "2026": -0.001738
+    },
+    "cond_N3_in20_out0": {
+     "2020": -0.297745,
+     "2021": 0.181467,
+     "2022": 5.1e-05,
+     "2023": 0.017205,
+     "2024": 0.053861,
+     "2025": 0.002571,
+     "2026": 0.0
+    },
+    "cond_N21_in10_out0": {
+     "2020": -0.294012,
+     "2021": 0.186853,
+     "2022": -0.000248,
+     "2023": 0.030696,
+     "2024": 0.056045,
+     "2025": 0.00494,
+     "2026": 0.000219
+    },
+    "cond_N21_in20_out0": {
+     "2020": -0.298803,
+     "2021": 0.183836,
+     "2022": 0.000176,
+     "2023": 0.010436,
+     "2024": 0.052254,
+     "2025": 0.002538,
+     "2026": 0.0
+    }
+   },
+   "achat_conservation": {
+    "developpement": {
+     "rendement_total": 8.260839,
+     "rendement_annuel": 1.101055,
+     "volatilite": 0.986235,
+     "sharpe": 1.259508,
+     "pire_baisse": -0.793027,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "2/3"
+    },
+    "validation": {
+     "rendement_total": 0.907711,
+     "rendement_annuel": 0.911947,
+     "volatilite": 0.468521,
+     "sharpe": 1.611354,
+     "pire_baisse": -0.27331,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "1/1"
+    },
+    "controle": {
+     "rendement_total": 0.17359,
+     "rendement_annuel": 0.060084,
+     "volatilite": 0.680705,
+     "sharpe": 0.42186,
+     "pire_baisse": -0.67553,
+     "trades": 0,
+     "reussite": null,
+     "profit_factor": null,
+     "esperance_trade": null,
+     "esperance_R": null,
+     "exposition_moyenne": null,
+     "annees_positives": "1/3"
+    },
+    "par_annee": {
+     "2020": 4.70161,
+     "2021": 3.992015,
+     "2022": -0.67463,
+     "2023": 0.907711,
+     "2024": 0.462739,
+     "2025": -0.109693,
+     "2026": -0.098824
+    }
+   }
+  }
+ },
+ "essais": {
+  "n": 10,
+  "variance_sharpe_journalier_dev_val": 0.03904,
+  "pbo_dev_val_10_variantes": 0.059524
+ },
+ "sans_risque": "0 %/an par HYPOTHÈSE (aucune série de taux chargée) ; un placement monétaire réel a rapporté davantage en 2023-2025."
+}
