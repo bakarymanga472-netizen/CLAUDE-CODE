@@ -15,8 +15,8 @@ import pandas as pd
 
 DOSSIER = Path(__file__).resolve().parent.parent / "data" / "labo"
 BINANCE = "https://data-api.binance.vision/api/v3/klines"
-MS = {"1d": 86_400_000, "4h": 14_400_000, "1h": 3_600_000}
-BARRES_PAR_JOUR = {"1d": 1, "4h": 6, "1h": 24}
+MS = {"1d": 86_400_000, "4h": 14_400_000, "2h": 7_200_000, "1h": 3_600_000, "5m": 300_000}
+BARRES_PAR_JOUR = {"1d": 1, "4h": 6, "2h": 12, "1h": 24, "5m": 288}
 
 
 def _get(url):
