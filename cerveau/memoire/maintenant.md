@@ -15,4 +15,4 @@ _Dernière mise à jour : 2026-10-15_
 - Vérifier `/context` et `/usage` après une semaine.
 
 ## Bloqué / en attente
-- Push GitHub refusé (403) sur CLAUDE-CODE : accès GitHub à reconnecter.
+- (Résolu 2026-10-21 : push GitHub de nouveau OK.) PR #1 (branche `claude/instagram-video-uga8ko`) à merger dans `main` pour que skills et règles valent dans toutes les sessions.

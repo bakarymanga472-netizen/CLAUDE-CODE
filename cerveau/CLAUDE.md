@@ -14,6 +14,7 @@ Contexte métier dans `cerveau/contexte/` : lis seulement le fichier dont la tâ
 - Tâche floue ou longue → propose le mode plan avant d'écrire.
 
 ## Méthode : boucle jusqu'à l'objectif (toute demande)
+Toute demande avec un résultat à atteindre → charge le skill `objectif` (étapes 0 cadrer, 1 recherche web des outils, 2 inventaire des outils internes, 3 itérer jusqu'au critère en visant au-delà, 4 résultat vérifié sur données récentes : 2025-2026 pour le trading). Principes :
 1. Reformule l'objectif en critère vérifiable (test, chiffre, sortie attendue). Flou → le préciser avant d'agir.
 2. Mobilise tous les outils utiles : skills (dont `trader-*` pour tout bot/agent de trading), plugins, MCP, sous-agents, scripts de `scripts/`.
    Et toute la connaissance déjà acquise : mémoire (`cerveau/memoire/`, `cerveau/contexte/`), contexte et résultats des projets (`projets/*/contexte.md`, backtests, journaux de suivi papier), historique Git. Ne refais pas ce qui a déjà été testé ; pars des conclusions existantes et cite-les.
