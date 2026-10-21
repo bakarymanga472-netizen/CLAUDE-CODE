@@ -45,17 +45,29 @@ def desk_rebond(px, seuil, n=2, filtre=200):
 
 
 def desk_risque(px, signal, vol_cible=0.15, fenetre=60):
-    """Volatilité cible : chaque position est dimensionnée pour viser `vol_cible` annualisée sur le portefeuille,
-    à risque égal entre actifs, sans levier (somme des poids ≤ 100 %)."""
+    """Volatilité cible au niveau du PORTEFEUILLE : poids à risque égal (1/vol), puis mise à l'échelle avec la
+    matrice de covariance glissante (corrélations comprises), sans levier (somme des poids ≤ 100 %).
+    Corrigé après audit (anomalies 10 et 11) : l'ancienne version divisait par √n comme si les actifs étaient indépendants,
+    et imposait min_periods=40 même pour une fenêtre plus courte."""
     rend = px.pct_change()
-    vol = rend.rolling(fenetre, min_periods=40).std() * np.sqrt(365)
-    actifs = signal.notna() & px.notna() & vol.notna()
-    n = actifs.sum(axis=1).clip(lower=1)
-    poids = signal * (vol_cible / vol).clip(upper=3.0)
-    poids = poids.div(np.sqrt(n), axis=0).fillna(0.0)
+    mp = min(40, fenetre)
+    vol = rend.rolling(fenetre, min_periods=mp).std() * np.sqrt(365)
+    brut = (signal / vol).where(signal.notna() & px.notna() & vol.notna(), 0.0).fillna(0.0)
+    cov = rend.rolling(fenetre, min_periods=mp).cov() * 365
+    poids = pd.DataFrame(0.0, index=px.index, columns=px.columns)
+    for t in px.index:
+        w = brut.loc[t]
+        if w.abs().sum() == 0:
+            continue
+        try:
+            c = cov.loc[t].reindex(index=w.index, columns=w.index).fillna(0.0)
+        except KeyError:
+            continue
+        vp = float(np.sqrt(max(w.values @ c.values @ w.values, 0.0)))
+        if vp > 0:
+            poids.loc[t] = w * (vol_cible / vp)
     total = poids.sum(axis=1)
-    poids = poids.div(total.clip(lower=1.0), axis=0)        # pas de levier
-    return poids
+    return poids.div(total.clip(lower=1.0), axis=0)          # pas de levier
 
 
 def poids_egaux(signal):

@@ -1,0 +1,12 @@
+//@version=5
+// Labo — Tendance (momentum de série temporelle). Réplique de labo/strategies/tendance.py
+// Graphique : BINANCE:BTCUSDT, unité 1D. Exécution à l'ouverture de la barre suivante (comme le moteur Python).
+strategy("Labo Tendance", overlay=true, initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.15,
+     slippage=0, pyramiding=0, process_orders_on_close=false)
+jours = input.int(90, "Lookback (barres)", options=[30, 90, 180])
+signal = close / close[jours] - 1 > 0
+if signal and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+if strategy.position_size > 0 and not signal
+    strategy.close("Long")

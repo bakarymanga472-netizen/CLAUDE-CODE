@@ -1,0 +1,644 @@
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.307, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.74, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.66, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.298, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.999, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.848, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.222, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.934, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.603, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": -0.061, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.03, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:42+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.192, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.418, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.737, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.785, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.407, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.309, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.973, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.285, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:43+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.967, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:44+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.676, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:44+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -0.894, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:44+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -1.12, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:44+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -1.342, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:45+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.268, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:45+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.641, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:46+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.731, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:46+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.27, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:47+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.161, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:47+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.096, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:48+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.325, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:48+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.979, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:49+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.661, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:49+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -1.094, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:50+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -1.697, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:39:51+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -3.281, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.307, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.74, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.66, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.298, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.999, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.848, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 1.222, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.934, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.603, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": -0.061, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.03, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "b8ab886f48468540", "sharpe_dev_val": 0.192, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:20+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.418, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.737, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.785, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.407, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.309, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.973, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 1.285, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.967, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": 0.676, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:21+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -0.894, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:22+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -1.12, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:22+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "25746113f8f021b1", "sharpe_dev_val": -1.342, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:22+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.268, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:23+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.641, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:23+00:00", "instrument": "BTCUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.731, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:24+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.27, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:24+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.161, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:25+00:00", "instrument": "BTCUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.096, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:25+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 1.325, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:26+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.979, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:26+00:00", "instrument": "BTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": 0.661, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:27+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -1.094, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:28+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -1.697, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T02:42:28+00:00", "instrument": "BTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "9598ea31702fc234", "sharpe_dev_val": -3.281, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:40+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.368, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:40+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.535, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.402, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.289, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.145, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.319, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.37, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.341, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.463, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.033, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.144, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:26:41+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.2, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.368, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.535, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.402, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.289, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.145, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.319, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.37, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.341, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.463, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.033, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.144, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:25+00:00", "instrument": "GLD", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "f7b66bafce3ae12a", "sharpe_dev_val": 0.2, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.303, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.397, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.663, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.46, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.253, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.628, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.411, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.433, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:42+00:00", "instrument": "SPY", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.681, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:43+00:00", "instrument": "SPY", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.307, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:43+00:00", "instrument": "SPY", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.319, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:27:43+00:00", "instrument": "SPY", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "53022d7b748d9bf2", "sharpe_dev_val": 0.321, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.222, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.438, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.206, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.423, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.292, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.329, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.42, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.522, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.234, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:01+00:00", "instrument": "TLT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.214, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:02+00:00", "instrument": "TLT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.269, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:02+00:00", "instrument": "TLT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "36165dc23f7d879e", "sharpe_dev_val": 0.282, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.004, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.296, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": -0.022, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.046, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.057, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:18+00:00", "instrument": "EURUSD=X", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.118, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": -0.054, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.149, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": 0.109, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": -0.233, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": -0.2, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:19+00:00", "instrument": "EURUSD=X", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "3ddf2ff7290d1173", "sharpe_dev_val": -0.211, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": -0.013, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.232, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.083, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.217, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.328, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.35, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.181, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.245, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": 0.142, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": -0.008, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:35+00:00", "instrument": "USDJPY=X", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": -0.1, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:36+00:00", "instrument": "USDJPY=X", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "73733c7d70726530", "sharpe_dev_val": -0.001, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 1.111, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.907, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.831, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 1.033, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.919, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.999, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:52+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 1.1, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:53+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.974, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:53+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.744, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:53+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": -0.022, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:53+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.148, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:28:53+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "3250264d4c9cb191", "sharpe_dev_val": 0.133, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:31+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 1.253, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:31+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 0.993, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:31+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 0.816, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 1.217, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 1.035, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 1.014, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 1.145, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 0.996, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:32+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": 0.771, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:33+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": -0.147, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:33+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": -0.358, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:29:33+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "b6f9216d3d10dfaf", "sharpe_dev_val": -0.795, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:56+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 1.139, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:57+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 0.963, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:58+00:00", "instrument": "ETHUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 0.745, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:58+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 1.371, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:59+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 1.033, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:31:59+00:00", "instrument": "ETHUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 0.947, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:00+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 1.152, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:01+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 0.981, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:01+00:00", "instrument": "ETHUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": 0.743, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:02+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": -1.1, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:03+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": -1.805, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:32:04+00:00", "instrument": "ETHUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "5b8dbe334bb01e30", "sharpe_dev_val": -2.702, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 1.166, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.882, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.495, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 1.101, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.943, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.525, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 1.133, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.864, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.529, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.376, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": 0.246, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:34:26+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "a4a615036271e3d8", "sharpe_dev_val": -0.097, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.127, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.902, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.487, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.159, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.034, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.87, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:07+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 1.307, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.927, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": 0.457, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.568, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:08+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.629, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:35:09+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "73c5ebf8901a4ad9", "sharpe_dev_val": -0.782, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:37+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 1.07, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:38+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 0.834, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:38+00:00", "instrument": "BNBUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 0.487, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:39+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 1.272, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:39+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 0.96, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:40+00:00", "instrument": "BNBUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 0.877, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:41+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 1.398, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:41+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 1.024, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:42+00:00", "instrument": "BNBUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": 0.535, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:43+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": -0.44, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:43+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": -1.203, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:37:44+00:00", "instrument": "BNBUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "e1d12619f8985a7f", "sharpe_dev_val": -2.47, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:09+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.303, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:09+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": -0.187, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:09+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.407, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:09+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.414, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:09+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.049, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.41, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.327, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": -0.246, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.223, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": 0.216, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": -0.122, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:10+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "7f30dd5921f9874e", "sharpe_dev_val": -0.25, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.451, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -0.209, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.318, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.441, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.16, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -0.016, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:46+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.346, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:47+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -0.252, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:47+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": 0.107, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:47+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -0.746, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:47+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -1.099, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:40:47+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "2945a12e0a5589fc", "sharpe_dev_val": -1.356, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:01+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.381, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:02+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": -0.286, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:02+00:00", "instrument": "XRPUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.274, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:03+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.563, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:03+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.394, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:04+00:00", "instrument": "XRPUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.156, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:04+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.405, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:05+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": -0.171, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:06+00:00", "instrument": "XRPUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": 0.125, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:06+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": -0.481, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:07+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": -1.036, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:43:08+00:00", "instrument": "XRPUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "12efd1074cc87ffb", "sharpe_dev_val": -1.743, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.187, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.275, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.096, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.274, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.499, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.144, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.668, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.347, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:22+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.009, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:23+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.121, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:23+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": -0.31, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:23+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "4b6572931287fa51", "sharpe_dev_val": 0.115, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:57+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.247, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:57+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.328, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:57+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.142, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.565, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.604, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.122, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.769, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": 0.401, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:58+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": -0.005, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:59+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": -0.365, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:59+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": -0.575, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:45:59+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "d74172b93c9c1491", "sharpe_dev_val": -0.986, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:12+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.122, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:13+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.305, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:13+00:00", "instrument": "LTCUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.134, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:14+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.342, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:14+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.792, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:15+00:00", "instrument": "LTCUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.29, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:16+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.86, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:16+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.475, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:17+00:00", "instrument": "LTCUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": 0.065, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:17+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": -0.152, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:18+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": -0.503, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:48:19+00:00", "instrument": "LTCUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "962c98b3521e4805", "sharpe_dev_val": -1.234, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 30}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 2.085, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 90}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.189, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 180}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.694, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 20}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.58, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 55}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.731, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 100}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.979, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.811, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.432, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 1.222, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 0.389, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 0.15, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:50:40+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1d", "donnees": "9fe8f29010fc8d7b", "sharpe_dev_val": 0.27, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 30}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.911, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 90}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.411, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 180}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.729, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 20}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.595, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 55}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.853, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 100}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 2.071, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.895, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.455, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:03+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 1.163, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:04+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": 0.279, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:04+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": -0.114, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:51:04+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|4h", "donnees": "d28d94fb2b4b7160", "sharpe_dev_val": -0.143, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:29+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 30}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.965, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:29+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 90}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.393, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:30+00:00", "instrument": "SOLUSDT", "experience": "tendance|{\"jours\": 180}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.775, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:30+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 20}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.532, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:31+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 55}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 2.034, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:31+00:00", "instrument": "SOLUSDT", "experience": "cassure|{\"jours\": 100}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 2.009, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:31+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 10, \"long\": 50}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 2.072, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:32+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 20, \"long\": 100}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.685, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:32+00:00", "instrument": "SOLUSDT", "experience": "croisement_mm|{\"court\": 50, \"long\": 200}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 1.227, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:33+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 5}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": 0.454, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:33+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 10}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": -0.459, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T17:52:34+00:00", "instrument": "SOLUSDT", "experience": "rebond_rsi|{\"seuil\": 20}|1h", "donnees": "cb084b828a754568", "sharpe_dev_val": -1.863, "criteres": "criteres-v1-2026-10-20"}
+{"date": "2026-10-20T19:07:40+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.26657183685494934}
+{"date": "2026-10-20T19:07:40+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.26587511025572774}
+{"date": "2026-10-20T19:07:41+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.24592516605387782}
+{"date": "2026-10-20T19:07:42+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.25517788271786623}
+{"date": "2026-10-20T19:07:43+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.24057101738922523}
+{"date": "2026-10-20T19:07:43+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.26249814635477137}
+{"date": "2026-10-20T19:08:02+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.16755979651846695}
+{"date": "2026-10-20T19:08:03+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.17618651794758958}
+{"date": "2026-10-20T19:08:03+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.14882985474275665}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.16255013869913731}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.17504245151631748}
+{"date": "2026-10-20T19:08:04+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.15930805332377965}
+{"date": "2026-10-20T19:08:13+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.14472615977094805}
+{"date": "2026-10-20T19:08:13+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.1316311261326714}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.09755897179750196}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.11964181114925133}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.08846356873081934}
+{"date": "2026-10-20T19:08:14+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.10472940037972865}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.13519573514069275}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.11435379986446396}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.17796517706161177}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.09149516393279926}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.20857825818620357}
+{"date": "2026-10-20T19:08:16+00:00", "instrument": "videos:SOLUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.18542255686984824}
+{"date": "2026-10-20T19:08:52+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.4834420042500339}
+{"date": "2026-10-20T19:08:53+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.4693491679722006}
+{"date": "2026-10-20T19:08:54+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.40887647588653653}
+{"date": "2026-10-20T19:08:55+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.42736575940490484}
+{"date": "2026-10-20T19:08:56+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.4458271854387289}
+{"date": "2026-10-20T19:08:56+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.4495455487252268}
+{"date": "2026-10-20T19:09:15+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.33334509101303655}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.2957635232383984}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.25832634062901993}
+{"date": "2026-10-20T19:09:16+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.2911194654979723}
+{"date": "2026-10-20T19:09:17+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.29229914302370924}
+{"date": "2026-10-20T19:09:17+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.27959969411799535}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.25829705925281626}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.2707536097894757}
+{"date": "2026-10-20T19:09:26+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.24341493083486312}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.21975435511922856}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.27298451681154856}
+{"date": "2026-10-20T19:09:27+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.2708682191422485}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.0724579107861338}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.01801216690041812}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.14748973006703406}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.0636158295761124}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": 0.04236341518903616}
+{"date": "2026-10-20T19:09:28+00:00", "instrument": "videos:BTCUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.09231172246683306}
+{"date": "2026-10-20T19:10:09+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.3402196264568111}
+{"date": "2026-10-20T19:10:10+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.30830867951030233}
+{"date": "2026-10-20T19:10:11+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.2863931064491413}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.30913625873226197}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.33233063810298763}
+{"date": "2026-10-20T19:10:12+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.30032370849273}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.2558156142267234}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.22370119643335576}
+{"date": "2026-10-20T19:10:33+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.2039357212398114}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.23390601214974902}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.20844617940529267}
+{"date": "2026-10-20T19:10:34+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.22585916833783076}
+{"date": "2026-10-20T19:10:43+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": -0.17384912463968463}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": -0.17251453768663183}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": -0.20329464783002496}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": -0.16692372475657416}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.1574741788435504}
+{"date": "2026-10-20T19:10:44+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": -0.19055025024787633}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H1", "donnees": "-", "R_test": 0.05264069972813758}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H2", "donnees": "-", "R_test": 0.06464225014361968}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H3", "donnees": "-", "R_test": 0.028205475649799226}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H4", "donnees": "-", "R_test": 0.10605866397203573}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|H5", "donnees": "-", "R_test": -0.09250818673522493}
+{"date": "2026-10-20T19:10:46+00:00", "instrument": "videos:ETHUSDT", "experience": "roro|{\"atr_mult\": 1.0, \"tp_R\": 1.5}|base", "donnees": "-", "R_test": 0.028205475649799226}
+{"date": "2026-10-20T19:12:11+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.024636027141396892}
+{"date": "2026-10-20T19:12:12+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.0798604163456419}
+{"date": "2026-10-20T19:12:13+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.04212186390737608}
+{"date": "2026-10-20T19:12:13+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.022448460901936036}
+{"date": "2026-10-20T19:12:14+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.059503492057662345}
+{"date": "2026-10-20T19:12:14+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.059503492057662345}
+{"date": "2026-10-20T19:12:22+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.0319102001912634}
+{"date": "2026-10-20T19:12:22+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.047597357260057704}
+{"date": "2026-10-20T19:12:23+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.03493012690285997}
+{"date": "2026-10-20T19:12:23+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.01733736550751974}
+{"date": "2026-10-20T19:12:24+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.07470053111969471}
+{"date": "2026-10-20T19:12:24+00:00", "instrument": "videos:EURUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.07470053111969471}
+{"date": "2026-10-20T19:12:36+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2911135847472777}
+{"date": "2026-10-20T19:12:37+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2174836344613158}
+{"date": "2026-10-20T19:12:38+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.0950601731255639}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.16446630229240375}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11790689245343704}
+{"date": "2026-10-20T19:12:39+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21381723918616943}
+{"date": "2026-10-20T19:12:49+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.28609252737030644}
+{"date": "2026-10-20T19:12:50+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.22946819604010685}
+{"date": "2026-10-20T19:12:51+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14913757832275515}
+{"date": "2026-10-20T19:12:51+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.18472798951232355}
+{"date": "2026-10-20T19:12:52+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13405711465589262}
+{"date": "2026-10-20T19:12:52+00:00", "instrument": "videos:EURUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23885520484835374}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": 0.033216646065152}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.11844650445987946}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.020400941891897395}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.07057445394890312}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.05564965888926229}
+{"date": "2026-10-20T19:13:13+00:00", "instrument": "videos:EURUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.044320510313873594}
+{"date": "2026-10-20T19:14:34+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14067220952385434}
+{"date": "2026-10-20T19:14:35+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.14407301306734258}
+{"date": "2026-10-20T19:14:35+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.09498904048237183}
+{"date": "2026-10-20T19:14:36+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14059975250130982}
+{"date": "2026-10-20T19:14:37+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11660448781851641}
+{"date": "2026-10-20T19:14:37+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.11660448781851641}
+{"date": "2026-10-20T19:14:44+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.1465391469339196}
+{"date": "2026-10-20T19:14:44+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.16815962880077182}
+{"date": "2026-10-20T19:14:45+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1603006607227934}
+{"date": "2026-10-20T19:14:45+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.17507814921316203}
+{"date": "2026-10-20T19:14:46+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1528320476331324}
+{"date": "2026-10-20T19:14:46+00:00", "instrument": "videos:GBPUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.1528320476331324}
+{"date": "2026-10-20T19:14:58+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.3158658400352977}
+{"date": "2026-10-20T19:14:58+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.21936204645745813}
+{"date": "2026-10-20T19:14:59+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.08456188584821082}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.13669549265110886}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1858596000474839}
+{"date": "2026-10-20T19:15:00+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21853447783589527}
+{"date": "2026-10-20T19:15:11+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.30837007777612596}
+{"date": "2026-10-20T19:15:11+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2765336766890711}
+{"date": "2026-10-20T19:15:12+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.0993743444302022}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.13067147570182855}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1798236466259895}
+{"date": "2026-10-20T19:15:13+00:00", "instrument": "videos:GBPUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.21701060608334719}
+{"date": "2026-10-20T19:15:33+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.05735265685171317}
+{"date": "2026-10-20T19:15:33+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.20260260428511537}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1025667131396436}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.12200839280707751}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1002543743434481}
+{"date": "2026-10-20T19:15:34+00:00", "instrument": "videos:GBPUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.08363482179906614}
+{"date": "2026-10-20T19:16:50+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14048306638694832}
+{"date": "2026-10-20T19:16:50+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.07734987410916146}
+{"date": "2026-10-20T19:16:51+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.1329690291668263}
+{"date": "2026-10-20T19:16:51+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.08716884916203696}
+{"date": "2026-10-20T19:16:52+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.15037460108374381}
+{"date": "2026-10-20T19:16:52+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.15037460108374381}
+{"date": "2026-10-20T19:17:00+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.12575133129404484}
+{"date": "2026-10-20T19:17:00+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.04807438986528074}
+{"date": "2026-10-20T19:17:01+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13818045379246868}
+{"date": "2026-10-20T19:17:01+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.06684536648862409}
+{"date": "2026-10-20T19:17:02+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.11623360937391713}
+{"date": "2026-10-20T19:17:02+00:00", "instrument": "videos:AUDUSD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.11623360937391713}
+{"date": "2026-10-20T19:17:13+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2965435027088656}
+{"date": "2026-10-20T19:17:14+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2183627644526319}
+{"date": "2026-10-20T19:17:15+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.08134059451298056}
+{"date": "2026-10-20T19:17:15+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14351368566713996}
+{"date": "2026-10-20T19:17:16+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.020321174166653057}
+{"date": "2026-10-20T19:17:16+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2039536665574761}
+{"date": "2026-10-20T19:17:26+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.33337625698927387}
+{"date": "2026-10-20T19:17:27+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2452753171842909}
+{"date": "2026-10-20T19:17:27+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.09330515914676467}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.20438278346817604}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.009960906029606099}
+{"date": "2026-10-20T19:17:28+00:00", "instrument": "videos:AUDUSD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2224176054378168}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.08502441659517435}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.1223741799471513}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.11622058010535544}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.058391553026306275}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13668137055055524}
+{"date": "2026-10-20T19:17:48+00:00", "instrument": "videos:AUDUSD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.10815700363447353}
+{"date": "2026-10-20T19:19:06+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.07886141053507972}
+{"date": "2026-10-20T19:19:07+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.07308384296833907}
+{"date": "2026-10-20T19:19:07+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.053286324553848005}
+{"date": "2026-10-20T19:19:08+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.14021636093114073}
+{"date": "2026-10-20T19:19:09+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.05886111683736162}
+{"date": "2026-10-20T19:19:09+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.05886111683736162}
+{"date": "2026-10-20T19:19:17+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.07351811159775119}
+{"date": "2026-10-20T19:19:17+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.09373565983784407}
+{"date": "2026-10-20T19:19:18+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.024670965784107}
+{"date": "2026-10-20T19:19:18+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1589725393135943}
+{"date": "2026-10-20T19:19:19+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.058930144054633385}
+{"date": "2026-10-20T19:19:19+00:00", "instrument": "videos:USDJPY", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.058930144054633385}
+{"date": "2026-10-20T19:19:30+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.3091337724859526}
+{"date": "2026-10-20T19:19:31+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.21034461589572806}
+{"date": "2026-10-20T19:19:32+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14299347740116422}
+{"date": "2026-10-20T19:19:32+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1813951422484816}
+{"date": "2026-10-20T19:19:33+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.059537608439761774}
+{"date": "2026-10-20T19:19:33+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23297855088402536}
+{"date": "2026-10-20T19:19:43+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.2856120999074935}
+{"date": "2026-10-20T19:19:44+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.22601315678241735}
+{"date": "2026-10-20T19:19:44+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.17413820369632688}
+{"date": "2026-10-20T19:19:45+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.1464466052159432}
+{"date": "2026-10-20T19:19:46+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.05514962311552328}
+{"date": "2026-10-20T19:19:46+00:00", "instrument": "videos:USDJPY", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.23598710603301554}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": 0.01215252782429743}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.016964240591972345}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.06047258526287186}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.005673308682396152}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.019626976665649644}
+{"date": "2026-10-20T19:20:05+00:00", "instrument": "videos:USDJPY", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.05480864064050006}
+{"date": "2026-10-20T19:21:22+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14725805729034755}
+{"date": "2026-10-20T19:21:22+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.020938009609202904}
+{"date": "2026-10-20T19:21:23+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13000820907032587}
+{"date": "2026-10-20T19:21:23+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.058400372075241506}
+{"date": "2026-10-20T19:21:24+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.13353219958593354}
+{"date": "2026-10-20T19:21:24+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 2, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.13353219958593354}
+{"date": "2026-10-20T19:21:32+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14293571328374807}
+{"date": "2026-10-20T19:21:32+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.0002356545954500714}
+{"date": "2026-10-20T19:21:33+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.10445694667944096}
+{"date": "2026-10-20T19:21:33+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.03395085472387055}
+{"date": "2026-10-20T19:21:34+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.14213294295613071}
+{"date": "2026-10-20T19:21:34+00:00", "instrument": "videos:USDCAD", "experience": "deleuze|{\"n\": 3, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.14213294295613071}
+{"date": "2026-10-20T19:21:46+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.36050510297389543}
+{"date": "2026-10-20T19:21:47+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.2634377940603528}
+{"date": "2026-10-20T19:21:48+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.14933534345172544}
+{"date": "2026-10-20T19:21:48+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.17697046480067663}
+{"date": "2026-10-20T19:21:49+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.16036583293492873}
+{"date": "2026-10-20T19:21:49+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 20, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.2782259523240488}
+{"date": "2026-10-20T19:22:00+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.36887592339281106}
+{"date": "2026-10-20T19:22:01+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.27308952665619685}
+{"date": "2026-10-20T19:22:02+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.20548876774580585}
+{"date": "2026-10-20T19:22:02+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.20070516931463347}
+{"date": "2026-10-20T19:22:03+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1845685893859489}
+{"date": "2026-10-20T19:22:03+00:00", "instrument": "videos:USDCAD", "experience": "kasper|{\"lookback\": 50, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.28864146628735377}
+{"date": "2026-10-20T19:22:21+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.022236625796324894}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.21268603001967065}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.17643518217162352}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.012834678501140685}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.13132712936285398}
+{"date": "2026-10-20T19:22:22+00:00", "instrument": "videos:USDCAD", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.16387518987996863}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.12303529936105044}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.009432802215331989}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": 0.07751926818237845}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": -0.2150814762924023}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": 0.07062039192702485}
+{"date": "2026-10-20T19:22:23+00:00", "instrument": "videos:SOLUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": 0.05752281961480817}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.05092392452729051}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": 0.21795081798104357}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.036322997691563934}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.0625604017796352}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.02293217724666004}
+{"date": "2026-10-20T19:22:25+00:00", "instrument": "videos:BTCUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.016867655012672317}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H1", "donnees": "-", "R_test": -0.14564072911990758}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H2", "donnees": "-", "R_test": -0.055755256728262016}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H3", "donnees": "-", "R_test": -0.13424455236699306}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H4", "donnees": "-", "R_test": 0.049278787724210585}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|H5", "donnees": "-", "R_test": -0.1912789386745778}
+{"date": "2026-10-20T19:22:27+00:00", "instrument": "videos:ETHUSDT", "experience": "nico (approximation)|{\"atr_mult\": 2.0, \"tp_R\": 2.0}|base", "donnees": "-", "R_test": -0.17110035385537098}
+{"date": "2026-10-20T19:28:22+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_choix": 0.6036923317501921}
+{"date": "2026-10-20T19:28:22+00:00", "instrument": "combine:etf16", "experience": "A10|K5|L1", "donnees": "-", "sharpe_choix": 0.5072073692173579}
+{"date": "2026-10-20T19:28:22+00:00", "instrument": "combine:etf16", "experience": "B5|K5|L1", "donnees": "-", "sharpe_choix": 0.6726929521308359}
+{"date": "2026-10-20T19:28:22+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_choix": 0.7283709060173544}
+{"date": "2026-10-20T19:28:29+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_tout": 0.7199842448001046}
+{"date": "2026-10-20T19:28:30+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L2", "donnees": "-", "sharpe_tout": 0.6718000410853737}
+{"date": "2026-10-20T19:28:30+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L3", "donnees": "-", "sharpe_tout": 0.6448052279396296}
+{"date": "2026-10-20T19:28:30+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L4", "donnees": "-", "sharpe_tout": 0.6280065830024711}
+{"date": "2026-10-20T19:29:06+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_choix": 0.6036923317501921}
+{"date": "2026-10-20T19:29:06+00:00", "instrument": "combine:etf16", "experience": "A10|K5|L1", "donnees": "-", "sharpe_choix": 0.5072073692173579}
+{"date": "2026-10-20T19:29:06+00:00", "instrument": "combine:etf16", "experience": "B5|K5|L1", "donnees": "-", "sharpe_choix": 0.6726929521308359}
+{"date": "2026-10-20T19:29:06+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_choix": 0.7283709060173544}
+{"date": "2026-10-20T19:29:13+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_tout": 0.7199842448001046}
+{"date": "2026-10-20T19:29:13+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L2", "donnees": "-", "sharpe_tout": 0.6718000410853737}
+{"date": "2026-10-20T19:29:14+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L3", "donnees": "-", "sharpe_tout": 0.6448052279396296}
+{"date": "2026-10-20T19:29:14+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L4", "donnees": "-", "sharpe_tout": 0.6280065830024711}
+{"date": "2026-10-20T19:29:14+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L6", "donnees": "-", "sharpe_tout": 0.6065559196247732}
+{"date": "2026-10-20T19:29:14+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L10", "donnees": "-", "sharpe_tout": 0.5838148305639489}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_tout": 0.6271853928064832}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L2", "donnees": "-", "sharpe_tout": 0.5789790843072237}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L3", "donnees": "-", "sharpe_tout": 0.5477257472856295}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L4", "donnees": "-", "sharpe_tout": 0.5276076575699823}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L6", "donnees": "-", "sharpe_tout": 0.5025378827043204}
+{"date": "2026-10-20T19:29:20+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L10", "donnees": "-", "sharpe_tout": 0.4765417210078556}
+{"date": "2026-10-20T19:29:31+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_choix": 0.6036923317501921}
+{"date": "2026-10-20T19:29:31+00:00", "instrument": "combine:etf16", "experience": "A10|K5|L1", "donnees": "-", "sharpe_choix": 0.5072073692173579}
+{"date": "2026-10-20T19:29:31+00:00", "instrument": "combine:etf16", "experience": "B5|K5|L1", "donnees": "-", "sharpe_choix": 0.6726929521308359}
+{"date": "2026-10-20T19:29:32+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_choix": 0.7283709060173544}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_tout": 0.7199842448001046}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L2", "donnees": "-", "sharpe_tout": 0.6718000410853737}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L3", "donnees": "-", "sharpe_tout": 0.6448052279396296}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L4", "donnees": "-", "sharpe_tout": 0.6280065830024711}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L6", "donnees": "-", "sharpe_tout": 0.6065559196247732}
+{"date": "2026-10-20T19:29:39+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L10", "donnees": "-", "sharpe_tout": 0.5838148305639489}
+{"date": "2026-10-20T19:29:44+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_tout": 0.6271853928064832}
+{"date": "2026-10-20T19:29:44+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L2", "donnees": "-", "sharpe_tout": 0.5789790843072237}
+{"date": "2026-10-20T19:29:45+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L3", "donnees": "-", "sharpe_tout": 0.5477257472856295}
+{"date": "2026-10-20T19:29:45+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L4", "donnees": "-", "sharpe_tout": 0.5276076575699823}
+{"date": "2026-10-20T19:29:45+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L6", "donnees": "-", "sharpe_tout": 0.5025378827043204}
+{"date": "2026-10-20T19:29:45+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L10", "donnees": "-", "sharpe_tout": 0.4765417210078556}
+{"date": "2026-10-20T19:30:19+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_choix": 0.6036923317501921}
+{"date": "2026-10-20T19:30:19+00:00", "instrument": "combine:etf16", "experience": "A10|K5|L1", "donnees": "-", "sharpe_choix": 0.5072073692173579}
+{"date": "2026-10-20T19:30:19+00:00", "instrument": "combine:etf16", "experience": "B5|K5|L1", "donnees": "-", "sharpe_choix": 0.6726929521308359}
+{"date": "2026-10-20T19:30:19+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_choix": 0.7283709060173544}
+{"date": "2026-10-20T19:30:27+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L1", "donnees": "-", "sharpe_tout": 0.7199842448001046}
+{"date": "2026-10-20T19:30:28+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L2", "donnees": "-", "sharpe_tout": 0.6718000410853737}
+{"date": "2026-10-20T19:30:28+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L3", "donnees": "-", "sharpe_tout": 0.6448052279396296}
+{"date": "2026-10-20T19:30:28+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L4", "donnees": "-", "sharpe_tout": 0.6280065830024711}
+{"date": "2026-10-20T19:30:28+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L6", "donnees": "-", "sharpe_tout": 0.6065559196247732}
+{"date": "2026-10-20T19:30:28+00:00", "instrument": "combine:etf16", "experience": "B10|K5|L10", "donnees": "-", "sharpe_tout": 0.5838148305639489}
+{"date": "2026-10-20T19:30:34+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L1", "donnees": "-", "sharpe_tout": 0.6271853928064832}
+{"date": "2026-10-20T19:30:34+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L2", "donnees": "-", "sharpe_tout": 0.5789790843072237}
+{"date": "2026-10-20T19:30:34+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L3", "donnees": "-", "sharpe_tout": 0.5477257472856295}
+{"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L4", "donnees": "-", "sharpe_tout": 0.5276076575699823}
+{"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L6", "donnees": "-", "sharpe_tout": 0.5025378827043204}
+{"date": "2026-10-20T19:30:35+00:00", "instrument": "combine:etf16", "experience": "A5|K5|L10", "donnees": "-", "sharpe_tout": 0.4765417210078556}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C1|K5|L1", "donnees": "-", "sharpe_choix": 0.5225640733950018}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C1T|K5|L1", "donnees": "-", "sharpe_choix": 0.5091411173065766}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C05|K5|L1", "donnees": "-", "sharpe_choix": 0.478502973829409}
+{"date": "2026-10-20T19:36:23+00:00", "instrument": "combine:etf16", "experience": "C05T|K5|L1", "donnees": "-", "sharpe_choix": 0.4694811157360823}
+{"date": "2026-10-20T19:37:14+00:00", "instrument": "combine:etf16", "experience": "C1|K5|L1", "donnees": "-", "sharpe_choix": 0.5225640733950018}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C1T|K5|L1", "donnees": "-", "sharpe_choix": 0.5091411173065766}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C05|K5|L1", "donnees": "-", "sharpe_choix": 0.478502973829409}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "C05T|K5|L1", "donnees": "-", "sharpe_choix": 0.4694811157360823}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D1|K5|L1", "donnees": "-", "sharpe_choix": 0.5642847464385461}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D2|K5|L1", "donnees": "-", "sharpe_choix": 0.5448696377778879}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D3|K5|L1", "donnees": "-", "sharpe_choix": 0.3947783269981207}
+{"date": "2026-10-20T19:37:15+00:00", "instrument": "combine:etf16", "experience": "D4|K5|L1", "donnees": "-", "sharpe_choix": 0.573325169916164}
+{"date": "2026-10-20T19:43:13+00:00", "instrument": "combine:etf16", "experience": "D1+F1|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:43:13+00:00", "instrument": "combine:etf16", "experience": "D1+F2|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:43:13+00:00", "instrument": "combine:etf16", "experience": "D1+F3|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:43:13+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F2|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:43:13+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F3|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:43:14+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F2+F3|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:58+00:00", "instrument": "combine:etf16", "experience": "D1+F1|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:58+00:00", "instrument": "combine:etf16", "experience": "D1+F2|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:58+00:00", "instrument": "combine:etf16", "experience": "D1+F3|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:59+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F2|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:59+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F3|K5|L1", "donnees": "-"}
+{"date": "2026-10-20T19:44:59+00:00", "instrument": "combine:etf16", "experience": "D1+F1+F2+F3|K5|L1", "donnees": "-"}

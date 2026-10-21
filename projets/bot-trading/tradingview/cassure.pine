@@ -1,0 +1,13 @@
+//@version=5
+// Labo — Cassure de canal (Donchian). Réplique de labo/strategies/cassure.py
+// Graphique : BINANCE:BTCUSDT, unité 1D. Entrée : clôture > plus haut des N barres précédentes ; sortie : clôture < plus bas des N/2 précédentes.
+strategy("Labo Cassure", overlay=true, initial_capital=10000, default_qty_type=strategy.percent_of_equity,
+     default_qty_value=100, commission_type=strategy.commission.percent, commission_value=0.15,
+     slippage=0, pyramiding=0, process_orders_on_close=false)
+n = input.int(20, "N (barres)", options=[20, 55, 100])
+haut = ta.highest(high, n)[1]
+bas = ta.lowest(low, math.max(2, int(n / 2)))[1]
+if close > haut and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+if strategy.position_size > 0 and close < bas
+    strategy.close("Long")
