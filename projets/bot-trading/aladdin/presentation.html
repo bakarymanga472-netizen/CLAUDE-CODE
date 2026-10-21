@@ -1,0 +1,212 @@
+<title>Aladdin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Manrope:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : tableau de bord sombre en verre dépoli — en-tête, 4 indicateurs, courbe + journal, allocation, desks. Thème sombre assumé. */
+:root{
+  color-scheme:dark;
+  --bg:#0b0d16; --glass:rgba(255,255,255,.035); --line:rgba(255,255,255,.09);
+  --ink:#eef0f7; --muted:#8c91a8; --gold:#e9b949; --violet:#a98bff;
+  --up:#4cc38a; --down:#ef6b6b; --btc:#6f7591;
+  --f-display:"Sora",system-ui,sans-serif; --f-body:"Manrope",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{background:radial-gradient(1200px 600px at 10% -10%,rgba(169,139,255,.12),transparent 60%),radial-gradient(900px 500px at 110% 0%,rgba(233,185,73,.08),transparent 60%),var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;min-height:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-block:20px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:14px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:16px 18px;min-width:0}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:999px;padding:8px 18px 8px 8px;background:var(--glass)}
+.lamp{width:40px;height:40px;border-radius:12px;background:linear-gradient(140deg,#f3d27a,#b8862a);display:grid;place-items:center}
+.logo h1{font-family:var(--f-display);font-weight:700;font-size:26px;margin:0;letter-spacing:.02em}
+.logo h1 span{color:var(--gold)}
+.sub{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.live{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--up);box-shadow:0 0 10px var(--up)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.k .lab{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.k .val{font-family:var(--f-display);font-weight:600;font-size:30px;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.k .note{font-size:12.5px;color:var(--muted)}
+.up{color:var(--up)} .down{color:var(--down)}
+.mid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:14px}
+.ttl{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:10px;flex-wrap:wrap}
+.ttl b{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.ttl span{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:middle}
+svg{display:block;width:100%;height:auto}
+.log{font-family:var(--f-mono);font-size:12.5px;display:grid;gap:7px}
+.log div{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+.tag{font-size:10.5px;padding:2px 6px;border-radius:5px;border:1px solid currentColor}
+.alloc{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:56px 1fr 52px;gap:10px;align-items:center;font-family:var(--f-mono);font-size:12.5px}
+.bar .t{height:8px;border-radius:4px;background:rgba(255,255,255,.06);overflow:hidden}
+.bar .t i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--violet),var(--gold))}
+.bar .p{text-align:right;font-variant-numeric:tabular-nums}
+.desks{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.desk{text-align:center;padding:16px 10px;position:relative}
+.desk.on{border-color:rgba(233,185,73,.55);box-shadow:0 0 0 1px rgba(233,185,73,.25) inset}
+.desk .dot{position:absolute;left:14px;top:12px;width:22px;height:3px;border-radius:2px}
+.face{width:46px;height:46px;border-radius:50%;margin:8px auto 10px;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffffff,#9aa0ba 75%)}
+.face:before{content:"";width:16px;height:7px;background:radial-gradient(circle,#1a1d2b 2.6px,transparent 3px) 0 0/8px 7px repeat-x}
+.desk b{font-family:var(--f-display);font-size:14px;letter-spacing:.06em;display:block}
+.desk small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.foot{font-size:12.5px;color:var(--muted);line-height:1.5}
+.calc{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:16px}
+.champ{display:flex;align-items:center;gap:6px;border:1px solid rgba(233,185,73,.5);border-radius:12px;padding:6px 12px;background:rgba(233,185,73,.06)}
+.champ input{width:110px;background:none;border:0;color:var(--ink);font-family:var(--f-display);font-size:22px;font-weight:600;outline:none;font-variant-numeric:tabular-nums}
+.champ:focus-within{box-shadow:0 0 0 2px rgba(233,185,73,.45)}
+.res{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.res div{border-left:3px solid var(--line);padding:4px 0 4px 12px}
+.res small{display:block;color:var(--muted);font-size:12.5px}
+.res strong{display:block;font-family:var(--f-display);font-size:24px;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.res em{font-style:normal;font-size:13px}
+.mois-wrap{overflow-x:auto}
+.mois-liste{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;margin-top:10px;font-family:var(--f-mono);font-size:12px}
+.mois-liste span{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dashed var(--line);padding:3px 0}
+.aide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+.aide div{background:rgba(255,255,255,.025);border-radius:12px;padding:12px}
+.aide b{font-family:var(--f-display);font-size:13.5px}
+.aide p{margin:6px 0 0;font-size:13px;color:var(--muted);line-height:1.5}
+@media (max-width:900px){.res{grid-template-columns:1fr}.aide{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.aide{grid-template-columns:1fr}}
+@media (max-width:900px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.mid{grid-template-columns:1fr}.desks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:480px){.k .val{font-size:24px}.desks{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div style="display:grid;gap:6px">
+      <div class="logo"><div class="lamp"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c3 0 4-3 8-3h6c2 0 4-1 5-3-1 4-3 6-6 6H9c-1 0-2 1-2 2h8v2H5c-1-2-1-3-2-4z" fill="#1a1405"/></svg></div><h1>ALA<span>DDIN</span></h1></div>
+      <span class="sub">Salle des marchés · suivi papier</span>
+    </div>
+    <div style="display:grid;gap:6px;justify-items:end">
+      <div class="live"><i></i>EN DIRECT · PAPIER</div>
+      <span class="sub" id="maj"></span>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="card comprendre">
+    <div class="ttl"><b>Comprendre tes gains et pertes</b><span>2025-01-01 → aujourd'hui</span></div>
+    <div class="calc">
+      <label for="montant">Si j'avais mis</label>
+      <div class="champ"><input id="montant" type="number" min="10" step="10" value="1000" inputmode="numeric"><span>€</span></div>
+      <label for="montant">le 1er janvier 2025…</label>
+    </div>
+    <div class="res" id="res"></div>
+    <div class="ttl" style="margin-top:18px"><b>Mois par mois</b><div class="legend"><span><i style="background:var(--up)"></i>mois gagnant</span><span><i style="background:var(--down)"></i>mois perdant</span><span><i style="background:#3a3f55"></i>tout en cash</span></div></div>
+    <div class="mois-wrap"><svg id="mois" viewBox="0 0 1000 220" role="img" aria-label="Gain ou perte de chaque mois en euros"></svg></div>
+    <div class="mois-liste" id="moisListe"></div>
+    <div class="aide">
+      <div><b>Un trade</b><p id="exTrade"></p></div>
+      <div><b>Pire baisse</b><p>La plus grosse chute entre un sommet et un creux. C'est ce que tu dois être capable de supporter sans paniquer.</p></div>
+      <div><b>Mois à 0 €</b><p>Aucune crypto n'était en tendance : Aladdin était 100 % en cash. Il ne gagne rien, mais il ne perd rien non plus pendant que le BTC chute.</p></div>
+      <div><b>38 % de trades gagnants</b><p>Plus de trades perdants que gagnants, mais les pertes sont coupées vite et les gains durent : c'est ce qui rend le total positif.</p></div>
+    </div>
+  </section>
+
+  <section class="mid">
+    <div class="card">
+      <div class="ttl"><b>Valeur du portefeuille</b><div class="legend"><span><i style="background:var(--gold)"></i>Aladdin</span><span><i style="background:var(--btc)"></i>Garder du BTC</span></div></div>
+      <svg id="chart" viewBox="0 0 640 260" role="img" aria-label="Courbe de valeur Aladdin contre BTC depuis janvier 2025"></svg>
+      <div class="sub" style="margin-top:6px">Coffre-fort 2025 → aujourd'hui · données jamais vues pendant la sélection</div>
+    </div>
+    <div class="card">
+      <div class="ttl"><b>Journal des trades</b><span id="nbtrades"></span></div>
+      <div class="log" id="log"></div>
+    </div>
+  </section>
+
+  <section class="mid">
+    <div class="card">
+      <div class="ttl"><b>Allocation de demain</b><span id="jours"></span></div>
+      <div class="alloc" id="alloc"></div>
+    </div>
+    <div class="card">
+      <div class="ttl"><b>Test complet</b></div>
+      <div class="foot" id="wf"></div>
+    </div>
+  </section>
+
+  <section class="desks" id="desks"></section>
+  <p class="foot">Chiffres réels issus du backtest et du journal papier de <code>projets/bot-trading/aladdin</code>. Aucun argent réel engagé. Les performances passées ne garantissent rien.</p>
+</div>
+
+<script>
+const D = {"maj": "2026-10-14", "valeur": 10548.04, "rendement": 0.05480352383449549, "pire_baisse": -0.17074386928441931, "sharpe": 0.2514458086985442, "trades": 53, "gagnants": 20, "perdants": 33, "courbe": [["2025-01-05", 10328.0], ["2025-01-12", 10061.0], ["2025-01-19", 10520.0], ["2025-01-26", 10491.0], ["2025-02-02", 9951.0], ["2025-02-09", 9783.0], ["2025-02-16", 9922.0], ["2025-02-23", 9851.0], ["2025-03-02", 9731.0], ["2025-03-09", 9080.0], ["2025-03-16", 9052.0], ["2025-03-23", 9075.0], ["2025-03-30", 9041.0], ["2025-04-06", 9030.0], ["2025-04-13", 9030.0], ["2025-04-20", 9030.0], ["2025-04-27", 9034.0], ["2025-05-04", 9040.0], ["2025-05-11", 9132.0], ["2025-05-18", 9087.0], ["2025-05-25", 9117.0], ["2025-06-01", 9015.0], ["2025-06-08", 8999.0], ["2025-06-15", 8988.0], ["2025-06-22", 8912.0], ["2025-06-29", 9174.0], ["2025-07-06", 9305.0], ["2025-07-13", 10072.0], ["2025-07-20", 10935.0], ["2025-07-27", 11279.0], ["2025-08-03", 10516.0], ["2025-08-10", 11234.0], ["2025-08-17", 11419.0], ["2025-08-24", 11533.0], ["2025-08-31", 11181.0], ["2025-09-07", 11336.0], ["2025-09-14", 11800.0], ["2025-09-21", 11951.0], ["2025-09-28", 11544.0], ["2025-10-05", 12289.0], ["2025-10-12", 11779.0], ["2025-10-19", 11358.0], ["2025-10-26", 11749.0], ["2025-11-02", 11395.0], ["2025-11-09", 10748.0], ["2025-11-16", 10530.0], ["2025-11-23", 10452.0], ["2025-11-30", 10485.0], ["2025-12-07", 10510.0], ["2025-12-14", 10486.0], ["2025-12-21", 10402.0], ["2025-12-28", 10402.0], ["2026-01-04", 10459.0], ["2026-01-11", 10449.0], ["2026-01-18", 10453.0], ["2026-01-25", 10453.0], ["2026-02-01", 10453.0], ["2026-02-08", 10453.0], ["2026-02-15", 10453.0], ["2026-02-22", 10453.0], ["2026-03-01", 10453.0], ["2026-03-08", 10453.0], ["2026-03-15", 10453.0], ["2026-03-22", 10453.0], ["2026-03-29", 10453.0], ["2026-04-05", 10453.0], ["2026-04-12", 10453.0], ["2026-04-19", 10453.0], ["2026-04-26", 10453.0], ["2026-05-03", 10453.0], ["2026-05-10", 10453.0], ["2026-05-17", 10453.0], ["2026-05-24", 10453.0], ["2026-05-31", 10453.0], ["2026-06-07", 10453.0], ["2026-06-14", 10453.0], ["2026-06-21", 10417.0], ["2026-06-28", 10417.0], ["2026-07-05", 10417.0], ["2026-07-12", 10394.0], ["2026-07-19", 10394.0], ["2026-07-26", 10394.0], ["2026-08-02", 10351.0], ["2026-08-09", 10351.0], ["2026-08-16", 10394.0], ["2026-08-23", 10671.0], ["2026-08-30", 10575.0], ["2026-09-06", 10857.0], ["2026-09-13", 10619.0], ["2026-09-20", 10840.0], ["2026-09-27", 11137.0], ["2026-10-04", 11240.0], ["2026-10-11", 10820.0], ["2026-10-18", 10548.0]], "btc": [10399.0, 9995.0, 10713.0, 10849.0, 10329.0, 10198.0, 10161.0, 10176.0, 9966.0, 8535.0, 8730.0, 9100.0, 8710.0, 8291.0, 8855.0, 9005.0, 9911.0, 9967.0, 11007.0, 11254.0, 11524.0, 11168.0, 11178.0, 11163.0, 10674.0, 11455.0, 11545.0, 12590.0, 12397.0, 12624.0, 12074.0, 12611.0, 12412.0, 11998.0, 11444.0, 11749.0, 12186.0, 12182.0, 11858.0, 13054.0, 12153.0, 11485.0, 12111.0, 11686.0, 11071.0, 9965.0, 9179.0, 9553.0, 9556.0, 9321.0, 9373.0, 9298.0, 9676.0, 9622.0, 9903.0, 9163.0, 8137.0, 7435.0, 7277.0, 7151.0, 6954.0, 6974.0, 7698.0, 7174.0, 6979.0, 7298.0, 7479.0, 7802.0, 8315.0, 8306.0, 8691.0, 8189.0, 8147.0, 7789.0, 6695.0, 6951.0, 6693.0, 6298.0, 6729.0, 6743.0, 6842.0, 6914.0, 6720.0, 6861.0, 6650.0, 8218.0, 8212.0, 8494.0, 8124.0, 8582.0, 8930.0, 9148.0, 8856.0, 8635.0], "log": [{"actif": "XRP", "entree": "2026-09-03", "sortie": "2026-09-05", "r": -3.0}, {"actif": "XRP", "entree": "2026-09-06", "sortie": "2026-09-07", "r": -2.2}, {"actif": "XRP", "entree": "2026-09-14", "sortie": "2026-09-15", "r": -10.1}, {"actif": "BTC", "entree": "2026-09-14", "sortie": "2026-09-15", "r": -3.5}, {"actif": "BTC", "entree": "2026-09-18", "sortie": "2026-10-14", "r": 0.7}, {"actif": "ETH", "entree": "2026-08-21", "sortie": "2026-10-14", "r": -4.1}, {"actif": "SOL", "entree": "2026-08-20", "sortie": "2026-10-14", "r": 18.6}, {"actif": "BNB", "entree": "2026-08-20", "sortie": "2026-10-14", "r": 11.2}, {"actif": "XRP", "entree": "2026-09-18", "sortie": "2026-10-14", "r": -4.9}], "poids": {"BTC": 0.151, "ETH": 0.1064, "BNB": 0.1631, "SOL": 0.1005, "XRP": 0.0814}, "jours_live": 1, "wf": {"par_an": 0.223, "pire": -0.332, "sharpe": 1.37}};
+const fr = (n,d=0)=>n.toLocaleString('fr-FR',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pc = x=>(x>=0?'+':'')+fr(x*100,1)+' %';
+document.getElementById('maj').textContent='Dernière clôture : '+D.maj;
+const btcFin=D.btc[D.btc.length-1]/10000-1;
+document.getElementById('kpis').innerHTML=[
+ ['Valeur','$'+fr(D.valeur,0),'départ 10 000 $ au 1er janv. 2025',''],
+ ['Rendement',pc(D.rendement),'BTC sur la même période : '+pc(btcFin),D.rendement>=0?'up':'down'],
+ ['Trades gagnants',fr(D.gagnants/D.trades*100,0)+' %',D.gagnants+' gagnants · '+D.perdants+' perdants',''],
+ ['Pire baisse',pc(D.pire_baisse),'Sharpe '+fr(D.sharpe,2),'down']
+].map(([l,v,n,c])=>'<div class="card k"><div class="lab">'+l+'</div><div class="val '+c+'">'+v+'</div><div class="note">'+n+'</div></div>').join('');
+
+// Courbe
+const W=640,H=260,P={l:46,r:10,t:12,b:24};
+const a=D.courbe.map(x=>x[1]), b=D.btc, all=a.concat(b);
+const lo=Math.floor(Math.min(...all)/1000)*1000, hi=Math.ceil(Math.max(...all)/1000)*1000;
+const X=i=>P.l+i*(W-P.l-P.r)/(a.length-1), Y=v=>P.t+(hi-v)*(H-P.t-P.b)/(hi-lo);
+let s='';
+for(let v=lo;v<=hi;v+=2000){s+='<line x1="'+P.l+'" x2="'+(W-P.r)+'" y1="'+Y(v)+'" y2="'+Y(v)+'" stroke="rgba(255,255,255,.06)"/><text x="'+(P.l-8)+'" y="'+(Y(v)+4)+'" text-anchor="end" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+(v/1000)+'k</text>';}
+[0,Math.floor(a.length/2),a.length-1].forEach(i=>{s+='<text x="'+X(i)+'" y="'+(H-6)+'" text-anchor="'+(i?i==a.length-1?'end':'middle':'start')+'" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+D.courbe[i][0].slice(0,7)+'</text>';});
+const path=arr=>arr.map((v,i)=>(i?'L':'M')+X(i).toFixed(1)+','+Y(v).toFixed(1)).join('');
+s+='<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9b949" stop-opacity=".28"/><stop offset="1" stop-color="#e9b949" stop-opacity="0"/></linearGradient></defs>';
+s+='<path d="'+path(a)+'L'+X(a.length-1)+','+Y(lo)+'L'+X(0)+','+Y(lo)+'Z" fill="url(#g)"/>';
+s+='<path d="'+path(b)+'" fill="none" stroke="#6f7591" stroke-width="1.6" stroke-dasharray="4 3"/>';
+s+='<path d="'+path(a)+'" fill="none" stroke="#e9b949" stroke-width="2.2"/>';
+s+='<circle cx="'+X(a.length-1)+'" cy="'+Y(a[a.length-1])+'" r="4.5" fill="#0b0d16" stroke="#e9b949" stroke-width="2"/>';
+s+='<text x="'+(X(a.length-1)-8)+'" y="'+(Y(a[a.length-1])-10)+'" text-anchor="end" font-size="13" fill="#e9b949" font-family="Sora" font-weight="600">$'+fr(D.valeur,0)+'</text>';
+document.getElementById('chart').innerHTML=s;
+
+document.getElementById('nbtrades').textContent=D.trades+' trades depuis 2025';
+document.getElementById('log').innerHTML=D.log.slice().reverse().map(t=>{
+  const ouvert=t.sortie===D.maj, c=t.r>=0?'up':'down';
+  const tag=ouvert?'<span class="tag" style="color:var(--violet)">OUVERT</span>':'<span class="tag '+c+'">'+(t.r>=0?'GAIN':'PERTE')+'</span>';
+  return '<div>'+tag+'<span>'+t.actif+' · '+t.entree.slice(5)+' → '+(ouvert?'…':t.sortie.slice(5))+'</span><span class="'+c+'">'+(t.r>=0?'+':'')+fr(t.r,1)+' %</span></div>';
+}).join('');
+
+const poids=Object.entries(D.poids).sort((x,y)=>y[1]-x[1]); const cash=1-poids.reduce((s,x)=>s+x[1],0);
+poids.push(['CASH',cash]);
+document.getElementById('jours').textContent='suivi en direct : jour '+D.jours_live;
+document.getElementById('alloc').innerHTML=poids.map(([k,v])=>'<div class="bar"><span>'+k+'</span><span class="t"><i style="width:'+(v*100).toFixed(1)+'%'+(k==='CASH'?';background:#3a3f55':'')+'"></i></span><span class="p">'+fr(v*100,1)+' %</span></div>').join('');
+
+document.getElementById('wf').innerHTML='<b style="color:var(--ink)">Walk-forward 2017-2024</b> (choix chaque année avec le passé seulement) : '+pc(D.wf.par_an)+'/an, pire baisse '+pc(D.wf.pire)+', Sharpe '+fr(D.wf.sharpe,2)+'.<br><br><b style="color:var(--ink)">48 structures testées</b>. Retenue : momentum 120 jours sur 5 cryptos, taille ajustée au risque.<br><br><b style="color:var(--ink)">Pourquoi pas 99 % de réussite</b> : vendre à +1 % donne 97 % de trades gagnants mais moitié moins de gains que garder le BTC.';
+
+// ---- Comprendre gains et pertes ----
+const MOIS = [["2025-01",0.0506,0.0829],["2025-02",-0.1202,-0.1765],["2025-03",-0.023,-0.0213],["2025-04",-0.0023,0.1408],["2025-05",-0.0007,0.1106],["2025-06",0.0195,0.0244],["2025-07",0.1763,0.0804],["2025-08",0.0356,-0.0649],["2025-09",0.037,0.0536],["2025-10",-0.0206,-0.0389],["2025-11",-0.0767,-0.1756],["2025-12",-0.0077,-0.03],["2026-01",0.0047,-0.1016],["2026-02",0,-0.1494],["2026-03",0,0.0196],["2026-04",0,0.1181],["2026-05",0,-0.035],["2026-06",-0.0034,-0.2043],["2026-07",-0.0022,0.0727],["2026-08",0.0236,0.2495],["2026-09",0.0378,0.0642],["2026-10",-0.0446,-0.0232]];
+const NOMS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+const eur=x=>(x>=0?'+':'−')+fr(Math.abs(x),0)+' €';
+function comprendre(){
+  let m=parseFloat(document.getElementById('montant').value); if(!(m>0)) m=1000;
+  const bas=Math.min(10000,...D.courbe.map(x=>x[1]));
+  const fin=m*(1+D.rendement), pire=m*bas/10000, btc=m*(1+btcFin);
+  document.getElementById('res').innerHTML=
+   '<div style="border-color:'+(fin>=m?'var(--up)':'var(--down)')+'"><small>Aujourd\'hui avec Aladdin</small><strong>'+fr(fin,0)+' €</strong><em class="'+(fin>=m?'up':'down')+'">'+eur(fin-m)+'</em></div>'+
+   '<div style="border-color:var(--down)"><small>Ton point le plus bas (fin de semaine)</small><strong>'+fr(pire,0)+' €</strong><em class="down">'+eur(pire-m)+' par rapport à ta mise · plus forte chute depuis un sommet : '+pc(D.pire_baisse)+'</em></div>'+
+   '<div style="border-color:var(--btc)"><small>Si tu avais juste gardé du BTC</small><strong>'+fr(btc,0)+' €</strong><em class="'+(btc>=m?'up':'down')+'">'+eur(btc-m)+'</em></div>';
+  // barres mensuelles en euros (gain/perte du mois sur la valeur du début de mois)
+  let v=m; const g=MOIS.map(([d,r])=>{const x=v*r; v*=1+r; return [d,x,r];});
+  const W=1000,H=220,P={l:60,r:30,t:10,b:26}, mx=Math.max(...g.map(x=>Math.abs(x[1])))||1;
+  const bw=(W-P.l-P.r)/g.length, Y0=P.t+(H-P.t-P.b)/2, sc=(H-P.t-P.b)/2/mx;
+  let s='<line x1="'+P.l+'" x2="'+(W-P.r)+'" y1="'+Y0+'" y2="'+Y0+'" stroke="rgba(255,255,255,.18)"/>';
+  [mx,-mx].forEach(t=>{s+='<text x="'+(P.l-8)+'" y="'+(Y0-t*sc+4)+'" text-anchor="end" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+eur(t)+'</text>';});
+  g.forEach(([d,x,r],i)=>{const h=Math.max(Math.abs(x)*sc,r===0?2:1), y=x>=0?Y0-h:Y0, c=r===0?'#3a3f55':x>=0?'#4cc38a':'#ef6b6b';
+    const nm=NOMS[+d.slice(5)-1]+' '+d.slice(2,4);
+    s+='<rect x="'+(P.l+i*bw+2).toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+(bw-4).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2" fill="'+c+'"><title>'+nm+' : '+eur(x)+' ('+pc(r)+')</title></rect>';
+    if(i%3===0) s+='<text x="'+(P.l+i*bw+bw/2)+'" y="'+(H-8)+'" text-anchor="middle" font-size="10" fill="#8c91a8" font-family="JetBrains Mono">'+nm+'</text>';});
+  document.getElementById('mois').innerHTML=s;
+  document.getElementById('moisListe').innerHTML=g.map(([d,x,r])=>'<span><em style="font-style:normal">'+NOMS[+d.slice(5)-1]+' '+d.slice(0,4)+'</em><b class="'+(r===0?'':x>=0?'up':'down')+'">'+(r===0?'cash':eur(x))+'</b></span>').join('');
+  const sol=D.log.find(t=>t.actif==='SOL')||D.log[0], wSol=D.poids[sol.actif]||0.1;
+  document.getElementById('exTrade').textContent=sol.actif+' a fait '+(sol.r>=0?'+':'')+fr(sol.r,1)+' %, mais Aladdin n\'y avait mis que '+fr(wSol*100,0)+' % du portefeuille : sur '+fr(m,0)+' €, ça fait '+eur(m*wSol*sol.r/100)+'.';
+}
+document.getElementById('montant').addEventListener('input',comprendre);
+comprendre();
+
+const desks=[['MOMENTUM','retenu · 120 j',1,'#e9b949'],['MOYENNES','testé · écarté',0,'#6f9cff'],['REBOND','testé · écarté',0,'#f0a35e'],['RISQUE','vol cible 15 %',1,'#4cc38a'],['COMITÉ','walk-forward',1,'#ef6b6b'],['LIVE','journal papier',1,'#a98bff']];
+document.getElementById('desks').innerHTML=desks.map(([n,s,on,c])=>'<div class="card desk'+(on?' on':'')+'"><span class="dot" style="background:'+c+'"></span><div class="face"></div><b>'+n+'</b><small>'+s+'</small></div>').join('');
+</script>

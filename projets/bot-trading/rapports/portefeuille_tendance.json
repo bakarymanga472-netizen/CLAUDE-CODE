@@ -1,0 +1,230 @@
+{
+ "regle": {
+  "version": "portefeuille-tendance-v1-2026-10-21",
+  "lookbacks": [
+   30,
+   90,
+   180
+  ],
+  "vol_portefeuille": 0.2,
+  "historique_min_jours": 400,
+  "covariance_jours": 90,
+  "levier_max": 1.0
+ },
+ "periodes": {
+  "developpement (≤2021)": {
+   "tendance (règle)": {
+    "rendement_annuel": 0.16689014356935616,
+    "volatilite": 0.1283141876540496,
+    "sharpe": 1.2658822696450627,
+    "pire_baisse": -0.1971171975045336,
+    "annees_positives": "4/5"
+   },
+   "tendance coûts ×3": {
+    "rendement_annuel": 0.13024658730565464,
+    "volatilite": 0.1284430773759034,
+    "sharpe": 1.0165518408402814,
+    "pire_baisse": -0.22006398478042088,
+    "annees_positives": "4/5"
+   },
+   "tendance retard 1 jour": {
+    "rendement_annuel": 0.18071274165185258,
+    "volatilite": 0.12835165696974493,
+    "sharpe": 1.3571736022789231,
+    "pire_baisse": -0.1770711143662952,
+    "annees_positives": "4/5"
+   },
+   "référence : toujours investi, même risque": {
+    "rendement_annuel": 0.2078930339767704,
+    "volatilite": 0.11535576026671857,
+    "sharpe": 1.6935696334141352,
+    "pire_baisse": -0.14180014671120333,
+    "annees_positives": "4/5"
+   },
+   "sensibilité : crypto seulement": {
+    "rendement_annuel": 0.14613898255094093,
+    "volatilite": 0.1680486993686391,
+    "sharpe": 0.8955013692259914,
+    "pire_baisse": -0.3504412140905333,
+    "annees_positives": "3/5"
+   },
+   "sensibilité : + FX long/short (swap NON modélisé)": {
+    "rendement_annuel": -0.05064522709713293,
+    "volatilite": 0.05214686360230525,
+    "sharpe": -0.9692921929195528,
+    "pire_baisse": -0.2670603355401103,
+    "annees_positives": "1/5"
+   },
+   "référence : parts égales achetées-gardées": {
+    "rendement_annuel": 0.7946462484826116,
+    "volatilite": 0.5406160069646089,
+    "sharpe": 1.3552059218429697,
+    "pire_baisse": -0.6550622010332889,
+    "annees_positives": "4/5"
+   }
+  },
+  "validation 2022-2023": {
+   "tendance (règle)": {
+    "rendement_annuel": 0.04614033695248487,
+    "volatilite": 0.18049801987089822,
+    "sharpe": 0.3392964657436244,
+    "pire_baisse": -0.2240283854068671,
+    "annees_positives": "1/2"
+   },
+   "tendance coûts ×3": {
+    "rendement_annuel": -0.049781698782835115,
+    "volatilite": 0.1810368548403738,
+    "sharpe": -0.19127331666069253,
+    "pire_baisse": -0.34687191288352304,
+    "annees_positives": "1/2"
+   },
+   "tendance retard 1 jour": {
+    "rendement_annuel": 0.08203319349024141,
+    "volatilite": 0.18167764053153243,
+    "sharpe": 0.5236623186412349,
+    "pire_baisse": -0.19328751960103674,
+    "annees_positives": "1/2"
+   },
+   "référence : toujours investi, même risque": {
+    "rendement_annuel": 0.04002096819212553,
+    "volatilite": 0.13915624415471714,
+    "sharpe": 0.35088050817830435,
+    "pire_baisse": -0.22721535425411887,
+    "annees_positives": "1/2"
+   },
+   "sensibilité : crypto seulement": {
+    "rendement_annuel": 0.04287454465427176,
+    "volatilite": 0.17166508960571364,
+    "sharpe": 0.3294536873760881,
+    "pire_baisse": -0.1965986453515688,
+    "annees_positives": "1/2"
+   },
+   "sensibilité : + FX long/short (swap NON modélisé)": {
+    "rendement_annuel": 0.02692054624436535,
+    "volatilite": 0.07664888425064408,
+    "sharpe": 0.38403133184643246,
+    "pire_baisse": -0.13484439831331974,
+    "annees_positives": "2/2"
+   },
+   "référence : parts égales achetées-gardées": {
+    "rendement_annuel": -0.04561818341283508,
+    "volatilite": 0.45306477384640004,
+    "sharpe": 0.12449616476116927,
+    "pire_baisse": -0.5579907578187497,
+    "annees_positives": "1/2"
+   }
+  },
+  "hors échantillon WF 2019-2023": {
+   "tendance (règle)": {
+    "rendement_annuel": 0.19174990049322238,
+    "volatilite": 0.16164919071712863,
+    "sharpe": 1.1648477974756717,
+    "pire_baisse": -0.2873313665787517,
+    "annees_positives": "4/5"
+   },
+   "tendance coûts ×3": {
+    "rendement_annuel": 0.12097586634914026,
+    "volatilite": 0.16197129412981803,
+    "sharpe": 0.7851994707219878,
+    "pire_baisse": -0.41189266036473315,
+    "annees_positives": "4/5"
+   },
+   "tendance retard 1 jour": {
+    "rendement_annuel": 0.21516636018547786,
+    "volatilite": 0.16325040353549847,
+    "sharpe": 1.27415254754387,
+    "pire_baisse": -0.23780689003533428,
+    "annees_positives": "4/5"
+   },
+   "référence : toujours investi, même risque": {
+    "rendement_annuel": 0.19607556513131907,
+    "volatilite": 0.1396704593198654,
+    "sharpe": 1.3505837959184335,
+    "pire_baisse": -0.2684933516116107,
+    "annees_positives": "4/5"
+   },
+   "sensibilité : crypto seulement": {
+    "rendement_annuel": 0.1612484327832775,
+    "volatilite": 0.1896306899898279,
+    "sharpe": 0.8827716704302583,
+    "pire_baisse": -0.35044121409053297,
+    "annees_positives": "4/5"
+   },
+   "sensibilité : + FX long/short (swap NON modélisé)": {
+    "rendement_annuel": -0.03893696658251378,
+    "volatilite": 0.06492180073233897,
+    "sharpe": -0.578560761860151,
+    "pire_baisse": -0.26342184799947377,
+    "annees_positives": "2/5"
+   },
+   "référence : parts égales achetées-gardées": {
+    "rendement_annuel": 0.6893374153875984,
+    "volatilite": 0.5321019426389278,
+    "sharpe": 1.2547472392883687,
+    "pire_baisse": -0.6392336982036338,
+    "annees_positives": "4/5"
+   }
+  },
+  "2024 → aujourd'hui (déjà vu instrument par instrument)": {
+   "tendance (règle)": {
+    "rendement_annuel": 0.22030422729165777,
+    "volatilite": 0.15031057678359871,
+    "sharpe": 1.39781585669455,
+    "pire_baisse": -0.10422281796695343,
+    "annees_positives": "3/3"
+   },
+   "tendance coûts ×3": {
+    "rendement_annuel": 0.16028052975232332,
+    "volatilite": 0.150328753709153,
+    "sharpe": 1.0625529992741172,
+    "pire_baisse": -0.11275938403688412,
+    "annees_positives": "3/3"
+   },
+   "tendance retard 1 jour": {
+    "rendement_annuel": 0.24704496451231917,
+    "volatilite": 0.15663747655702728,
+    "sharpe": 1.485788968255589,
+    "pire_baisse": -0.13156932542282251,
+    "annees_positives": "3/3"
+   },
+   "référence : toujours investi, même risque": {
+    "rendement_annuel": 0.20384390261048568,
+    "volatilite": 0.2163583530781016,
+    "sharpe": 0.9642496975153636,
+    "pire_baisse": -0.26325234072128556,
+    "annees_positives": "2/3"
+   },
+   "sensibilité : crypto seulement": {
+    "rendement_annuel": 0.10149474786486978,
+    "volatilite": 0.17972038594787088,
+    "sharpe": 0.6266047240037752,
+    "pire_baisse": -0.20216937084813447,
+    "annees_positives": "3/3"
+   },
+   "sensibilité : + FX long/short (swap NON modélisé)": {
+    "rendement_annuel": 0.011496344822997884,
+    "volatilite": 0.07774819050480014,
+    "sharpe": 0.18558208251368055,
+    "pire_baisse": -0.09934983705442346,
+    "annees_positives": "2/3"
+   },
+   "référence : parts égales achetées-gardées": {
+    "rendement_annuel": 0.23274603122143422,
+    "volatilite": 0.3825583760357859,
+    "sharpe": 0.7375327004451626,
+    "pire_baisse": -0.4539138960416137,
+    "annees_positives": "2/3"
+   }
+  }
+ },
+ "dsr": {
+  "essais": 253,
+  "dsr_var_nulle": 0.4068076519451151
+ },
+ "p_superiorite_vs_toujours_investi": 0.684,
+ "p_superiorite_vs_toujours_investi_2024plus": 0.087,
+ "statut": "non validée",
+ "raisons": [
+  "DSR 0.41 < 0,95 avec 253 essais"
+ ]
+}

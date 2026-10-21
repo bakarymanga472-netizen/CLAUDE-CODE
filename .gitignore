@@ -1,0 +1,27 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Obsidian : état local de l'interface (garde la config partagée si tu veux)
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+
+# Claude Code : réglages locaux personnels
+.claude/settings.local.json
+
+# Système / éditeurs
+.DS_Store
+Thumbs.db
+*.swp
+projets/*/data/
+__pycache__/
+projets/*/audit/donnees/
+projets/*/memoire/*/index.db
+
+# Skills trader-* : état local (portefeuille, ordres, config SEC) — jamais dans Git
+/trader/
+projets/*/trader/

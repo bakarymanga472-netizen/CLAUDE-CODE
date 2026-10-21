@@ -1,0 +1,53 @@
+{
+  "model": "opusplan",
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/node_modules/**)"
+    ],
+    "ask": [
+      "mcp__alpaca__place_stock_order",
+      "mcp__alpaca__place_crypto_order",
+      "mcp__alpaca__place_option_order",
+      "mcp__alpaca__close_position",
+      "mcp__alpaca__close_all_positions",
+      "mcp__alpaca__exercise_options_position"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/session-start.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "skillOverrides": {
+    "task-observer": "user-invocable-only"
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
+  }
+}
