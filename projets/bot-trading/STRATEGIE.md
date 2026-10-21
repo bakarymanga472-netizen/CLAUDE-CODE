@@ -1,70 +1,97 @@
-# Stratégie finale « Équilibrée » — synthèse de 10 tours de recherche (2026-10-21)
+# Plan d'investissement « Équilibrée » — version finale (2026-10-21)
 
-**But** : meilleurs rendements que le marché (SPY) tout en perdant moins que lui. Backtests frais inclus, aucun argent réel.
-Résultats détaillés : `rapports/combo3.md`, `rapports/fusion.md`, `rapports/strategie_finale.md`. Historique : `contexte.md`.
+Synthèse de 15 tours de recherche (plus de 1 000 variantes testées). Backtests frais inclus ; aucun argent réel engagé.
+Détails : `rapports/` (combo3, fusion, strategie_finale, optim_pertes, x5_recherche, macro) et `contexte.md`.
 
-## 1. Architecture
+## 0. Objectif et réalité
+
+| | Valeur |
+|---|---|
+| Capital de départ | 5 000 € |
+| Objectif | **500 € de gains par mois** |
+| Rendement réaliste de la stratégie | ≈ +1,1 %/mois en moyenne (+14,8 %/an sur 5 ans), avec des mois négatifs |
+| Capital nécessaire pour 500 €/mois en moyenne | **≈ 46 000 €** |
+| Chemin | la stratégie fait travailler le capital, **l'épargne mensuelle le fait grossir** |
+
+500 €/mois avec 5 000 € = +10 %/mois : aucun test ne l'a approché durablement (le meilleur fonds de l'histoire : ≈ +5 %/mois au mieux, avant frais).
+
+## 1. Architecture (inchangée, validée)
 
 ```
 Capital
-├── 75 % — Bloc RENDEMENT (C3, labo/combo3.py), à parts égales :
-│   ├── Bot haute réussite : 50 % portefeuille de tendance + 50 % achat des replis D1F1 ×2 sur 40 ETF
+├── 75 % — Bloc RENDEMENT (C3), à parts égales :
+│   ├── Bot haute réussite : 50 % portefeuille de tendance + 50 % achat des replis D1F1 ×2 (40 ETF)
 │   ├── Rotation : les 3 ETF les plus forts sur 12 mois (hors dernier mois), au-dessus de leur MM200
 │   └── QQQ ×2 quand QQQ > sa MM200, sinon bons du Trésor
-└── 25 % — Bloc STABILITÉ (labo/strategie_finale.py, moteurs choisis sur 2008-2015, poids ∝ 1/volatilité) :
-    ├── Bot haute réussite        ├── Jour de décision de la Fed (SPY)
-    ├── Saisonnalité Halloween     ├── SPY si MM50 > MM200, sinon obligations IEF
-    └── D1F1 ×2
+└── 25 % — Bloc STABILITÉ (poids ∝ 1/volatilité) :
+    bot haute réussite · jour de décision Fed · saisonnalité Halloween · SPY MM50/MM200 · D1F1 ×2
 ```
-Rééquilibrage : chaque fin de mois, retour à 75 / 25 et aux poids internes.
+Rééquilibrage chaque fin de mois (75 / 25 et poids internes). Levier global : **×1**.
 
-## 2. Ce qu'on a gardé, et pourquoi (les bons côtés)
+## 2. Résultats attendus (backtest, rendement/an / pire baisse)
 
-| Élément | Apport mesuré |
+| Période | Équilibrée | SPY gardé |
+|---|---|---|
+| 2008-2015 | +9,4 % / -16 % | +6,5 % / -52 % |
+| 2016-2021 | +16,6 % / -22 % | +17,3 % / -34 % |
+| 2022-2024 | +11,7 % / -15 % | +8,9 % / -24 % |
+| 2025 → 10/2026 | +20,8 % / -13 % | +17,6 % / -19 % |
+| **5 ans** | **+14,8 % / -17 %** (Sharpe 1,14) | +12,8 % / -24 % (Sharpe 0,85) |
+
+Réussite : 94 % des trades D1F1 gagnants ; ≈ 62 % de mois positifs. Durée des positions : D1F1 1 séance (médiane), QQQ ×2 ≈ 9 mois sur les gagnants, rotation ≥ 1 mois.
+
+## 3. Plan d'épargne vers 500 €/mois
+
+Simulation : 4 000 tirages des rendements mensuels réels de la stratégie (2008-2026), départ 5 000 €.
+
+| Versement mensuel | 500 €/mois atteint en (médiane) | Cas lent (1 sur 10) | Cas rapide (1 sur 10) | Capital à 5 ans (médiane) |
+|---|---|---|---|---|
+| 0 € | 17,7 ans | 24 ans | 13 ans | 9 218 € |
+| 200 € | 7,9 ans | 9,8 ans | 6,3 ans | 25 746 € |
+| **300 € (recommandé)** | **6,3 ans** | 7,8 ans | 5,2 ans | 34 034 € |
+| 500 € | 4,6 ans | 5,6 ans | 3,8 ans | 50 713 € |
+| 750 € | 3,4 ans | 4,1 ans | 2,9 ans | 71 684 € |
+
+Rejeu de l'historique réel (janvier 2016, 300 €/mois) : objectif atteint en juin 2021. Impôts (≈ 30 % en France, ou PEA/assurance-vie selon les supports) non modélisés.
+
+## 4. Phases
+
+| Phase | Durée | Ce qu'on fait | Critère pour passer à la suivante |
+|---|---|---|---|
+| 1. Démo (paper, Alpaca) | 3 mois minimum | Ordres simulés, journal quotidien, rapport mensuel | Écart avec le backtest raisonnable ; aucune erreur d'exécution ; tu tiens les règles |
+| 2. Réel prudent | 6 mois | 50 % du capital investi, ×1 | Pire baisse réelle ≤ 20 % ; règles respectées |
+| 3. Réel complet | ensuite | 100 % du capital, ×1, versement mensuel | Revue trimestrielle |
+| (Option) levier | après 12 mois réels | ×1,25 maximum, via compte sur marge | Pire baisse réelle ≤ 17 % sur 12 mois ; jamais ×5 (ruine démontrée, tour 14) |
+
+## 5. Règles de risque (non négociables)
+
+1. **Levier** : ×1 ; ×1,25 au maximum après 12 mois ; **jamais de CFD** (financement destructeur, tour 4) ; jamais ×5.
+2. **Disjoncteur de revue** : si le compte baisse de plus de 25 % depuis son plus haut (pire baisse backtest : -17 %), on **arrête les nouveaux achats et on analyse** avant de continuer — pas de vente de panique (tour 5 : vendre au creux coûte plus cher).
+3. **Pas d'intervention manuelle** sur les signaux, même sur actualité choquante : les filtres « actualité » et « avant la Fed » ont été testés et rejetés (tours 5-6).
+4. **Pas de nouveau moteur** ajouté sans test hors échantillon (le plafond observé, Sharpe ≈ 1,1-1,2, ne se dépasse pas en empilant des moteurs, tour 9).
+5. **Aucun ordre réel sans « oui » explicite** (configuration `ask` sur les outils d'ordre Alpaca).
+
+## 6. Routine
+
+- **Chaque jour (après la clôture de New York)** : signaux D1F1 (achats, ventes limites), QQQ vs MM200, portefeuille de tendance ; ordres pour la clôture suivante.
+- **Chaque fin de mois** : rotation, pondération 1/volatilité, retour à 75 / 25, versement mensuel investi.
+- **Chaque mois** : rapport (gains, baisse, écart au backtest) ; tableau des régimes macro (`python3 -m labo.macro`) **pour comprendre le contexte, pas pour trader**.
+- **Chaque trimestre** : revue des critères de phase.
+
+## 7. Ce qui a été écarté (et pourquoi)
+
+| Idée | Raison |
 |---|---|
-| Achat des replis D1F1 (RSI-2 < 5, vente limite +1 %) | 93-97 % de trades gagnants, pertes faibles hors chocs |
-| Portefeuille de tendance | Rendement régulier, peu corrélé aux actions |
-| Rotation momentum | Capte les secteurs/pays qui s'envolent (2025+ : +34 %/an seul) |
-| QQQ ×2 au-dessus de la MM200 | Moteur de gros gains, sort du marché dans les grandes baisses |
-| Combinaison de moteurs qui ne perdent pas en même temps | Pire baisse divisée par ~2 à rendement égal |
-| Levier via courtier sur marge, modéré | Transforme la régularité en rendement |
+| 98 % de réussite comme objectif | Un perdant efface ~9 gagnants ; Medallion gagnait 50,75 % de ses trades |
+| Levier ×4-×5 | 5 ans : 81-96 % de chances de perdre 50 % ; sélection réelle ×5 2011-2026 : +10,2 %/an, -60 % |
+| CFD | Financement sur toute la position : moins bon que sans levier |
+| Trading court terme (5 min à 1 h) | 288 essais, aucun validé ; frais et bruit |
+| Filtres actualité / Fed / ventes de panique | Gains concentrés sur une année, pertes ailleurs |
+| Corrections des pertes QQQ / rotation | Déplacent les pertes dans le temps sans les supprimer |
+| Stratégie « macro » par régimes | 5 ans +8,4 %/an : utile pour comprendre, pas pour battre le marché |
 
-## 3. Ce qu'on a écarté, et pourquoi (les mauvais côtés)
+## 8. Limites honnêtes
 
-| Élément | Raison (preuve) |
-|---|---|
-| Chercher 98 % de réussite | Mauvais indicateur : un perdant efface ~9 gagnants (tours 1-2) |
-| Levier via CFD | Financement sur toute la position : moins bon que sans levier (tour 4) |
-| Vendre au premier choc d'actualité | Vend au creux, rate le rebond : plus de perdants (tour 5) |
-| Filtre « pas d'achat avant la Fed » | Gain concentré sur 2022, moins bon 3 périodes sur 4 (tour 6) |
-| QQQ ×2 ou ×3 seul | Pire baisse -43 % à -59 % (tour 7) |
-| Fusionner 15 moteurs sans tri | Dilue le rendement (+7 à +10 %/an) (tour 9) |
-| Tendance obligations, rotation pays | Perdants ou faibles depuis 2022 (tour 9) |
-| Volatilité cible automatique | Coûts d'emprunt + retard : Sharpe 0,65 (tour 9) |
-
-## 4. Résultats (rendement/an / pire baisse)
-
-| Profil | 2008-2015 | 2016-2021 | 2022-2024 | 2025 → auj. | **5 ans** | 20 000 € (5 ans) |
-|---|---|---|---|---|---|---|
-| Dynamique (100 % C3) | +10,2 % / -21 % | +20,2 % / -26 % | +13,2 % / -19 % | +26,2 % / -16 % | +17,6 % / -22 % | 44 922 € |
-| **Équilibrée (75 / 25) ← retenue** | **+9,4 % / -16 %** | **+16,6 % / -22 %** | **+11,7 % / -15 %** | **+20,8 % / -13 %** | **+14,8 % / -17 %** | **39 913 €** |
-| Prudente (50 / 50) | +8,6 % / -11 % | +12,9 % / -17 % | +10,0 % / -11 % | +15,6 % / -10 % | +12,0 % / -12 % | 35 288 € |
-| SPY gardé | +6,5 % / -52 % | +17,3 % / -34 % | +8,9 % / -24 % | +17,6 % / -19 % | +12,8 % / -24 % | 36 492 € |
-
-Équilibrée : plus de rendement ET moins de baisse que le SPY sur 3 périodes sur 4 et sur 5 ans ; en 2016-2021 rendement légèrement inférieur (+16,6 % vs +17,3 %) mais baisse bien plus faible (-22 % vs -34 %). Sharpe 5 ans 1,14 (SPY 0,85). Gain moyen ≈ 1,15 %/mois (20 000 € → ≈ 230 €/mois la 1re année, avant impôts).
-
-## 5. Règles d'exploitation
-
-1. Décisions à la clôture, ordres exécutés à la clôture suivante (aucune information future).
-2. Fin de mois : recalcul de la rotation, de la pondération 1/volatilité, retour à 75 / 25.
-3. Chaque jour : signaux D1F1 (entrées, ventes limites), QQQ vs MM200, portefeuille de tendance.
-4. Levier : uniquement via compte sur marge (jamais CFD) ; QQQ ×2 via marge ou ETF ×2 (QLD).
-5. Pas de vente de panique : les règles de sortie sont celles du système, rien d'autre.
-6. Paper trading 3 mois minimum avant tout argent réel ; aucun ordre réel sans « oui » explicite.
-
-## 6. Limites honnêtes
-
-- Le bloc C3 a été conçu en ayant déjà vu 2016-2026 : une partie de son avance peut venir de ce regard en arrière.
-- La règle la plus stricte (tout choisir sur 2008-2015) a donné +7,2 %/an seulement : les moteurs qui brillaient avant 2015 se sont essoufflés. C'est la raison du mélange 75/25 plutôt qu'un pari unique.
-- Non modélisés : impôts (≈ 30 % en France), appels de marge, frais réels du courtier, change EUR/USD.
-- Le plafond observé (Sharpe ≈ 1,1-1,2) ne sera pas dépassé en ajoutant des moteurs publics ; il faut plus de capital pour plus d'euros.
+- Le bloc C3 a été conçu en ayant vu 2016-2026 ; la règle la plus stricte (tout choisir sur 2008-2015) n'a donné que +7,2 %/an. D'où le 75/25 et la phase démo.
+- Non modélisés : impôts, appels de marge, frais réels du courtier, change EUR/USD.
+- Un backtest n'est pas une garantie : seule la phase démo puis réel prudent le confirmera.
