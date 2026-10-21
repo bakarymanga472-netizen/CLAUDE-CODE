@@ -33,3 +33,11 @@ V1 testée le 2026-10-15 : bat le hasard en 2020-2023, plus d'avantage depuis 20
 
 ## Tâches Notion
 Base/page Notion : _lien_
+
+## 2026-10-21 — Objectif « réussite démentielle + gros gains » (skill `objectif`)
+- Demande initiale : ≥ 98 % de réussite, 3 000 à 500 000 €/mois avec 5-10 k€ en < 1 an → jugée impossible (30 à 5 000 %/mois ; Medallion ≈ 66 %/an brut, 50,75 % de trades gagnants ; 97 % des day traders brésiliens perdent). Critères retenus : ≥ 85 % de trades gagnants, rendement > SPY gardé, pire baisse > -15 %, ≥ 30 trades, sur chaque période.
+- Tour 1 `labo/haute_reussite.py` (D1F1 sur 40 ETF, règles fixées avant) : 93-97 % de réussite partout ; ne bat pas le SPY en 2016-21 ni 2022-24.
+- Tour 2 (levier ×2-×4 sur U40-K10-T) : même constat, le levier n'ajoute pas d'avantage.
+- Tour 3 `labo/mix_tendance.py` (50 % tendance + 50 % D1F1, rapports/mix_tendance.md) : réussite 93-96 %, Sharpe > SPY sur les 4 périodes, pire baisse -10 à -16 % (SPY -19 à -52 %), mais rendement < SPY en 2016-21 (×2 : +11,2 % contre +17,3 %). Objectif complet non atteint sur toutes les périodes ; meilleur candidat : mix ×2 (2025+ : +16,3 %/an, -9 %).
+- Limite structurelle : battre un marché haussier fort ET garder une baisse < 15 % exige un Sharpe supérieur à celui obtenu (~1,3).
+- Prochaine étape proposée : suivi papier du mix ×2 (3 mois) avant tout argent réel.
