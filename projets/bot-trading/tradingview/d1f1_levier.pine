@@ -1,0 +1,43 @@
+//@version=6
+// D1+F1 avec curseur de levier — version 1 actif (le bot complet = 40 ETF, 10 positions + portefeuille de tendance,
+// impossible dans un seul script Pine). Règles identiques à labo/combine.py (variante D1, sortie F1) :
+// entrée : RSI(2) < 5 ET clôture > MM200 → achat à la clôture suivante (process_orders_on_close)
+// sortie : ordre limite = min(entrée × 1,01 ; max(moyenne des 4 dernières clôtures ; entrée × 1,001)),
+//          stop -10 % (décidé à la clôture), durée max 20 séances.
+// Levier : « Taille de position (% du capital) » > 100 % = levier (marge longue fixée à 25 % → jusqu'à ×4).
+// Graphiques conseillés : AMEX:SPY, NASDAQ:QQQ, AMEX:GLD… en données ajustées (ADJ), unité de temps 1 jour.
+strategy("D1+F1 levier", overlay = true, initial_capital = 20000, currency = currency.EUR,
+     default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0.02,
+     margin_long = 25, process_orders_on_close = true, pyramiding = 0)
+
+seuil   = input.float(5.0, "Seuil RSI(2)")
+tp      = input.float(1.0, "Objectif (%)") / 100
+stopPct = input.float(10.0, "Stop (%)") / 100
+duree   = input.int(20, "Durée max (séances)")
+taille  = input.float(100.0, "Taille de position (% du capital) — 200 = levier ×2", minval = 1, maxval = 400)
+debut   = input.time(timestamp("2021-10-20"), "Début du test")
+
+r2   = ta.rsi(close, 2)
+mm200 = ta.sma(close, 200)
+dansTest = time >= debut
+
+var int barreEntree = na
+enPos = strategy.position_size > 0
+
+if not enPos and dansTest and r2 < seuil and close > mm200
+    qte = taille / 100 * strategy.equity / close
+    strategy.entry("Long", strategy.long, qty = qte)
+    barreEntree := bar_index + 1
+
+if enPos
+    pe = strategy.position_avg_price
+    g = close / pe - 1
+    p4 = math.avg(close, close[1], close[2], close[3])
+    limite = math.min(pe * (1 + tp), math.max(p4, pe * 1.001))
+    if g <= -stopPct or bar_index - barreEntree >= duree
+        strategy.close("Long", comment = g <= -stopPct ? "stop" : "durée")
+    else
+        strategy.exit("Vente limite", "Long", limit = limite)
+
+plot(mm200, "MM200", color = color.orange)
