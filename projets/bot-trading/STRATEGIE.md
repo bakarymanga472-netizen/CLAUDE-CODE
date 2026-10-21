@@ -52,7 +52,16 @@ Simulation : 4 000 tirages des rendements mensuels réels de la stratégie (2008
 | 500 € | 4,6 ans | 5,6 ans | 3,8 ans | 50 713 € |
 | 750 € | 3,4 ans | 4,1 ans | 2,9 ans | 71 684 € |
 
-Rejeu de l'historique réel (janvier 2016, 300 €/mois) : objectif atteint en juin 2021. Impôts (≈ 30 % en France, ou PEA/assurance-vie selon les supports) non modélisés.
+Rejeu de l'historique réel (janvier 2016, 300 €/mois) : objectif atteint en juin 2021.
+
+**Variante capital de départ 30 000 €** (même méthode) : ≈ 327 €/mois de gains moyens dès le départ.
+
+| Versement mensuel | 500 €/mois atteint (médiane) | Cas lent (1 sur 10) | Capital à 1 an | à 3 ans | à 5 ans | Pire mois de la 1re année (médiane) |
+|---|---|---|---|---|---|---|
+| 0 € | 39 mois | 73 mois | 33 887 € | 43 469 € | 55 656 € | -1 545 € |
+| 200 € | 26 mois | 44 mois | 36 468 € | 51 850 € | 71 545 € | -1 608 € |
+| **300 €** | **22 mois** | 36 mois | 37 857 € | 56 582 € | 80 254 € | -1 605 € |
+| 500 € | 18 mois | 27 mois | 40 256 € | 64 997 € | 97 671 € | -1 653 € | Impôts (≈ 30 % en France, ou PEA/assurance-vie selon les supports) non modélisés.
 
 ## 4. Phases
 
