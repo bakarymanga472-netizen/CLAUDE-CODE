@@ -6,6 +6,7 @@ _Dernière mise à jour : 2026-10-15_
 - Espace de travail optimisé (architecture tokens) — à tester sur ta machine.
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
 
+- Skills `trader-*` (11, day-trader-fr @756e4f5) installés dans `.claude/skills/`, relus ; intégrité : `scripts/verifier-trader-skills.sh`. Ordres Alpaca toujours en confirmation (`ask`). État local `trader/` ignoré par Git.
 - `bot-trading` : Aladdin construit et testé ; suivi papier en direct démarré le 2026-10-14 (lancer `python3 -m aladdin.live` chaque jour).
 
 ## Prochaines actions
