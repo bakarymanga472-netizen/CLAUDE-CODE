@@ -5,7 +5,7 @@ Site d'analyse de matchs façon kickly.io (multi-sports, verdict en %, cotes, an
 
 ## Architecture
 - `index.html`, `style.css`, `app.js` (interface, routeur `#/`), `models.js` (modèles purs : football Poisson, NBA, MMA, cotes américaines -> décimales, retrait de marge), `tests/models.test.js`.
-- `scripts/build-data.js` : récupère ESPN côté serveur (GitHub Actions, toutes les 3 h) et écrit `data/` (jours, détails foot/NBA, résultats des 14 derniers jours, meta). Le navigateur n'appelle AUCUN service externe.
+- `scripts/build-data.js` : récupère ESPN côté serveur (GitHub Actions, toutes les 3 h) et écrit `data/` (jours, détails foot/NBA, résultats des 14 derniers jours, meta). Le navigateur n'appelle aucun service de données externe (seuls les logos d'équipes viennent du CDN d'ESPN).
   - Pourquoi : appel direct navigateur -> ESPN refusé en test (403 Akamai) ; API non officielle, donc fragile.
 - `.github/workflows/pages-verdict.yml` : tests, assemblage, build des données, déploiement GitHub Pages.
 - `backtest/` : football contre cotes de clôture (football-data.co.uk), 5 ligues, test 2023-26. Résultat : log-loss modèle 0,998 / marché 0,964 / mélange 60-40 0,972 ; paris à avantage > 5 % : ROI -18 %.
