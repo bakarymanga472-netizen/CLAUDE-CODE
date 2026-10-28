@@ -172,6 +172,9 @@ $('load').onclick=async()=>{
 let last=null;
 $('go').onclick=()=>{
   const p={base:+$('base').value,gfA:+$('gfA').value,gaA:+$('gaA').value,gfB:+$('gfB').value,gaB:+$('gaB').value,nbA:+$('nbA').value,nbB:+$('nbB').value};
+  const bad=!(p.base>0)||[p.gfA,p.gaA,p.gfB,p.gaB].some(x=>!(x>=0)||x>10)||!(p.nbA>=1)||!(p.nbB>=1);
+  if(bad){$('out').classList.remove('hide');for(const k of['scores','value','why'])$(k).innerHTML='';
+    $('res').innerHTML='<h2>Données invalides</h2><p class="a">Renseigne des buts moyens entre 0 et 10, au moins 1 match par équipe et une moyenne de championnat supérieure à 0.</p>';return}
   const m=model(p);
   const o=[+$('o1').value,+$('oX').value,+$('o2').value];
   const hasOdds=o.every(x=>x>1);
