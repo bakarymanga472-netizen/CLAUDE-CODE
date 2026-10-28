@@ -299,10 +299,10 @@
       <div class="card"><b>Tennis et F1</b><p class="m">Pas de pronostic : aucune donnée de classement ou de cotes fiable n'est disponible gratuitement. Afficher un pourcentage serait inventer.</p></div>
       <div class="card"><b>Ce qui manque</b><p class="m">Blessures et compositions (football), repos et calendrier, motivation, météo. Les cotes sont celles de DraftKings quand ESPN les publie, souvent quelques jours avant le match seulement.</p></div>
       <div class="sec">Questions</div>
-      <details><summary>Est-ce gratuit ?</summary><p>Oui. Aucun compte, aucun paiement, aucune donnée envoyée à un serveur : tes verdicts et paris restent dans ton navigateur.</p></details>
+      <details><summary>Est-ce gratuit ?</summary><p>Oui. Aucun compte, aucun paiement, aucune donnée de ta part envoyée à un serveur : tes verdicts et paris restent dans ton navigateur.</p></details>
       <details><summary>Peut-on gagner avec ce site ?</summary><p>Rien ne le garantit, et le test montre que ce modèle ne bat pas le marché. Le site sert à comprendre un match et à mesurer honnêtement tes résultats.</p></details>
       <details><summary>Pourquoi pas de « % de réussite » affiché ?</summary><p>Parce qu'un taux de réussite n'a de sens que mesuré sur des pronostics faits avant les matchs. Le seul affiché ici est le tien, dans « Mon bilan », vérifié automatiquement.</p></details>
-      <details><summary>D'où viennent les données ?</summary><p>D'ESPN (résultats, planning, classements, cotes DraftKings quand elles sont publiées). Un script les récupère toutes les 3 heures et les publie avec le site : ton navigateur n'appelle aucun service externe. L'heure de la dernière mise à jour est affichée sur la page d'accueil.</p></details>`;
+      <details><summary>D'où viennent les données ?</summary><p>D'ESPN (résultats, planning, classements, cotes DraftKings quand elles sont publiées). Un script les récupère toutes les 3 heures et les publie avec le site : ton navigateur ne contacte aucun service de données externe (seuls les logos d'équipes viennent du CDN d'ESPN). L'heure de la dernière mise à jour est affichée sur la page d'accueil.</p></details>`;
   }
 
   // ---------- routeur ----------
