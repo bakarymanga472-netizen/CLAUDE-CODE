@@ -1,23 +1,30 @@
-# kickly-honnete
+# kickly-honnete (site "Verdict")
 
 ## Objectif
-Outil d'analyse de match de football, version honnête d'un site concurrent (kickly.io) : données réelles, méthode visible, performances mesurées, suivi des résultats de l'utilisateur. Pas de promesse de gain, pas de faux témoignages ni de fausses statistiques.
+Site d'analyse de matchs façon kickly.io (multi-sports, verdict en %, cotes, analyse pas à pas), mais honnête : données réelles, pas de faux témoignages ni de faux taux de réussite, bilan de l'utilisateur vérifié automatiquement.
 
-## Où on en est
-- `index.html` (sans dépendance) : 5 ligues (openfootball, sans clé, saison en cours + précédente), choix d'un match à venir, forme, classement, domicile/extérieur, confrontations, probabilités du marché (cotes sans marge) et du modèle Poisson, suivi localStorage (ROI, Brier), export CSV.
-- `backtest/` : `telecharger.py` (football-data.co.uk, cotes de clôture Pinnacle) + `backtest.py` (walk-forward, paramètres choisis sur 2020-23, test unique 2023-26). Sortie dans `backtest/resultats.txt`.
-- Résultat mesuré sur 5 256 matchs : log-loss modèle 0,998 / marché 0,964 / mélange 60-40 0,972. Aucun mélange ne bat le marché seul. Paris à avantage > 5 % : 2 476 paris, 21 % gagnés, ROI -18 %.
-- Conséquence : le site affiche le marché comme référence, ne propose plus de mise Kelly ni d'« avantage ».
-- Testé en navigateur headless (5 ligues, tous les flux, panne réseau, mobile) : 0 erreur.
-- Déploiement : `.github/workflows/pages-verdict.yml` (après fusion dans main + Settings > Pages > Source : GitHub Actions).
+## Architecture
+- `index.html`, `style.css`, `app.js` (interface, routeur `#/`), `models.js` (modèles purs : football Poisson, NBA, MMA, cotes américaines -> décimales, retrait de marge), `tests/models.test.js`.
+- `scripts/build-data.js` : récupère ESPN côté serveur (GitHub Actions, toutes les 3 h) et écrit `data/` (jours, détails foot/NBA, résultats des 14 derniers jours, meta). Le navigateur n'appelle AUCUN service externe.
+  - Pourquoi : appel direct navigateur -> ESPN refusé en test (403 Akamai) ; API non officielle, donc fragile.
+- `.github/workflows/pages-verdict.yml` : tests, assemblage, build des données, déploiement GitHub Pages.
+- `backtest/` : football contre cotes de clôture (football-data.co.uk), 5 ligues, test 2023-26. Résultat : log-loss modèle 0,998 / marché 0,964 / mélange 60-40 0,972 ; paris à avantage > 5 % : ROI -18 %.
+
+## Couverture
+- Football (Serie A, PL, Liga, Bundesliga, Ligue 1, Ligue des champions) : verdict = cotes DraftKings sans marge si publiées, sinon modèle. Forme, classement, domicile/extérieur, confrontations, scores probables.
+- NBA : cotes si publiées, sinon modèle simple (non backtesté) ; prévision ESPN, blessures.
+- MMA : fiche + estimation très grossière (non backtestée) ; cotes si publiées.
+- Tennis, F1 : planning/résultats, AUCUN pronostic (pas de classement ni de cotes gratuits).
 
 ## Limites connues
-- openfootball a quelques semaines de retard (dernier match connu affiché dans la page).
-- Pas de blessures, compositions ni calendrier. Pas de cotes automatiques (saisie manuelle).
+- Cotes ESPN publiées seulement quelques jours avant le match.
+- Aucun modèle ne bat le marché en backtest. Le site ne promet aucun gain.
+- Données au plus vieilles de 3 h (sauf panne du workflow : l'ancienne version reste en ligne).
+- Vérification des verdicts : fenêtre de 14 jours de résultats.
 
 ## Prochaine étape
-Si on veut un modèle utile : ajouter xG, blessures, ratings Elo par club, puis refaire le backtest contre le marché. Sans battre le marché en backtest, ne rien annoncer.
+xG / blessures football, backtest NBA, Elo tennis, puis seulement alors parler de précision.
 
 ## Décisions
-- Refus de copier les éléments trompeurs de kickly.io (94 % de réussite, gains « en direct », faux témoignages).
-- Paramètres du modèle figés après le backtest d'entraînement ; le test 2023-26 n'a servi qu'une fois.
+- Pas de copie des éléments trompeurs de kickly.io (94 %, gains en direct, avis fictifs).
+- Barre de progression = étapes réellement exécutées (chargement, cotes, forme, classement, modèle, verdict).
