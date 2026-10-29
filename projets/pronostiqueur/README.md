@@ -20,7 +20,7 @@ données sont fiables. **Aucun pari n'est placé automatiquement.**
 | Fiche par match au format demandé (probabilité, fourchette, cote juste, statut) | ✅ |
 | Journal des pronostics, règlement après match, bilan réel | ✅ |
 | Évolution contrôlée des modèles + retour arrière | ✅ |
-| Agent Claude Code `pronostiqueur` | ✅ `.claude/agents/pronostiqueur.md` |
+| Agent Claude Code `pronostiqueur` | ✅ `.claude/agents/pronostiqueur.md` (à la racine du dépôt) |
 | Buteurs / passeurs décisifs | ❌ **Non implémenté** : données joueurs non connectées |
 | Compositions, blessures, xG, minutes des buts, cotes par mi-temps | ❌ Non disponibles dans la source actuelle |
 
@@ -52,6 +52,7 @@ Ce que ces chiffres montrent :
 ## Installation
 
 ```bash
+cd projets/pronostiqueur
 pip install -r requirements.txt
 python -m pronostiqueur fetch          # télécharge et contrôle l'historique (~2 min)
 python -m pronostiqueur backtest       # validation chronologique + rapports
@@ -85,7 +86,7 @@ modèles d'accord, historique suffisant, cote ≥ cote juste) · **À surveiller
 
 1. Chaque pronostic journalisé est réglé après le match (`settle`) et comparé
    à la probabilité annoncée (`report`).
-2. Chaque semaine, le workflow GitHub `evaluation-hebdomadaire` met les données
+2. Chaque semaine, le workflow GitHub `pronostiqueur-evaluation-hebdomadaire` met les données
    à jour, relance la validation, teste des réglages candidats et réentraîne le
    modèle ; les rapports sont publiés en artefacts.
 3. Un réglage n'est promu que s'il bat la production sur des matchs récents

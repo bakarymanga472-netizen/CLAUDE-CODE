@@ -59,5 +59,5 @@ football-data.co.uk ──► data/football_data_uk.py ──► data/quality.py
   120 derniers jours (jamais vus à l'entraînement). Promotion seulement si
   le candidat est meilleur dans au moins 95 % des rééchantillonnages
   (bootstrap apparié sur la log-loss). Ancienne version conservée → `rollback`.
-- Le workflow GitHub `evaluation.yml` relance chaque semaine la collecte, la
+- Le workflow GitHub `pronostiqueur-evaluation.yml` (racine du dépôt) relance chaque semaine la collecte, la
   validation et l'évolution, et publie les rapports en artefacts.

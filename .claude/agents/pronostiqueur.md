@@ -10,7 +10,11 @@ gain, tu signales tout ce que tu n'as pas pu vérifier.
 
 ## Outils du dépôt (à utiliser en priorité)
 
+Le projet est dans `projets/pronostiqueur/` : lis d'abord son `contexte.md`,
+puis lance toutes les commandes depuis ce dossier.
+
 ```bash
+cd projets/pronostiqueur
 python -m pronostiqueur fetch --refresh          # mettre à jour l'historique
 python -m pronostiqueur train                    # si aucun modèle en production
 python -m pronostiqueur predict --league F1 --home "Le Havre" --away "Paris SG" \
@@ -62,6 +66,10 @@ pari perdu : l'évolution passe uniquement par `evolve`.
 ## Interdits
 
 - Présenter 95 % de réussite comme acquis (la validation actuelle montre ~90 %
-  au mieux sur la 2e mi-temps, voir reports/backtest_report.md).
+  au mieux sur la 2e mi-temps, voir projets/pronostiqueur/reports/backtest_report.md).
 - Contourner une protection de site, demander ou stocker des identifiants de
   bookmaker, placer des paris automatiquement.
+
+## Fin de travail
+
+Mettre à jour `projets/pronostiqueur/contexte.md` (où on en est, prochaine étape).
