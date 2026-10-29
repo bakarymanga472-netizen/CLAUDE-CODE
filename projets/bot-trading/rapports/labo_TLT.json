@@ -1,0 +1,542 @@
+{
+ "instrument": "TLT",
+ "criteres": "criteres-v1-2026-10-20",
+ "donnees": {
+  "1d": {
+   "intervalle": "1d",
+   "debut": "2002-07-30 00:00:00",
+   "fin": "2026-10-19 00:00:00",
+   "annees": 24.2,
+   "barres": 6095,
+   "barres_attendues": 6095,
+   "barres_manquantes": 0,
+   "plus_long_trou": "aucun",
+   "nb_trous": 0,
+   "doublons": 0,
+   "prix_non_positifs": 0,
+   "ohlc_incoherents": 0,
+   "volume_nul": 0,
+   "rendements_sup_8_sigma": 0,
+   "empreinte": "36165dc23f7d879e",
+   "suffisant": true
+  }
+ },
+ "caracteristiques": {
+  "1d": {
+   "vol_annuelle": 0.16701783159829173,
+   "asymetrie": -0.00816312230464562,
+   "aplatissement_exces": 4.470693139995129,
+   "autocorr_1_barre": -0.023356858937452728,
+   "ratio_variance_1j": 0.976649100469509,
+   "ratio_variance_1sem": 0.854614267914066,
+   "ratio_variance_1mois": 0.8563701385918766,
+   "pire_baisse_achat_conservation": -0.26585365127063487,
+   "part_jours_sous_moins_50pct": 0.0
+  }
+ },
+ "source": {
+  "type": "yahoo",
+  "intervalles": [
+   "1d"
+  ],
+  "calendrier": "bourse",
+  "financement_modelise": true
+ },
+ "essais": {
+  "configurations_distinctes": 12,
+  "variance_sharpe_journalier": 0.00022756069068894218,
+  "pbo_global": 0.14682539682539683
+ },
+ "references": {
+  "achat_conservation": {
+   "rendement_total": -0.09805892766377755,
+   "rendement_annuel": -0.020476809427612097,
+   "volatilite": 0.1659144236564024,
+   "sharpe": -0.04190020335667875,
+   "pire_baisse": -0.501854631706329,
+   "trades": 0,
+   "reussite": null,
+   "profit_factor": null,
+   "esperance_trade": null,
+   "esperance_R": null,
+   "exposition_moyenne": null,
+   "annees_positives": "2/5"
+  },
+  "achat_conservation_vol_ciblee": {
+   "rendement_total": -0.11093463156853,
+   "rendement_annuel": -0.023296114885999364,
+   "volatilite": 0.16515185773339477,
+   "sharpe": -0.06030127217524265,
+   "pire_baisse": -0.5089659302826979,
+   "trades": 0,
+   "reussite": null,
+   "profit_factor": null,
+   "esperance_trade": null,
+   "esperance_R": null,
+   "exposition_moyenne": null,
+   "annees_positives": "2/5"
+  }
+ },
+ "coffre": {
+  "premiere_ouverture": "2026-10-20T17:28:17+00:00",
+  "vierge_a_cette_execution": true
+ },
+ "references_coffre": {
+  "achat_conservation": {
+   "rendement_total": -0.08465206431175654,
+   "rendement_annuel": -0.03114687353617951,
+   "volatilite": 0.12728328751882137,
+   "sharpe": -0.18500306922234644,
+   "pire_baisse": -0.17405254088368716,
+   "trades": 0,
+   "reussite": null,
+   "profit_factor": null,
+   "esperance_trade": null,
+   "esperance_R": null,
+   "exposition_moyenne": null,
+   "annees_positives": "1/3"
+  },
+  "achat_conservation_vol_ciblee": {
+   "rendement_total": -0.08465206431175654,
+   "rendement_annuel": -0.03114687353617951,
+   "volatilite": 0.12728328751882137,
+   "sharpe": -0.18500306922234644,
+   "pire_baisse": -0.17405254088368716,
+   "trades": 0,
+   "reussite": null,
+   "profit_factor": null,
+   "esperance_trade": null,
+   "esperance_R": null,
+   "exposition_moyenne": null,
+   "annees_positives": "1/3"
+  }
+ },
+ "fiches": {
+  "tendance|1d": {
+   "walk_forward": {
+    "rendement_total": 0.18562823945469464,
+    "rendement_annuel": 0.03472324467583254,
+    "volatilite": 0.11989549968783657,
+    "sharpe": 0.34453831778147315,
+    "pire_baisse": -0.21526829675691894,
+    "trades": 24,
+    "reussite": 0.4166666666666667,
+    "profit_factor": 0.8800424456643383,
+    "esperance_trade": -0.0015067365650386216,
+    "esperance_R": -0.05016585214704383,
+    "exposition_moyenne": null,
+    "annees_positives": "3/5"
+   },
+   "choix_par_annee": {
+    "2019": "tendance|{\"jours\": 90}|1d",
+    "2020": "tendance|{\"jours\": 90}|1d",
+    "2021": "tendance|{\"jours\": 90}|1d",
+    "2022": "tendance|{\"jours\": 90}|1d",
+    "2023": "tendance|{\"jours\": 90}|1d"
+   },
+   "sharpe_oos": 0.3445383177814732,
+   "sharpe_oos_couts_x3": 0.28752456854999087,
+   "sharpe_oos_retard_2_barres": 0.36053355009847743,
+   "dsr": 0.4516489607516082,
+   "sharpe_max_hasard_journalier": 0.025113871027114994,
+   "dsr_si_500_essais": 0.19335393172816884,
+   "dsr_variance_nulle": 0.18479307671718703,
+   "pbo_famille": 0.5952380952380952,
+   "percentile_hasard": 0.93,
+   "p_superiorite_vs_vol_ciblee": 0.113,
+   "regimes": {
+    "tendance": {
+     "jours": 97,
+     "sharpe": 0.7582154146210797,
+     "rendement_annualise": 0.5137840677339112
+    },
+    "range": {
+     "jours": 624,
+     "sharpe": 0.8237788329565106,
+     "rendement_annualise": 0.11046837038653552
+    },
+    "forte_volatilite": {
+     "jours": 537,
+     "sharpe": -0.6945982626747844,
+     "rendement_annualise": -0.12440057118471318
+    },
+    "crise": {
+     "jours": 0,
+     "sharpe": null,
+     "rendement_annualise": null
+    }
+   },
+   "configuration_finale": "tendance|{\"jours\": 90}|1d",
+   "sharpe_annees_par_variante": {
+    "tendance|{\"jours\": 30}|1d": 0.09,
+    "tendance|{\"jours\": 90}|1d": 0.29,
+    "tendance|{\"jours\": 180}|1d": 0.2
+   },
+   "couts_moyens_par_trade": 0.0007105172455265335,
+   "raisons_rejet": [
+    "Sharpe hors échantillon 0.34 < 0.5",
+    "DSR 0.45 < 0.95",
+    "PBO 0.60 > 0.5",
+    "24 trades hors échantillon < 30",
+    "ne bat que 93 % des expositions aléatoires (seuil 95 %)"
+   ],
+   "statut_developpement": "stratégie non validée",
+   "coffre": {
+    "rendement_total": -0.23866520152316595,
+    "rendement_annuel": -0.09294174819324552,
+    "volatilite": 0.08746153379041437,
+    "sharpe": -1.071310592869509,
+    "pire_baisse": -0.24807192333109196,
+    "trades": 0,
+    "reussite": null,
+    "profit_factor": null,
+    "esperance_trade": null,
+    "esperance_R": null,
+    "exposition_moyenne": null,
+    "annees_positives": "1/3"
+   },
+   "statut": "stratégie non validée"
+  },
+  "cassure|1d": {
+   "walk_forward": {
+    "rendement_total": -0.12560001514258945,
+    "rendement_annuel": -0.026547342919877814,
+    "volatilite": 0.11166941651369981,
+    "sharpe": -0.18518606204561575,
+    "pire_baisse": -0.3798481311882198,
+    "trades": 18,
+    "reussite": 0.3333333333333333,
+    "profit_factor": 0.6987962020691008,
+    "esperance_trade": -0.006350299352881129,
+    "esperance_R": -0.21635696848766783,
+    "exposition_moyenne": null,
+    "annees_positives": "2/5"
+   },
+   "choix_par_annee": {
+    "2019": "cassure|{\"jours\": 20}|1d",
+    "2020": "cassure|{\"jours\": 100}|1d",
+    "2021": "cassure|{\"jours\": 20}|1d",
+    "2022": "cassure|{\"jours\": 55}|1d",
+    "2023": "cassure|{\"jours\": 20}|1d"
+   },
+   "sharpe_oos": -0.18518606204561577,
+   "sharpe_oos_couts_x3": -0.22678205270566903,
+   "sharpe_oos_retard_2_barres": -0.13545923172919488,
+   "dsr": 0.09670954003970478,
+   "sharpe_max_hasard_journalier": 0.025113871027114994,
+   "dsr_si_500_essais": 0.020633187264780084,
+   "dsr_variance_nulle": 0.019117431417538133,
+   "pbo_famille": 0.3968253968253968,
+   "percentile_hasard": 0.35,
+   "p_superiorite_vs_vol_ciblee": 0.637,
+   "regimes": {
+    "tendance": {
+     "jours": 97,
+     "sharpe": 0.6921082028250971,
+     "rendement_annualise": 0.46598439707362227
+    },
+    "range": {
+     "jours": 624,
+     "sharpe": -0.12131230713739352,
+     "rendement_annualise": -0.012145795755888643
+    },
+    "forte_volatilite": {
+     "jours": 537,
+     "sharpe": -0.6505895927185685,
+     "rendement_annualise": -0.11850367092980882
+    },
+    "crise": {
+     "jours": 0,
+     "sharpe": null,
+     "rendement_annualise": null
+    }
+   },
+   "configuration_finale": "cassure|{\"jours\": 20}|1d",
+   "sharpe_annees_par_variante": {
+    "cassure|{\"jours\": 20}|1d": 0.26,
+    "cassure|{\"jours\": 55}|1d": -0.03,
+    "cassure|{\"jours\": 100}|1d": -0.04
+   },
+   "couts_moyens_par_trade": 0.0006635983102224457,
+   "raisons_rejet": [
+    "Sharpe hors échantillon -0.19 < 0.5",
+    "DSR 0.10 < 0.95",
+    "18 trades hors échantillon < 30",
+    "ne résiste pas aux coûts ×3",
+    "ne bat que 35 % des expositions aléatoires (seuil 95 %)"
+   ],
+   "statut_developpement": "stratégie non validée",
+   "coffre": {
+    "rendement_total": -0.22429632176337477,
+    "rendement_annuel": -0.08685432164147311,
+    "volatilite": 0.08098306357445281,
+    "sharpe": -1.0812227467824629,
+    "pire_baisse": -0.2239262194630287,
+    "trades": 0,
+    "reussite": null,
+    "profit_factor": null,
+    "esperance_trade": null,
+    "esperance_R": null,
+    "exposition_moyenne": null,
+    "annees_positives": "0/3"
+   },
+   "statut": "stratégie non validée"
+  },
+  "croisement_mm|1d": {
+   "walk_forward": {
+    "rendement_total": 0.35721686014845533,
+    "rendement_annuel": 0.06314311934460481,
+    "volatilite": 0.12110220148618843,
+    "sharpe": 0.5660869208770271,
+    "pire_baisse": -0.17950814527853975,
+    "trades": 13,
+    "reussite": 0.46153846153846156,
+    "profit_factor": 3.056500919235425,
+    "esperance_trade": 0.022954863511240115,
+    "esperance_R": 1.702609182683882,
+    "exposition_moyenne": null,
+    "annees_positives": "4/5"
+   },
+   "choix_par_annee": {
+    "2019": "croisement_mm|{\"court\": 10, \"long\": 50}|1d",
+    "2020": "croisement_mm|{\"court\": 10, \"long\": 50}|1d",
+    "2021": "croisement_mm|{\"court\": 10, \"long\": 50}|1d",
+    "2022": "croisement_mm|{\"court\": 10, \"long\": 50}|1d",
+    "2023": "croisement_mm|{\"court\": 10, \"long\": 50}|1d"
+   },
+   "sharpe_oos": 0.5660869208770271,
+   "sharpe_oos_couts_x3": 0.5348280163303967,
+   "sharpe_oos_retard_2_barres": 0.5374553716514765,
+   "dsr": 0.6459453328446142,
+   "sharpe_max_hasard_journalier": 0.025113871027114994,
+   "dsr_si_500_essais": 0.3558041878322439,
+   "dsr_variance_nulle": 0.34408416059523206,
+   "pbo_famille": 0.5396825396825397,
+   "percentile_hasard": 0.99,
+   "p_superiorite_vs_vol_ciblee": 0.021,
+   "regimes": {
+    "tendance": {
+     "jours": 97,
+     "sharpe": 0.7582154146210797,
+     "rendement_annualise": 0.5137840677339112
+    },
+    "range": {
+     "jours": 624,
+     "sharpe": 0.7355970550932641,
+     "rendement_annualise": 0.08286116621946979
+    },
+    "forte_volatilite": {
+     "jours": 537,
+     "sharpe": -0.14210285315784224,
+     "rendement_annualise": -0.028493523042645085
+    },
+    "crise": {
+     "jours": 0,
+     "sharpe": null,
+     "rendement_annualise": null
+    }
+   },
+   "configuration_finale": "croisement_mm|{\"court\": 10, \"long\": 50}|1d",
+   "sharpe_annees_par_variante": {
+    "croisement_mm|{\"court\": 10, \"long\": 50}|1d": 0.5,
+    "croisement_mm|{\"court\": 20, \"long\": 100}|1d": 0.39,
+    "croisement_mm|{\"court\": 50, \"long\": 200}|1d": 0.21
+   },
+   "couts_moyens_par_trade": 0.0007395029389752493,
+   "raisons_rejet": [
+    "DSR 0.65 < 0.95",
+    "PBO 0.54 > 0.5",
+    "13 trades hors échantillon < 30"
+   ],
+   "statut_developpement": "stratégie non validée",
+   "coffre": {
+    "rendement_total": -0.06961192161229002,
+    "rendement_annuel": -0.025481728380515434,
+    "volatilite": 0.08631387404314052,
+    "sharpe": -0.2558350340040312,
+    "pire_baisse": -0.13499058202546965,
+    "trades": 0,
+    "reussite": null,
+    "profit_factor": null,
+    "esperance_trade": null,
+    "esperance_R": null,
+    "exposition_moyenne": null,
+    "annees_positives": "1/3"
+   },
+   "statut": "stratégie non validée"
+  },
+  "rebond_rsi|1d": {
+   "walk_forward": {
+    "rendement_total": 0.10430385765061279,
+    "rendement_annuel": 0.020088424833576646,
+    "volatilite": 0.02198200160173616,
+    "sharpe": 0.9157231333937029,
+    "pire_baisse": -0.021122929726377082,
+    "trades": 11,
+    "reussite": 0.7272727272727273,
+    "profit_factor": 5.963520039755167,
+    "esperance_trade": 0.00912780082798033,
+    "esperance_R": 0.56967789353855,
+    "exposition_moyenne": null,
+    "annees_positives": "3/5"
+   },
+   "choix_par_annee": {
+    "2019": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2020": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2021": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2022": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2023": "rebond_rsi|{\"seuil\": 5}|1d"
+   },
+   "sharpe_oos": 0.9157231333937029,
+   "sharpe_oos_couts_x3": 0.781105660012014,
+   "sharpe_oos_retard_2_barres": 1.3605129460882142,
+   "dsr": 0.9342198533532236,
+   "sharpe_max_hasard_journalier": 0.025113871027114994,
+   "dsr_si_500_essais": 0.7047631224211313,
+   "dsr_variance_nulle": 0.6903717292682305,
+   "pbo_famille": 0.0,
+   "percentile_hasard": 0.97,
+   "p_superiorite_vs_vol_ciblee": 0.041,
+   "regimes": {
+    "tendance": {
+     "jours": 97,
+     "sharpe": -0.4580319009480044,
+     "rendement_annualise": -0.0005774929449603072
+    },
+    "range": {
+     "jours": 624,
+     "sharpe": 1.0577183199973854,
+     "rendement_annualise": 0.042701171529478145
+    },
+    "forte_volatilite": {
+     "jours": 537,
+     "sharpe": -0.14183055468194736,
+     "rendement_annualise": -0.0023588353228940636
+    },
+    "crise": {
+     "jours": 0,
+     "sharpe": null,
+     "rendement_annualise": null
+    }
+   },
+   "configuration_finale": "rebond_rsi|{\"seuil\": 5}|1d",
+   "sharpe_annees_par_variante": {
+    "rebond_rsi|{\"seuil\": 5}|1d": 1.11,
+    "rebond_rsi|{\"seuil\": 10}|1d": 0.47,
+    "rebond_rsi|{\"seuil\": 20}|1d": 0.23
+   },
+   "couts_moyens_par_trade": 0.0006409990231365854,
+   "raisons_rejet": [
+    "DSR 0.93 < 0.95",
+    "11 trades hors échantillon < 30"
+   ],
+   "statut_developpement": "stratégie non validée",
+   "coffre": {
+    "rendement_total": 0.02990081477127937,
+    "rendement_annuel": 0.010595581698544132,
+    "volatilite": 0.017808771430960508,
+    "sharpe": 0.6007098243692075,
+    "pire_baisse": -0.017217554233334598,
+    "trades": 0,
+    "reussite": null,
+    "profit_factor": null,
+    "esperance_trade": null,
+    "esperance_R": null,
+    "exposition_moyenne": null,
+    "annees_positives": "2/3"
+   },
+   "statut": "stratégie non validée"
+  },
+  "selecteur_global": {
+   "walk_forward": {
+    "rendement_total": 0.10430385765061279,
+    "rendement_annuel": 0.020088424833576646,
+    "volatilite": 0.02198200160173616,
+    "sharpe": 0.9157231333937029,
+    "pire_baisse": -0.021122929726377082,
+    "trades": 11,
+    "reussite": 0.7272727272727273,
+    "profit_factor": 5.963520039755167,
+    "esperance_trade": 0.00912780082798033,
+    "esperance_R": 0.56967789353855,
+    "exposition_moyenne": null,
+    "annees_positives": "3/5"
+   },
+   "choix_par_annee": {
+    "2019": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2020": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2021": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2022": "rebond_rsi|{\"seuil\": 5}|1d",
+    "2023": "rebond_rsi|{\"seuil\": 5}|1d"
+   },
+   "sharpe_oos": 0.9157231333937029,
+   "sharpe_oos_couts_x3": 0.781105660012014,
+   "sharpe_oos_retard_2_barres": 1.3605129460882142,
+   "dsr": 0.9342198533532236,
+   "sharpe_max_hasard_journalier": 0.025113871027114994,
+   "dsr_si_500_essais": 0.7047631224211313,
+   "dsr_variance_nulle": 0.6903717292682305,
+   "pbo_famille": 0.14682539682539683,
+   "percentile_hasard": 0.97,
+   "p_superiorite_vs_vol_ciblee": 0.041,
+   "regimes": {
+    "tendance": {
+     "jours": 97,
+     "sharpe": -0.4580319009480044,
+     "rendement_annualise": -0.0005774929449603072
+    },
+    "range": {
+     "jours": 624,
+     "sharpe": 1.0577183199973854,
+     "rendement_annualise": 0.042701171529478145
+    },
+    "forte_volatilite": {
+     "jours": 537,
+     "sharpe": -0.14183055468194736,
+     "rendement_annualise": -0.0023588353228940636
+    },
+    "crise": {
+     "jours": 0,
+     "sharpe": null,
+     "rendement_annualise": null
+    }
+   },
+   "configuration_finale": "rebond_rsi|{\"seuil\": 5}|1d",
+   "sharpe_annees_par_variante": {
+    "tendance|{\"jours\": 30}|1d": 0.09,
+    "tendance|{\"jours\": 90}|1d": 0.29,
+    "tendance|{\"jours\": 180}|1d": 0.2,
+    "cassure|{\"jours\": 20}|1d": 0.26,
+    "cassure|{\"jours\": 55}|1d": -0.03,
+    "cassure|{\"jours\": 100}|1d": -0.04,
+    "croisement_mm|{\"court\": 10, \"long\": 50}|1d": 0.5,
+    "croisement_mm|{\"court\": 20, \"long\": 100}|1d": 0.39,
+    "croisement_mm|{\"court\": 50, \"long\": 200}|1d": 0.21,
+    "rebond_rsi|{\"seuil\": 5}|1d": 1.11,
+    "rebond_rsi|{\"seuil\": 10}|1d": 0.47,
+    "rebond_rsi|{\"seuil\": 20}|1d": 0.23
+   },
+   "couts_moyens_par_trade": 0.0006409990231365854,
+   "raisons_rejet": [
+    "DSR 0.93 < 0.95",
+    "11 trades hors échantillon < 30"
+   ],
+   "statut_developpement": "stratégie non validée",
+   "coffre": {
+    "rendement_total": 0.02990081477127937,
+    "rendement_annuel": 0.010595581698544132,
+    "volatilite": 0.017808771430960508,
+    "sharpe": 0.6007098243692075,
+    "pire_baisse": -0.017217554233334598,
+    "trades": 0,
+    "reussite": null,
+    "profit_factor": null,
+    "esperance_trade": null,
+    "esperance_R": null,
+    "exposition_moyenne": null,
+    "annees_positives": "2/3"
+   },
+   "statut": "stratégie non validée"
+  }
+ }
+}

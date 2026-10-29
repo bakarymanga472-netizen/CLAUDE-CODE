@@ -1,0 +1,418 @@
+<title>Carte des Chantiers</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : carte illustrée au centre, liste des chantiers à gauche, fiche à droite ; sur téléphone la carte passe en haut et la fiche en panneau du bas. */
+:root{
+  --bg:#eef0e8; --surface:#fbfcf7; --ink:#1f2a24; --muted:#5d6a61; --line:#d5dacd;
+  --accent:#e2a400; --accent-ink:#2a2000; --slate:#2f4a5c;
+  --ok:#2f8a4e; --warn:#c77700; --crit:#c2362b;
+  --land:#dfe8c6; --land2:#cfdcae; --hill:#bccd96; --water:#9fcbe0; --water2:#86bad3; --road:#f7f3e6; --roadedge:#c9c2a8; --tree:#6f9a4f; --tree2:#4f7a3a;
+  --shadow:0 6px 24px rgba(31,42,36,.14);
+  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141a17; --surface:#1d2520; --ink:#e7ece4; --muted:#9aa79e; --line:#2f3a33;
+  --accent:#f0b81c; --accent-ink:#231a00; --slate:#9cc0d6;
+  --ok:#5cc07c; --warn:#f0a03a; --crit:#ff6b5e;
+  --land:#2c3a28; --land2:#34452d; --hill:#3d5134; --water:#1f4a60; --water2:#1a3f52; --road:#4a4f45; --roadedge:#2a2e27; --tree:#4f7a3a; --tree2:#3b5f2b;
+  --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a17; --surface:#1d2520; --ink:#e7ece4; --muted:#9aa79e; --line:#2f3a33;
+  --accent:#f0b81c; --accent-ink:#231a00; --slate:#9cc0d6;
+  --ok:#5cc07c; --warn:#f0a03a; --crit:#ff6b5e;
+  --land:#2c3a28; --land2:#34452d; --hill:#3d5134; --water:#1f4a60; --water2:#1a3f52; --road:#4a4f45; --roadedge:#2a2e27; --tree:#4f7a3a; --tree2:#3b5f2b;
+  --shadow:0 6px 24px rgba(0,0,0,.45); color-scheme:dark}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{height:100%;display:grid;grid-template-rows:auto 1fr;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px;gap:12px}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.brand{display:flex;align-items:baseline;gap:10px}
+.brand h1{font-family:var(--f-display);font-weight:700;font-size:28px;letter-spacing:.01em;margin:0;text-wrap:balance}
+.brand .tag{font-family:var(--f-mono);font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.kpis{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.kpi{display:flex;align-items:baseline;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.kpi b{font-family:var(--f-display);font-size:22px;font-variant-numeric:tabular-nums}
+.kpi span{font-size:12px;color:var(--muted)}
+.kpi.crit b{color:var(--crit)}
+.tabs{display:flex;gap:4px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:3px}
+.tabs button{border:0;background:none;padding:5px 12px;border-radius:6px;font-weight:500;color:var(--muted)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.example{font-family:var(--f-mono);font-size:11px;color:var(--warn);border:1px dashed var(--warn);border-radius:6px;padding:3px 7px}
+main{min-height:0;display:grid;grid-template-columns:260px minmax(0,1fr) 340px;gap:12px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;min-height:0;overflow:auto}
+.list h2,.detail h2,.view h2{font-family:var(--f-display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0;padding:12px 14px 6px;font-weight:600}
+.site{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:center;width:100%;text-align:left;border:0;border-top:1px solid var(--line);background:none;padding:10px 14px}
+.site:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.site[aria-current="true"]{background:color-mix(in srgb,var(--accent) 16%,transparent)}
+.code{font-family:var(--f-mono);font-size:11px;background:var(--slate);color:var(--surface);border-radius:4px;padding:1px 5px;grid-row:span 2}
+.site .n{font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.site .m{font-size:12px;color:var(--muted);grid-column:2}
+.dots{display:flex;gap:3px;grid-row:span 2;grid-column:3}
+.dot{width:9px;height:9px;border-radius:50%}
+.d-crit{background:var(--crit)} .d-warn{background:var(--warn)} .d-ok{background:var(--ok)}
+.mapwrap{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--water);min-height:300px}
+svg#map{width:100%;height:100%;display:block;touch-action:none}
+.marker{cursor:pointer}
+.marker .pin{transition:transform .2s}
+.marker:hover .pin,.marker.sel .pin{transform:translateY(-4px) scale(1.08)}
+.mlabel{font-family:var(--f-display);font-weight:600;font-size:13px;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.pulse{fill:var(--crit);opacity:.35;animation:pulse 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{from{transform:scale(.6);opacity:.5}to{transform:scale(2.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.pulse{animation:none}.marker .pin{transition:none}}
+.mapctl{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:4px}
+.mapctl button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);font-size:18px;font-weight:600}
+.legend{position:absolute;left:10px;bottom:10px;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;display:flex;gap:10px;flex-wrap:wrap}
+.legend span{display:flex;align-items:center;gap:5px}
+.detail{display:flex;flex-direction:column}
+.dhead{padding:14px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.dhead h3{font-family:var(--f-display);font-size:24px;margin:0;line-height:1.1;text-wrap:balance}
+.dhead .addr{color:var(--muted);font-size:13px}
+.prog{height:8px;background:var(--line);border-radius:4px;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:var(--accent)}
+.progl{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sec{padding:10px 14px;border-bottom:1px solid var(--line)}
+.sec h4{margin:0 0 8px;font-family:var(--f-display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;justify-content:space-between}
+.crew{display:flex;flex-wrap:wrap;gap:6px}
+.av{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:600;color:#fff;font-family:var(--f-mono)}
+.alert{border-left:4px solid var(--warn);background:color-mix(in srgb,var(--warn) 9%,transparent);border-radius:6px;padding:8px 10px;display:grid;gap:6px;margin-bottom:8px}
+.alert.crit{border-color:var(--crit);background:color-mix(in srgb,var(--crit) 9%,transparent)}
+.alert .t{font-weight:600}
+.alert .s{font-size:13px;color:var(--muted)}
+.alert.done{opacity:.6;border-color:var(--ok);background:color-mix(in srgb,var(--ok) 8%,transparent)}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:7px;padding:5px 10px;font-size:13px;font-weight:500}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.task{display:flex;gap:8px;align-items:flex-start;padding:4px 0}
+.task input{margin-top:3px;accent-color:var(--ok)}
+.task label{flex:1;min-width:0}
+.task.dn label{text-decoration:line-through;color:var(--muted)}
+.chip{font-size:11px;font-family:var(--f-mono);border-radius:4px;padding:1px 5px;margin-left:4px}
+.chip.u{background:var(--crit);color:#fff}
+.addtask{display:flex;gap:6px;margin-top:6px}
+.addtask input{flex:1;min-width:0;border:1px solid var(--line);border-radius:7px;padding:5px 8px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px}
+.view{padding:0 0 12px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 14px;border-top:1px solid var(--line)}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+td.num{font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:13px}
+.tablewrap{overflow-x:auto}
+.tablemode .detail{grid-column:2 / 4}
+/* Assistant */
+.asst{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.asst-toggle{display:flex;align-items:center;gap:8px;background:var(--ink);color:var(--surface);border:0;border-radius:999px;padding:10px 16px;font-weight:600;box-shadow:var(--shadow)}
+.asst-box{width:min(380px,calc(100vw - 32px));max-height:min(520px,70vh);background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+.asst-head{padding:10px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.asst-head b{font-family:var(--f-display);font-size:18px;flex:1}
+.msgs{flex:1;overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.msg{padding:8px 10px;border-radius:10px;max-width:92%;white-space:pre-wrap;font-size:14px}
+.msg.me{align-self:flex-end;background:var(--slate);color:var(--surface)}
+.msg.ai{align-self:flex-start;background:var(--bg);border:1px solid var(--line)}
+.quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+.asst form{display:flex;gap:6px;padding:10px 12px;border-top:1px solid var(--line)}
+.asst form input{flex:1;min-width:0;border:1px solid var(--line);border-radius:8px;padding:8px;background:var(--bg);color:var(--ink);font:inherit}
+/* Modale */
+.modal{position:fixed;inset:0;background:rgba(10,15,12,.5);display:grid;place-items:center;z-index:30;padding:16px}
+.mbox{background:var(--surface);border-radius:14px;width:min(520px,100%);max-height:90vh;overflow:auto;box-shadow:var(--shadow)}
+.mbox header{padding:14px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.mbox header b{font-family:var(--f-display);font-size:20px}
+.mbody{padding:14px 16px;display:grid;gap:10px}
+.mbody textarea{width:100%;min-height:180px;border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:14px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
+.kv dt{color:var(--muted)} .kv dd{margin:0;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--surface);padding:8px 14px;border-radius:8px;z-index:40;font-size:14px}
+@media (max-width:1100px){main{grid-template-columns:220px minmax(0,1fr) 300px}}
+@media (max-width:860px){
+  .app{height:auto}
+  main{grid-template-columns:1fr;grid-template-rows:auto}
+  .mapwrap{height:58vh;order:-1}
+  .panel{overflow:visible}
+  .kpis{margin-left:0}
+  .tablemode .detail{grid-column:auto}
+}
+</style>
+
+<div class="app">
+  <header>
+    <div class="brand"><h1>Carte des Chantiers</h1><span class="tag">Vente Construction SA</span></div>
+    <div class="tabs" role="group" aria-label="Vue">
+      <button id="tab-map" aria-pressed="true">Carte</button>
+      <button id="tab-table" aria-pressed="false">Vue d'ensemble</button>
+    </div>
+    <span class="example" title="Remplace ces données par les tiennes">Données d'exemple</span>
+    <div class="kpis" id="kpis"></div>
+  </header>
+  <main id="main">
+    <section class="panel list" aria-label="Chantiers"><h2>Chantiers actifs</h2><div id="sitelist"></div></section>
+    <div class="mapwrap" id="mapwrap">
+      <svg id="map" viewBox="0 0 1000 700" role="img" aria-label="Carte des chantiers autour du Léman"></svg>
+      <div class="mapctl"><button id="zin" aria-label="Zoomer">+</button><button id="zout" aria-label="Dézoomer">−</button><button id="zreset" aria-label="Vue complète">⌂</button></div>
+      <div class="legend"><span><i class="dot d-crit"></i>Urgent</span><span><i class="dot d-warn"></i>À surveiller</span><span><i class="dot d-ok"></i>Dans les temps</span></div>
+    </div>
+    <section class="panel detail" id="detail" aria-live="polite"></section>
+  </main>
+</div>
+
+<div class="asst" id="asst">
+  <div class="asst-box" id="asstbox" hidden>
+    <div class="asst-head"><b>Assistant</b><button class="btn" id="asstclose" aria-label="Fermer">Fermer</button></div>
+    <div class="msgs" id="msgs"></div>
+    <div class="quick">
+      <button class="btn pri" id="brief">Briefing du matin</button>
+      <button class="btn" data-q="Quelles livraisons sont en retard ?">Livraisons en retard</button>
+      <button class="btn" data-q="Qui est sur quel chantier aujourd'hui ?">Qui est où ?</button>
+    </div>
+    <form id="askf"><input id="ask" placeholder="Pose ta question…" autocomplete="off"><button class="btn pri">Envoyer</button></form>
+  </div>
+  <button class="asst-toggle" id="assttoggle">Assistant · briefing</button>
+</div>
+
+<div class="modal" id="modal" hidden><div class="mbox" role="dialog" aria-modal="true" aria-labelledby="mtitle"><header><b id="mtitle"></b><button class="btn" id="mclose">Fermer</button></header><div class="mbody" id="mbody"></div></div></div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+// ---------- Données d'exemple (à remplacer par les tiennes) ----------
+const TODAY = new Date();
+const fmt = d => d.toLocaleDateString('fr-CH',{day:'2-digit',month:'2-digit',year:'numeric'});
+const addDays = n => { const d = new Date(TODAY); d.setDate(d.getDate()+n); return d; };
+const SEED = {
+  people:{
+    MB:{name:'Marc Bovet',role:'Chef de chantier',c:'#2f4a5c'}, LR:{name:'Luca Rossi',role:'Maçon',c:'#8a5a2b'},
+    JD:{name:'Julie Dubois',role:'Conductrice de travaux',c:'#6b3d7a'}, AK:{name:'Arben Krasniqi',role:'Grutier',c:'#2f6b5a'},
+    PF:{name:'Pedro Fernandes',role:'Coffreur',c:'#7a3d3d'}, SM:{name:'Sophie Meier',role:'Électricienne',c:'#3d5a7a'},
+    TN:{name:'Thomas Nicolet',role:'Machiniste',c:'#5a6b2f'}, NV:{name:'Nadia Vuilleumier',role:'Cheffe de chantier',c:'#7a5a2f'},
+    YB:{name:'Yann Berset',role:'Ferrailleur',c:'#4a4a6b'}, KO:{name:'Kevin Oberson',role:'Apprenti',c:'#6b4a2f'}
+  },
+  sites:[
+    {id:'VEN',name:'Pont de la Venoge',addr:'Route de la Venoge, 1028 Préverenges',type:'Ouvrage d\'art',x:520,y:330,progress:62,budget:2400000,spent:1610000,end:addDays(96),
+     crew:['MB','LR','AK','YB'],
+     tasks:[{t:'Ferraillage + gaines précontrainte',u:true,d:false},{t:'Mise en tension câbles travée 2',u:false,d:false},{t:'Bétonnage culée ouest',u:false,d:true},{t:'Contrôle géomètre appuis',u:false,d:false}],
+     alerts:[{id:'a1',lvl:'crit',t:'Livraison en retard',s:'Acier précontrainte Y1860 — prévu hier, toujours pas livré',order:'CMD-2026-421'},{id:'a2',lvl:'warn',t:'Tâche bloquée',s:'Mise en tension travée 2 attend la livraison acier'}]},
+    {id:'BEL',name:'Villa Bellerive',addr:'Chemin de Bellerive 14, 1007 Lausanne',type:'Villa individuelle',x:690,y:250,progress:38,budget:1150000,spent:420000,end:addDays(180),
+     crew:['NV','PF','SM'],
+     tasks:[{t:'Coffrage dalle rez',u:false,d:true},{t:'Gaines électriques dalle',u:false,d:false},{t:'Commande menuiseries',u:true,d:false}],
+     alerts:[{id:'a3',lvl:'warn',t:'Météo',s:'Pluie annoncée jeudi : bétonnage dalle à replanifier'}]},
+    {id:'VER',name:'Résidence Les Vergers',addr:'Rue des Vergers 3, 1110 Morges',type:'Immeuble 18 logements',x:400,y:290,progress:81,budget:6900000,spent:5420000,end:addDays(60),
+     crew:['JD','TN','KO'],
+     tasks:[{t:'Pose façade ventilée bloc B',u:false,d:false},{t:'Réception sanitaires bloc A',u:false,d:true},{t:'Nettoyage abords',u:false,d:false}],
+     alerts:[]},
+    {id:'AUB',name:'Giratoire RC 1 – Aubonne',addr:'RC 1, 1170 Aubonne',type:'Génie civil',x:230,y:250,progress:15,budget:1800000,spent:190000,end:addDays(240),
+     crew:['TN'],
+     tasks:[{t:'Piquetage',u:false,d:true},{t:'Décapage terre végétale',u:false,d:false},{t:'Signalisation de chantier',u:true,d:false}],
+     alerts:[{id:'a4',lvl:'warn',t:'Autorisation',s:'Permis de fouille communal : réponse attendue vendredi'}]}
+  ],
+  orders:{
+    'CMD-2026-421':{supplier:'Acier Romand SA',contact:'commandes@acier-romand.example',phone:'+41 21 000 00 00',item:'Acier de précontrainte Y1860 — torons 0.6"',qty:'24 t',amount:'CHF 48 600',ordered:fmt(addDays(-21)),due:fmt(addDays(-1)),status:'En retard'}
+  }
+};
+let S;
+try{ S = JSON.parse(localStorage.getItem('crm-chantiers-v1')) }catch(e){}
+if(!S || !S.sites){ S = JSON.parse(JSON.stringify(SEED)); }
+const save = () => { try{ localStorage.setItem('crm-chantiers-v1', JSON.stringify(S)); }catch(e){} };
+let sel = S.sites[0].id;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const chf = n => 'CHF ' + Math.round(n).toLocaleString('fr-CH');
+const openAlerts = s => s.alerts.filter(a => !a.done);
+const level = s => openAlerts(s).some(a=>a.lvl==='crit') ? 'crit' : openAlerts(s).length ? 'warn' : 'ok';
+
+// ---------- Carte illustrée ----------
+const NS='http://www.w3.org/2000/svg';
+function el(tag, attrs, parent){ const e=document.createElementNS(NS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e; }
+const map=$('map');
+function drawBase(){
+  map.innerHTML='';
+  const g = el('g',{id:'world'},map);
+  el('rect',{x:-500,y:-500,width:2000,height:1700,fill:'var(--water)'},g);
+  // Terre (rive nord du lac)
+  el('path',{d:'M-500,-500 H1500 V420 C1300,430 1150,380 1000,400 C880,415 820,470 720,440 C620,410 600,380 520,400 C430,420 380,470 280,450 C190,432 120,380 0,400 C-120,420 -300,470 -500,450 Z',fill:'var(--land)'},g);
+  el('path',{d:'M-500,-500 H1500 V160 C1250,190 1100,120 900,150 C700,180 600,110 400,140 C220,166 100,110 -500,150 Z',fill:'var(--land2)'},g);
+  // Reflets du lac
+  for(let i=0;i<14;i++){ const x=40+i*70, y=520+((i*37)%120); el('path',{d:`M${x},${y} q14,-6 28,0`,stroke:'var(--water2)','stroke-width':3,fill:'none','stroke-linecap':'round'},g); }
+  el('text',{x:620,y:600,'font-family':'Barlow Condensed, sans-serif','font-size':30,'letter-spacing':12,fill:'var(--water2)','font-weight':600},g).textContent='LAC LÉMAN';
+  // Collines
+  [[120,90,90],[330,70,110],[560,95,80],[800,60,120],[950,110,70]].forEach(([x,y,r])=>el('ellipse',{cx:x,cy:y,rx:r,ry:r*.45,fill:'var(--hill)'},g));
+  // Rivière Venoge
+  el('path',{d:'M470,-40 C500,80 450,160 500,240 C540,300 510,350 530,410',stroke:'var(--water)','stroke-width':12,fill:'none','stroke-linecap':'round'},g);
+  // Routes
+  const roads=['M-100,360 C150,340 300,300 420,300 C560,300 620,250 1100,230','M230,250 C240,180 250,100 260,-50','M690,250 C700,180 720,100 760,-40','M400,290 C380,340 370,380 360,430'];
+  roads.forEach(d=>{ el('path',{d,stroke:'var(--roadedge)','stroke-width':16,fill:'none','stroke-linecap':'round'},g); el('path',{d,stroke:'var(--road)','stroke-width':11,fill:'none','stroke-linecap':'round'},g); });
+  el('path',{d:roads[0],stroke:'var(--accent)','stroke-width':1.5,'stroke-dasharray':'10 10',fill:'none',opacity:.7},g);
+  // Arbres (pseudo-aléatoire, stable)
+  let seed=7; const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+  for(let i=0;i<150;i++){ const x=rnd()*1000, y=rnd()*400; if(S.sites.some(s=>Math.hypot(s.x-x,s.y-y)<55)) continue; if(Math.abs(y-(330-x*0.08))<14) continue;
+    const r=5+rnd()*6; el('circle',{cx:x,cy:y+2,r:r,fill:'var(--tree2)'},g); el('circle',{cx:x-1,cy:y,r:r*.85,fill:'var(--tree)'},g); }
+  // Villes
+  [['Morges',380,340],['Lausanne',740,300],['Aubonne',180,215],['Préverenges',540,380]].forEach(([n,x,y])=>{ el('text',{x,y,'font-family':'IBM Plex Mono, monospace','font-size':12,fill:'var(--muted)'},g).textContent=n; });
+  el('g',{id:'markers'},g);
+}
+function drawMarkers(){
+  const m=$('markers'); m.innerHTML='';
+  S.sites.forEach(s=>{
+    const lv=level(s);
+    const g=el('g',{class:'marker'+(s.id===sel?' sel':''),transform:`translate(${s.x},${s.y})`,tabindex:0,role:'button','aria-label':s.name},m);
+    // Emprise du chantier
+    el('rect',{x:-34,y:-20,width:68,height:40,rx:6,fill:'var(--road)',stroke:'var(--accent)','stroke-width':2,'stroke-dasharray':'5 4',opacity:.9},g);
+    // Petite grue
+    el('path',{d:'M-18,14 V-22 M-18,-22 H20 M-18,-16 L-8,-22 M14,-22 V-8',stroke:'var(--accent)','stroke-width':3,fill:'none','stroke-linecap':'round'},g);
+    el('rect',{x:4,y:2,width:18,height:12,fill:'var(--slate)',rx:2},g);
+    if(lv==='crit') el('circle',{class:'pulse',cx:0,cy:-48,r:14},g);
+    const p=el('g',{class:'pin'},g);
+    el('circle',{cx:0,cy:-48,r:13,fill:`var(--${lv})`,stroke:'var(--surface)','stroke-width':3},p);
+    el('text',{x:0,y:-44,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-size':11,'font-weight':600,fill:'#fff'},p).textContent=openAlerts(s).length||'✓';
+    el('text',{class:'mlabel',x:0,y:38,'text-anchor':'middle'},g).textContent=s.name;
+    const go=()=>select(s.id,true);
+    g.addEventListener('click',go); g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+  });
+}
+// Zoom / déplacement par viewBox
+const HOME={x:120,y:100,w:720,h:504};
+let vb={...HOME}, anim;
+function setVB(v){ vb=v; map.setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`); }
+function flyTo(t,ms=900){
+  cancelAnimationFrame(anim);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return setVB(t);
+  const f={...vb}, t0=performance.now(), ease=k=>k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+  const step=now=>{ const k=Math.min(1,(now-t0)/ms), e=ease(k); setVB({x:f.x+(t.x-f.x)*e,y:f.y+(t.y-f.y)*e,w:f.w+(t.w-f.w)*e,h:f.h+(t.h-f.h)*e}); if(k<1) anim=requestAnimationFrame(step); };
+  anim=requestAnimationFrame(step);
+}
+const focusSite=s=>flyTo({x:s.x-210,y:s.y-160,w:420,h:294});
+const zoom=f=>{ const cx=vb.x+vb.w/2, cy=vb.y+vb.h/2, w=Math.min(1400,Math.max(250,vb.w*f)), h=w*.7; flyTo({x:cx-w/2,y:cy-h/2,w,h},300); };
+$('zin').onclick=()=>zoom(.7); $('zout').onclick=()=>zoom(1.4); $('zreset').onclick=()=>flyTo(HOME);
+let drag=null;
+map.addEventListener('pointerdown',e=>{ if(e.target.closest('.marker')) return; drag={x:e.clientX,y:e.clientY,vb:{...vb}}; map.setPointerCapture(e.pointerId); });
+map.addEventListener('pointermove',e=>{ if(!drag) return; const r=map.getBoundingClientRect(), s=vb.w/r.width; setVB({...drag.vb,x:drag.vb.x-(e.clientX-drag.x)*s,y:drag.vb.y-(e.clientY-drag.y)*s}); });
+map.addEventListener('pointerup',()=>drag=null);
+
+// ---------- Liste, KPI, fiche ----------
+function renderKpis(){
+  const crew=new Set(S.sites.flatMap(s=>s.crew)).size;
+  const alerts=S.sites.reduce((n,s)=>n+openAlerts(s).length,0);
+  const urg=S.sites.reduce((n,s)=>n+openAlerts(s).filter(a=>a.lvl==='crit').length,0);
+  const todo=S.sites.reduce((n,s)=>n+s.tasks.filter(t=>!t.d).length,0);
+  $('kpis').innerHTML=`<div class="kpi"><b>${S.sites.length}</b><span>chantiers</span></div><div class="kpi"><b>${crew}</b><span>sur place</span></div><div class="kpi ${urg?'crit':''}"><b>${alerts}</b><span>alertes${urg?` · ${urg} urgente${urg>1?'s':''}`:''}</span></div><div class="kpi"><b>${todo}</b><span>tâches ouvertes</span></div>`;
+}
+function renderList(){
+  $('sitelist').innerHTML=S.sites.map(s=>{ const a=openAlerts(s);
+    return `<button class="site" data-id="${s.id}" aria-current="${s.id===sel}"><span class="code">${s.id}</span><span class="n">${esc(s.name)}</span><span class="dots">${a.length?a.map(x=>`<i class="dot d-${x.lvl}"></i>`).join(''):'<i class="dot d-ok"></i>'}</span><span class="m">${s.crew.length} pers. · ${s.progress}% · ${esc(s.type)}</span></button>`; }).join('');
+  $('sitelist').querySelectorAll('.site').forEach(b=>b.onclick=()=>select(b.dataset.id,true));
+}
+function renderDetail(){
+  const s=S.sites.find(x=>x.id===sel), a=s.alerts;
+  $('detail').innerHTML=`
+  <div class="dhead"><span class="code" style="justify-self:start">${s.id}</span><h3>${esc(s.name)}</h3><span class="addr">${esc(s.addr)} · ${esc(s.type)}</span>
+    <div class="prog" aria-label="Avancement ${s.progress}%"><i style="width:${s.progress}%"></i></div>
+    <div class="progl"><span>Avancement ${s.progress}%</span><span>Fin prévue ${fmt(new Date(s.end))}</span></div>
+    <div class="progl"><span>Budget ${chf(s.budget)}</span><span>Engagé ${Math.round(s.spent/s.budget*100)}%</span></div></div>
+  <div class="sec"><h4>Sur place <span>${s.crew.length}</span></h4><div class="crew">${s.crew.map(p=>{const P=S.people[p];return `<span class="av" style="background:${P.c}" title="${esc(P.name)} — ${esc(P.role)}">${p}</span>`}).join('')}</div></div>
+  <div class="sec"><h4>Alertes <span>${openAlerts(s).length}</span></h4>${a.length?a.map(x=>`
+    <div class="alert ${x.lvl==='crit'?'crit':''} ${x.done?'done':''}"><span class="t">${x.done?'Traité · ':''}${esc(x.t)}</span><span class="s">${esc(x.s)}</span>
+    ${x.done?'':`<div class="btns">${x.order?`<button class="btn pri" data-relance="${x.order}">Relancer le fournisseur</button><button class="btn" data-order="${x.order}">Ouvrir la commande</button>`:''}<button class="btn" data-done="${x.id}">Marquer traité</button></div>`}</div>`).join(''):'<span class="s" style="color:var(--muted)">Aucune alerte.</span>'}</div>
+  <div class="sec"><h4>Tâches <span>${s.tasks.filter(t=>!t.d).length} ouvertes</span></h4>
+    ${s.tasks.map((t,i)=>`<div class="task ${t.d?'dn':''}"><input type="checkbox" id="t-${s.id}-${i}" ${t.d?'checked':''} data-t="${i}"><label for="t-${s.id}-${i}">${esc(t.t)}${t.u&&!t.d?'<span class="chip u">URGENT</span>':''}</label></div>`).join('')}
+    <form class="addtask" id="addtask"><input id="newtask" placeholder="Nouvelle tâche…" aria-label="Nouvelle tâche"><button class="btn">Ajouter</button></form></div>`;
+  const D=$('detail');
+  D.querySelectorAll('[data-t]').forEach(c=>c.onchange=()=>{ s.tasks[c.dataset.t].d=c.checked; commit(); });
+  D.querySelectorAll('[data-done]').forEach(b=>b.onclick=()=>{ s.alerts.find(x=>x.id===b.dataset.done).done=true; commit(); toast('Alerte marquée comme traitée'); });
+  D.querySelectorAll('[data-relance]').forEach(b=>b.onclick=()=>relance(b.dataset.relance,s));
+  D.querySelectorAll('[data-order]').forEach(b=>b.onclick=()=>openOrder(b.dataset.order));
+  $('addtask').onsubmit=e=>{ e.preventDefault(); const v=$('newtask').value.trim(); if(!v) return; s.tasks.push({t:v,u:false,d:false}); commit(); };
+}
+function renderTable(){
+  $('detail').innerHTML='';
+  const rows=S.sites.map(s=>`<tr><td><span class="code">${s.id}</span> ${esc(s.name)}</td><td>${esc(s.type)}</td><td class="num">${s.progress}%</td><td class="num">${chf(s.budget)}</td><td class="num">${Math.round(s.spent/s.budget*100)}%</td><td class="num">${fmt(new Date(s.end))}</td><td>${s.crew.length}</td><td><i class="dot d-${level(s)}" style="display:inline-block"></i> ${openAlerts(s).length}</td></tr>`).join('');
+  return `<div class="view"><h2>Vue d'ensemble</h2><div class="tablewrap"><table><thead><tr><th>Chantier</th><th>Type</th><th>Avanc.</th><th>Budget</th><th>Engagé</th><th>Fin prévue</th><th>Pers.</th><th>Alertes</th></tr></thead><tbody>${rows}</tbody></table></div></div>`;
+}
+let viewMode='map';
+function render(){ renderKpis(); renderList(); drawMarkers(); if(viewMode==='map') renderDetail(); }
+function commit(){ save(); render(); }
+function select(id,fly){ sel=id; if(viewMode!=='map') setMode('map'); render(); if(fly) focusSite(S.sites.find(s=>s.id===id)); }
+function setMode(m){
+  viewMode=m; $('tab-map').setAttribute('aria-pressed',m==='map'); $('tab-table').setAttribute('aria-pressed',m==='table');
+  const mw=$('mapwrap');
+  if(m==='table'){ mw.hidden=true; $('detail').innerHTML=renderTable(); $('main').classList.add('tablemode'); }
+  else { mw.hidden=false; $('main').classList.remove('tablemode'); render(); }
+}
+$('tab-map').onclick=()=>setMode('map'); $('tab-table').onclick=()=>setMode('table');
+
+// ---------- Commandes & relance ----------
+function modal(title,html){ $('mtitle').textContent=title; $('mbody').innerHTML=html; $('modal').hidden=false; $('mclose').focus(); }
+$('mclose').onclick=()=>$('modal').hidden=true;
+$('modal').onclick=e=>{ if(e.target.id==='modal') $('modal').hidden=true; };
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') $('modal').hidden=true; });
+function openOrder(no){
+  const o=S.orders[no];
+  modal('Commande '+no,`<dl class="kv"><dt>Fournisseur</dt><dd>${esc(o.supplier)}</dd><dt>Article</dt><dd>${esc(o.item)}</dd><dt>Quantité</dt><dd>${esc(o.qty)}</dd><dt>Montant</dt><dd>${esc(o.amount)}</dd><dt>Commandé le</dt><dd>${o.ordered}</dd><dt>Livraison prévue</dt><dd>${o.due}</dd><dt>Statut</dt><dd style="color:var(--crit);font-weight:600">${esc(o.status)}</dd><dt>Contact</dt><dd style="user-select:all">${esc(o.contact)}</dd><dt>Téléphone</dt><dd style="user-select:all">${esc(o.phone)}</dd></dl>`);
+}
+function relance(no,s){
+  const o=S.orders[no];
+  const txt=`Objet : Relance commande ${no} — livraison en retard\n\nBonjour,\n\nNotre commande ${no} (${o.item}, ${o.qty}) devait être livrée le ${o.due} sur le chantier ${s.name} (${s.addr}). Nous ne l'avons pas reçue.\n\nCe retard bloque la suite des travaux. Merci de nous confirmer aujourd'hui une nouvelle date de livraison ferme.\n\nMeilleures salutations,\n${S.people[s.crew[0]].name}\nVente Construction SA`;
+  modal('Relance fournisseur',`<div>À : <b style="user-select:all">${esc(o.contact)}</b></div><textarea id="relancetxt">${esc(txt)}</textarea><div class="btns"><button class="btn pri" id="copyrel">Copier le message</button><button class="btn" id="markrel">Marquer comme relancé</button></div>`);
+  $('copyrel').onclick=async()=>{ const t=$('relancetxt'); try{ await navigator.clipboard.writeText(t.value); toast('Message copié'); }catch(e){ t.select(); toast('Sélectionné : fais Ctrl+C'); } };
+  $('markrel').onclick=()=>{ o.status='Relancé le '+fmt(new Date()); const a=s.alerts.find(x=>x.order===no); if(a) a.s+=' · Fournisseur relancé le '+fmt(new Date()); $('modal').hidden=true; commit(); toast('Relance enregistrée'); };
+}
+let tt; function toast(m){ const t=$('toast'); t.textContent=m; t.hidden=false; clearTimeout(tt); tt=setTimeout(()=>t.hidden=true,2200); }
+
+// ---------- Assistant ----------
+const msgs=$('msgs');
+function say(text,who='ai'){ const d=document.createElement('div'); d.className='msg '+who; d.textContent=text; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight; return d; }
+$('assttoggle').onclick=()=>{ const b=$('asstbox'); b.hidden=!b.hidden; if(!b.hidden && !msgs.children.length) say('Bonjour. Je peux te faire le briefing du matin ou répondre à une question sur tes chantiers.'); };
+$('asstclose').onclick=()=>$('asstbox').hidden=true;
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+let briefing=false;
+$('brief').onclick=async()=>{
+  if(briefing) return; briefing=true;
+  const d=TODAY.toLocaleDateString('fr-CH',{weekday:'long',day:'numeric',month:'long'});
+  const crew=new Set(S.sites.flatMap(s=>s.crew)).size;
+  say(`Briefing du ${d}. ${S.sites.length} chantiers actifs, ${crew} personnes sur place. Je te fais le tour.`);
+  flyTo(HOME); await wait(1200);
+  const order=[...S.sites].sort((a,b)=>({crit:0,warn:1,ok:2}[level(a)]-{crit:0,warn:1,ok:2}[level(b)]));
+  for(const s of order){
+    sel=s.id; render(); focusSite(s); await wait(1000);
+    const a=openAlerts(s), open=s.tasks.filter(t=>!t.d), urg=open.filter(t=>t.u);
+    let line=`${s.name} — ${s.progress}% · ${s.crew.map(p=>S.people[p].name.split(' ')[0]).join(', ')} sur place.`;
+    line+= a.length? '\n'+a.map(x=>(x.lvl==='crit'?'URGENT : ':'À surveiller : ')+x.t+' — '+x.s).join('\n') : '\nRien à signaler.';
+    if(urg.length) line+='\nTâche urgente : '+urg.map(t=>t.t).join(', ');
+    say(line); await wait(2600);
+  }
+  flyTo(HOME);
+  const crit=order.filter(s=>level(s)==='crit');
+  say(crit.length?`Priorité du jour : ${crit.map(s=>s.name).join(', ')}. Ouvre la fiche pour relancer le fournisseur.`:'Aucune urgence aujourd\'hui.');
+  briefing=false;
+};
+function localAnswer(q){
+  q=q.toLowerCase();
+  if(/retard|livraison|commande/.test(q)){ const l=S.sites.flatMap(s=>openAlerts(s).filter(a=>a.order).map(a=>`${s.name} : ${a.s} (${a.order}, ${S.orders[a.order].supplier})`)); return l.length?l.join('\n'):'Aucune livraison en retard.'; }
+  if(/qui|personne|équipe|ou est|où est/.test(q)) return S.sites.map(s=>`${s.name} : ${s.crew.map(p=>S.people[p].name).join(', ')}`).join('\n');
+  if(/urgent|alerte|problème/.test(q)){ const l=S.sites.flatMap(s=>openAlerts(s).map(a=>`${s.name} : ${a.t} — ${a.s}`)); return l.length?l.join('\n'):'Aucune alerte ouverte.'; }
+  if(/tâche|faire/.test(q)) return S.sites.map(s=>`${s.name} : ${s.tasks.filter(t=>!t.d).map(t=>t.t).join(', ')||'rien'}`).join('\n');
+  if(/budget|coût|argent/.test(q)) return S.sites.map(s=>`${s.name} : ${chf(s.spent)} engagés sur ${chf(s.budget)} (${Math.round(s.spent/s.budget*100)}%)`).join('\n');
+  return 'Je réponds sans IA ici. Essaie : retards, qui est où, alertes, tâches, budget.';
+}
+let samplerP = window.claude?.use ? window.claude.use('sample').catch(()=>null) : Promise.resolve(null);
+async function ask(q){
+  say(q,'me');
+  const sample=await samplerP;
+  if(!sample){ say(localAnswer(q)); return; }
+  const out=say('…');
+  const data=JSON.stringify({date:TODAY.toISOString().slice(0,10),sites:S.sites.map(s=>({id:s.id,name:s.name,type:s.type,progress:s.progress,budget:s.budget,spent:s.spent,end:new Date(s.end).toISOString().slice(0,10),crew:s.crew.map(p=>S.people[p]),tasks:s.tasks,alerts:openAlerts(s)})),orders:S.orders});
+  const prompt=`Tu es l'assistant d'une entreprise de construction en Suisse romande. Réponds en français, court et concret (5 lignes max), uniquement à partir de ces données. Si l'info n'y est pas, dis-le.\nDonnées : ${data}\nQuestion : ${q}\nTermine ta réponse par une ligne "CHANTIER: <id>" si elle concerne surtout un chantier, sinon "CHANTIER: -".`;
+  try{
+    const r=await sample(prompt,{onText:({text})=>{out.textContent=text.replace(/CHANTIER:.*$/s,'').trim()||'…';},cache:false,modelTier:'quick'});
+    const m=r.text.match(/CHANTIER:\s*([A-Z]{3})/); out.textContent=r.text.replace(/CHANTIER:.*$/s,'').trim();
+    if(m && S.sites.some(s=>s.id===m[1])) select(m[1],true);
+  }catch(e){ out.textContent=localAnswer(q); }
+}
+$('askf').onsubmit=e=>{ e.preventDefault(); const v=$('ask').value.trim(); if(!v) return; $('ask').value=''; ask(v); };
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>ask(b.dataset.q));
+
+drawBase(); setVB(HOME); render();
+</script>

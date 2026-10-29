@@ -1,0 +1,717 @@
+{
+ "variantes": {
+  "D1": {
+   "2000-2015 (choix)": {
+    "trades": 626,
+    "reussite": 0.7523961661341853,
+    "gain_moyen": 0.0137063470109417,
+    "perte_moyenne": -0.0252080117311956,
+    "pire_trade": -0.1847687278208225,
+    "profit_factor": 1.6522369851436507,
+    "rendement_annuel": 0.031078781716597614,
+    "pire_baisse": -0.13781264614912336,
+    "sharpe": 0.5642893047316769,
+    "mois_moyen": 0.0026645482506775023,
+    "mois_median": 0.0017602414373827369,
+    "mois_positifs": 0.578125,
+    "pire_mois": -0.09145760513676704,
+    "meilleur_mois": 0.04347057404715571
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 309,
+    "reussite": 0.7475728155339806,
+    "gain_moyen": 0.0119418416097472,
+    "perte_moyenne": -0.018474955942474853,
+    "pire_trade": -0.10198462328069051,
+    "profit_factor": 1.9142791646695072,
+    "rendement_annuel": 0.04508868058293691,
+    "pire_baisse": -0.0932879190625947,
+    "sharpe": 0.6048975254631289,
+    "mois_moyen": 0.003808900449732988,
+    "mois_median": 0.0035447455154290486,
+    "mois_positifs": 0.6111111111111112,
+    "pire_mois": -0.06833845713482589,
+    "meilleur_mois": 0.05210465371849393
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 254,
+    "reussite": 0.7677165354330708,
+    "gain_moyen": 0.01464689597553633,
+    "perte_moyenne": -0.021777923040467013,
+    "pire_trade": -0.0999285757094081,
+    "profit_factor": 2.222858092186567,
+    "rendement_annuel": 0.06616710826269867,
+    "pire_baisse": -0.09250626141985707,
+    "sharpe": 1.0743864735515734,
+    "mois_moyen": 0.005417445138684477,
+    "mois_median": 0.0045843660962956445,
+    "mois_positifs": 0.6724137931034483,
+    "pire_mois": -0.045562132741015726,
+    "meilleur_mois": 0.05776517335838727
+   },
+   "perdants_dev_par_motif": {
+    "objectif/rebond": 104,
+    "durée": 38,
+    "stop": 13
+   }
+  },
+  "F1": {
+   "2000-2015 (choix)": {
+    "trades": 688,
+    "reussite": 0.9563953488372093,
+    "gain_moyen": 0.005601378385797935,
+    "perte_moyenne": -0.04844665629778731,
+    "pire_trade": -0.11737201845686633,
+    "profit_factor": 2.5359211274906066,
+    "rendement_annuel": 0.028256919535651237,
+    "pire_baisse": -0.08940530544512848,
+    "sharpe": 0.700170732065672,
+    "mois_moyen": 0.002360129129232963,
+    "mois_median": 0.0016366167196680825,
+    "mois_positifs": 0.6666666666666666,
+    "pire_mois": -0.048628301781209915,
+    "meilleur_mois": 0.04496240587179923
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 338,
+    "reussite": 0.9319526627218935,
+    "gain_moyen": 0.004889594054539974,
+    "perte_moyenne": -0.03242481966983764,
+    "pire_trade": -0.10198462328069051,
+    "profit_factor": 2.065275308374537,
+    "rendement_annuel": 0.02740749416669863,
+    "pire_baisse": -0.07134877912172077,
+    "sharpe": 0.5167531103385331,
+    "mois_moyen": 0.002313099096117064,
+    "mois_median": 0.0026355238041014806,
+    "mois_positifs": 0.6388888888888888,
+    "pire_mois": -0.054882513566595126,
+    "meilleur_mois": 0.027263859609078844
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 279,
+    "reussite": 0.946236559139785,
+    "gain_moyen": 0.005777102793401483,
+    "perte_moyenne": -0.04254803554358514,
+    "pire_trade": -0.0999285757094081,
+    "profit_factor": 2.38969926260663,
+    "rendement_annuel": 0.036542165020778006,
+    "pire_baisse": -0.06737086947412119,
+    "sharpe": 0.9598773376781516,
+    "mois_moyen": 0.0030122267987416295,
+    "mois_median": 0.004601794030296036,
+    "mois_positifs": 0.7413793103448276,
+    "pire_mois": -0.04621673416431904,
+    "meilleur_mois": 0.016733161685469566
+   },
+   "perdants_dev_par_motif": {
+    "durée": 24,
+    "stop": 6
+   }
+  },
+  "F2": {
+   "2000-2015 (choix)": {
+    "trades": 640,
+    "reussite": 0.728125,
+    "gain_moyen": 0.01377123899537351,
+    "perte_moyenne": -0.020831862486770502,
+    "pire_trade": -0.1847687278208225,
+    "profit_factor": 1.7704415106656854,
+    "rendement_annuel": 0.034607399020195384,
+    "pire_baisse": -0.13781264614912336,
+    "sharpe": 0.6640524804894306,
+    "mois_moyen": 0.002943512529720152,
+    "mois_median": 0.00145771821556695,
+    "mois_positifs": 0.5729166666666666,
+    "pire_mois": -0.09538113990068431,
+    "meilleur_mois": 0.04236471655189478
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 314,
+    "reussite": 0.7006369426751592,
+    "gain_moyen": 0.012253432045014046,
+    "perte_moyenne": -0.020230402510765945,
+    "pire_trade": -0.08089287473614086,
+    "profit_factor": 1.4175815432477628,
+    "rendement_annuel": 0.02652380201607407,
+    "pire_baisse": -0.1042193134082996,
+    "sharpe": 0.4057799793621506,
+    "mois_moyen": 0.0022919230843923464,
+    "mois_median": 0.004028436771154609,
+    "mois_positifs": 0.625,
+    "pire_mois": -0.05525779963279143,
+    "meilleur_mois": 0.05210465371849393
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 260,
+    "reussite": 0.75,
+    "gain_moyen": 0.014801103126706726,
+    "perte_moyenne": -0.023696662400711638,
+    "pire_trade": -0.09774799314486053,
+    "profit_factor": 1.873821242386721,
+    "rendement_annuel": 0.05558192240562154,
+    "pire_baisse": -0.08227458256834841,
+    "sharpe": 1.0200715180955922,
+    "mois_moyen": 0.00460029269812108,
+    "mois_median": 0.0037589450904671473,
+    "mois_positifs": 0.6724137931034483,
+    "pire_mois": -0.04259305609747799,
+    "meilleur_mois": 0.05776517335838727
+   },
+   "perdants_dev_par_motif": {
+    "objectif/rebond": 98,
+    "durée": 69,
+    "stop": 7
+   }
+  },
+  "F3": {
+   "2000-2015 (choix)": {
+    "trades": 596,
+    "reussite": 0.7483221476510067,
+    "gain_moyen": 0.013523597663175041,
+    "perte_moyenne": -0.025731033227826418,
+    "pire_trade": -0.1847687278208225,
+    "profit_factor": 1.5627108077036904,
+    "rendement_annuel": 0.026159308838026973,
+    "pire_baisse": -0.13781264614912314,
+    "sharpe": 0.49117077250219815,
+    "mois_moyen": 0.002255192667294214,
+    "mois_median": 0.0009967378260958837,
+    "mois_positifs": 0.53125,
+    "pire_mois": -0.09145760513676704,
+    "meilleur_mois": 0.03951003201012382
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 299,
+    "reussite": 0.745819397993311,
+    "gain_moyen": 0.011688223122119933,
+    "perte_moyenne": -0.01877299912879847,
+    "pire_trade": -0.10198462328069051,
+    "profit_factor": 1.8268635226345393,
+    "rendement_annuel": 0.040229013253382906,
+    "pire_baisse": -0.0932879190625947,
+    "sharpe": 0.5530378300789883,
+    "mois_moyen": 0.0034151890716574876,
+    "mois_median": 0.0032855226804495707,
+    "mois_positifs": 0.5833333333333334,
+    "pire_mois": -0.06833845713482589,
+    "meilleur_mois": 0.05210465371849393
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 244,
+    "reussite": 0.7704918032786885,
+    "gain_moyen": 0.014127187853804428,
+    "perte_moyenne": -0.019622817739477622,
+    "pire_trade": -0.09632312517719203,
+    "profit_factor": 2.4169305562829644,
+    "rendement_annuel": 0.06559784939476199,
+    "pire_baisse": -0.09250626141985707,
+    "sharpe": 1.11002363085879,
+    "mois_moyen": 0.00536829481298127,
+    "mois_median": 0.003880360221706458,
+    "mois_positifs": 0.6206896551724138,
+    "pire_mois": -0.045562132741015726,
+    "meilleur_mois": 0.05776517335838727
+   },
+   "perdants_dev_par_motif": {
+    "objectif/rebond": 99,
+    "durée": 38,
+    "stop": 13
+   }
+  },
+  "F1+F2": {
+   "2000-2015 (choix)": {
+    "trades": 695,
+    "reussite": 0.9338129496402877,
+    "gain_moyen": 0.005686924777931214,
+    "perte_moyenne": -0.03422599775955111,
+    "pire_trade": -0.11737201845686633,
+    "profit_factor": 2.344273246679793,
+    "rendement_annuel": 0.02676491754602983,
+    "pire_baisse": -0.0894053054451287,
+    "sharpe": 0.698065329311789,
+    "mois_moyen": 0.0022363344943917497,
+    "mois_median": 0.0014005488023139945,
+    "mois_positifs": 0.6458333333333334,
+    "pire_mois": -0.048628301781209915,
+    "meilleur_mois": 0.04496240587179923
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 340,
+    "reussite": 0.9,
+    "gain_moyen": 0.004954350336371535,
+    "perte_moyenne": -0.030270892472231026,
+    "pire_trade": -0.08089287473614086,
+    "profit_factor": 1.4730042422187464,
+    "rendement_annuel": 0.016561282980881664,
+    "pire_baisse": -0.0780585969568186,
+    "sharpe": 0.35881637292670865,
+    "mois_moyen": 0.001420891841598465,
+    "mois_median": 0.0017184981226623375,
+    "mois_positifs": 0.6527777777777778,
+    "pire_mois": -0.04561122988487021,
+    "meilleur_mois": 0.027263859609078844
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 283,
+    "reussite": 0.9328621908127208,
+    "gain_moyen": 0.005828688566727688,
+    "perte_moyenne": -0.0449147682408989,
+    "pire_trade": -0.09325010808915095,
+    "profit_factor": 1.803150654922495,
+    "rendement_annuel": 0.027334102812589967,
+    "pire_baisse": -0.059525067828523404,
+    "sharpe": 0.80027223424115,
+    "mois_moyen": 0.002271667308212121,
+    "mois_median": 0.002965939155970987,
+    "mois_positifs": 0.7241379310344828,
+    "pire_mois": -0.04009431685090281,
+    "meilleur_mois": 0.016733161685469566
+   },
+   "perdants_dev_par_motif": {
+    "durée": 42,
+    "stop": 4
+   }
+  },
+  "F1+F3": {
+   "2000-2015 (choix)": {
+    "trades": 657,
+    "reussite": 0.954337899543379,
+    "gain_moyen": 0.005477990428554838,
+    "perte_moyenne": -0.04844665629778731,
+    "pire_trade": -0.11737201845686633,
+    "profit_factor": 2.363217788510725,
+    "rendement_annuel": 0.024954437794753703,
+    "pire_baisse": -0.08940530544512859,
+    "sharpe": 0.634480138717583,
+    "mois_moyen": 0.00208682106101343,
+    "mois_median": 0.0009749563190695199,
+    "mois_positifs": 0.609375,
+    "pire_mois": -0.048628301781209915,
+    "meilleur_mois": 0.04039838561204445
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 325,
+    "reussite": 0.9292307692307692,
+    "gain_moyen": 0.00473017608331661,
+    "perte_moyenne": -0.03242481966983764,
+    "pire_trade": -0.10198462328069051,
+    "profit_factor": 1.9154853968245733,
+    "rendement_annuel": 0.023535475138935613,
+    "pire_baisse": -0.07134877912172077,
+    "sharpe": 0.4520428049145751,
+    "mois_moyen": 0.0019960313822331246,
+    "mois_median": 0.0025517536292908316,
+    "mois_positifs": 0.6111111111111112,
+    "pire_mois": -0.054882513566595126,
+    "meilleur_mois": 0.02525462476100304
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 268,
+    "reussite": 0.9514925373134329,
+    "gain_moyen": 0.005723243897891127,
+    "perte_moyenne": -0.03503656053802116,
+    "pire_trade": -0.09166254808808798,
+    "profit_factor": 3.204185244809081,
+    "rendement_annuel": 0.04164951116614435,
+    "pire_baisse": -0.06737086947412119,
+    "sharpe": 1.1840645613842384,
+    "mois_moyen": 0.0034139578610928043,
+    "mois_median": 0.0036691684553096238,
+    "mois_positifs": 0.6896551724137931,
+    "pire_mois": -0.04621673416431904,
+    "meilleur_mois": 0.016733161685469566
+   },
+   "perdants_dev_par_motif": {
+    "durée": 24,
+    "stop": 6
+   }
+  },
+  "F1+F2+F3": {
+   "2000-2015 (choix)": {
+    "trades": 664,
+    "reussite": 0.9322289156626506,
+    "gain_moyen": 0.00555997289755515,
+    "perte_moyenne": -0.034229180358130794,
+    "pire_trade": -0.11737201845686633,
+    "profit_factor": 2.234365978954442,
+    "rendement_annuel": 0.023951139823358725,
+    "pire_baisse": -0.08940530544512859,
+    "sharpe": 0.639437950359314,
+    "mois_moyen": 0.0020034675034520774,
+    "mois_median": 0.000724698851192418,
+    "mois_positifs": 0.5885416666666666,
+    "pire_mois": -0.048628301781209915,
+    "meilleur_mois": 0.04039838561204445
+   },
+   "2016-2021 (contrôle)": {
+    "trades": 327,
+    "reussite": 0.8990825688073395,
+    "gain_moyen": 0.004778647118745627,
+    "perte_moyenne": -0.03091923901198933,
+    "pire_trade": -0.08089287473614086,
+    "profit_factor": 1.3769226851560528,
+    "rendement_annuel": 0.013053017792858945,
+    "pire_baisse": -0.08033280782259455,
+    "sharpe": 0.29123739121998354,
+    "mois_moyen": 0.0011304968217153355,
+    "mois_median": 0.001604362854101371,
+    "mois_positifs": 0.625,
+    "pire_mois": -0.04561122988487021,
+    "meilleur_mois": 0.02525462476100304
+   },
+   "2022 → aujourd'hui (test)": {
+    "trades": 272,
+    "reussite": 0.9375,
+    "gain_moyen": 0.005776650345570023,
+    "perte_moyenne": -0.039936313991964414,
+    "pire_trade": -0.09325010808915095,
+    "profit_factor": 2.169698365276904,
+    "rendement_annuel": 0.03203188211553076,
+    "pire_baisse": -0.05952506782852296,
+    "sharpe": 1.028431558379926,
+    "mois_moyen": 0.0026444654951437076,
+    "mois_median": 0.002426433297533115,
+    "mois_positifs": 0.6724137931034483,
+    "pire_mois": -0.04009431685090281,
+    "meilleur_mois": 0.016733161685469566
+   },
+   "perdants_dev_par_motif": {
+    "durée": 41,
+    "stop": 4
+   }
+  }
+ },
+ "autopsie_D1": {
+  "trades": 626,
+  "perdants": 155,
+  "par_motif": {
+   "objectif/rebond": 104,
+   "durée": 38,
+   "stop": 13
+  },
+  "part_perte_par_motif": {
+   "durée": 0.417,
+   "objectif/rebond": 0.202,
+   "stop": 0.381
+  },
+  "perte_moyenne_par_motif": {
+   "durée": -0.0428,
+   "objectif/rebond": -0.0076,
+   "stop": -0.1146
+  }
+ },
+ "acceptes": {
+  "F1": false,
+  "F2": false,
+  "F3": false,
+  "F1+F2": false,
+  "F1+F3": false,
+  "F1+F2+F3": false
+ },
+ "final": "D1",
+ "hasard": {
+  "D1": {
+   "reussite_mediane": 0.7037983539452299,
+   "sharpe_median": 0.5848803591469218,
+   "percentile_sharpe": 0.74,
+   "percentile_reussite": 1.0,
+   "reussite": 0.7544154751892347,
+   "sharpe": 0.6594237061355259
+  },
+  "F1": {
+   "reussite_mediane": 0.9523321587972751,
+   "sharpe_median": 0.39462853837039075,
+   "percentile_sharpe": 1.0,
+   "percentile_reussite": 0.2,
+   "reussite": 0.9478927203065134,
+   "sharpe": 0.6819769326229398
+  }
+ },
+ "levier": {
+  "D1": {
+   "1": {
+    "tout": {
+     "trades": 1189,
+     "reussite": 0.7544154751892347,
+     "gain_moyen": 0.013456409776181413,
+     "perte_moyenne": -0.022716389867246268,
+     "pire_trade": -0.1847687278208225,
+     "profit_factor": 1.8196986874991192,
+     "rendement_annuel": 0.04037954761241713,
+     "pire_baisse": -0.13781264614912336,
+     "sharpe": 0.6594237061355259,
+     "mois_moyen": 0.003416291660107315,
+     "mois_median": 0.0028211392999086815,
+     "mois_positifs": 0.6024844720496895,
+     "pire_mois": -0.09145760513676704,
+     "meilleur_mois": 0.05776517335838727
+    },
+    "test": {
+     "trades": 254,
+     "reussite": 0.7677165354330708,
+     "gain_moyen": 0.01464689597553633,
+     "perte_moyenne": -0.021777923040467013,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.222858092186567,
+     "rendement_annuel": 0.06616710826269867,
+     "pire_baisse": -0.09250626141985707,
+     "sharpe": 1.0743864735515734,
+     "mois_moyen": 0.005417445138684477,
+     "mois_median": 0.0045843660962956445,
+     "mois_positifs": 0.6724137931034483,
+     "pire_mois": -0.045562132741015726,
+     "meilleur_mois": 0.05776517335838727
+    },
+    "ruine_5ans": 0.0
+   },
+   "2": {
+    "tout": {
+     "trades": 1189,
+     "reussite": 0.7544154751892347,
+     "gain_moyen": 0.013456409776181413,
+     "perte_moyenne": -0.022716389867246268,
+     "pire_trade": -0.1847687278208225,
+     "profit_factor": 1.8196986874991192,
+     "rendement_annuel": 0.07319512910045112,
+     "pire_baisse": -0.26300261911154577,
+     "sharpe": 0.6238599119104038,
+     "mois_moyen": 0.006373589974534036,
+     "mois_median": 0.005298493117688041,
+     "mois_positifs": 0.5962732919254659,
+     "pire_mois": -0.18195686351783913,
+     "meilleur_mois": 0.11666456861924623
+    },
+    "test": {
+     "trades": 254,
+     "reussite": 0.7677165354330708,
+     "gain_moyen": 0.01464689597553633,
+     "perte_moyenne": -0.021777923040467013,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.222858092186567,
+     "rendement_annuel": 0.12584806942378668,
+     "pire_baisse": -0.1830669442237326,
+     "sharpe": 1.0276411740701348,
+     "mois_moyen": 0.010294579215478047,
+     "mois_median": 0.008893214580107722,
+     "mois_positifs": 0.6724137931034483,
+     "pire_mois": -0.09192242390857686,
+     "meilleur_mois": 0.11666456861924623
+    },
+    "ruine_5ans": 0.0005
+   },
+   "3": {
+    "tout": {
+     "trades": 1189,
+     "reussite": 0.7544154751892347,
+     "gain_moyen": 0.013456409776181413,
+     "perte_moyenne": -0.022716389867246268,
+     "pire_trade": -0.1847687278208225,
+     "profit_factor": 1.8196986874991192,
+     "rendement_annuel": 0.10005274218392013,
+     "pire_baisse": -0.37492385926959304,
+     "sharpe": 0.5999764526593953,
+     "mois_moyen": 0.009061167039467601,
+     "mois_median": 0.0072405680240650305,
+     "mois_positifs": 0.593167701863354,
+     "pire_mois": -0.2696714221191653,
+     "meilleur_mois": 0.17755361208286913
+    },
+    "test": {
+     "trades": 254,
+     "reussite": 0.7677165354330708,
+     "gain_moyen": 0.01464689597553633,
+     "perte_moyenne": -0.021777923040467013,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.222858092186567,
+     "rendement_annuel": 0.18144732235466332,
+     "pire_baisse": -0.26750166756041827,
+     "sharpe": 0.9986468037221692,
+     "mois_moyen": 0.014910387826823164,
+     "mois_median": 0.012547745581230396,
+     "mois_positifs": 0.6724137931034483,
+     "pire_mois": -0.1371087157677361,
+     "meilleur_mois": 0.17755361208286913
+    },
+    "ruine_5ans": 0.031
+   },
+   "4": {
+    "tout": {
+     "trades": 1189,
+     "reussite": 0.7544154751892347,
+     "gain_moyen": 0.013456409776181413,
+     "perte_moyenne": -0.022716389867246268,
+     "pire_trade": -0.1847687278208225,
+     "profit_factor": 1.8196986874991192,
+     "rendement_annuel": 0.12197703274369598,
+     "pire_baisse": -0.47448709645221543,
+     "sharpe": 0.5845816200874833,
+     "mois_moyen": 0.011601481966583426,
+     "mois_median": 0.009119233535211713,
+     "mois_positifs": 0.5869565217391305,
+     "pire_mois": -0.3540643483295648,
+     "meilleur_mois": 0.2406437642491095
+    },
+    "test": {
+     "trades": 254,
+     "reussite": 0.7677165354330708,
+     "gain_moyen": 0.01464689597553633,
+     "perte_moyenne": -0.021777923040467013,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.222858092186567,
+     "rendement_annuel": 0.2339933732889654,
+     "pire_baisse": -0.3452055169482434,
+     "sharpe": 0.9804783140980036,
+     "mois_moyen": 0.01940032243104044,
+     "mois_median": 0.01643488241928759,
+     "mois_positifs": 0.6724137931034483,
+     "pire_mois": -0.1808683211594132,
+     "meilleur_mois": 0.2406437642491095
+    },
+    "ruine_5ans": 0.1325
+   }
+  },
+  "F1": {
+   "1": {
+    "tout": {
+     "trades": 1305,
+     "reussite": 0.9478927203065134,
+     "gain_moyen": 0.005457626711797191,
+     "perte_moyenne": -0.04172633933078917,
+     "pire_trade": -0.11737201845686633,
+     "profit_factor": 2.3793280747166183,
+     "rendement_annuel": 0.029522893357545987,
+     "pire_baisse": -0.08940530544512848,
+     "sharpe": 0.6819769326229398,
+     "mois_moyen": 0.0024670716834166834,
+     "mois_median": 0.002270299305219825,
+     "mois_positifs": 0.6739130434782609,
+     "pire_mois": -0.054882513566595126,
+     "meilleur_mois": 0.04496240587179923
+    },
+    "test": {
+     "trades": 279,
+     "reussite": 0.946236559139785,
+     "gain_moyen": 0.005777102793401483,
+     "perte_moyenne": -0.04254803554358514,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.38969926260663,
+     "rendement_annuel": 0.036542165020778006,
+     "pire_baisse": -0.06737086947412119,
+     "sharpe": 0.9598773376781516,
+     "mois_moyen": 0.0030122267987416295,
+     "mois_median": 0.004601794030296036,
+     "mois_positifs": 0.7413793103448276,
+     "pire_mois": -0.04621673416431904,
+     "meilleur_mois": 0.016733161685469566
+    },
+    "ruine_5ans": 0.0
+   },
+   "2": {
+    "tout": {
+     "trades": 1305,
+     "reussite": 0.9478927203065134,
+     "gain_moyen": 0.005457626711797191,
+     "perte_moyenne": -0.04172633933078917,
+     "pire_trade": -0.11737201845686633,
+     "profit_factor": 2.3793280747166183,
+     "rendement_annuel": 0.05671059436276482,
+     "pire_baisse": -0.17566217195439437,
+     "sharpe": 0.6696063994431092,
+     "mois_moyen": 0.004778414228862125,
+     "mois_median": 0.004234536296928382,
+     "mois_positifs": 0.6708074534161491,
+     "pire_mois": -0.1115566855805622,
+     "meilleur_mois": 0.08993495031374188
+    },
+    "test": {
+     "trades": 279,
+     "reussite": 0.946236559139785,
+     "gain_moyen": 0.005777102793401483,
+     "perte_moyenne": -0.04254803554358514,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.38969926260663,
+     "rendement_annuel": 0.07152914300145174,
+     "pire_baisse": -0.1345223889607049,
+     "sharpe": 0.943203665590487,
+     "mois_moyen": 0.005900241316113422,
+     "mois_median": 0.008861407048203263,
+     "mois_positifs": 0.7413793103448276,
+     "pire_mois": -0.09302345338161189,
+     "meilleur_mois": 0.033628489595277644
+    },
+    "ruine_5ans": 0.0
+   },
+   "3": {
+    "tout": {
+     "trades": 1305,
+     "reussite": 0.9478927203065134,
+     "gain_moyen": 0.005457626711797191,
+     "perte_moyenne": -0.04172633933078917,
+     "pire_trade": -0.11737201845686633,
+     "profit_factor": 2.3793280747166183,
+     "rendement_annuel": 0.0811861249070458,
+     "pire_baisse": -0.25811130742269106,
+     "sharpe": 0.6565880370615389,
+     "mois_moyen": 0.006927249678320572,
+     "mois_median": 0.006008170085276099,
+     "mois_positifs": 0.6677018633540373,
+     "pire_mois": -0.16877861472510536,
+     "meilleur_mois": 0.13474039561101825
+    },
+    "test": {
+     "trades": 279,
+     "reussite": 0.946236559139785,
+     "gain_moyen": 0.005777102793401483,
+     "perte_moyenne": -0.04254803554358514,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.38969926260663,
+     "rendement_annuel": 0.10466073650018326,
+     "pire_baisse": -0.19933796140260518,
+     "sharpe": 0.926569072762529,
+     "mois_moyen": 0.008661258642970423,
+     "mois_median": 0.013169553838818682,
+     "mois_positifs": 0.7413793103448276,
+     "pire_mois": -0.13867668139837297,
+     "meilleur_mois": 0.050609486931502135
+    },
+    "ruine_5ans": 0.0
+   },
+   "4": {
+    "tout": {
+     "trades": 1305,
+     "reussite": 0.9478927203065134,
+     "gain_moyen": 0.005457626711797191,
+     "perte_moyenne": -0.04172633933078917,
+     "pire_trade": -0.11737201845686633,
+     "profit_factor": 2.3793280747166183,
+     "rendement_annuel": 0.10342833983610289,
+     "pire_baisse": -0.33668877595075786,
+     "sharpe": 0.6472121433095287,
+     "mois_moyen": 0.00897133785176295,
+     "mois_median": 0.008001771304811833,
+     "mois_positifs": 0.6645962732919255,
+     "pire_mois": -0.22548549053680633,
+     "meilleur_mois": 0.17941631414818437
+    },
+    "test": {
+     "trades": 279,
+     "reussite": 0.946236559139785,
+     "gain_moyen": 0.005777102793401483,
+     "perte_moyenne": -0.04254803554358514,
+     "pire_trade": -0.0999285757094081,
+     "profit_factor": 2.38969926260663,
+     "rendement_annuel": 0.1363322338443842,
+     "pire_baisse": -0.26099066591971387,
+     "sharpe": 0.9137125979387446,
+     "mois_moyen": 0.011342370107422147,
+     "mois_median": 0.017327856407177267,
+     "mois_positifs": 0.7413793103448276,
+     "pire_mois": -0.18285116834005188,
+     "meilleur_mois": 0.06778970983353538
+    },
+    "ruine_5ans": 0.0125
+   }
+  }
+ }
+}

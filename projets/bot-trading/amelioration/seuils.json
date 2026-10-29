@@ -1,0 +1,15 @@
+{
+  "_note": "Seuils d'alerte FIXÉS AVANT tout test du moteur d'amélioration (2026-10-20). Toute modification = nouvelle version + entrée dans registre/modifications.jsonl.",
+  "version": "seuils-v1-2026-10-20",
+  "fenetre_trades": 50,
+  "esperance_glissante_p_max": 0.10,
+  "drawdown_multiple_backtest": 1.5,
+  "cout_multiple_modele": 2.0,
+  "reussite_centile_min": 0.05,
+  "fenetre_jours": 365,
+  "sharpe_glissant_min": 0.0,
+  "vol_multiple_mediane": 2.0,
+  "psi_max": 0.25,
+  "volume_multiple_min": 0.5,
+  "spread_multiple_max": 2.0
+}
