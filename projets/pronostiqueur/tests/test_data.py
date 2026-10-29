@@ -42,3 +42,10 @@ def test_storage_roundtrip(tmp_path):
     storage.settle(conn, pid, 1, 0, 2)
     assert storage.unsettled_predictions(conn) == []
     assert storage.settled_predictions(conn)["result"].tolist() == [1]
+
+
+def test_ssl_context_sans_variable_d_environnement(monkeypatch):
+    # Sur GitHub Actions aucun certificat spécifique n'est défini : le contexte par défaut doit suffire.
+    monkeypatch.delenv("PRONO_CA_BUNDLE", raising=False)
+    monkeypatch.delenv("SSL_CERT_FILE", raising=False)
+    assert fdu._ssl_context().verify_mode.name == "CERT_REQUIRED"
