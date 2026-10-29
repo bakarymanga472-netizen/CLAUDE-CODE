@@ -48,8 +48,6 @@ class DataSourceError(RuntimeError):
 
 def _ssl_context() -> ssl.SSLContext:
     bundle = os.environ.get("PRONO_CA_BUNDLE") or os.environ.get("SSL_CERT_FILE")
-    if not bundle and Path("/root/.ccr/ca-bundle.crt").exists():
-        bundle = "/root/.ccr/ca-bundle.crt"
     return ssl.create_default_context(cafile=bundle) if bundle else ssl.create_default_context()
 
 
