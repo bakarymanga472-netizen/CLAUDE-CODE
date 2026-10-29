@@ -1,0 +1,47 @@
+name: evaluation-hebdomadaire
+
+# Chaque semaine : mise à jour des données, validation chronologique,
+# tentative d'évolution contrôlée, publication des rapports en artefacts.
+# Aucun commit automatique, aucun pari.
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # lundi 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+
+      # Le cache conserve les données brutes et les versions de modèles d'une
+      # semaine à l'autre : c'est ce qui permet au système d'évoluer.
+      - uses: actions/cache@v4
+        with:
+          path: |
+            data/raw
+            models_store
+          key: prono-${{ github.run_id }}
+          restore-keys: prono-
+
+      - name: Collecte
+        run: python -m pronostiqueur fetch --refresh
+      - name: Validation chronologique
+        run: python -m pronostiqueur backtest
+      - name: Évolution contrôlée
+        run: python -m pronostiqueur evolve --candidates 4
+      - name: Modèle de production à jour
+        run: python -m pronostiqueur train --note "réentraînement hebdomadaire"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rapports-${{ github.run_id }}
+          path: reports/
