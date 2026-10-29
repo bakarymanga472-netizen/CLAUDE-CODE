@@ -5,12 +5,14 @@ déduit jamais la 2e mi-temps de la 1re.
 
 Modèles de base (complémentaires) :
   1. poisson   : Poisson attaque x défense par mi-temps, P = 1 - exp(-λ)
-  2. marche    : λ total implicite des cotes +/-2,5 (marge retirée), réparti
+  2. dixon_coles: Poisson domicile/extérieur avec correction de Dixon-Coles
+                 du 0-0 (paramètre ρ estimé par maximum de vraisemblance)
+  3. marche    : λ total implicite des cotes +/-2,5 (marge retirée), réparti
                  selon la part de buts de la ligue dans la mi-temps
-  3. bayes     : fréquences « but dans la mi-temps » des deux équipes,
+  4. bayes     : fréquences « but dans la mi-temps » des deux équipes,
                  rétrécies vers la ligue (bayésien empirique)
-  4. logistique: régression logistique sur les variables d'avant-match
-  5. gbm       : gradient boosting (HistGradientBoosting)
+  5. logistique: régression logistique sur les variables d'avant-match
+  6. gbm       : gradient boosting (HistGradientBoosting)
 
 Combinaison : poids positifs (somme 1) appliqués aux logits des modèles,
 puis calibration de Platt, le tout optimisé sur des prédictions hors
@@ -30,11 +32,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import log_loss
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from scipy.optimize import minimize
+from scipy.optimize import minimize, minimize_scalar
 
 from ..metrics import wilson_interval
 
-BASE_MODELS = ["poisson", "marche", "bayes", "logistique", "gbm"]
+BASE_MODELS = ["poisson", "dixon_coles", "marche", "bayes", "logistique", "gbm"]
 EPS = 1e-4
 
 
@@ -51,6 +53,29 @@ def feature_columns(h: str) -> list[str]:
                  f"{side}_shots_for", f"{side}_shots_against", f"{side}_sot_for", f"{side}_sot_against"]
     cols += [f"home_home_{h}_for", f"home_home_{h}_against", f"away_away_{h}_for", f"away_away_{h}_against"]
     return cols
+
+
+def dixon_coles_prob_goal(lam_home, lam_away, rho: float):
+    """P(au moins un but) avec correction de Dixon-Coles du score 0-0.
+
+    P(0-0) = exp(-λd - λe) x τ(0,0), avec τ(0,0) = 1 - λd·λe·ρ.
+    ρ < 0 augmente la probabilité d'un 0-0 par rapport au Poisson indépendant.
+    """
+    lam_home = np.clip(np.asarray(lam_home, dtype=float), 0, None)
+    lam_away = np.clip(np.asarray(lam_away, dtype=float), 0, None)
+    tau = np.clip(1 - lam_home * lam_away * rho, 1e-6, None)
+    return 1 - np.exp(-(lam_home + lam_away)) * tau
+
+
+def fit_dixon_coles_rho(lam_home, lam_away, y) -> float:
+    """Estime ρ par maximum de vraisemblance sur la cible « au moins un but »."""
+    y = np.asarray(y, dtype=float)
+
+    def nll(rho):
+        p = np.clip(dixon_coles_prob_goal(lam_home, lam_away, rho), EPS, 1 - EPS)
+        return -np.mean(y * np.log(p) + (1 - y) * np.log(1 - p))
+
+    return float(minimize_scalar(nll, bounds=(-1.0, 0.9), method="bounded").x)
 
 
 def _logit(p: np.ndarray) -> np.ndarray:
@@ -71,6 +96,7 @@ class HalfGoalModel:
         self.gbm = None
         self.weights = np.full(len(BASE_MODELS), 1 / len(BASE_MODELS))
         self.platt = (0.0, 1.0)
+        self.rho = 0.0
         self.validation_report: dict = {}
         self.calibration_bins: list[dict] = []
 
@@ -79,6 +105,8 @@ class HalfGoalModel:
         h = self.h
         out = pd.DataFrame(index=df.index)
         out["poisson"] = 1 - np.exp(-df[f"poisson_lambda_{h}"].clip(lower=0))
+        out["dixon_coles"] = dixon_coles_prob_goal(df[f"poisson_lambda_home_{h}"],
+                                                   df[f"poisson_lambda_away_{h}"], self.rho)
         share = df["league_h1_share"] if h == "h1" else 1 - df["league_h1_share"]
         out["marche"] = 1 - np.exp(-(share * df["market_lambda_total"]))
         out["bayes"] = (df[f"home_{h}_any"] + df[f"away_{h}_any"]) / 2
@@ -86,6 +114,8 @@ class HalfGoalModel:
 
     def _fit_ml(self, df: pd.DataFrame) -> None:
         X, y = df[self.cols], df[self.target]
+        self.rho = fit_dixon_coles_rho(df[f"poisson_lambda_home_{self.h}"],
+                                       df[f"poisson_lambda_away_{self.h}"], y)
         self.logistic = make_pipeline(SimpleImputer(strategy="median"), StandardScaler(),
                                       LogisticRegression(C=0.5, max_iter=2000))
         self.logistic.fit(X, y)
@@ -163,8 +193,9 @@ class HalfGoalModel:
         self.validation_report["platt"] = list(self.platt)
         self.calibration_bins = _calibration_bins(combined, y_v)
 
-        # Modèles ML ré-entraînés sur toute la période disponible.
+        # Modèles ML (et ρ de Dixon-Coles) ré-entraînés sur toute la période disponible.
         self._fit_ml(train)
+        self.validation_report["rho_dixon_coles"] = self.rho
         return self
 
     # --------------------------------------------------------------- prédiction

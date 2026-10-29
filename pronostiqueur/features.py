@@ -126,6 +126,8 @@ class FeatureBuilder:
             lam_home = lg[f"home_{h}"] * (feats[f"home_{h}_for"] / base) * (feats[f"away_{h}_against"] / base)
             lam_away = lg[f"away_{h}"] * (feats[f"away_{h}_for"] / base) * (feats[f"home_{h}_against"] / base)
             feats[f"poisson_lambda_{h}"] = lam_home + lam_away
+            feats[f"poisson_lambda_home_{h}"] = lam_home
+            feats[f"poisson_lambda_away_{h}"] = lam_away
             feats[f"league_any_{h}"] = lg[f"any_{h}"]
         total_h1 = lg["home_h1"] + lg["away_h1"]
         total_h2 = lg["home_h2"] + lg["away_h2"]

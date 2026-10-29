@@ -16,7 +16,7 @@ from .models.ensemble import BASE_MODELS, HalfTimePredictor
 from .models.players import player_markets_status
 from .risk import Assessment, assess
 
-MODEL_NAMES = {"poisson": "Poisson mi-temps", "marche": "Marché (cotes)", "bayes": "Bayésien (fréquences)",
+MODEL_NAMES = {"poisson": "Poisson mi-temps", "dixon_coles": "Dixon-Coles", "marche": "Marché (cotes)", "bayes": "Bayésien (fréquences)",
                "logistique": "Régression logistique", "gbm": "Gradient boosting"}
 
 

@@ -4,12 +4,12 @@
 
 - Collecte football-data.co.uk, contrôle qualité, base SQLite.
 - Variables par mi-temps sans fuite de données futures.
-- Cinq modèles par mi-temps + combinaison calibrée hors échantillon.
+- Six modèles par mi-temps (dont Dixon-Coles) + combinaison calibrée hors échantillon.
 - Validation chronologique sur 22 315 matchs (12 championnats, saisons 2021/22 à 2026/27, 2019/20 sert de rodage et 2020/21 uniquement d'entraînement).
 - Prédiction d'un match, tableau au format demandé, statut et indice de risque.
 - Journal des pronostics, règlement automatique, rapport de performance réelle.
 - Évolution contrôlée des réglages (bootstrap apparié) et retour arrière.
-- 13 tests automatiques (aucun accès réseau requis).
+- 14 tests automatiques (aucun accès réseau requis).
 
 ## Ce qui n'est PAS fait (ne pas le présenter comme disponible)
 
@@ -21,7 +21,6 @@
 | xG / xGA par mi-temps | Non disponibles | Fournisseur de xG sous licence |
 | Cotes par mi-temps et historique des mouvements | Non disponibles | API de cotes ; en attendant, saisie manuelle de la cote Betclic |
 | Rendement financier en simulation | **Impossible à calculer** | Historique de cotes par mi-temps |
-| Modèle Dixon-Coles (corrélation des scores faibles) | Non implémenté | Prochaine étape statistique (utile pour le 0-0 à la pause) |
 | Météo, arbitre, motivation | Non utilisés | Ne seront ajoutés que si un gain hors échantillon est démontré |
 | Matchs de coupe | Non couverts | Les fichiers utilisés ne contiennent que les championnats |
 
@@ -46,6 +45,6 @@
    échantillon avant de garder chaque variable.
 2. Enregistrer les cotes Betclic par mi-temps saisies à chaque pronostic pour
    constituer un historique et mesurer le rendement réel.
-3. Ajouter Dixon-Coles et tester l'apport sur la 1re mi-temps.
+3. Dixon-Coles : **fait et testé**, mais sans gain mesurable (log-loss 0,6021 contre 0,6021 pour le Poisson simple en 1re mi-temps, 0,5121 contre 0,5122 en 2e). La correction du 0-0 par mi-temps est quasi nulle avec ces données ; le modèle reste dans l'ensemble, qui lui attribue un poids proche de zéro.
 4. Module joueurs une fois les données individuelles validées.
 5. Calibration par ligue si les biais détectés (ex. Serie A surestimée) se confirment.

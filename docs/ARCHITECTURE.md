@@ -10,7 +10,7 @@ football-data.co.uk ──► data/football_data_uk.py ──► data/quality.py
                       moyennes pondérées, rétrécissement bayésien, 1re et 2e MT séparées)
                                                │
                      models/ensemble.py ◄──────┘
-        poisson · marché (cotes sans marge) · bayésien · logistique · gradient boosting
+        poisson · dixon-coles · marché (cotes sans marge) · bayésien · logistique · gradient boosting
         → poids positifs + calibration de Platt appris hors échantillon
                                                │
           ┌────────────────────────────────────┼─────────────────────────────┐

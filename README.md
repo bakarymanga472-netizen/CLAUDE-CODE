@@ -15,7 +15,7 @@ données sont fiables. **Aucun pari n'est placé automatiquement.**
 | Collecte de 30 655 matchs (12 championnats, 2019/20 → 2026/27) avec scores mi-temps et cotes | ✅ Fait et testé |
 | Contrôle qualité, base SQLite horodatée | ✅ |
 | Variables par mi-temps sans fuite de données futures | ✅ (test automatique) |
-| 5 modèles par mi-temps (Poisson, marché, bayésien, logistique, gradient boosting) combinés selon leur performance hors échantillon | ✅ |
+| 6 modèles par mi-temps (Poisson, Dixon-Coles, marché, bayésien, logistique, gradient boosting) combinés selon leur performance hors échantillon | ✅ |
 | Validation chronologique (walk-forward), Brier, log-loss, calibration, IC95 | ✅ |
 | Fiche par match au format demandé (probabilité, fourchette, cote juste, statut) | ✅ |
 | Journal des pronostics, règlement après match, bilan réel | ✅ |
