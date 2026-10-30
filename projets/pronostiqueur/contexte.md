@@ -15,6 +15,7 @@ Estimer des probabilités calibrées de but en 1re et 2e mi-temps (football), va
 - Module buteurs/passeurs non construit : aucune donnée joueurs fiable (règle : ne rien inventer).
 - Combinaison par poids positifs + Platt appris hors échantillon : le stacking libre surestimait les hautes probabilités (annoncé 96 % → observé 86 %).
 - Aucun pari automatique ; évolution uniquement via `evolve` (jamais après un pari perdu isolé).
+- footballsoccerapi.com testé le 2026-10-30 (clé gratuite) : 50 appels/jour, **uniquement les résultats de la veille** (score final + mi-temps, arbitre, météo). Événements, compositions, absences, matchs à venir et cotes → offres payantes Archive/Live (403 `plan_required`). Inutile pour prédire ; au mieux pour accélérer les bilans. Prix non vérifiés (site bloqué par Cloudflare depuis le cloud). Variable prévue : `FSA_API_KEY`.
 
 ## Prochaine étape
 1. Clé API-Football (≈ 20 $/mois) dans `.env` / secret GitHub → compositions, blessures, minutes des buts, puis module joueurs.
