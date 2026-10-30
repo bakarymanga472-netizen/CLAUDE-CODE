@@ -17,8 +17,11 @@ Estimer des probabilités calibrées de but en 1re et 2e mi-temps (football), va
 - Aucun pari automatique ; évolution uniquement via `evolve` (jamais après un pari perdu isolé).
 - footballsoccerapi.com testé le 2026-10-30 (clé gratuite) : 50 appels/jour, **uniquement les résultats de la veille** (score final + mi-temps, arbitre, météo). Événements, compositions, absences, matchs à venir et cotes → offres payantes Archive/Live (403 `plan_required`). Inutile pour prédire ; au mieux pour accélérer les bilans. Prix non vérifiés (site bloqué par Cloudflare depuis le cloud). Variable prévue : `FSA_API_KEY`.
 
+- API-Football (offre gratuite, 2026-10-30) : saisons 2022-2024 seulement, 100 appels/jour, **10/min** ; pas de paramètre `ids`. Compte **suspendu** après une rafale d'appels non espacés lors du premier lancement (erreur corrigée : espacement 6,5 s). Connecteur `pronostiqueur/data/api_football.py`, variable `API_FOOTBALL_KEY`.
+- **Absences : aucune valeur ajoutée mesurée** (`experiments/valeur_absences.py`, E0/E1/D1 2022-2024, 3 713 matchs, test hors échantillon 2023/24 + 2024/25 = 2 475 matchs) : log-loss 1re MT 0,5701 → 0,5746, 2e MT 0,4877 → 0,4899 avec les absences (pire) ; variantes à une variable : gain nul (IC95 contient 0, P(mieux) ≤ 27 %). Les cotes intègrent déjà les absences. Limite : absents comptés, non pondérés par l'importance du joueur.
+
 ## Prochaine étape
-1. Clé API-Football (≈ 20 $/mois) dans `.env` / secret GitHub → compositions, blessures, minutes des buts, puis module joueurs.
+1. Ne pas payer API-Football pour les absences (aucun gain mesuré). Ne le reconsidérer que pour un module joueurs (buteurs/passeurs), à tester d'abord sur 2022-2024 si le compte est réactivé.
 2. Enregistrer les cotes Betclic par mi-temps à chaque pronostic (`--cote-h1/--cote-h2 --log`) pour mesurer le rendement réel.
 
 ## Tâches Notion
