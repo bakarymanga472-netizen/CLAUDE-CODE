@@ -16,6 +16,11 @@ Protocole (sans fuite) :
   bootstrap apparié sur l'écart de log-loss.
 
 Usage : python experiments/valeur_absences.py  (cache API déjà rempli)
+
+Résultat du 2026-10-30 (E0, E1, D1, 2022-2024 ; 2 475 matchs de test) : les
+absences dégradent la log-loss (1re MT 0,5701 → 0,5746 ; 2e MT 0,4877 →
+0,4899) et les variantes à une seule variable n'apportent aucun gain
+significatif. Conclusion : les cotes intègrent déjà l'information.
 """
 
 from __future__ import annotations
@@ -31,6 +36,7 @@ from sklearn.linear_model import LogisticRegression
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from pronostiqueur import config  # noqa: E402
 from pronostiqueur.data import api_football as af, storage  # noqa: E402
+from pronostiqueur.data.football_data_uk import DataSourceError  # noqa: E402
 
 SEASONS = ["2223", "2324", "2425"]
 
@@ -132,9 +138,16 @@ def evaluate(data: pd.DataFrame, market: str, n_boot: int = 2000, seed: int = 0)
 
 
 def main() -> None:
-    # Relit le cache JSON du connecteur (aucun appel réseau si le cache est complet).
-    fx = pd.concat([af.fixtures(lg, s) for lg in config.LEAGUES for s in SEASONS])
-    inj = pd.concat([af.injuries(lg, s).assign(league=lg, season=s) for lg in config.LEAGUES for s in SEASONS])
+    # Relit le cache JSON du connecteur ; les ligues-saisons absentes du cache sont ignorées.
+    fx_parts, inj_parts = [], []
+    for lg in config.LEAGUES:
+        for s in SEASONS:
+            try:
+                fx_parts.append(af.fixtures(lg, s))
+                inj_parts.append(af.injuries(lg, s).assign(league=lg, season=s))
+            except DataSourceError:
+                continue
+    fx, inj = pd.concat(fx_parts), pd.concat(inj_parts)
     covered = inj.groupby(["league", "season"]).size()
     covered = covered[covered > 200].index  # ligue-saison sans absences déclarées = non couverte
     fd = storage.read_matches(storage.connect())
