@@ -18,6 +18,8 @@ données sont fiables. **Aucun pari n'est placé automatiquement.**
 | 6 modèles par mi-temps (Poisson, Dixon-Coles, marché, bayésien, logistique, gradient boosting) combinés selon leur performance hors échantillon | ✅ |
 | Validation chronologique (walk-forward), Brier, log-loss, calibration, IC95 | ✅ |
 | Fiche par match au format demandé (probabilité, fourchette, cote juste, statut) | ✅ |
+| Marchés +1,5 but par mi-temps (modèles et calibration propres) | ✅ |
+| Tableau de synthèse multi-matchs (`tableau`) | ✅ |
 | Journal des pronostics, règlement après match, bilan réel | ✅ |
 | Évolution contrôlée des modèles + retour arrière | ✅ |
 | Agent Claude Code `pronostiqueur` | ✅ `.claude/agents/pronostiqueur.md` (à la racine du dépôt) |
@@ -66,6 +68,10 @@ python -m pronostiqueur train          # met un modèle en production
 python -m pronostiqueur predict --league F1 --home "Le Havre" --away "Paris SG" \
   --date 2026-10-30 --over25 1.33 --under25 3.32 --cote-1 9.25 --cote-n 6.40 --cote-2 1.20 \
   --cote-h2 1.12 --log
+
+# Tableau de synthèse pour plusieurs matchs
+# CSV : league,home,away,date,over25,under25,cote_1,cote_n,cote_2,alertes (cotes facultatives)
+python -m pronostiqueur tableau matchs.csv --log
 
 python -m pronostiqueur settle --refresh   # après les matchs : règle le journal
 python -m pronostiqueur report             # bilan réel (séparé de la simulation)

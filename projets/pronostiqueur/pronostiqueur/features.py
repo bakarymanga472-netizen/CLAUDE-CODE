@@ -191,6 +191,7 @@ class FeatureBuilder:
                 feats.update({"league": row.league, "season": row.season, "date": row.date,
                               "home": row.home, "away": row.away,
                               "y_h1": int(row.h1_goals > 0), "y_h2": int(row.h2_goals > 0),
+                              "y_h1_o15": int(row.h1_goals >= 2), "y_h2_o15": int(row.h2_goals >= 2),
                               "h1_goals": row.h1_goals, "h2_goals": row.h2_goals})
                 snaps.append(feats)
             records.extend(snaps)

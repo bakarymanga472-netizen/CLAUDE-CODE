@@ -20,6 +20,7 @@ python -m pronostiqueur train                    # si aucun modèle en productio
 python -m pronostiqueur predict --league F1 --home "Le Havre" --away "Paris SG" \
     --date 2026-10-30 --over25 1.33 --under25 3.32 --cote-1 9.25 --cote-n 6.40 --cote-2 1.20 \
     --cote-h2 1.12 --log                         # cotes Betclic fournies par l'utilisateur
+python -m pronostiqueur tableau matchs.csv --log # plusieurs matchs d'un coup → tableau de synthèse
 python -m pronostiqueur settle --refresh         # après les matchs
 python -m pronostiqueur report                   # bilan réel
 python -m pronostiqueur evolve                   # au plus une fois par mois
@@ -35,8 +36,13 @@ d'équipes suivent football-data.co.uk (ex. « Paris SG », « Espanol », « No
 2. Récupérer les cotes (1N2, +/-2,5, et si possible par mi-temps) et les
    compositions/absents sur **au moins deux sources** datées. Ne jamais inventer
    une donnée manquante : écrire « non trouvé ».
-3. Lancer `predict` avec les cotes trouvées et `--log`.
-4. Présenter pour chaque match le tableau : Marché · Probabilité calibrée ·
+3. Écrire un CSV (`league,home,away,date,over25,under25,cote_1,cote_n,cote_2,alertes`,
+   une ligne par match, cotes vides si non trouvées, `alertes` = contexte vérifié :
+   rotation, absents, fatigue…) puis lancer `tableau fichier.csv --log`.
+4. Toujours commencer la réponse par ce tableau de synthèse, sans le modifier :
+   `Match | Buts attendus | Part des buts en 2e MT | 2e MT +0,5 | 2e MT +1,5 | 1re MT +0,5 | Alertes`
+   (trié par 2e MT +0,5). Un match « sans cotes » est moins fiable : le dire.
+   Puis, pour les matchs retenus seulement, `predict` et le détail : Marché · Probabilité calibrée ·
    Fourchette · Cote juste · Cote disponible · Statut, puis les raisons, les
    facteurs défavorables, les compositions, les écarts entre modèles, le
    scénario, le risque principal, les données manquantes et la décision.

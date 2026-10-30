@@ -8,6 +8,7 @@ Estimer des probabilités calibrées de but en 1re et 2e mi-temps (football), va
 ## Où on en est
 - v0.1 livrée : collecte football-data.co.uk (30 655 matchs, 12 championnats, 2019/20 → 2026/27), base SQLite, variables par mi-temps sans fuite, 6 modèles (Poisson, Dixon-Coles, marché, bayésien, logistique, gradient boosting) combinés hors échantillon, validation walk-forward sur 22 315 matchs, fiche par match, journal + bilan réel, évolution contrôlée (bootstrap) + retour arrière, agent `.claude/agents/pronostiqueur.md`, 14 tests.
 - Résultats (simulation) : 2e MT +0,5 annoncée ≥ 90 % → 89,9 % observé (IC95 86,2–92,7 %, 328 matchs). **Objectif 95 % non atteint.** Les cotes du marché portent presque toute l'information (poids ≈ 1 en 2e MT). Dixon-Coles : aucun gain mesurable.
+- 2026-10-30 : marchés **+1,5 but par mi-temps** ajoutés (modèles, cible et calibration propres ; la déduction directe depuis le +0,5 surestimait : 73 % annoncé → 66 % observé). Backtest 22 315 matchs : 2e MT +1,5 annoncé 54/62/67/73 % → observé 53/59/65/76 % ; Brier meilleur que la ligue. Commande `tableau matchs.csv` = tableau de synthèse demandé (Match · Buts attendus · Part 2e MT · 2e MT +0,5 · 2e MT +1,5 · 1re MT +0,5 · Alertes).
 - Rapport : `reports/backtest_report.md`. Limites : `docs/LIMITES_ET_FEUILLE_DE_ROUTE.md`.
 
 ## Décisions prises (et pourquoi)

@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 from . import config, metrics
-from .models.ensemble import BASE_MODELS, HalfTimePredictor
+from .models.ensemble import BASE_MODELS, HalfTimePredictor, prob_at_least
 
 
 def walk_forward(features: pd.DataFrame, min_train_seasons: int = 1,
@@ -33,12 +33,13 @@ def walk_forward(features: pd.DataFrame, min_train_seasons: int = 1,
         predictor = HalfTimePredictor(random_state).fit(train)
         preds = predictor.predict(test)
         for market, out in preds.items():
-            h = "h1" if market == "H1_O05" else "h2"
+            h, k = config.MARKET_SPECS[market]
             frame = test[["date", "league", "season", "home", "away", "home_n_matches",
                           "away_n_matches", "market_lambda_total"]].copy()
             frame["market"] = market
-            frame["y"] = test[f"y_{h}"].to_numpy()
-            frame["baseline_ligue"] = test[f"league_any_{h}"].to_numpy()
+            frame["y"] = test[config.target_column(market)].to_numpy()
+            league_any = test[f"league_any_{h}"].to_numpy()
+            frame["baseline_ligue"] = league_any if k == 1 else prob_at_least(-np.log(1 - league_any), k)
             for col in BASE_MODELS + ["probabilite", "ecart_modeles", "prob_basse", "prob_haute"]:
                 frame[col] = out[col].to_numpy()
             results.append(frame)

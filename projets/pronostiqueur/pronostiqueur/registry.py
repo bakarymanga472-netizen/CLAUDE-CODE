@@ -105,7 +105,7 @@ def _holdout_losses(matches: pd.DataFrame, settings: config.FeatureSettings, cut
     preds = HalfTimePredictor().fit(train).predict(test)
     losses = []
     for market, out in preds.items():
-        y = test["y_h1" if market == "H1_O05" else "y_h2"].to_numpy()
+        y = test[config.target_column(market)].to_numpy()
         p = np.clip(out["probabilite"].to_numpy(), 1e-6, 1 - 1e-6)
         losses.append(-(y * np.log(p) + (1 - y) * np.log(1 - p)))
     return np.concatenate(losses)

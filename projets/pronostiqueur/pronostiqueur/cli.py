@@ -14,7 +14,7 @@ from .data import football_data_uk as fdu
 from .data import quality, storage
 from .features import FeatureBuilder
 from .models.ensemble import HalfTimePredictor
-from .predict import log_prediction, predict_fixture, to_markdown
+from .predict import log_prediction, predict_fixture, to_markdown, to_table
 
 
 def _load_db_matches(args, conn) -> pd.DataFrame:
@@ -77,20 +77,48 @@ def cmd_train(args, conn) -> None:
     print(json.dumps(metrics, indent=2, ensure_ascii=False, default=float))
 
 
-def cmd_predict(args, conn) -> None:
+def _production_builder(conn):
     predictor, meta = registry.load_production()
-    settings = config.FeatureSettings(**meta["feature_settings"])
-    builder = FeatureBuilder(settings)
+    builder = FeatureBuilder(config.FeatureSettings(**meta["feature_settings"]))
     builder.build(storage.read_matches(conn))
+    return predictor, meta, builder
+
+
+def cmd_predict(args, conn) -> None:
+    predictor, meta, builder = _production_builder(conn)
     odds = {"odds_over25": args.over25, "odds_under25": args.under25,
             "odds_home": args.cote_1, "odds_draw": args.cote_n, "odds_away": args.cote_2}
-    offered = {"H1_O05": args.cote_h1, "H2_O05": args.cote_h2}
+    offered = {"H1_O05": args.cote_h1, "H2_O05": args.cote_h2,
+               "H1_O15": args.cote_h1_15, "H2_O15": args.cote_h2_15}
     fp = predict_fixture(predictor, builder, meta["version"], args.league, args.home, args.away,
                          args.date, odds, offered)
     print(to_markdown(fp))
     if args.log:
         ids = log_prediction(conn, fp)
         print(f"\nJournalisé (ids {ids}). Réglez après le match avec `settle`.")
+
+
+TABLE_ODDS = {"over25": "odds_over25", "under25": "odds_under25", "cote_1": "odds_home",
+              "cote_n": "odds_draw", "cote_2": "odds_away"}
+
+
+def cmd_tableau(args, conn) -> None:
+    """Tableau de synthèse pour une liste de matchs (fichier CSV)."""
+    fixtures = pd.read_csv(args.fichier, dtype=str).fillna("")
+    missing = {"league", "home", "away", "date"} - set(fixtures.columns)
+    if missing:
+        sys.exit(f"Colonnes obligatoires absentes du CSV : {sorted(missing)}")
+    predictor, meta, builder = _production_builder(conn)
+    rows = []
+    for fx in fixtures.to_dict("records"):
+        odds = {key: float(fx[col]) for col, key in TABLE_ODDS.items() if fx.get(col)}
+        fp = predict_fixture(predictor, builder, meta["version"], fx["league"], fx["home"], fx["away"],
+                             fx["date"], odds)
+        rows.append((fp, fx.get("alertes") or None))
+        if args.log:
+            log_prediction(conn, fp)
+    print(f"Modèle : `{meta['version']}`\n")
+    print(to_table(rows))
 
 
 def cmd_settle(args, conn) -> None:
@@ -105,8 +133,9 @@ def cmd_settle(args, conn) -> None:
         if m.empty:
             continue
         row = m.iloc[0]
-        goals = row["h1_goals"] if p["market"] == "H1_O05" else row["h2_goals"]
-        storage.settle(conn, p["id"], int(goals > 0), int(row["h1_goals"]), int(row["h2_goals"]))
+        half, min_goals = config.MARKET_SPECS[p["market"]]
+        hit = int(row[f"{half}_goals"] >= min_goals)
+        storage.settle(conn, p["id"], hit, int(row["h1_goals"]), int(row["h2_goals"]))
         settled += 1
     print(f"{settled} pronostic(s) réglé(s).")
 
@@ -157,9 +186,14 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--home", required=True)
     pr.add_argument("--away", required=True)
     pr.add_argument("--date", required=True, help="AAAA-MM-JJ")
-    for name in ("over25", "under25", "cote-1", "cote-n", "cote-2", "cote-h1", "cote-h2"):
+    for name in ("over25", "under25", "cote-1", "cote-n", "cote-2", "cote-h1", "cote-h2",
+                 "cote-h1-15", "cote-h2-15"):
         pr.add_argument(f"--{name}", type=float, default=None)
     pr.add_argument("--log", action="store_true", help="Enregistrer dans le journal")
+
+    tb = sub.add_parser("tableau", help="Tableau de synthèse pour plusieurs matchs (CSV)")
+    tb.add_argument("fichier", help="CSV : league,home,away,date[,over25,under25,cote_1,cote_n,cote_2,alertes]")
+    tb.add_argument("--log", action="store_true", help="Enregistrer dans le journal")
 
     s = sub.add_parser("settle", help="Régler les pronostics journalisés")
     s.add_argument("--refresh", action="store_true")
@@ -174,7 +208,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> None:
     args = build_parser().parse_args(argv)
     conn = storage.connect()
-    handlers = {"fetch": cmd_fetch, "backtest": cmd_backtest, "train": cmd_train, "predict": cmd_predict,
+    handlers = {"fetch": cmd_fetch, "backtest": cmd_backtest, "train": cmd_train, "predict": cmd_predict, "tableau": cmd_tableau,
                 "settle": cmd_settle, "report": cmd_report, "evolve": cmd_evolve, "rollback": cmd_rollback}
     try:
         handlers[args.cmd](args, conn)
