@@ -40,7 +40,20 @@ DEFAULT_SEASONS: list[str] = ["1920", "2021", "2122", "2223", "2324", "2425", "2
 MARKETS = {
     "H1_O05": "+0,5 but première mi-temps",
     "H2_O05": "+0,5 but deuxième mi-temps",
+    "H1_O15": "+1,5 but première mi-temps",
+    "H2_O15": "+1,5 but deuxième mi-temps",
 }
+
+# Mi-temps concernée et nombre minimal de buts pour gagner chaque marché.
+MARKET_SPECS: dict[str, tuple[str, int]] = {
+    "H1_O05": ("h1", 1), "H2_O05": ("h2", 1), "H1_O15": ("h1", 2), "H2_O15": ("h2", 2),
+}
+
+
+def target_column(market: str) -> str:
+    """Colonne cible (0/1) d'un marché dans le tableau de variables."""
+    half, min_goals = MARKET_SPECS[market]
+    return f"y_{half}" if min_goals == 1 else f"y_{half}_o15"
 
 
 @dataclass(frozen=True)

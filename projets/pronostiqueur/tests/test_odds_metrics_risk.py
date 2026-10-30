@@ -66,3 +66,13 @@ def test_dixon_coles_reduces_to_poisson_and_fits_rho():
     p_true = dixon_coles_prob_goal(lam_h, lam_a, -0.4)
     y = rng.random(20000) < p_true
     assert fit_dixon_coles_rho(lam_h, lam_a, y) == pytest.approx(-0.4, abs=0.15)
+
+
+def test_at_least_two_goals_formulas():
+    from pronostiqueur.models.ensemble import dixon_coles_prob_goal, prob_at_least
+    lam = np.array([0.5, 1.2])
+    assert np.allclose(prob_at_least(lam, 2), 1 - np.exp(-lam) * (1 + lam))
+    lh, la = np.array([0.7, 0.4]), np.array([0.5, 0.3])
+    # Sans correction (ρ = 0), Dixon-Coles revient au Poisson de la somme des λ.
+    assert np.allclose(dixon_coles_prob_goal(lh, la, 0.0, 2), prob_at_least(lh + la, 2))
+    assert (prob_at_least(lam, 2) < prob_at_least(lam, 1)).all()

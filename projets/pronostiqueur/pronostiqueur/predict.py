@@ -124,12 +124,64 @@ def to_markdown(fp: FixturePrediction) -> str:
     if f:
         lines += ["", f"**5. Scénario le plus probable** : environ {f['poisson_lambda_h1']:.1f} but(s) "
                   f"en 1re mi-temps et {f['poisson_lambda_h2']:.1f} en 2e (moyennes, pas une certitude)."]
-        worst = max(fp.assessments.items(), key=lambda kv: kv[1].risk_index)
+        main = {m: a for m, a in fp.assessments.items() if config.MARKET_SPECS[m][1] == 1}
+        worst = max(main.items(), key=lambda kv: kv[1].risk_index)
         lines.append(f"\n**6. Principal risque d'échec** : mi-temps sans but sur « {config.MARKETS[worst[0]]} » "
                      f"(environ {1 - worst[1].probability:.0%} de chances).")
     missing = ["compositions officielles", "blessures/suspensions", "xG", "cotes par mi-temps (à saisir)",
                "minutes des buts (buts précoces/tardifs)"] + fp.notes
     lines += ["", "**7. Données manquantes** : " + " ; ".join(missing) + "."]
+    return "\n".join(lines)
+
+
+TABLE_COLUMNS = [("H2_O05", "2e MT +0,5"), ("H2_O15", "2e MT +1,5"), ("H1_O05", "1re MT +0,5")]
+NO_ODDS_NOTE = "Cotes +/-2,5 non fournies : le modèle de marché n'a pas pu être utilisé."
+
+
+def _fr_pct(x: float | None) -> str:
+    return "—" if x is None or math.isnan(x) else f"{round(100 * x):d} %"
+
+
+def expected_goals(fp: FixturePrediction) -> tuple[float, float]:
+    """Buts attendus dans le match (cotes si fournies, sinon Poisson) et part de la 2e mi-temps."""
+    f = fp.features
+    l1, l2 = f["poisson_lambda_h1"], f["poisson_lambda_h2"]
+    total = l1 + l2 if math.isnan(f["market_lambda_total"]) else f["market_lambda_total"]
+    return total, l2 / (l1 + l2)
+
+
+def table_alerts(fp: FixturePrediction, manual: str | None = None) -> list[str]:
+    """Alertes du modèle (données, désaccord) puis alertes de contexte fournies à la main."""
+    alerts = ["sans cotes : modèle moins fiable" if n == NO_ODDS_NOTE else n for n in fp.notes]
+    a = fp.assessments.get("H2_O05")
+    if a is not None and a.status != "admissible":
+        # Seules les alertes de fiabilité ; les seuils de sélection se lisent dans les colonnes.
+        alerts += [r for r in a.reasons if r.startswith(("historique trop court", "modèles en désaccord"))]
+    if manual:
+        alerts.append(manual)
+    return alerts
+
+
+def to_table(rows: list[tuple[FixturePrediction, str | None]]) -> str:
+    """Tableau de synthèse multi-matchs, trié par probabilité de but en 2e mi-temps."""
+    def key(item):
+        a = item[0].assessments.get("H2_O05")
+        return -1.0 if a is None or math.isnan(a.probability) else a.probability
+
+    header = ["Match", "Buts attendus", "Part des buts en 2e MT"] + [c for _, c in TABLE_COLUMNS] + ["Alertes"]
+    lines = ["| " + " | ".join(header) + " |", "|" + "---|" * len(header)]
+    for fp, manual in sorted(rows, key=key, reverse=True):
+        if fp.features:
+            total, share = expected_goals(fp)
+            goals, part = f"~{total:.1f}".replace(".", ","), f"~{_fr_pct(share)}"
+        else:
+            goals = part = "—"
+        probs = [_fr_pct(fp.assessments[m].probability) if m in fp.assessments else "—"
+                 for m, _ in TABLE_COLUMNS]
+        alerts = ", ".join(table_alerts(fp, manual)) or "aucune"
+        lines.append("| " + " | ".join([f"{fp.home} – {fp.away}", goals, part] + probs + [alerts]) + " |")
+    lines += ["", "Probabilités calibrées sur l'historique (validation hors échantillon). "
+              "Comparer chaque probabilité à la cote proposée : cote juste = 1 / probabilité."]
     return "\n".join(lines)
 
 
