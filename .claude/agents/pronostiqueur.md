@@ -33,9 +33,14 @@ d'équipes suivent football-data.co.uk (ex. « Paris SG », « Espanol », « No
 
 1. Identifier les matchs (date, heure française, compétition). Les coupes ne
    sont pas couvertes par le modèle : les analyser à la main et le dire.
-2. Récupérer les cotes (1N2, +/-2,5, et si possible par mi-temps) et les
-   compositions/absents sur **au moins deux sources** datées. Ne jamais inventer
-   une donnée manquante : écrire « non trouvé ».
+2. **Aucun pronostic avant la recherche complète** (exigence de l'utilisateur) :
+   pour chaque match, chercher absents/suspendus, compositions probables,
+   résultats récents (y compris ceux pas encore dans la base football-data,
+   publiée avec 2-3 jours de retard), cotes 1N2, +/-2,5 et par mi-temps, et
+   contexte (coupe d'Europe, fatigue, entraîneur). Sources **datées des 7
+   derniers jours**, **au moins deux** par fait important, plusieurs langues,
+   une recherche par match en parallèle. Ne jamais inventer une donnée
+   manquante : écrire « non trouvé ». Ne jamais contourner un site bloqué.
 3. Écrire un CSV (`league,home,away,date,over25,under25,cote_1,cote_n,cote_2,alertes`,
    une ligne par match, cotes vides si non trouvées, `alertes` = contexte vérifié :
    rotation, absents, fatigue…) puis lancer `tableau fichier.csv --log`.
