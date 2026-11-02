@@ -31,6 +31,7 @@ def test_ensemble_and_walk_forward(synthetic_matches):
     bt = backtest.walk_forward(feats)
     assert set(bt["market"]) == set(config.MARKETS)
     assert bt["probabilite"].between(0, 1).all()
+    assert bt["probabilite_sans_cotes"].between(0, 1).all()
     assert (bt["prob_basse"] <= bt["probabilite"] + 1e-9).all()
     assert (bt["prob_haute"] >= bt["probabilite"] - 1e-9).all()
     evaluation = backtest.evaluate(bt)
@@ -43,6 +44,8 @@ def test_predict_fixture_and_report(synthetic_matches):
     predictor = HalfTimePredictor().fit(feats[feats["season"] != "2223"])
     weights = predictor.models["H2_O05"].weights
     assert np.isclose(weights.sum(), 1.0) and (weights >= 0).all()
+    weights_nc = predictor.models["H2_O05"].weights_sans_cotes
+    assert np.isclose(weights_nc.sum(), 1.0) and (weights_nc >= 0).all()
     fp = predict_fixture(predictor, builder, "test", "XX", "Equipe0", "Equipe1", "2026-01-01",
                          {"odds_over25": 1.8, "odds_under25": 2.0}, {"H2_O05": 1.15})
     md = to_markdown(fp)

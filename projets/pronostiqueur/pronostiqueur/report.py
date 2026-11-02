@@ -40,6 +40,10 @@ def backtest_markdown(evaluation: dict, bias: pd.DataFrame, data_summary: str) -
         out.append(_df_md(g[["modèle", "n", "taux_base", "brier", "log_loss", "ece"]], pct_cols=("taux_base",)))
         out += ["", "### Calibration de l'ensemble", _df_md(ev["calibration"],
                 pct_cols=("prob_moyenne", "taux_observe", "ic95_bas", "ic95_haut"))]
+        if "calibration_sans_cotes" in ev:
+            out += ["", "### Calibration sans cotes +/-2,5 (mêmes matchs, cotes retirées)",
+                    _df_md(ev["calibration_sans_cotes"],
+                           pct_cols=("prob_moyenne", "taux_observe", "ic95_bas", "ic95_haut"))]
         hc_pct = ("part_des_matchs", "prob_moyenne_annoncee", "taux_reussite", "ic95_bas", "ic95_haut")
         out += ["", "### Haute confiance : taux de réussite au-dessus de chaque seuil",
                 _df_md(ev["haute_confiance"], pct_cols=hc_pct),

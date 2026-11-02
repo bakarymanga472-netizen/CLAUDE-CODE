@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 
 from . import config, metrics
-from .models.ensemble import BASE_MODELS, HalfTimePredictor, prob_at_least
+from .models.ensemble import BASE_MODELS, HalfTimePredictor, prob_at_least, without_ou_odds
 
 
 def walk_forward(features: pd.DataFrame, min_train_seasons: int = 1,
@@ -32,6 +32,8 @@ def walk_forward(features: pd.DataFrame, min_train_seasons: int = 1,
             continue
         predictor = HalfTimePredictor(random_state).fit(train)
         preds = predictor.predict(test)
+        # Mêmes matchs sans cotes +/-2,5 : mesure la fiabilité de ce cas fréquent.
+        preds_nc = predictor.predict(without_ou_odds(test))
         for market, out in preds.items():
             h, k = config.MARKET_SPECS[market]
             frame = test[["date", "league", "season", "home", "away", "home_n_matches",
@@ -42,6 +44,7 @@ def walk_forward(features: pd.DataFrame, min_train_seasons: int = 1,
             frame["baseline_ligue"] = league_any if k == 1 else prob_at_least(-np.log(1 - league_any), k)
             for col in BASE_MODELS + ["probabilite", "ecart_modeles", "prob_basse", "prob_haute"]:
                 frame[col] = out[col].to_numpy()
+            frame["probabilite_sans_cotes"] = preds_nc[market]["probabilite"].to_numpy()
             results.append(frame)
     return pd.concat(results, ignore_index=True)
 
@@ -52,7 +55,8 @@ def evaluate(bt: pd.DataFrame, rules: config.SelectionRules | None = None) -> di
     report: dict = {}
     for market, g in bt.groupby("market"):
         y = g["y"].to_numpy()
-        models = {"ensemble": g["probabilite"], "baseline_ligue": g["baseline_ligue"]}
+        models = {"ensemble": g["probabilite"], "ensemble_sans_cotes": g["probabilite_sans_cotes"],
+                  "baseline_ligue": g["baseline_ligue"]}
         for m in BASE_MODELS:
             models[m] = g[m].fillna(g["poisson"])
         per_model = {name: metrics.summary(p.to_numpy(), y) for name, p in models.items()}
@@ -65,6 +69,7 @@ def evaluate(bt: pd.DataFrame, rules: config.SelectionRules | None = None) -> di
             "par_ligue": {lg: metrics.summary(x["probabilite"].to_numpy(), x["y"].to_numpy())
                           for lg, x in g.groupby("league")},
             "calibration": metrics.calibration_table(g["probabilite"].to_numpy(), y),
+            "calibration_sans_cotes": metrics.calibration_table(g["probabilite_sans_cotes"].to_numpy(), y),
             "haute_confiance": metrics.high_confidence_table(g["probabilite"].to_numpy(), y),
             "haute_confiance_equipes_rodees": metrics.high_confidence_table(
                 eligible["probabilite"].to_numpy(), eligible["y"].to_numpy()),
