@@ -19,6 +19,12 @@ Combinaison : poids positifs (somme 1) appliqués aux logits des modèles,
 puis calibration de Platt, le tout optimisé sur des prédictions hors
 échantillon obtenues par validation croisée temporelle. Un modèle qui
 n'apporte rien hors échantillon reçoit un poids proche de zéro.
+
+Deux combinaisons sont apprises : avec les cotes +/-2,5 et sans elles (cas
+fréquent d'une capture qui ne montre que le 1N2). Sans ces cotes, le modèle
+de marché manque et les autres modèles se surestiment en haut de l'échelle :
+la combinaison « sans cotes » est donc apprise sur des prédictions hors
+échantillon où ces cotes ont été retirées.
 """
 
 from __future__ import annotations
@@ -103,6 +109,33 @@ def _logit(p: np.ndarray) -> np.ndarray:
     return np.log(p / (1 - p))
 
 
+# Variables issues des cotes +/-2,5 ; les variables du 1N2 sont conservées.
+OU_ODDS_COLUMNS = ["market_p_over25", "market_lambda_total"]
+
+
+def without_ou_odds(df: pd.DataFrame) -> pd.DataFrame:
+    """Copie des variables telles qu'elles seraient sans cotes +/-2,5."""
+    out = df.copy()
+    out[OU_ODDS_COLUMNS] = np.nan
+    return out
+
+
+def _fit_weights_platt(logits: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, tuple[float, float]]:
+    """Poids positifs (paramétrage softmax) et calibration de Platt, optimisés conjointement."""
+    k = logits.shape[1]
+
+    def objective(theta):
+        w = np.exp(theta[:k] - theta[:k].max())
+        w /= w.sum()
+        z = theta[k] + theta[k + 1] * (logits @ w)
+        p = np.clip(1 / (1 + np.exp(-z)), EPS, 1 - EPS)
+        return -np.mean(y * np.log(p) + (1 - y) * np.log(1 - p))
+
+    res = minimize(objective, np.concatenate([np.zeros(k), [0.0, 1.0]]), method="L-BFGS-B")
+    w = np.exp(res.x[:k] - res.x[:k].max())
+    return w / w.sum(), (float(res.x[k]), float(res.x[k + 1]))
+
+
 class HalfGoalModel:
     """Modèle complet (bases + méta-modèle) pour un marché de mi-temps."""
 
@@ -116,9 +149,12 @@ class HalfGoalModel:
         self.gbm = None
         self.weights = np.full(len(BASE_MODELS), 1 / len(BASE_MODELS))
         self.platt = (0.0, 1.0)
+        self.weights_sans_cotes = self.weights
+        self.platt_sans_cotes = self.platt
         self.rho = 0.0
         self.validation_report: dict = {}
         self.calibration_bins: list[dict] = []
+        self.calibration_bins_sans_cotes: list[dict] = []
 
     # ------------------------------------------------------- modèles de base
     def _rule_based(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -157,8 +193,11 @@ class HalfGoalModel:
         filled["marche"] = filled["marche"].fillna(filled["poisson"])
         return np.column_stack([_logit(filled[m].to_numpy()) for m in BASE_MODELS])
 
-    def _combine(self, logits: np.ndarray) -> np.ndarray:
-        z = self.platt[0] + self.platt[1] * (logits @ self.weights)
+    def _combine(self, logits: np.ndarray, sans_cotes: bool = False) -> np.ndarray:
+        # getattr : modèles enregistrés avant la combinaison « sans cotes ».
+        weights = getattr(self, "weights_sans_cotes", self.weights) if sans_cotes else self.weights
+        platt = getattr(self, "platt_sans_cotes", self.platt) if sans_cotes else self.platt
+        z = platt[0] + platt[1] * (logits @ weights)
         return 1 / (1 + np.exp(-z))
 
     # -------------------------------------------------------------- entraînement
@@ -174,11 +213,12 @@ class HalfGoalModel:
         train = train.sort_values("date").reset_index(drop=True)
         n = len(train)
         bounds = [int(n * (1 - fold_fraction * (n_folds - k))) for k in range(n_folds + 1)]
-        oof_base, oof_y, oof_dates = [], [], []
+        oof_base, oof_base_nc, oof_y, oof_dates = [], [], [], []
         for start, stop in zip(bounds[:-1], bounds[1:]):
             past, block = train.iloc[:start], train.iloc[start:stop]
             self._fit_ml(past)
             oof_base.append(self.base_probabilities(block))
+            oof_base_nc.append(self.base_probabilities(without_ou_odds(block)))
             oof_y.append(block[self.target].to_numpy())
             oof_dates.append(block["date"])
         base_v = pd.concat(oof_base, ignore_index=True)
@@ -192,27 +232,21 @@ class HalfGoalModel:
             self.validation_report[f"logloss_{m}"] = float(log_loss(y_v, 1 / (1 + np.exp(-logits[:, i])),
                                                                     labels=[0, 1]))
 
-        # Poids positifs (paramétrage softmax) + calibration de Platt, optimisés
-        # conjointement sur la log-loss hors échantillon.
-        k = len(BASE_MODELS)
-
-        def objective(theta):
-            w = np.exp(theta[:k] - theta[:k].max())
-            w /= w.sum()
-            z = theta[k] + theta[k + 1] * (logits @ w)
-            p = np.clip(1 / (1 + np.exp(-z)), EPS, 1 - EPS)
-            return -np.mean(y_v * np.log(p) + (1 - y_v) * np.log(1 - p))
-
-        theta0 = np.concatenate([np.zeros(k), [0.0, 1.0]])
-        res = minimize(objective, theta0, method="L-BFGS-B")
-        w = np.exp(res.x[:k] - res.x[:k].max())
-        self.weights = w / w.sum()
-        self.platt = (float(res.x[k]), float(res.x[k + 1]))
+        edges = None if self.k == 1 else EDGES_O15
+        self.weights, self.platt = _fit_weights_platt(logits, y_v)
         combined = self._combine(logits)
         self.validation_report["logloss_ensemble"] = float(log_loss(y_v, combined, labels=[0, 1]))
         self.validation_report["poids"] = {m: float(x) for m, x in zip(BASE_MODELS, self.weights)}
         self.validation_report["platt"] = list(self.platt)
-        self.calibration_bins = _calibration_bins(combined, y_v, None if self.k == 1 else EDGES_O15)
+        self.calibration_bins = _calibration_bins(combined, y_v, edges)
+
+        logits_nc = self._filled_logits(pd.concat(oof_base_nc, ignore_index=True))
+        self.weights_sans_cotes, self.platt_sans_cotes = _fit_weights_platt(logits_nc, y_v)
+        combined_nc = self._combine(logits_nc, sans_cotes=True)
+        self.validation_report["logloss_ensemble_sans_cotes"] = float(log_loss(y_v, combined_nc, labels=[0, 1]))
+        self.validation_report["poids_sans_cotes"] = {m: float(x) for m, x in
+                                                      zip(BASE_MODELS, self.weights_sans_cotes)}
+        self.calibration_bins_sans_cotes = _calibration_bins(combined_nc, y_v, edges)
 
         # Modèles ML (et ρ de Dixon-Coles) ré-entraînés sur toute la période disponible.
         self._fit_ml(train)
@@ -222,23 +256,26 @@ class HalfGoalModel:
     # --------------------------------------------------------------- prédiction
     def predict(self, df: pd.DataFrame) -> pd.DataFrame:
         base = self.base_probabilities(df)
-        final = self._combine(self._filled_logits(base))
+        logits = self._filled_logits(base)
+        sans_cotes = df["market_lambda_total"].isna().to_numpy()
+        final = np.where(sans_cotes, self._combine(logits, sans_cotes=True), self._combine(logits))
         out = base.copy()
         out["probabilite"] = final
         spread = base[BASE_MODELS].std(axis=1, skipna=True)
         out["ecart_modeles"] = spread
         lows, highs = [], []
-        for p, s in zip(final, spread.fillna(0).to_numpy()):
-            lo, hi = self.interval(p)
+        for p, s, nc in zip(final, spread.fillna(0).to_numpy(), sans_cotes):
+            lo, hi = self.interval(p, nc)
             lows.append(max(0.0, min(lo, p - s)))
             highs.append(min(1.0, max(hi, p + s)))
         out["prob_basse"] = lows
         out["prob_haute"] = highs
         return out
 
-    def interval(self, p: float) -> tuple[float, float]:
+    def interval(self, p: float, sans_cotes: bool = False) -> tuple[float, float]:
         """Intervalle de Wilson à 95 % du taux observé dans la tranche de calibration."""
-        for b in self.calibration_bins:
+        bins = getattr(self, "calibration_bins_sans_cotes", None) if sans_cotes else None
+        for b in bins or self.calibration_bins:
             if b["low"] <= p < b["high"] or (p >= 1.0 and b["high"] >= 1.0):
                 return b["ci_low"], b["ci_high"]
         return max(0.0, p - 0.1), min(1.0, p + 0.1)

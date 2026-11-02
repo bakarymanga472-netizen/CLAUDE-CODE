@@ -152,7 +152,7 @@ def expected_goals(fp: FixturePrediction) -> tuple[float, float]:
 
 def table_alerts(fp: FixturePrediction, manual: str | None = None) -> list[str]:
     """Alertes du modèle (données, désaccord) puis alertes de contexte fournies à la main."""
-    alerts = ["sans cotes : modèle moins fiable" if n == NO_ODDS_NOTE else n for n in fp.notes]
+    alerts = ["sans cotes +/-2,5 : modèle moins précis" if n == NO_ODDS_NOTE else n for n in fp.notes]
     a = fp.assessments.get("H2_O05")
     if a is not None and a.status != "admissible":
         # Seules les alertes de fiabilité ; les seuils de sélection se lisent dans les colonnes.
