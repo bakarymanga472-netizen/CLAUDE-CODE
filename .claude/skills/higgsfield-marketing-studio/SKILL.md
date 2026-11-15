@@ -11,6 +11,13 @@ metadata:
 
 # Higgsfield Marketing Studio
 
+> **Écarts constatés sur l'API réelle le 2026-11-15 (`models_explore get marketing_studio_video`) — priment sur le reste de ce fichier :**
+> - `show_marketing_studio` n'existe plus : le connecteur expose `show_marketing_studio_v2` (galerie guidée, sans `action`/`type`). Pour un parcours produit/pub guidé, ouvre ce widget.
+> - `generate_video` pour `marketing_studio_video` **a** un paramètre `mode` (slug du preset) ; avatar via `avatar_ids: ['<uuid>']` (max 1), produit via `product_ids: ['<uuid>']`.
+> - Durée acceptée : **12–15 s** (pas 4–15). `generate_audio` vaut `true` par défaut.
+> - `get_cost: true` fonctionne : 15 s en 720p = **75 crédits**.
+> - Toujours revérifier avec `models_explore` (action `get`) avant un appel direct.
+
 ## QUICK FACTS
 *Generated-checked block (scripts/build_index.py verifies anchors). Read the linked sections for full context — these lines are routing aids, not the rules themselves.*
 - Hard duration cap: 4–15s per clip; out-of-range values get clamped; longer narrative = multi-clip sequence edited externally [→](#7-generation-parameters)

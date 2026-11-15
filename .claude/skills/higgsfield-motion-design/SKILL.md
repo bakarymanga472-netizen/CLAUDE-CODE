@@ -91,6 +91,8 @@ For highMD, the final seconds must be a **static hold** on the brand/logo — bu
 Pass as the start frame: the original uploaded asset if the user had one, otherwise the first approved storyboard frame's job id. Seedance 2.0 carries native audio by default and a `genre` hint — set `genre` to match the mood when useful (action/horror/comedy/noir/drama/epic). Display with `job_display`.
 
 > **Resolution note:** Seedance 2.0 reaches 4K only in `mode=std`; `mode=fast` caps at 720p. See `higgsfield-seedance` / the specs layer.
+>
+> **Vérifié le 2026-11-15 :** `mode=std` (défaut) exige un abonnement Plus ou supérieur ; `mode=fast` est ouvert dès Basic/Starter. Coûts mesurés avec `get_cost` : storyboard GPT Image 2 (1k, low) = 1 crédit ; vidéo Seedance 2.0 fast 5 s 720p = 12,5 crédits. Vérifie `balance` avant l'étape 4.
 
 ---
 
