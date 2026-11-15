@@ -6,7 +6,7 @@ _Dernière mise à jour : 2026-11-15_
 - Espace de travail optimisé (architecture tokens) — à tester sur ta machine.
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
 
-- 2026-11-15 : config remise à zéro (branche `claude/mcp-skills-config-zkmv53`) : skills `trader-*`, `objectif`, `fin-de-session`, `nouveau-projet`, `task-observer`, plugins claude-mem / claude-code-setup, hook de démarrage et `scripts/installer-plugins.sh` supprimés. Seuls skills : `higgsfield-motion-design`, `higgsfield-marketing-studio` (OSideMedia/higgsfield-ai-prompt-skill @6a6a5dd, MIT, relus). Gardés : permissions (.env bloqué, ordres Alpaca en `ask`), agents, règles. Restaurables via l'historique Git.
+- 2026-11-15 : config remise à zéro (branche `claude/mcp-skills-config-zkmv53`) : skills `trader-*`, `objectif`, `fin-de-session`, `nouveau-projet`, `task-observer`, plugins claude-mem / claude-code-setup, hook de démarrage et `scripts/installer-plugins.sh` supprimés. Seuls skills : `higgsfield-motion-design`, `higgsfield-marketing-studio` (OSideMedia/higgsfield-ai-prompt-skill @6a6a5dd, MIT, relus). Puis remise à zéro complète : `CLAUDE.md`, `cerveau/CLAUDE.md`, `.claude/settings.json` (permissions comprises), agents, règles, `workflows/plugins.md` et `economie-tokens.md` supprimés. Ce fichier n'est plus chargé automatiquement. Tout est récupérable via l'historique Git.
 - `bot-trading` : Aladdin construit et testé ; suivi papier en direct démarré le 2026-10-14 (lancer `python3 -m aladdin.live` chaque jour).
 
 ## Prochaines actions
