@@ -1,15 +1,23 @@
 #!/usr/bin/env python3
-"""Voix off gratuite en local avec Kokoro (kokoro-onnx).
+"""Voix off gratuite en local avec Kokoro (kokoro-onnx), prête pour TikTok / YouTube.
 
-Usage : python3 voix.py "Texte à dire" sortie.wav [--voix ff_siwis] [--langue fr-fr] [--vitesse 1.0]
-Prérequis : pip install kokoro-onnx soundfile
+Usage : python3 voix.py "Texte à dire" sortie.wav [--voix ff_siwis] [--langue fr-fr]
+                        [--vitesse 0.9] [--timings phrases.json] [--brut]
+Prérequis : pip install kokoro-onnx soundfile pyloudnorm pedalboard scipy
 Les modèles (~350 Mo) sont téléchargés une fois dans ~/.cache/kokoro.
+
+Réglages par défaut, mesurés le 2026-11-15 (voir SKILL.md) :
+- une phrase à la fois (coupure après . ? !), avec une pause de 0,35 s entre les phrases
+  (ne pas couper après « : » : un mot isolé comme « Trois : » est mal prononcé)
+- vitesse 0,9 : 148 mots/min avec les pauses (cible 140-150 pour la vidéo courte)
+- mastering : passe-haut 80 Hz, compresseur, -14 LUFS intégrés, crête max -1,5 dBFS
 """
-import argparse, pathlib, sys, urllib.request
+import argparse, json, pathlib, re, sys, urllib.request
 
 BASE = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
 FICHIERS = ["kokoro-v1.0.onnx", "voices-v1.0.bin"]
 CACHE = pathlib.Path.home() / ".cache" / "kokoro"
+CIBLE_LUFS, CRETE_DB = -14.0, -1.5
 
 
 def modeles():
@@ -22,20 +30,70 @@ def modeles():
     return [str(CACHE / n) for n in FICHIERS]
 
 
+def mastering(y, sr):
+    """Compresse, cale le volume sur -14 LUFS et limite les crêtes à -1,5 dBFS."""
+    import numpy as np, pyloudnorm as pyln
+    from scipy.ndimage import minimum_filter1d, uniform_filter1d
+    from pedalboard import Compressor, HighpassFilter, Pedalboard
+    y = Pedalboard([HighpassFilter(80), Compressor(threshold_db=-24, ratio=3, attack_ms=5, release_ms=120)])(
+        y.astype(np.float32), sr).astype(np.float64)
+    meter, lim = pyln.Meter(sr), 10 ** (CRETE_DB / 20)
+    fen = int(sr * 0.005)
+    for _ in range(5):  # gain vers la cible, puis limiteur doux (anticipation 5 ms), en quelques passes
+        y = y * 10 ** ((CIBLE_LUFS - meter.integrated_loudness(y)) / 20)
+        g = np.minimum(1.0, lim / np.maximum(np.abs(y), 1e-9))
+        g = uniform_filter1d(minimum_filter1d(g, 2 * fen + 1), 2 * fen + 1)
+        y = y * np.minimum(g, 1.0)
+        if abs(meter.integrated_loudness(y) - CIBLE_LUFS) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
+            break
+    pic = float(np.max(np.abs(y)))
+    return (y * (lim / pic) if pic > lim else y).astype(np.float32)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("texte")
     p.add_argument("sortie")
     p.add_argument("--voix", default="ff_siwis")
     p.add_argument("--langue", default="fr-fr")
-    p.add_argument("--vitesse", type=float, default=1.0)
+    p.add_argument("--vitesse", type=float, default=0.9)
+    p.add_argument("--timings", help="écrit le début/fin de chaque phrase (s) pour caler les sous-titres")
+    p.add_argument("--brut", action="store_true", help="sans pauses ajoutées ni mastering")
+    p.add_argument("--prononcer", action="append", default=[], metavar="MOT=SON",
+                   help="corrige un mot mal prononcé, ex. --prononcer Remotion=Rimôchone (répétable)")
     a = p.parse_args()
-    import soundfile as sf
+    import numpy as np, soundfile as sf
     from kokoro_onnx import Kokoro
     k = Kokoro(*modeles())
-    audio, sr = k.create(a.texte, voice=a.voix, speed=a.vitesse, lang=a.langue)
-    sf.write(a.sortie, audio, sr)
-    print(f"{a.sortie} : {len(audio) / sr:.1f} s")
+    regles = [r.split("=", 1) for r in a.prononcer]
+
+    def prononce(s):  # ne change que l'audio : les sous-titres gardent l'orthographe d'origine
+        for mot, son in regles:
+            s = re.sub(rf"\b{re.escape(mot)}\b", son, s)
+        return s
+
+    if a.brut:
+        y, sr = k.create(prononce(a.texte), voice=a.voix, speed=a.vitesse, lang=a.langue)
+        sf.write(a.sortie, y, sr)
+        print(f"{a.sortie} : {len(y) / sr:.1f} s")
+        return
+
+    phrases = [m.strip() for m in re.findall(r"[^.?!]+[.?!]?", a.texte) if m.strip()]
+    morceaux, timings, t, sr = [], [], 0.0, 24000
+    for i, ph in enumerate(phrases):
+        audio, sr = k.create(prononce(ph), voice=a.voix, speed=a.vitesse, lang=a.langue)
+        timings.append({"texte": ph, "debut": round(t, 3), "fin": round(t + len(audio) / sr, 3)})
+        morceaux.append(audio)
+        t += len(audio) / sr
+        if i < len(phrases) - 1:
+            pause = 0.35
+            morceaux.append(np.zeros(int(sr * pause), dtype=audio.dtype))
+            t += pause
+    y = mastering(np.concatenate(morceaux), sr)
+    sf.write(a.sortie, y, sr)
+    if a.timings:
+        pathlib.Path(a.timings).write_text(json.dumps(timings, ensure_ascii=False, indent=1))
+    print(f"{a.sortie} : {len(y) / sr:.1f} s, {len(phrases)} phrases")
 
 
 if __name__ == "__main__":
