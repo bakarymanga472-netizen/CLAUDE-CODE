@@ -10,4 +10,5 @@
 | Higgsfield | Génération image/vidéo, Marketing Studio | Connecteur claude.ai « H » (MCP) | — |
 | higgsfield-motion-design | Motion design / pub animée : brief → storyboard → vidéo (skill) | `.claude/skills/higgsfield-motion-design/` | — |
 | higgsfield-marketing-studio | Pubs vidéo Marketing Studio, 9 presets (skill) | `.claude/skills/higgsfield-marketing-studio/` | — |
+| remotion-best-practices | Vidéos en code React, rendu local gratuit (skill officiel Remotion 4.0.543) | `.claude/skills/remotion-best-practices/` | — |
 | _ajoute ici_ | | | |

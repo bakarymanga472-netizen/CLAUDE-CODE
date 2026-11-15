@@ -8,7 +8,8 @@ L'ancienne configuration (cerveau, skills `trader-*`, agents…) reste récupér
 .
 ├── .claude/skills/
 │   ├── higgsfield-motion-design/     ← motion design : brief → storyboard → vidéo
-│   └── higgsfield-marketing-studio/  ← pubs vidéo Marketing Studio (9 presets)
+│   ├── higgsfield-marketing-studio/  ← pubs vidéo Marketing Studio (9 presets)
+│   └── remotion-best-practices/      ← vidéos en code (React), rendu local gratuit
 ├── cerveau/              ← notes et mémoire (données, plus chargées automatiquement)
 ├── projets/<nom>/        ← un dossier par projet, avec son contexte.md
 ├── workflows/            ← procédures
@@ -20,3 +21,8 @@ L'ancienne configuration (cerveau, skills `trader-*`, agents…) reste récupér
 ## Skills Higgsfield
 - Source : [OSideMedia/higgsfield-ai-prompt-skill](https://github.com/OSideMedia/higgsfield-ai-prompt-skill) @ `6a6a5dd`, licence MIT.
 - Ils ont besoin du connecteur Higgsfield (« H ») sur claude.ai pour générer images et vidéos. Chaque génération consomme des crédits.
+
+## Skill Remotion
+- Source : [remotion-dev/skills](https://github.com/remotion-dev/skills) @ `7e541aa` (v4.0.543).
+- Gratuit pour un particulier ou une structure de 3 personnes max ; au-delà, licence entreprise.
+- Rendu testé : `npx remotion render src/index.ts <Composition> out/video.mp4 --is-production=false`.
