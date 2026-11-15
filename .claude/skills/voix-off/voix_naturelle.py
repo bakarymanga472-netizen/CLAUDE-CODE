@@ -51,8 +51,8 @@ def normalise(s):
     from num2words import num2words
     s = re.sub(r"(\d)[\s.](\d{3})", r"\1\2", s)
     s = re.sub(r"(\d+)\s*h\b", lambda m: num2words(int(m.group(1)), lang="fr") + " heures", s)
-    s = re.sub(r"\d+", lambda m: num2words(int(m.group()), lang="fr"), s).replace("€", " euros ")
-    s = s.lower().replace("'", " ").replace("’", " ").replace("-", " ")
+    s = re.sub(r"\d+", lambda m: num2words(int(m.group()), lang="fr"), s).replace("€", " euros ").replace("%", " pour cent ")
+    s = s.lower().replace("'", " ").replace("’", " ").replace("-", "")
     return re.sub(r"[^\w\s]", " ", s).split()
 
 
@@ -73,6 +73,8 @@ def main():
     p.add_argument("--timings", help="écrit le début/fin de chaque phrase (s) pour caler les sous-titres")
     p.add_argument("--mots-min", type=float, default=145, help="débit visé, pauses comprises (140-150 conseillé)")
     p.add_argument("--energie", type=float, default=0.6, help="expressivité Chatterbox (0,5 calme, 0,7 très animé)")
+    p.add_argument("--prononcer", action="append", default=[], metavar="MOT=SON",
+                   help="corrige un mot mal prononcé, ex. --prononcer \"Africa Corps=Afrika Kor\" (audio seulement)")
     a = p.parse_args()
 
     import numpy as np, torch, librosa, soundfile as sf
@@ -88,16 +90,33 @@ def main():
     sr = tts.sr
     phrases = [m.strip() for m in re.findall(r"[^.?!]+[.?!]?", a.texte) if m.strip()]
 
+    regles = [r.split("=", 1) for r in a.prononcer]
+
+    def prononce(s):
+        for mot, son in regles:
+            s = re.sub(rf"\b{re.escape(mot)}\b", son, s)
+        return s
+
+    import hashlib
+    cache_seg = CACHE / "segments"
+    cache_seg.mkdir(parents=True, exist_ok=True)
+    empreinte_ref = hashlib.sha1(pathlib.Path(ref).read_bytes()).hexdigest()[:10]
     segments = []
     for i, ph in enumerate(phrases):
+        dit = prononce(ph)
+        cle = hashlib.sha1(f"{dit}|{empreinte_ref}|{a.energie}".encode()).hexdigest()[:16]
+        if (cache_seg / f"{cle}.npy").exists():  # phrase déjà générée et vérifiée : on la réutilise
+            segments.append(np.load(cache_seg / f"{cle}.npy"))
+            print(f"{i}: (cache) {ph}", file=sys.stderr)
+            continue
         meilleur = None
         for essai in range(4):
             torch.manual_seed(100 * i + essai)
-            y = tts.generate(ph, language_id="fr", audio_prompt_path=ref, exaggeration=a.energie, cfg_weight=0.5)
+            y = tts.generate(dit, language_id="fr", audio_prompt_path=ref, exaggeration=a.energie, cfg_weight=0.5)
             y = librosa.effects.trim(y.squeeze(0).numpy(), top_db=35)[0]
             hyp = " ".join(s.text for s in asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000),
                                                           language="fr", beam_size=5)[0])
-            e = taux_erreur(normalise(ph), normalise(hyp))
+            e = min(taux_erreur(normalise(ph), normalise(hyp)), taux_erreur(normalise(dit), normalise(hyp)))
             if meilleur is None or e < meilleur[0]:
                 meilleur = (e, y, hyp)
             if e <= 0.10:
@@ -105,7 +124,9 @@ def main():
         e, y, hyp = meilleur
         print(f"{i}: {e:.0%} d'erreur | {hyp.strip()}", file=sys.stderr)
         if e > 0.10:
-            print(f"   ⚠ phrase {i} encore imparfaite : reformuler « {ph} »", file=sys.stderr)
+            print(f"   ⚠ phrase {i} encore imparfaite : reformuler « {ph} » ou utiliser --prononcer", file=sys.stderr)
+        else:
+            np.save(cache_seg / f"{cle}.npy", y)
         segments.append(y)
 
     # pauses irrégulières comme à l'oral

@@ -1,0 +1,18 @@
+{
+  "name": "videos-geopolitique",
+  "private": true,
+  "scripts": {
+    "carte": "curl -sSLf -o ne_110m.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson && node prep.mjs ne_110m.geojson src/carte.json",
+    "voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix-geo.wav --timings src/phrases-geo.json --energie 0.65 --prononcer \"Africa Corps=Afrika Kor\"",
+    "studio": "remotion studio src/index.ts",
+    "rendu": "remotion render src/index.ts Geo out/video.mp4 --is-production=false"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "@remotion/media": "4.0.543",
+    "d3-geo": "3.1.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.543"
+  }
+}
