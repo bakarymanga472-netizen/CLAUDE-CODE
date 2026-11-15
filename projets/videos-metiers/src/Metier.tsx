@@ -13,7 +13,7 @@ const SCENES: Scene[] = [
   {icone: '💶', etiquette: 'Début de carrière', valeur: '≈ 1 700 €', detail: 'net par mois*', note: true},
   {icone: '📈', etiquette: 'Fin de carrière', valeur: "jusqu'à ≈ 3 000 €", detail: 'net par mois*', note: true},
   {icone: '🌙', etiquette: 'Nuits & dimanches', valeur: '+200 à 500 €', detail: 'en plus par mois*', note: true},
-  {icone: '🕐', etiquette: 'Horaires', valeur: '7h30 à 12h', detail: 'par journée, même le week‑end'},
+  {icone: '🕐', etiquette: 'Horaires', valeur: "Jusqu'à 12 h", detail: 'par journée, même le week‑end'},
   {icone: '✅', etiquette: 'Le plus', valeur: 'Emploi stable et utile', couleur: '#5BE37D'},
   {icone: '❌', etiquette: 'Le moins', valeur: 'La fatigue', couleur: '#FF6B6B'},
   {icone: '👇', valeur: 'Et toi, tu ferais ce métier ?', detail: 'Dis-le en commentaire'},

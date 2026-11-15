@@ -7,12 +7,12 @@ Prérequis : pip install kokoro-onnx soundfile pyloudnorm pedalboard scipy
 Les modèles (~350 Mo) sont téléchargés une fois dans ~/.cache/kokoro.
 
 Réglages par défaut, mesurés le 2026-11-15 (voir SKILL.md) :
-- une phrase à la fois (coupure après . ? !), avec une pause de 0,35 s entre les phrases
+- une phrase à la fois (coupure après . ? !), pauses variables (0,3 à 0,5 s), débit qui varie de ±3 %
   (ne pas couper après « : » : un mot isolé comme « Trois : » est mal prononcé)
 - vitesse 0,9 : 148 mots/min avec les pauses (cible 140-150 pour la vidéo courte)
-- mastering : passe-haut 80 Hz, compresseur, -14 LUFS intégrés, crête max -1,5 dBFS
+- mastering : passe-haut 80 Hz, compression douce, légère réverbération, -14 LUFS, crête max -1,5 dBFS
 """
-import argparse, json, pathlib, re, sys, urllib.request
+import argparse, json, math, pathlib, re, sys, urllib.request
 
 BASE = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
 FICHIERS = ["kokoro-v1.0.onnx", "voices-v1.0.bin"]
@@ -34,8 +34,11 @@ def mastering(y, sr):
     """Compresse, cale le volume sur -14 LUFS et limite les crêtes à -1,5 dBFS."""
     import numpy as np, pyloudnorm as pyln
     from scipy.ndimage import minimum_filter1d, uniform_filter1d
-    from pedalboard import Compressor, HighpassFilter, Pedalboard
-    y = Pedalboard([HighpassFilter(80), Compressor(threshold_db=-24, ratio=3, attack_ms=5, release_ms=120)])(
+    from pedalboard import Compressor, HighpassFilter, Pedalboard, Reverb
+    # compression douce (ratio 2) : une compression forte écrase les variations de volume naturelles
+    # + une pointe de réverbération de petite pièce : une voix 100 % sèche sonne « synthétique »
+    y = Pedalboard([HighpassFilter(80), Compressor(threshold_db=-20, ratio=2, attack_ms=10, release_ms=150),
+                    Reverb(room_size=0.12, damping=0.6, wet_level=0.05, dry_level=1.0, width=0.6)])(
         y.astype(np.float32), sr).astype(np.float64)
     meter, lim = pyln.Meter(sr), 10 ** (CRETE_DB / 20)
     fen = int(sr * 0.005)
@@ -81,12 +84,15 @@ def main():
     phrases = [m.strip() for m in re.findall(r"[^.?!]+[.?!]?", a.texte) if m.strip()]
     morceaux, timings, t, sr = [], [], 0.0, 24000
     for i, ph in enumerate(phrases):
-        audio, sr = k.create(prononce(ph), voice=a.voix, speed=a.vitesse, lang=a.langue)
+        # débit légèrement variable d'une phrase à l'autre (±3 %), questions un peu plus posées
+        vit = a.vitesse * (1 + 0.03 * math.sin(1.7 * i)) * (0.97 if ph.endswith("?") else 1.0)
+        audio, sr = k.create(prononce(ph), voice=a.voix, speed=vit, lang=a.langue)
         timings.append({"texte": ph, "debut": round(t, 3), "fin": round(t + len(audio) / sr, 3)})
         morceaux.append(audio)
         t += len(audio) / sr
         if i < len(phrases) - 1:
-            pause = 0.35
+            # pauses irrégulières comme à l'oral : plus longues après une question ou avant une longue phrase
+            pause = 0.5 if ph.endswith("?") else 0.26 + 0.012 * min(len(phrases[i + 1].split()), 12)
             morceaux.append(np.zeros(int(sr * pause), dtype=audio.dtype))
             t += pause
     y = mastering(np.concatenate(morceaux), sr)

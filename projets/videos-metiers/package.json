@@ -2,7 +2,8 @@
   "name": "videos-metiers",
   "private": true,
   "scripts": {
-    "voix": "python3 ../../.claude/skills/voix-off/voix.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json --prononcer week-end=ouikènde",
+    "voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json",
+    "voix-rapide": "python3 ../../.claude/skills/voix-off/voix.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json --prononcer week-end=ouikènde",
     "studio": "remotion studio src/index.ts",
     "rendu": "remotion render src/index.ts Metier out/video.mp4 --is-production=false"
   },

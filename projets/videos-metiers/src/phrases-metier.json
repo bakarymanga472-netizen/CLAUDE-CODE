@@ -2,46 +2,46 @@
  {
   "texte": "Une infirmière à l'hôpital, combien elle gagne vraiment ?",
   "debut": 0.0,
-  "fin": 3.157
+  "fin": 3.026
  },
  {
   "texte": "Il faut trois ans d'études après le bac.",
-  "debut": 3.507,
-  "fin": 5.811
+  "debut": 3.577,
+  "fin": 5.364
  },
  {
   "texte": "Au début, environ mille sept cents euros net par mois.",
-  "debut": 6.161,
-  "fin": 9.191
+  "debut": 5.664,
+  "fin": 8.709
  },
  {
   "texte": "En fin de carrière, jusqu'à trois mille euros net.",
-  "debut": 9.541,
-  "fin": 12.442
+  "debut": 9.089,
+  "fin": 12.009
  },
  {
-  "texte": "Les nuits et les dimanches rapportent deux cents à cinq cents euros de plus par mois.",
-  "debut": 12.792,
-  "fin": 17.421
+  "texte": "Nuits et dimanches : deux cents à cinq cents euros de plus par mois.",
+  "debut": 12.309,
+  "fin": 16.938
  },
  {
-  "texte": "Les journées durent de sept heures et demie à douze heures, même le week-end.",
-  "debut": 17.771,
-  "fin": 21.889
+  "texte": "Les journées durent jusqu'à douze heures, même le week-end.",
+  "debut": 17.358,
+  "fin": 20.259
  },
  {
   "texte": "Le plus : un emploi stable et utile.",
-  "debut": 22.239,
-  "fin": 24.415
+  "debut": 20.599,
+  "fin": 23.06
  },
  {
   "texte": "Le moins : la fatigue.",
-  "debut": 24.765,
-  "fin": 26.215
+  "debut": 23.28,
+  "fin": 26.011
  },
  {
   "texte": "Et toi, tu ferais ce métier ?",
-  "debut": 26.565,
-  "fin": 28.208
+  "debut": 26.531,
+  "fin": 29.432
  }
 ]
