@@ -9,7 +9,8 @@ L'ancienne configuration (cerveau, skills `trader-*`, agents…) reste récupér
 ├── .claude/skills/
 │   ├── higgsfield-motion-design/     ← motion design : brief → storyboard → vidéo
 │   ├── higgsfield-marketing-studio/  ← pubs vidéo Marketing Studio (9 presets)
-│   └── remotion-best-practices/      ← vidéos en code (React), rendu local gratuit
+│   ├── remotion-best-practices/      ← vidéos en code (React), rendu local gratuit
+│   └── voix-off/                     ← voix off gratuite en local (Kokoro)
 ├── cerveau/              ← notes et mémoire (données, plus chargées automatiquement)
 ├── projets/<nom>/        ← un dossier par projet, avec son contexte.md
 ├── workflows/            ← procédures
