@@ -22,7 +22,7 @@ données sont fiables. **Aucun pari n'est placé automatiquement.**
 | Tableau de synthèse multi-matchs (`tableau`) | ✅ |
 | Journal des pronostics, règlement après match, bilan réel | ✅ |
 | Évolution contrôlée des modèles + retour arrière | ✅ |
-| Agent Claude Code `pronostiqueur` | ✅ `.claude/agents/pronostiqueur.md` (à la racine du dépôt) |
+| Agent Claude Code `pronostiqueur` | ❌ supprimé le 2026-11-15 (config remise à zéro) ; récupérable dans l'historique Git |
 | Buteurs / passeurs décisifs | ❌ **Non implémenté** : données joueurs non connectées |
 | Compositions, blessures, xG, minutes des buts, cotes par mi-temps | ❌ Non disponibles dans la source actuelle |
 
