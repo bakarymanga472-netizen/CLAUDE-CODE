@@ -37,3 +37,38 @@ Côte d'Ivoire et Sénégal encore notés « 2e mi-temps » mais déjà à 2 but
   2 buts : les alertes de contexte n'ont rien apporté ce soir face aux cotes (cohérent
   avec l'expérience sur les absences, sans valeur ajoutée hors cotes). À confirmer sur
   plus de matchs avant d'en tirer une règle.
+
+## 2026-11-13 — éliminatoires CAN 2027 J3, « +1,5 but dans le match »
+
+| Match | Proba annoncée | Score | +1,5 |
+|---|---|---|---|
+| Nigeria – Tanzanie | 83 % | 3-1 | ✅ |
+| Égypte – Malawi | 81 % | 5-0 | ✅ |
+| Gabon – Lesotho | 74 % | 2-0 | ✅ |
+| Mali – Rwanda | 73 % | 3-2 | ✅ |
+
+Source des scores : API ESPN. 4/4 pour 3,11 attendus. Cumul 12-13/11 : **16/16 pour 12,56 attendus**
+(moyenne annoncée 79 %). Toujours trop peu de matchs pour conclure ; aucune perte observée,
+donc la calibration réelle des sélections reste inconnue.
+
+## 2026-11-17 — coupon Betify de l'utilisateur (7 sélections), à régler
+
+Probabilités sans marge tirées des cotes publiques (footballpredictions.ai, BetMGM via
+sportsgambler, bet365 via kickoff.co.uk, relevées les 15-16/11). Total d'une équipe :
+buts attendus par équipe déduits des cotes 1N2 et +/-2,5 (Poisson), méthode vérifiée sur
+8 000 cas de clubs (annoncé 39,4 %, observé 39,1 % ; tranche 70-80 % : 74 % → 76 %).
+**Non validée sur des sélections.**
+
+| Pari | Proba | Cote juste | Cote Betify | Espérance | Résultat |
+|---|---|---|---|---|---|
+| Malawi – Égypte : Égypte +1,5 | 70 % | 1,42 | 1,36 | −4 % | |
+| Lesotho – Gabon : match +1,5 | 68 % | 1,47 | 1,38 | −6 % | |
+| Danemark – Norvège : match +2,5 | 65 % | 1,54 | 1,48 | −4 % | |
+| Rwanda – Mali : match +1,5 | 64 % | 1,57 | 1,43 | −9 % | |
+| Tanzanie – Nigeria : Nigeria +1,5 | 55 % | 1,82 | 1,64 | −10 % | |
+| Sierra Leone – RD Congo : RD Congo +1,5 | 55 % | 1,82 | 1,64 | −10 % | |
+| Gambie – Côte d'Ivoire : Côte d'Ivoire +1,5 | 49 % | 2,03 | 1,93 | −5 % | |
+
+Combiné des 7 : cote 20,62, probabilité ≈ 3 %, espérance ≈ −39 %. Aucune sélection au-dessus
+de sa cote juste. Fragilités : cote 1N2 de l'Égypte contradictoire (1,18 contre 1,36 non vérifié),
+cotes Rwanda – Mali incohérentes sur la même page.
