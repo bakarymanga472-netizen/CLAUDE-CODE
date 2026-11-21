@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"type": "file", "path": "Accueil.md", "title": "Accueil"},
+    {"type": "file", "path": "cerveau/memoire/maintenant.md", "title": "Maintenant"},
+    {"type": "file", "path": "Projets.base", "title": "Projets"}
+  ]
+}

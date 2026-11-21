@@ -1,3 +1,12 @@
+---
+type: projet
+statut: actif
+domaine: trading
+maj: 2026-10-20
+prochaine_etape: "1. Lancer chaque jour python3 -m labo.suivi_portefeuille et python3 -m aladdin.live_rebond (données vierges)."
+tags: [projet]
+---
+
 # Projet : bot-trading
 
 _Créé le 2026-10-15 — Dernière mise à jour : 2026-10-15_

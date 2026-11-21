@@ -1,0 +1,30 @@
+filters:
+  and:
+    - file.name == "contexte"
+    - file.inFolder("projets")
+    - not:
+        - file.inFolder("projets/_modele")
+views:
+  - type: table
+    name: Tous les projets
+    order:
+      - file.folder
+      - statut
+      - domaine
+      - maj
+      - prochaine_etape
+  - type: table
+    name: Actifs
+    filters:
+      and:
+        - statut == "actif"
+    order:
+      - file.folder
+      - prochaine_etape
+      - maj
+  - type: cards
+    name: Par domaine
+    order:
+      - file.folder
+      - domaine
+      - statut

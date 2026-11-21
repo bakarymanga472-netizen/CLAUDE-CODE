@@ -3,6 +3,9 @@
 Configuration Claude remise à zéro le 2026-11-15 : pas de `CLAUDE.md`, pas de réglages, pas d'agents, pas de hooks, pas de plugins.
 L'ancienne configuration (cerveau, skills `trader-*`, agents…) reste récupérable dans l'historique Git.
 
+## Obsidian
+Ce dépôt est un coffre Obsidian : ouvre `Accueil.md`. Installation et synchronisation : `workflows/obsidian.md`. Claude Code suit `CLAUDE.md`.
+
 ## Ce qui reste
 ```
 .

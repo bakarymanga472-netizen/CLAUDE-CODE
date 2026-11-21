@@ -1,3 +1,12 @@
+---
+type: projet
+statut: actif
+domaine: paris sportifs
+maj: 2026-11-21
+prochaine_etape: "1. Ne pas payer API-Football pour les absences (aucun gain mesuré). Ne le reconsidérer que pour un module joueurs (buteurs/passeurs), à test"
+tags: [projet]
+---
+
 # Projet : pronostiqueur
 
 _Créé le 2026-10-29 — Dernière mise à jour : 2026-10-29_

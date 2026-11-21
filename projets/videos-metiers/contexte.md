@@ -1,3 +1,12 @@
+---
+type: projet
+statut: actif
+domaine: vidéo
+maj: 2026-11-21
+prochaine_etape: "Choisir le métier suivant, publier, puis comparer vues et rétention avant d'en produire en série."
+tags: [projet]
+---
+
 # Projet : videos-metiers
 
 Vidéos TikTok de 30 s, format « un métier : salaire, horaires, avantages », inspiré du compte @francevsmonde1 (« Metiersansfiltre », 30,5 k abonnés, 21 vidéos au 2026-11-15). Visuel, nom et texte originaux : rien n'est copié de ce compte.

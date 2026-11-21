@@ -2,6 +2,11 @@
 
 | Chemin | Rôle |
 |---|---|
+| `Accueil.md` | Page d'accueil du coffre Obsidian (point d'entrée) |
+| `Projets.base` | Vue Obsidian de tous les projets (statut, prochaine étape) |
+| `CLAUDE.md` | Consignes de Claude Code pour utiliser le coffre |
+| `inbox/` | Notes rapides à trier |
+| `modeles/` | Modèles de notes : projet, vidéo, session, idée |
 | `cerveau/contexte/business.md` | Ton business |
 | `cerveau/contexte/offre.md` | Ton offre |
 | `cerveau/contexte/clients.md` | Tes clients |

@@ -1,3 +1,12 @@
+---
+type: projet
+statut: actif
+domaine: 
+maj: "{{DATE}}"
+prochaine_etape: ""
+tags: [projet]
+---
+
 # Projet : {{NOM}}
 
 _Créé le {{DATE}} — Dernière mise à jour : {{DATE}}_

@@ -1,3 +1,12 @@
+---
+type: projet
+statut: actif
+domaine: vidéo
+maj: 2026-11-21
+prochaine_etape: "Publier, mesurer vues et rétention ; sujet suivant possible : la Chine en Afrique (même modèle)."
+tags: [projet]
+---
+
 # Projet : videos-geopolitique
 
 Vidéos TikTok verticales très animées : carte de l'Afrique (Natural Earth, domaine public), arcs depuis Moscou, zoom sur le Sahel, compteurs, graphiques. Voix : mode naturel du skill voix-off.

@@ -1,0 +1,16 @@
+{
+  "useMarkdownLinks": true,
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "inbox",
+  "attachmentFolderPath": "pieces-jointes",
+  "showUnsupportedFiles": false,
+  "userIgnoreFilters": [
+    "node_modules/",
+    "out/",
+    ".claude/skills/remotion-best-practices/",
+    "projets/bot-trading/audit/",
+    "projets/pronostiqueur/models_store/"
+  ]
+}

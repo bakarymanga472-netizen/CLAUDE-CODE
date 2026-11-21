@@ -1,3 +1,12 @@
+---
+type: projet
+statut: à confirmer
+domaine: logiciel
+maj: 2026-10-14
+prochaine_etape: "Remplacer les données d'exemple par de vrais chantiers ; décider si les données doivent être partagées (base db) au lieu du navigateur."
+tags: [projet]
+---
+
 # Projet : crm-chantiers
 
 _Créé le 2026-10-14 — Dernière mise à jour : 2026-10-14_

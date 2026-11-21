@@ -5,7 +5,7 @@
 | Outil | Usage | Accès | Variable `.env` |
 |---|---|---|---|
 | GitHub | Versioning de ce dossier | git / MCP GitHub | — |
-| Obsidian | Lire/éditer ce dossier comme un coffre (vault) | Ouvrir ce dossier dans Obsidian | — |
+| Obsidian | Ce dépôt est le coffre : accueil, vue Projets, modèles, inbox | Ouvrir le dossier cloné + extension Obsidian Git (voir `workflows/obsidian.md`) | — |
 | Notion | Tâches ouvertes par projet entre les sessions | Connecteur Notion (MCP) | `NOTION_TOKEN` (si API directe) |
 | Higgsfield | Génération image/vidéo, Marketing Studio | Connecteur claude.ai « H » (MCP) | — |
 | higgsfield-motion-design | Motion design / pub animée : brief → storyboard → vidéo (skill) | `.claude/skills/higgsfield-motion-design/` | — |
