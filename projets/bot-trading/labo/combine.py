@@ -76,9 +76,12 @@ def _indicateurs(c):
 
 
 def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, tp=0.01, tendance_forte=False,
-             stop=0.10, duree=20, limite=False, filtre_vol=False, marge_limite=0.0005, taux_emprunt=EMPRUNT, cfd=False):
+             stop=0.10, duree=20, limite=False, filtre_vol=False, marge_limite=0.0005, taux_emprunt=EMPRUNT, cfd=False,
+             panique=None, panique_sortie=True):
     """Boucle quotidienne au niveau du portefeuille. Renvoie (rendements quotidiens, trades)
-    et, si etat=True, l'état final : positions ouvertes et ordres à passer à la prochaine clôture."""
+    et, si etat=True, l'état final : positions ouvertes et ordres à passer à la prochaine clôture.
+    panique : tableau booléen par séance (choc d'actualité détecté à la clôture) ; ce jour-là aucune entrée,
+    et si panique_sortie, toutes les positions sont vendues à la clôture suivante."""
     cv, rs, m200, m5 = c.values, ind["rsi"].values, ind["mm200"].values, ind["mm5"].values
     n, a = cv.shape
     sig = signal if signal is not None else (rs < seuil) & (cv > m200)
@@ -147,12 +150,15 @@ def backtest(c, ind, sortie="A", seuil=5, levier=1.0, signal=None, etat=False, t
                 fin = g <= -stop or (i - e_i) >= duree
                 p4 = np.nanmean(cv[i - 3:i + 1, j])
                 limites[j] = min(e_p * (1 + tp), max(p4, e_p * 1.001))
-            if fin:
+            choc = panique is not None and panique_sortie and bool(panique[i])
+            if fin or choc:
                 a_sortir.add(j)
                 limites.pop(j, None)
-                motifs[j] = ("stop" if g <= -(stop if sortie == "C" else 0.10) else
+                motifs[j] = "panique" if choc and not fin else ("stop" if g <= -(stop if sortie == "C" else 0.10) else
                              "durée" if (i - e_i) >= (duree if sortie == "C" else 20 if sortie == "A" else 10) else "objectif/rebond")
         libres = K - (len(ouvertes) - len(a_sortir))
+        if panique is not None and bool(panique[i]):
+            libres = 0
         if libres > 0:
             cand = [j for j in range(a) if sig[i, j] and j not in ouvertes]
             cand.sort(key=lambda j: rs[i, j] if np.isfinite(rs[i, j]) else 1e9)

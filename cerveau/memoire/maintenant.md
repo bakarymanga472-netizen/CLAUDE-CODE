@@ -9,7 +9,7 @@ _Dernière mise à jour : 2026-11-21_
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
   - Voix : mode naturel du skill `voix-off` (Chatterbox + voix SIWIS, vérifiée par Whisper). Créditer « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
-- `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config.
+- `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config. Plan final « Équilibrée » dans `projets/bot-trading/STRATEGIE.md` (en attente de démo paper, clés Alpaca à fournir).
 
 ## Prochaines actions
 - Monétisation TikTok (Creator Rewards) : il faut des vidéos de **plus d'une minute**, 10 000 abonnés et 100 000 vues sur 30 jours (sources secondaires, novembre 2026). Les vidéos actuelles (30 s et 47 s) font de l'audience, pas de revenus : prévoir des versions de plus de 60 s.
