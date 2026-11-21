@@ -1,18 +1,23 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-10-15_
+_Dernière mise à jour : 2026-11-21_
 
 ## En cours
-- Espace de travail optimisé (architecture tokens) — à tester sur ta machine.
+- Configuration Claude remise à zéro (PR #13) : pas de `CLAUDE.md`, pas de réglages, pas d'agents. Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
+- Production vidéo TikTok (Remotion + voix off) :
+  - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
+  - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
+  - Voix : mode naturel du skill `voix-off` (Chatterbox + voix SIWIS, vérifiée par Whisper). Créditer « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
-
-- Skills `trader-*` (11, day-trader-fr @756e4f5) installés dans `.claude/skills/`, relus ; intégrité : `scripts/verifier-trader-skills.sh`. Ordres Alpaca toujours en confirmation (`ask`). État local `trader/` ignoré par Git.
-- `bot-trading` : Aladdin construit et testé ; suivi papier en direct démarré le 2026-10-14 (lancer `python3 -m aladdin.live` chaque jour).
+- `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config.
 
 ## Prochaines actions
-- Remplir les 5 fichiers de `cerveau/contexte/` (priorité n°1).
-- Lancer `scripts/installer-plugins.sh` sur ta machine.
-- Vérifier `/context` et `/usage` après une semaine.
+- Monétisation TikTok (Creator Rewards) : il faut des vidéos de **plus d'une minute**, 10 000 abonnés et 100 000 vues sur 30 jours (sources secondaires, novembre 2026). Les vidéos actuelles (30 s et 47 s) font de l'audience, pas de revenus : prévoir des versions de plus de 60 s.
+- Publier : connecter TikTok (connecteur Higgsfield `tiktok_connect`, depuis claude.ai) ; publier en brouillon d'abord ; cocher « contenu généré par IA ».
+- Enregistrer 15 s de sa propre voix → `voix_naturelle.py --reference` (voix unique et sans crédit à mettre).
+- Nettoyer les connecteurs et plugins du compte claude.ai (garder « H » = Higgsfield) : https://claude.ai/customize/connectors
+- Remplir les 5 fichiers de `cerveau/contexte/`.
 
 ## Bloqué / en attente
-- (Résolu 2026-10-21 : push GitHub de nouveau OK.) PR #1 (branche `claude/instagram-video-uga8ko`) à merger dans `main` pour que skills et règles valent dans toutes les sessions.
+- Higgsfield : plan gratuit, 10 crédits (une vidéo Seedance coûte au moins 12,5 crédits, Marketing Studio 75).
+- YouTube et TikTok bloquent la lecture automatique sans compte connecté : pas d'analyse directe des vidéos d'autres créateurs depuis le serveur.

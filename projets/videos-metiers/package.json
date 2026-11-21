@@ -1,0 +1,17 @@
+{
+  "name": "videos-metiers",
+  "private": true,
+  "scripts": {
+    "voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json",
+    "voix-rapide": "python3 ../../.claude/skills/voix-off/voix.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json --prononcer week-end=ouikènde",
+    "studio": "remotion studio src/index.ts",
+    "rendu": "remotion render src/index.ts Metier out/video.mp4 --is-production=false"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "@remotion/media": "4.0.543",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.543"
+  }
+}
