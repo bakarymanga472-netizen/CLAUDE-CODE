@@ -53,7 +53,7 @@ def normalise(s):
     s = re.sub(r"(\d+)\s*h\b", lambda m: num2words(int(m.group(1)), lang="fr") + " heures", s)
     s = re.sub(r"\d+", lambda m: num2words(int(m.group()), lang="fr"), s).replace("€", " euros ").replace("%", " pour cent ")
     s = s.lower().replace("'", " ").replace("’", " ").replace("-", "")
-    return re.sub(r"[^\w\s]", " ", s).split()
+    return [("euro" if m == "euros" else m) for m in re.sub(r"[^\w\s]", " ", s).split()]
 
 
 def taux_erreur(ref, hyp):
@@ -104,7 +104,7 @@ def main():
     segments = []
     for i, ph in enumerate(phrases):
         dit = prononce(ph)
-        cle = hashlib.sha1(f"{dit}|{empreinte_ref}|{a.energie}".encode()).hexdigest()[:16]
+        cle = hashlib.sha1(f"v2|{dit}|{empreinte_ref}|{a.energie}".encode()).hexdigest()[:16]
         if (cache_seg / f"{cle}.npy").exists():  # phrase déjà générée et vérifiée : on la réutilise
             segments.append(np.load(cache_seg / f"{cle}.npy"))
             print(f"{i}: (cache) {ph}", file=sys.stderr)
@@ -114,9 +114,22 @@ def main():
             torch.manual_seed(100 * i + essai)
             y = tts.generate(dit, language_id="fr", audio_prompt_path=ref, exaggeration=a.energie, cfg_weight=0.5)
             y = librosa.effects.trim(y.squeeze(0).numpy(), top_db=35)[0]
-            hyp = " ".join(s.text for s in asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000),
-                                                          language="fr", beam_size=5)[0])
-            e = min(taux_erreur(normalise(ph), normalise(hyp)), taux_erreur(normalise(dit), normalise(hyp)))
+            segs_asr = asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000), language="fr",
+                                      beam_size=5, word_timestamps=True)[0]
+            mots = [(w.word, w.end) for s in segs_asr for w in s.words]
+            hyp = "".join(w for w, _ in mots)
+            erreur = lambda h: min(taux_erreur(normalise(ph), normalise(h)), taux_erreur(normalise(dit), normalise(h)))
+            e = erreur(hyp)
+            # son parasite après la fin du texte (Chatterbox ajoute parfois une « queue ») : on coupe
+            n_ref, cumul = len(normalise(dit)), 0
+            for k, (w, fin) in enumerate(mots):
+                cumul += len(normalise(w))
+                if cumul >= n_ref:
+                    if any(normalise(x) for x, _ in mots[k + 1:]):
+                        hyp_c = "".join(x for x, _ in mots[:k + 1])
+                        if erreur(hyp_c) < e:
+                            y, hyp, e = y[:int((fin + 0.15) * sr)], hyp_c + " [queue parasite coupée]", erreur(hyp_c)
+                    break
             if meilleur is None or e < meilleur[0]:
                 meilleur = (e, y, hyp)
             if e <= 0.10:
