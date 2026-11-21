@@ -16,5 +16,8 @@ Crédit à mettre en description : « Voix : SIWIS French Speech Synthesis Datab
 2. Écrire `texte.txt` (une phrase = une scène ; 10 scènes dans `Geo.tsx`), puis `npm run voix`.
 3. Adapter `scenesPanneau`, `SOURCES`, `PRESENCE` et `VILLES_*` dans `src/Geo.tsx` ; `npm run rendu`.
 
+## Monétisation
+- TikTok Creator Rewards : vidéos de plus d'une minute, 10 000 abonnés, 100 000 vues sur 30 jours, compte personnel, 18 ans et plus (sources secondaires concordantes, novembre 2026 : timetopost.co, postlinkapp.com, shortsfast.com). Une vidéo de moins de 60 s ne rapporte rien via ce programme : viser 61 à 75 s pour les vidéos destinées à la monétisation.
+
 ## Prochaine étape
 - Publier, mesurer vues et rétention ; sujet suivant possible : la Chine en Afrique (même modèle).

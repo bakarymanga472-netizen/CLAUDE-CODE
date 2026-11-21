@@ -1,17 +1,23 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-11-15_
+_Dernière mise à jour : 2026-11-21_
 
 ## En cours
-- Espace de travail optimisé (architecture tokens) — à tester sur ta machine.
+- Configuration Claude remise à zéro (PR #13) : pas de `CLAUDE.md`, pas de réglages, pas d'agents. Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
+- Production vidéo TikTok (Remotion + voix off) :
+  - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
+  - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
+  - Voix : mode naturel du skill `voix-off` (Chatterbox + voix SIWIS, vérifiée par Whisper). Créditer « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
-
-- 2026-11-15 : config remise à zéro (branche `claude/mcp-skills-config-zkmv53`) : skills `trader-*`, `objectif`, `fin-de-session`, `nouveau-projet`, `task-observer`, plugins claude-mem / claude-code-setup, hook de démarrage et `scripts/installer-plugins.sh` supprimés. Seuls skills : `higgsfield-motion-design`, `higgsfield-marketing-studio` (OSideMedia/higgsfield-ai-prompt-skill @6a6a5dd, MIT, relus). Puis remise à zéro complète : `CLAUDE.md`, `cerveau/CLAUDE.md`, `.claude/settings.json` (permissions comprises), agents, règles, `workflows/plugins.md` et `economie-tokens.md` supprimés. Ce fichier n'est plus chargé automatiquement. Tout est récupérable via l'historique Git.
-- `bot-trading` : Aladdin construit et testé ; suivi papier en direct démarré le 2026-10-14 (lancer `python3 -m aladdin.live` chaque jour).
+- `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config.
 
 ## Prochaines actions
-- Remplir les 5 fichiers de `cerveau/contexte/` (priorité n°1).
-- Vérifier `/context` et `/usage` après une semaine.
+- Monétisation TikTok (Creator Rewards) : il faut des vidéos de **plus d'une minute**, 10 000 abonnés et 100 000 vues sur 30 jours (sources secondaires, novembre 2026). Les vidéos actuelles (30 s et 47 s) font de l'audience, pas de revenus : prévoir des versions de plus de 60 s.
+- Publier : connecter TikTok (connecteur Higgsfield `tiktok_connect`, depuis claude.ai) ; publier en brouillon d'abord ; cocher « contenu généré par IA ».
+- Enregistrer 15 s de sa propre voix → `voix_naturelle.py --reference` (voix unique et sans crédit à mettre).
+- Nettoyer les connecteurs et plugins du compte claude.ai (garder « H » = Higgsfield) : https://claude.ai/customize/connectors
+- Remplir les 5 fichiers de `cerveau/contexte/`.
 
 ## Bloqué / en attente
-- (Résolu 2026-10-21 : push GitHub de nouveau OK.) PR #1 (branche `claude/instagram-video-uga8ko`) à merger dans `main` pour que skills et règles valent dans toutes les sessions.
+- Higgsfield : plan gratuit, 10 crédits (une vidéo Seedance coûte au moins 12,5 crédits, Marketing Studio 75).
+- YouTube et TikTok bloquent la lecture automatique sans compte connecté : pas d'analyse directe des vidéos d'autres créateurs depuis le serveur.

@@ -13,5 +13,8 @@ Vidéos TikTok de 30 s, format « un métier : salaire, horaires, avantages », 
 3. `npm run voix` (mode naturel, ~30 s par phrase ; `npm run voix-rapide` pour un brouillon), puis modifier le tableau `SCENES` de `src/Metier.tsx` (une entrée par phrase, dans le même ordre).
 4. Vérifier les chiffres avec au moins deux sources, puis `npm run rendu`.
 
+## Monétisation
+- TikTok Creator Rewards : vidéos de plus d'une minute, 10 000 abonnés, 100 000 vues sur 30 jours, compte personnel, 18 ans et plus (sources secondaires concordantes, novembre 2026 : timetopost.co, postlinkapp.com, shortsfast.com). Une vidéo de moins de 60 s ne rapporte rien via ce programme : viser 61 à 75 s pour les vidéos destinées à la monétisation.
+
 ## Prochaine étape
 - Choisir le métier suivant, publier, puis comparer vues et rétention avant d'en produire en série.
