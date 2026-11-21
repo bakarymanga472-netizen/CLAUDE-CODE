@@ -1,0 +1,30 @@
+== Choix des paramètres sur ['2021', '2122', '2223']
+N= 8 K= 3  logloss modèle 1.0392  (marché 0.9759  n=5303)
+N= 8 K= 6  logloss modèle 1.0292  (marché 0.9759  n=5303)
+N= 8 K=12  logloss modèle 1.0293  (marché 0.9759  n=5303)
+N=12 K= 3  logloss modèle 1.0238  (marché 0.9759  n=5303)
+N=12 K= 6  logloss modèle 1.0179  (marché 0.9759  n=5303)
+N=12 K=12  logloss modèle 1.0186  (marché 0.9759  n=5303)
+N=20 K= 3  logloss modèle 1.0120  (marché 0.9759  n=5303)
+N=20 K= 6  logloss modèle 1.0086  (marché 0.9759  n=5303)
+N=20 K=12  logloss modèle 1.0088  (marché 0.9759  n=5303)
+
+Paramètres retenus : N=20, K=6
+
+== Évaluation unique sur ['2324', '2425', '2526']
+E0     n= 1140 | logloss modèle 0.9917 marché 0.9599 mélange 0.9663 | Brier modèle 0.5909 marché 0.5700 mélange 0.5737
+SP1    n= 1140 | logloss modèle 0.9953 marché 0.9541 mélange 0.9641 | Brier modèle 0.5933 marché 0.5656 mélange 0.5720
+I1     n= 1140 | logloss modèle 0.9935 marché 0.9643 mélange 0.9705 | Brier modèle 0.5929 marché 0.5749 mélange 0.5783
+D1     n=  918 | logloss modèle 1.0029 marché 0.9609 mélange 0.9720 | Brier modèle 0.5977 marché 0.5699 mélange 0.5770
+F1     n=  918 | logloss modèle 1.0122 marché 0.9822 mélange 0.9889 | Brier modèle 0.6060 marché 0.5861 mélange 0.5901
+TOUTES n= 5256 | logloss modèle 0.9984 marché 0.9637 mélange 0.9717 | Brier modèle 0.5957 marché 0.5729 mélange 0.5778
+
+== Poids du marché dans le mélange (TOUTES, test)
+poids marché 0.0: logloss 0.9984
+poids marché 0.3: logloss 0.9828
+poids marché 0.6: logloss 0.9717
+poids marché 0.8: logloss 0.9667
+poids marché 0.9: logloss 0.9649
+poids marché 1.0: logloss 0.9637
+
+== Paris à valeur (avantage>5 %, cotes d'ouverture moyennes, mise fixe 1) : 2476 paris, réussite 21.0%, ROI -18.0%

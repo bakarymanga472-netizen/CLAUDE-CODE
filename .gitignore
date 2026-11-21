@@ -25,3 +25,9 @@ projets/*/memoire/*/index.db
 # Skills trader-* : état local (portefeuille, ordres, config SEC) — jamais dans Git
 /trader/
 projets/*/trader/
+
+# Pronostiqueur : base locale, modèles entraînés et sorties volumineuses
+projets/pronostiqueur/models_store/
+projets/pronostiqueur/reports/*.csv
+projets/pronostiqueur/reports/journal_*
+.pytest_cache/
