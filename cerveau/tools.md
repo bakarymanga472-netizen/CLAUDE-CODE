@@ -12,4 +12,5 @@
 | higgsfield-marketing-studio | Pubs vidéo Marketing Studio, 9 presets (skill) | `.claude/skills/higgsfield-marketing-studio/` | — |
 | remotion-best-practices | Vidéos en code React, rendu local gratuit (skill officiel Remotion 4.0.543) | `.claude/skills/remotion-best-practices/` | — |
 | voix-off | Voix off gratuite en local (Kokoro, voix FR `ff_siwis`) ; option Higgsfield payante (skill) | `.claude/skills/voix-off/` | — |
+| regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |

@@ -31,3 +31,6 @@ projets/pronostiqueur/models_store/
 projets/pronostiqueur/reports/*.csv
 projets/pronostiqueur/reports/journal_*
 .pytest_cache/
+
+# Vidéos téléchargées pour analyse (skill regarder-video)
+video-analyse/
