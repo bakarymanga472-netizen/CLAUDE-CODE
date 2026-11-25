@@ -28,7 +28,7 @@ def lire(url, essais=6, binaire=False):
         except urllib.error.HTTPError as e:
             if e.code not in (429, 503) or k == essais - 1:
                 raise
-            time.sleep(10 * (k + 1))  # les serveurs limitent : on patiente au lieu d'insister
+            time.sleep(20 * (k + 1))  # les serveurs limitent : on patiente au lieu d'insister
 
 
 def net(s):
@@ -65,6 +65,7 @@ def commons(terme, n):
 
 def vignette_commons(url):
     """Vignette Wikimedia de taille standard (330 px), plus fiable que le relais d'Openverse."""
+    url = url.split("?")[0]
     if "upload.wikimedia.org" not in url or "/thumb/" in url:
         return None
     base, chemin = url.split("/commons/", 1)
@@ -122,20 +123,22 @@ def prendre(a):
         credits.write_text("# Crédits des photos\n\n| Fichier | Sujet | Auteur | Licence | Source |\n|---|---|---|---|---|\n")
     for n in a.numeros:
         c = cands[n - 1]
-        url = c["fichier"]
-        if "upload.wikimedia.org" in url and "/thumb/" not in url:  # Wikimedia : taille de vignette standard (sinon refus 429)
+        url = c["fichier"].split("?")[0]  # enlève les paramètres de suivi (?utm_source=…)
+        if "upload.wikimedia.org" in url and "/thumb/" not in url:
+            # Wikimedia refuse (429/400) les originaux et les tailles non standard : on demande la plus grande
+            # vignette standard plus petite que l'original
             parts = url.split("/commons/")
             nom = url.rsplit("/", 1)[1]
-            largeur = int(c["taille"].split("x")[0] or 0)
-            if largeur > 1280:
-                url = f"{parts[0]}/commons/thumb/{parts[1]}/1280px-{nom}" + (".jpg" if nom.lower().endswith((".tif", ".tiff")) else "")
+            largeur = int((c["taille"].split("x")[0] or "0").replace("None", "0"))
+            tailles = [s for s in (330, 500, 960, 1280) if s < largeur] or [330]
+            url = f"{parts[0]}/commons/thumb/{parts[1]}/{tailles[-1]}px-{nom}" + (".jpg" if nom.lower().endswith((".tif", ".tiff", ".pdf")) else "")
         ext = Path(urllib.parse.urlparse(url).path).suffix.lower() or ".jpg"
         nom_local = re.sub(r"[^a-z0-9]+", "-", c["titre"].lower())[:50].strip("-") + ext
         (vers / nom_local).write_bytes(lire(url, binaire=True))
         with credits.open("a") as f:
             f.write(f"| {nom_local} | {c['titre'][:80]} | {c['auteur'][:60]} | {c['licence']} | {c['page']} |\n")
         print(f"ok {nom_local} ({c['licence']}, {c['auteur'][:40]})")
-        time.sleep(3)
+        time.sleep(8)
 
 
 def main():
