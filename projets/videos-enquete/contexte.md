@@ -3,13 +3,18 @@ type: projet
 statut: actif
 domaine: vidéo
 maj: 2026-11-25
-prochaine_etape: "Valider la version voix 5 + photos de la partie 1, puis vérifier et écrire la partie 2 (la note Lacoste), même voix."
+prochaine_etape: "Retours de l'utilisateur sur les 2 tests (Rainbow Warrior voix 5, frontières de l'Afrique voix 15) ; partie 2 Rainbow Warrior à écrire."
 tags: [projet, video, enquete]
 ---
 
 # Projet : videos-enquete
 
 Série d'enquêtes TikTok en plusieurs parties, sur fond noir, inspirée du **format** de @dossierouge : écran central avec des reconstitutions, étiquettes, documents caviardés, tampons, sous-titres mot à mot, et une fin en suspens qui renvoie à la partie suivante. Le sujet, le texte, la marque (« SOUS SCELLÉS ») et le visuel sont les nôtres. On ne reprend ni leurs images ni leur texte.
+
+## Dossier nº02 (test) : « Qui a tracé les frontières de l'Afrique ? » (2026-11-25)
+- Note : [frontieres-afrique](videos/frontieres-afrique.md). 107 s, voix 15, 7 images d'archives réelles, cartes animées (Natural Earth : lignes droites, empires en 1914, indépendances de 1960, zoom sur la Corne).
+- Code : `src/Afrique.tsx` (même habillage que l'enquête, scènes propres), scripts `npm run afrique-*`.
+- À faire : sortir les briques communes (Etiquette, Tampon, Photo, sous-titres, en-tête) dans un fichier partagé, plutôt que de les recopier à chaque vidéo.
 
 ## Vidéo test n°1 : « Le sabotage du Rainbow Warrior », partie 1 (2026-11-25)
 - Note de la vidéo : [rainbow-warrior-partie-1](videos/rainbow-warrior-partie-1.md)

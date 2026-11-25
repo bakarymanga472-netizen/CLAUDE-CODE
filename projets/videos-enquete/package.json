@@ -9,7 +9,12 @@
     "mixer": "python3 mix_enquete.py public/voix.wav src/evts-enquete.json src/phrases-enquete.json public/enquete-mix.wav",
     "studio": "remotion studio src/index.ts",
     "rendu": "remotion render src/index.ts Enquete out/video.mp4 --is-production=false",
-    "voix-gratuite": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix.wav --timings phrases.json --energie 0.5 --prononcer \"Mafart=Maffar\" --prononcer \"Prieur=Prilleur\" --prononcer \"Rainbow Warrior=Reine-bo Ouarior\" --prononcer \"Charles Hernu=Charle Èrnu\""
+    "voix-gratuite": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix.wav --timings phrases.json --energie 0.5 --prononcer \"Mafart=Maffar\" --prononcer \"Prieur=Prilleur\" --prononcer \"Rainbow Warrior=Reine-bo Ouarior\" --prononcer \"Charles Hernu=Charle Èrnu\"",
+    "afrique-carte": "python3 prep_carte.py ne_110m.geojson src/afrique-carte.json",
+    "afrique-voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte-afrique.txt)\" public/voix-afrique.wav --timings phrases-afrique.json --energie 0.5",
+    "afrique-caler": "python3 prep_afrique.py texte-afrique.txt phrases-afrique.json public/voix-afrique.wav src",
+    "afrique-mixer": "python3 mix_afrique.py public/voix-afrique.wav src/evts-afrique.json src/phrases-afrique.json public/afrique-mix.wav",
+    "afrique-rendu": "remotion render src/index.ts Afrique out/frontieres-afrique.mp4 --is-production=false"
   },
   "dependencies": {
     "@remotion/cli": "4.0.543",

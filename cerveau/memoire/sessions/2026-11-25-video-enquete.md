@@ -13,6 +13,10 @@ tags: [session]
 - Démo de 9 styles de visuels (showreel, 33 s), restée dans le dossier temporaire et non versionnée.
 - Voix : correctif de la coupe de « queue parasite » dans `voix_naturelle.py` (un nom transcrit en deux morceaux était coupé au milieu).
 
+- Casting de 20 voix ; l'utilisateur en garde 4 (5, 12, 14, 15) et laisse Claude choisir. Rainbow Warrior refait en voix 5 avec de vraies photos.
+- Skill `photos-reelles` (Openverse + Wikimedia, licences libres, planche de vérification, crédits) ; test « frontières de l'Afrique » (107 s).
+- Voix : une phrase dont une année est mal entendue est désormais refusée (« 1854 » pour « 1884 » était passé).
+
 ## Décisions (et pourquoi)
 - Sujet historique documenté, marque à nous (« SOUS SCELLÉS »), aucune image ni texte du compte de référence.
 - Pas de photos de personnes réelles (droits) : silhouettes et noms.

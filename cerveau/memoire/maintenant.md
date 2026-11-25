@@ -7,6 +7,7 @@ _Dernière mise à jour : 2026-11-25 (voix choisies, photos libres)_
 - Production vidéo TikTok (Remotion + voix off) :
   - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
+  - `projets/videos-enquete/` : test « Qui a tracé les frontières de l'Afrique ? » (107 s, voix 15, 7 images d'archives), rendu, non publié.
   - `projets/videos-enquete/` : série « Sous scellés », partie 1 « Le sabotage du Rainbow Warrior » (65 s, voix 5 Brooks, vraies photos), rendue, non publiée. Partie 2 à écrire, même voix.
   - Photos : **toujours chercher de vraies photos** (skill `photos-reelles`, licences libres seulement, crédit à l'écran).
   - Voix : **uniquement les 4 voix choisies le 2026-11-25** : 5 Brooks, 12 Desmond, 14 Nora (ElevenLabs via Higgsfield, ~3 crédits par vidéo de 70 s) et 15 SIWIS (gratuite). Voir `.claude/skills/voix-off/voix-choisies.md`.
