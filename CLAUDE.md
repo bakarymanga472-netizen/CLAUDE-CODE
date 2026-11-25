@@ -12,6 +12,10 @@ Le même dossier est ouvert dans Obsidian sur l'ordinateur de l'utilisateur et s
 - Nouvelle note : partir d'un modèle de `modeles/` (projet, vidéo, session, idée). Une vidéo = une note `projets/<projet>/videos/<titre>.md`.
 - Images et fichiers joints : `pieces-jointes/`. Jamais de secret ni de clé dans une note (les secrets vont dans `.env`).
 
+## Vidéos
+- Voix off : uniquement les 4 voix choisies par l'utilisateur (5 Brooks, 12 Desmond, 14 Nora, 15 SIWIS), voir `.claude/skills/voix-off/voix-choisies.md`. Demander laquelle si ce n'est pas précisé ; annoncer le coût en crédits avant d'utiliser une voix payante.
+- Photos : uniquement sous licence libre (Wikimedia Commons, domaine public), avec le crédit à l'écran ; jamais d'AFP, de Getty ni de photo de presse.
+
 ## Fin de session
 - Réécris `cerveau/memoire/maintenant.md` (30 lignes max) et le `contexte.md` des projets touchés.
 - Crée `cerveau/memoire/sessions/AAAA-MM-JJ-sujet.md` depuis `modeles/session.md`.

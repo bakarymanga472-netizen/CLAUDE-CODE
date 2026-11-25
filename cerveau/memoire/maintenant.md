@@ -1,6 +1,6 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-11-25 (vidéo test format « dossier »)_
+_Dernière mise à jour : 2026-11-25 (voix choisies, photos libres)_
 
 ## En cours
 - Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
@@ -8,7 +8,7 @@ _Dernière mise à jour : 2026-11-25 (vidéo test format « dossier »)_
   - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
   - `projets/videos-enquete/` : série « Sous scellés », partie 1 « Le sabotage du Rainbow Warrior » (70 s, monétisable), rendue, non publiée. Partie 2 à écrire.
-  - Voix : mode naturel du skill `voix-off` (Chatterbox + voix SIWIS, vérifiée par Whisper). Créditer « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
+  - Voix : **uniquement les 4 voix choisies le 2026-11-25** : 5 Brooks, 12 Desmond, 14 Nora (ElevenLabs via Higgsfield, ~3 crédits par vidéo de 70 s) et 15 SIWIS (gratuite). Voir `.claude/skills/voix-off/voix-choisies.md`.
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
 - `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config.
 
@@ -21,5 +21,5 @@ _Dernière mise à jour : 2026-11-25 (vidéo test format « dossier »)_
 - Remplir les 5 fichiers de `cerveau/contexte/`.
 
 ## Bloqué / en attente
-- Higgsfield : plan gratuit, 10 crédits (une vidéo Seedance coûte au moins 12,5 crédits, Marketing Studio 75).
+- Higgsfield : plan gratuit, 5,8 crédits restants (casting des voix : 4,2). Assez pour une seule vidéo avec une voix payante (5, 12 ou 14).
 - YouTube et TikTok bloquent la lecture automatique sans compte connecté : pas d'analyse directe des vidéos d'autres créateurs depuis le serveur.
