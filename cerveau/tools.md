@@ -11,6 +11,7 @@
 | higgsfield-motion-design | Motion design / pub animée : brief → storyboard → vidéo (skill) | `.claude/skills/higgsfield-motion-design/` | — |
 | higgsfield-marketing-studio | Pubs vidéo Marketing Studio, 9 presets (skill) | `.claude/skills/higgsfield-marketing-studio/` | — |
 | remotion-best-practices | Vidéos en code React, rendu local gratuit (skill officiel Remotion 4.0.543) | `.claude/skills/remotion-best-practices/` | — |
-| voix-off | Voix off gratuite en local (Kokoro, voix FR `ff_siwis`) ; option Higgsfield payante (skill) | `.claude/skills/voix-off/` | — |
+| voix-off | Voix off : **uniquement les 4 voix choisies** (5 Brooks, 12 Desmond, 14 Nora via ElevenLabs/Higgsfield, payantes ; 15 SIWIS gratuite), voir `voix-choisies.md` (skill) | `.claude/skills/voix-off/` | crédits Higgsfield pour 5, 12, 14 |
+| photos-reelles | Vraies photos réutilisables (Openverse + Wikimedia Commons, licences libres seulement), planche de vérification, crédits automatiques (skill) | `.claude/skills/photos-reelles/` | — |
 | regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |

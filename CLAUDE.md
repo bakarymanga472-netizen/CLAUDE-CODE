@@ -14,7 +14,7 @@ Le même dossier est ouvert dans Obsidian sur l'ordinateur de l'utilisateur et s
 
 ## Vidéos
 - Voix off : uniquement les 4 voix choisies par l'utilisateur (5 Brooks, 12 Desmond, 14 Nora, 15 SIWIS), voir `.claude/skills/voix-off/voix-choisies.md`. Demander laquelle si ce n'est pas précisé ; annoncer le coût en crédits avant d'utiliser une voix payante.
-- Photos : uniquement sous licence libre (Wikimedia Commons, domaine public), avec le crédit à l'écran ; jamais d'AFP, de Getty ni de photo de presse.
+- Photos réelles : pour toute vidéo sur des personnes, lieux, objets ou événements réels, chercher systématiquement de vraies photos et les intégrer (skill `photos-reelles`). Uniquement des images réutilisables (CC0, domaine public, CC BY, CC BY-SA), identité vérifiée à l'œil, crédit à l'écran ; jamais d'AFP, de Getty ni de photo de presse. Sans photo libre : silhouette, et le dire.
 
 ## Fin de session
 - Réécris `cerveau/memoire/maintenant.md` (30 lignes max) et le `contexte.md` des projets touchés.
