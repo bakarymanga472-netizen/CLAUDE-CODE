@@ -14,7 +14,7 @@ MOTS_CLES = {"1985", "auckland", "bombes", "rainbow", "warrior", "greenpeace", "
 
 # moment clé -> (phrase, mot) ; l'image et le son se calent sur le début de ce mot
 EVTS = {"rainbow": (2, "rainbow"), "b1": (2, "explosent"), "noye": (3, "noye"), "nucleaires": (4, "nucleaires"),
-        "mururoa": (4, "mururoa"), "touristes": (5, "touristes"), "faux": (6, "vrais"), "mafart": (6, "alain"),
+        "mururoa": (4, "mururoa"), "touristes": (5, "touristes"), "faux": (6, "veritable"), "mafart": (6, "alain"),
         "prieur": (6, "dominique"), "agents": (7, "agents"), "secrets": (7, "secrets"), "mois": (8, "mois"),
         "monde": (9, "monde"), "troisieme": (9, "troisieme"), "plongeurs": (9, "plongeurs"), "demission": (10, "demissionne"),
         "premier": (11, "premier"), "ils": (11, "ils"), "qui": (12, "qui"), "vingt": (13, "vingt"),
