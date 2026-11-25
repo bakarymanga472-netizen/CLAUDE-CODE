@@ -22,7 +22,7 @@ Installation (une fois, ~4 Go avec les modèles) :
   pip install chatterbox-tts faster-whisper num2words remotezip pedalboard pyloudnorm soundfile
 Sur CPU : environ 30 s de calcul par phrase.
 """
-import argparse, json, pathlib, re, sys
+import argparse, difflib, json, pathlib, re, sys
 
 CACHE = pathlib.Path.home() / ".cache" / "voix-off"
 SIWIS_ZIP = "https://datashare.ed.ac.uk/bitstreams/64de089d-0ad5-45cb-a1c0-b6b39ecf6225/download"
@@ -121,11 +121,15 @@ def main():
             erreur = lambda h: min(taux_erreur(normalise(ph), normalise(h)), taux_erreur(normalise(dit), normalise(h)))
             e = erreur(hyp)
             # son parasite après la fin du texte (Chatterbox ajoute parfois une « queue ») : on coupe
-            n_ref, cumul = len(normalise(dit)), 0
+            # On ne coupe que si le mot entendu à cet endroit est bien le dernier mot du texte : sinon un nom
+            # transcrit en deux morceaux (« Turenge » → « tu » + « renge ») serait coupé au milieu.
+            n_ref, cumul, dernier = len(normalise(dit)), 0, normalise(dit)[-1]
             for k, (w, fin) in enumerate(mots):
                 cumul += len(normalise(w))
                 if cumul >= n_ref:
-                    if any(normalise(x) for x, _ in mots[k + 1:]):
+                    entendu = (normalise(w) or [""])[-1]
+                    complet = difflib.SequenceMatcher(None, entendu, dernier).ratio() >= 0.75
+                    if complet and any(normalise(x) for x, _ in mots[k + 1:]):
                         hyp_c = "".join(x for x, _ in mots[:k + 1])
                         if erreur(hyp_c) < e:
                             y, hyp, e = y[:int((fin + 0.15) * sr)], hyp_c + " [queue parasite coupée]", erreur(hyp_c)

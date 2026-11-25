@@ -34,3 +34,10 @@ projets/pronostiqueur/reports/journal_*
 
 # Vidéos téléchargées pour analyse (skill regarder-video)
 video-analyse/
+
+# Projets vidéo : dépendances, rendus, audio et polices téléchargées (régénérables)
+node_modules/
+projets/*/out/
+projets/*/public/*.wav
+projets/*/public/fonts/
+projets/*/ne_110m.geojson

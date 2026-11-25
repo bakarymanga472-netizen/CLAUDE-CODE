@@ -19,6 +19,7 @@ Le point d'entrée du coffre. Claude Code part d'ici, toi aussi.
 |---|---|
 | [Vidéos métiers](projets/videos-metiers/contexte.md) | vidéo |
 | [Vidéos géopolitique](projets/videos-geopolitique/contexte.md) | vidéo |
+| [Vidéos enquête (« Sous scellés »)](projets/videos-enquete/contexte.md) | vidéo |
 | [Pronostiqueur](projets/pronostiqueur/contexte.md) | paris sportifs |
 | [Bot de trading](projets/bot-trading/contexte.md) | trading |
 | [Verdict (kickly-honnête)](projets/kickly-honnete/contexte.md) | paris sportifs |
