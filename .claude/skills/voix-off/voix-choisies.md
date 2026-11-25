@@ -7,7 +7,15 @@ tags: [voix, video]
 
 # Les 4 voix autorisées pour les vidéos
 
-Choix de l'utilisateur le 2026-11-25, après un casting de 20 voix. **Pour toute vidéo, n'utiliser que ces 4 voix.** Si la demande ne précise pas laquelle, demander en une ligne : 5, 12, 14 ou 15.
+Choix de l'utilisateur le 2026-11-25, après un casting de 20 voix. **Pour toute vidéo, n'utiliser que ces 4 voix.**
+
+## Qui choisit ? Claude (décision de l'utilisateur, 2026-11-25)
+L'utilisateur laisse Claude choisir la plus adaptée à chaque vidéo. Dire en une ligne quelle voix a été prise et pourquoi. Repères :
+- **5 Brooks** (homme posé) : enquêtes, géopolitique, faits divers, histoire sérieuse. C'est le choix par défaut des sujets graves.
+- **12 Desmond** (homme doux) : récits émouvants, portraits, sujets de société, témoignages.
+- **14 Nora** (femme conteuse) : histoires et anecdotes, métiers, vulgarisation, sujets légers ; aussi pour varier sur une même chaîne.
+- **15 SIWIS** (gratuite) : brouillons et tests, ou quand les crédits Higgsfield ne suffisent pas (dans ce cas, le dire).
+Garder la même voix pour toutes les parties d'une série.
 
 | N° | Nom | Voix | Moteur | Prix | Extrait |
 |---|---|---|---|---|---|
@@ -36,4 +44,4 @@ Lors du casting, ces voix ont parfaitement prononcé « 10 juillet 1985, port d'
 `voix_naturelle.py` sans `--reference` : voix SIWIS par défaut, vérifiée phrase par phrase par Whisper. Crédit obligatoire en description : « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
 
 ## Crédits Higgsfield
-Plan gratuit : 10 crédits au départ, 5,8 restants le 2026-11-25 après le casting. Ça suffit pour une seule vidéo avec une voix payante. Ensuite, il faut un plan payant ou la voix 15.
+Plan gratuit : 10 crédits au départ. Le 2026-11-25 : casting 4,2, puis narration « Rainbow Warrior partie 1 » avec la voix 5 : 3,15. Il reste environ 2,65 crédits, ce qui ne suffit pas pour une autre vidéo de 70 s avec une voix payante. Ensuite, il faut un plan payant ou la voix 15.

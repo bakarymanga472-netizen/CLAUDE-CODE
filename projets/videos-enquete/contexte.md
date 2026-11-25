@@ -3,7 +3,7 @@ type: projet
 statut: actif
 domaine: vidéo
 maj: 2026-11-25
-prochaine_etape: "Valider la vidéo test « Rainbow Warrior, partie 1 », puis vérifier et écrire la partie 2 (la note Lacoste)."
+prochaine_etape: "Valider la version voix 5 + photos de la partie 1, puis vérifier et écrire la partie 2 (la note Lacoste), même voix."
 tags: [projet, video, enquete]
 ---
 
@@ -33,7 +33,7 @@ Série d'enquêtes TikTok en plusieurs parties, sur fond noir, inspirée du **fo
 ## Refaire une vidéo
 1. `npm install`, `npm run polices`, `npm run carte` (une fois).
 2. Écrire `texte.txt` (une phrase = un moment ; 15 phrases pour 12 scènes). Adapter `SCENES` et les scènes dans `src/Enquete.tsx`, et les moments clés `EVTS` dans `prep_enquete.py` (mot qui déclenche un tampon, une étiquette, un son).
-3. `npm run voix` (environ 1 min par phrase sur CPU), puis `npm run caler` et `npm run mixer`.
+3. Voix : Claude choisit parmi les 4 voix autorisées (`.claude/skills/voix-off/voix-choisies.md`). Voix payante : générer `narration.mp3` sur Higgsfield en un seul appel, puis `npm run voix`. Voix 15 : `npm run voix-gratuite`. Ensuite `npm run caler` et `npm run mixer`.
 4. `npm run rendu` → `out/video.mp4`.
 
 ## Prochaine étape

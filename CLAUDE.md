@@ -13,7 +13,7 @@ Le même dossier est ouvert dans Obsidian sur l'ordinateur de l'utilisateur et s
 - Images et fichiers joints : `pieces-jointes/`. Jamais de secret ni de clé dans une note (les secrets vont dans `.env`).
 
 ## Vidéos
-- Voix off : uniquement les 4 voix choisies par l'utilisateur (5 Brooks, 12 Desmond, 14 Nora, 15 SIWIS), voir `.claude/skills/voix-off/voix-choisies.md`. Demander laquelle si ce n'est pas précisé ; annoncer le coût en crédits avant d'utiliser une voix payante.
+- Voix off : uniquement les 4 voix choisies par l'utilisateur (5 Brooks, 12 Desmond, 14 Nora, 15 SIWIS), voir `.claude/skills/voix-off/voix-choisies.md`. Claude choisit la plus adaptée au sujet (repères dans ce fichier) et le dit ; voix 15 si les crédits Higgsfield ne suffisent pas. Annoncer le coût avant d'utiliser une voix payante. Même voix pour toute une série.
 - Photos réelles : pour toute vidéo sur des personnes, lieux, objets ou événements réels, chercher systématiquement de vraies photos et les intégrer (skill `photos-reelles`). Uniquement des images réutilisables (CC0, domaine public, CC BY, CC BY-SA), identité vérifiée à l'œil, crédit à l'écran ; jamais d'AFP, de Getty ni de photo de presse. Sans photo libre : silhouette, et le dire.
 
 ## Fin de session

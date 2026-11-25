@@ -6,7 +6,7 @@ description: Ajoute une voix off (synthèse vocale) à une vidéo, en français 
 # Voix off
 
 ## Voix autorisées : 4 seulement
-L'utilisateur a choisi 4 voix le 2026-11-25 : **5 Brooks, 12 Desmond, 14 Nora** (ElevenLabs via Higgsfield, payantes) et **15 SIWIS** (gratuite, mode naturel ci-dessous). N'en utiliser aucune autre. Identifiants, prix et procédure : [voix-choisies.md](voix-choisies.md). Si la demande ne dit pas laquelle, demander.
+L'utilisateur a choisi 4 voix le 2026-11-25 : **5 Brooks, 12 Desmond, 14 Nora** (ElevenLabs via Higgsfield, payantes) et **15 SIWIS** (gratuite, mode naturel ci-dessous). N'en utiliser aucune autre. Claude choisit la plus adaptée au sujet (repères, identifiants, prix et procédure : [voix-choisies.md](voix-choisies.md)).
 
 ## Quel mode ?
 - **Publier : mode naturel** (`voix_naturelle.py`), environ 30 s de calcul par phrase sur CPU.
