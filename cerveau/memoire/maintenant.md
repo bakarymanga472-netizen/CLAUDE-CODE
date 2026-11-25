@@ -1,12 +1,13 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-11-21 (coffre Obsidian)_
+_Dernière mise à jour : 2026-11-25 (vidéo test format « dossier »)_
 
 ## En cours
 - Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
 - Production vidéo TikTok (Remotion + voix off) :
   - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
+  - `projets/videos-enquete/` : série « Sous scellés », partie 1 « Le sabotage du Rainbow Warrior » (70 s, monétisable), rendue, non publiée. Partie 2 à écrire.
   - Voix : mode naturel du skill `voix-off` (Chatterbox + voix SIWIS, vérifiée par Whisper). Créditer « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0 ».
 - `crm-chantiers` : V1 publiée (données d'exemple) → https://claude.ai/artifact/F99bQiFMm8nspVSJjXvpUE
 - `bot-trading` : Aladdin en suivi papier depuis le 2026-10-14 (`python3 -m aladdin.live`). Les skills `trader-*` ont été supprimés de la config.

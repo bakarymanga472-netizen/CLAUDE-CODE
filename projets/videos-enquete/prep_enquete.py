@@ -70,7 +70,12 @@ def main():
 
     mots, cales = [], 0
     for i, ph in enumerate(phrases):
-        ms = morceaux[i].split()
+        ms = []
+        for tok in morceaux[i].split():  # « : » ou « ? » isolés (typographie française) : rattachés au mot d'avant
+            if ms and not re.search(r"\w", tok):
+                ms[-1] += " " + tok
+            else:
+                ms.append(tok)
         temps = repartir(ms, ph["debut"], ph["fin"])
         if mots_whisper:
             ww = [w for w in mots_whisper if w[1] >= ph["debut"] - 0.2 and w[2] <= ph["fin"] + 0.3]

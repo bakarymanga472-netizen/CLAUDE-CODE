@@ -273,7 +273,7 @@ const Carte: React.FC<Sc> = ({t, ev}) => {
         <path d={path({type: 'Sphere'}) ?? ''} fill="url(#ocean)" stroke="#4d6fb5" strokeWidth={1.5} />
         <path d={path(geoGraticule10()) ?? ''} fill="none" stroke="#fff" strokeOpacity={0.06} />
         {(monde as any).features.map((f: any, i: number) => (
-          <path key={i} d={path(f) ?? ''} fill={f.properties.a3 === 'FRA' ? '#4466b8' : f.properties.a3 === 'NZL' ? '#3b4d78' : '#1d2742'} stroke="#5470a8" strokeWidth={0.8} />
+          <path key={i} d={path(f) ?? ''} fill={f.properties.a3 === 'FRA' ? '#4466b8' : f.properties.a3 === 'NZL' ? '#4a5f94' : '#2c3b60'} stroke="#6a86c4" strokeWidth={0.9} />
         ))}
         {visible(VILLES.Paris) && k < 0.5 ? (
           <g opacity={interpolate(k, [0.2, 0.45], [1, 0], c)}>
@@ -395,7 +395,7 @@ const Dementi: React.FC<Sc> = ({t, ev, dur}) => {
         </div>
       </div>
       {dementis.map((s, i) => (
-        <Tampon key={i} t={t - s} texte="Démenti" taille={50} angle={-16 + random(`da${i}`) * 26} style={{left: 480 + (i % 2) * 230 + random(`dx${i}`) * 30, top: 60 + Math.floor(i / 2) * 150 + random(`dy${i}`) * 30}} />
+        <Tampon key={i} t={t - s} texte="Démenti" taille={42} angle={-16 + random(`da${i}`) * 26} style={{left: 470 + (i % 2) * 240 + random(`dx${i}`) * 20, top: 70 + Math.floor(i / 2) * 140 + random(`dy${i}`) * 20}} />
       ))}
       <Etiquette t={t - ev('mois')} texte="Plus de 2 mois" fond={AMBRE} couleur="#111" taille={52} style={{left: 90, top: 520}} />
     </AbsoluteFill>

@@ -3,7 +3,7 @@ type: video
 projet: videos-enquete
 statut: rendue
 plateforme: TikTok
-duree_s:
+duree_s: 70
 monetisable: true
 publiee_le:
 vues:
@@ -25,7 +25,7 @@ Voir [texte.txt](../texte.txt) : 163 mots, 15 phrases. Fin en suspens : « Ce qu
 
 ## Avant de publier
 - [x] Chiffres vérifiés et sources notées
-- [ ] Plus de 60 s si la vidéo doit être monétisée (TikTok Creator Rewards)
+- [x] Plus de 60 s si la vidéo doit être monétisée (TikTok Creator Rewards) : 70 s
 - [ ] « Contenu généré par IA » coché
 - [ ] Crédit en description : « Voix : SIWIS French Speech Synthesis Database, CC BY 4.0. Carte : Natural Earth. »
 - [ ] Publié d'abord en brouillon
