@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, continueRender, delayRender, Easing, interpolate, random, Sequence, spring, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, continueRender, delayRender, Easing, Img, interpolate, random, Sequence, spring, staticFile, useCurrentFrame} from 'remotion';
 import {Audio} from '@remotion/media';
 import {geoDistance, geoGraticule10, geoInterpolate, geoOrthographic, geoPath} from 'd3-geo';
 import monde from './monde.json';
@@ -71,6 +71,21 @@ const Silhouette: React.FC<{w: number; couleur?: string}> = ({w, couleur = '#2a3
     <path d="M12 100 Q14 64 50 62 Q86 64 88 100 Z" fill={couleur} />
   </svg>
 );
+
+// Vraie photo (licence libre) façon tirage papier, avec léger zoom et crédit lisible
+const Photo: React.FC<{t: number; src: string; credit: string; legende?: string; w: number; h: number; style: React.CSSProperties; angle?: number; nb?: boolean}> = ({t, src, credit, legende, w, h, style, angle = -2, nb}) => {
+  if (t < 0) return null;
+  const s = spring({frame: t, fps: FPS, config: {damping: 14}});
+  return (
+    <div style={{position: 'absolute', ...style, width: w, transform: `rotate(${angle}deg) scale(${0.7 + 0.3 * s})`, opacity: s, background: '#f2efe6', padding: 10, boxSizing: 'border-box', boxShadow: '0 25px 50px rgba(0,0,0,0.6)'}}>
+      <div style={{width: w - 20, height: h, overflow: 'hidden'}}>
+        <Img src={staticFile(src)} style={{width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${1.04 + t * 0.0012})`, filter: nb ? 'grayscale(1) contrast(1.1)' : 'contrast(1.05) saturate(0.9)'}} />
+      </div>
+      {legende ? <div style={{fontFamily: MONO, fontWeight: 700, fontSize: 19, color: '#222', marginTop: 7}}>{legende}</div> : null}
+      <div style={{fontFamily: INTER, fontSize: 14, color: '#555', marginTop: 3}}>{credit}</div>
+    </div>
+  );
+};
 
 const flashA = (t: number, b: number) => interpolate(t - b, [0, 1, 9], [0, 1, 0], c);
 const tremble = (t: number, b: number, force: number, graine: string) => {
@@ -184,12 +199,8 @@ const Port: React.FC<Sc> = ({t, ev, m}) => {
       {t >= m[1] && t < m[2] ? <Horloge t={t - m[1]} /> : null}
       <Etiquette t={t - b1} texte="2 bombes sous la coque" taille={52} style={{left: 34, top: 460}} />
       <Etiquette t={t - ev('rainbow')} texte="Rainbow Warrior · Greenpeace" fond={AMBRE} couleur="#111" taille={34} style={{left: 34, top: 40}} />
-      {t >= ev('rainbow') ? (
-        <svg width={1000} height={640} style={{position: 'absolute', left: 0, top: 0}}>
-          <path d={`M 300 84 L 360 84 L ${470 - 120 * Math.cos((tilt * Math.PI) / 180)} ${362 + coule - 250}`} stroke={AMBRE} strokeWidth={3} fill="none"
-            pathLength={1} strokeDasharray={1} strokeDashoffset={interpolate(t - ev('rainbow'), [4, 14], [1, 0], c)} />
-        </svg>
-      ) : null}
+      <Photo t={t - ev('rainbow') - 4} src="photos/rw-auckland-1985.jpg" w={380} h={250} angle={3} style={{left: 590, top: 70}}
+        legende="Le Rainbow Warrior à Auckland, 1985" credit="Photo : Ot · Wikimedia Commons · CC BY-SA 4.0" />
     </AbsoluteFill>
   );
 };
@@ -296,11 +307,13 @@ const Carte: React.FC<Sc> = ({t, ev}) => {
           </g>
         ) : null}
       </svg>
+      <Photo t={t - Math.max(70, ev('nucleaires'))} src="photos/mururoa.jpg" w={350} h={165} angle={-2} style={{left: 615, top: 168}}
+        legende="L'atoll de Mururoa" credit="Photo : NASA · domaine public" />
       <Etiquette t={t - 56} texte="4 700 km à vol d'oiseau" fond={AMBRE} couleur="#111" taille={30} style={{left: 610, top: 110}} />
-      <Etiquette t={t - Math.max(70, ev('nucleaires'))} texte="Essais nucléaires" taille={42} style={{left: 610, top: 360}} />
-      <Etiquette t={t - Math.max(76, ev('nucleaires') + 6)} texte="français" taille={42} style={{left: 610, top: 422}} />
-      <Etiquette t={t - Math.max(84, ev('mururoa') + 4)} texte="À plus de 15 000 km" fond="rgba(0,0,0,0.85)" taille={30} style={{left: 610, top: 500}} />
-      <Etiquette t={t - Math.max(88, ev('mururoa') + 8)} texte="de Paris" fond="rgba(0,0,0,0.85)" taille={30} style={{left: 610, top: 545}} />
+      <Etiquette t={t - Math.max(70, ev('nucleaires'))} texte="Essais nucléaires" taille={42} style={{left: 610, top: 400}} />
+      <Etiquette t={t - Math.max(76, ev('nucleaires') + 6)} texte="français" taille={42} style={{left: 610, top: 460}} />
+      <Etiquette t={t - Math.max(84, ev('mururoa') + 4)} texte="À plus de 15 000 km" fond="rgba(0,0,0,0.85)" taille={30} style={{left: 610, top: 530}} />
+      <Etiquette t={t - Math.max(88, ev('mururoa') + 8)} texte="de Paris" fond="rgba(0,0,0,0.85)" taille={30} style={{left: 610, top: 574}} />
     </AbsoluteFill>
   );
 };
@@ -460,9 +473,8 @@ const Hernu: React.FC<Sc> = ({t, ev}) => {
   return (
     <AbsoluteFill style={{background: 'radial-gradient(circle at 70% 40%, #1b2030, #06070a 75%)'}}>
       <Drapeau t={t} />
-      <div style={{position: 'absolute', left: 80, top: 90, width: 290, height: 360, background: '#1b1f29', border: '3px solid #3a4152', display: 'flex', alignItems: 'flex-end', justifyContent: 'center', overflow: 'hidden', opacity: e, transform: `translateX(${(1 - e) * -80}px)`}}>
-        <Silhouette w={290} couleur="#3a4152" />
-      </div>
+      <Photo t={t} src="photos/hernu.jpg" w={300} h={370} angle={-3} style={{left: 70, top: 60}}
+        legende="Charles Hernu, 1983" credit="Photo : US Air Force · domaine public" />
       <div style={{position: 'absolute', left: 420, top: 120, opacity: interpolate(t, [4, 14], [0, 1], c)}}>
         <div style={{fontFamily: MONO, fontSize: 26, color: AMBRE, letterSpacing: 4}}>MINISTRE DE LA DÉFENSE</div>
         <div style={{fontFamily: OSW, fontWeight: 700, fontSize: 92, color: '#fff', lineHeight: 1.02, marginTop: 10}}>CHARLES<br />HERNU</div>
@@ -493,6 +505,8 @@ const Aveu: React.FC<Sc> = ({t, ev}) => {
         <path d="M410 330 Q420 210 500 205 Q580 210 590 330 Z" fill="#2a3040" />
       </svg>
       <AbsoluteFill style={{background: '#fff', opacity: f * 0.55}} />
+      <Photo t={t - ev('premier') - 4} src="photos/fabius.png" w={240} h={290} angle={3} style={{left: 720, top: 70}} nb
+        legende="Laurent Fabius (1981)" credit="Photo : CEVIPOF Sciences Po · CC BY-SA 4.0" />
       <Etiquette t={t - ev('premier')} texte="Laurent Fabius · Premier ministre" fond={AMBRE} couleur="#111" taille={34} style={{left: 34, top: 30}} />
       <Etiquette t={t - ev('premier') - 6} texte="22 sept. 1985" taille={34} fond="rgba(0,0,0,0.85)" style={{left: 34, top: 88}} />
       {n > 0 ? (
@@ -704,7 +718,7 @@ export const Enquete: React.FC = () => {
       <Panneau />
       <SousTitres />
       <div style={{position: 'absolute', top: 1420, width: '100%', textAlign: 'center', fontFamily: INTER, fontSize: 22, color: '#7d828c'}}>
-        Sources : police néo-zélandaise · NZHistory · Universalis · Le Monde (2005)
+        Sources : police NZ · NZHistory · Universalis · Le Monde (2005) · Photos : Wikimedia Commons
       </div>
       <Audio src={staticFile('enquete-mix.wav')} />
     </AbsoluteFill>

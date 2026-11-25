@@ -18,7 +18,7 @@ Série d'enquêtes TikTok en plusieurs parties, sur fond noir, inspirée du **fo
 
 ## Décisions prises (et pourquoi)
 - **Sujet historique et documenté** plutôt que l'actualité politique : faits établis depuis 40 ans, moins de risque juridique, et ça marche (les « dossiers » historiques font de l'audience).
-- **Pas de photos de Pereira, Hernu ni Fabius** : sans licence, on met une silhouette et le nom. Pour mettre de vraies photos, il faut des images libres (Wikimedia Commons, avec le crédit) ou des images d'archives sous licence.
+- **Vraies photos uniquement sous licence libre** (Wikimedia Commons, crédit à l'écran) : bateau à Auckland 1985, Mururoa, Hernu, Fabius (liste et licences dans `public/photos/CREDITS.md`). Pas de photo libre de Pereira, Prieur, Mafart ni Lacoste : silhouettes. Jamais de photo AFP/Getty (retrait pour droits d'auteur sur une vidéo monétisée).
 - **Pas de date d'arrestation** des « Turenge » : les sources divergent (12 juillet selon la police néo-zélandaise, 24 juillet selon NZHistory).
 - **L'ordre de Mitterrand n'est pas affirmé** : il repose sur la note de l'amiral Lacoste (1986, publiée par Le Monde en 2005). Dans la partie 2, le présenter comme « selon la note de l'ancien chef de la DGSE ».
 
