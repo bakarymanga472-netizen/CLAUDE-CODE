@@ -75,6 +75,8 @@ def main():
     p.add_argument("--energie", type=float, default=0.6, help="expressivité Chatterbox (0,5 calme, 0,7 très animé)")
     p.add_argument("--prononcer", action="append", default=[], metavar="MOT=SON",
                    help="corrige un mot mal prononcé, ex. --prononcer \"Africa Corps=Afrika Kor\" (audio seulement)")
+    p.add_argument("--graine", type=int, default=0,
+                   help="autre série d'essais pour les phrases refusées (les phrases déjà validées restent en cache)")
     a = p.parse_args()
 
     import numpy as np, torch, librosa, soundfile as sf
@@ -111,7 +113,7 @@ def main():
             continue
         meilleur = None
         for essai in range(4):
-            torch.manual_seed(100 * i + essai)
+            torch.manual_seed(100 * i + essai + 10000 * a.graine)
             y = tts.generate(dit, language_id="fr", audio_prompt_path=ref, exaggeration=a.energie, cfg_weight=0.5)
             y = librosa.effects.trim(y.squeeze(0).numpy(), top_db=35)[0]
             segs_asr = asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000), language="fr",
