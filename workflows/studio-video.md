@@ -38,3 +38,13 @@ Outils installés le 2026-11-26, d'après deux reels (achille.ia : « 9 skills g
 
 ## Les « 50 générateurs vidéo IA gratuits »
 Ce ne sont ni des skills ni des MCP, mais des sites web : Kling, Runway, Pika, CapCut, Veo, Hailuo… Leur « gratuit » veut dire quelques crédits d'essai. Plusieurs sont déjà accessibles via Higgsfield (Kling, Seedance, Wan, Hailuo), avec des crédits payants. Les modèles libres de la liste (Wan, Hunyuan, LTX, CogVideoX, Open-Sora, AnimateDiff) demandent une carte graphique (GPU), qu'on n'a pas en session cloud. La consigne « commente LINK » est une technique pour gonfler l'engagement, pas une liste cachée.
+
+## « Payant contre gratuit » (reel ai.praful, vérifié le 2026-11-26)
+| Domaine | « Payant » | « Gratuit » annoncé | La réalité pour une vidéo monétisée |
+|---|---|---|---|
+| Design | Canva | Lovart AI | Canva a une offre gratuite et **est déjà connecté à Claude** (miniatures, couvertures). Lovart : 500 crédits pour les nouveaux comptes, et les conditions commerciales se contredisent selon les pages |
+| Voix | ElevenLabs | « Voice Studio » | ElevenLabs gratuit : 10 000 crédits par mois, **usage non commercial seulement**, avec mention obligatoire. La première offre commerciale coûte environ 6 $ par mois. « Voice Studio » : plusieurs applications portent ce nom, impossible de savoir laquelle |
+| Vidéo | Runway, Higgsfield | MiniMax H3, Hailuo | Hailuo gratuit = crédits d'essai, filigrane, 768p, sans droits commerciaux (source tierce, à confirmer sur hailuoai.video) |
+| Image | Midjourney | Qwen Image | Qwen-Image d'origine : Apache 2.0, usage commercial permis, mais il faut une carte graphique (GPU) pour le faire tourner. Qwen-Image 2.1 : **non commercial**. Qwen Chat en ligne : conditions non confirmées |
+
+Conclusion : nos voix restent les 4 choisies. Pour des voix payantes moins chères que les crédits Higgsfield, ElevenLabs Starter (environ 6 $ par mois, environ 30 000 caractères, soit environ 25 vidéos de 70 s) mérite d'être comparé, mais sans garantie de retrouver exactement les voix Brooks, Desmond et Nora.
