@@ -48,3 +48,14 @@ Ce ne sont ni des skills ni des MCP, mais des sites web : Kling, Runway, Pika, C
 | Image | Midjourney | Qwen Image | Qwen-Image d'origine : Apache 2.0, usage commercial permis, mais il faut une carte graphique (GPU) pour le faire tourner. Qwen-Image 2.1 : **non commercial**. Qwen Chat en ligne : conditions non confirmées |
 
 Conclusion : nos voix restent les 4 choisies. Pour des voix payantes moins chères que les crédits Higgsfield, ElevenLabs Starter (environ 6 $ par mois, environ 30 000 caractères, soit environ 25 vidéos de 70 s) mérite d'être comparé, mais sans garantie de retrouver exactement les voix Brooks, Desmond et Nora.
+
+## Outils gratuits : ce qui est branché, ce qui reste à faire de ton côté (2026-11-26)
+- **Canva** : connecté et testé. Claude peut créer couvertures et miniatures dans ton compte.
+- **Qwen Image** : outil prêt (skill `image-qwen`, via la démo officielle Hugging Face). **Il te faut un compte Hugging Face gratuit et une clé de lecture** ; sans ça, le quota gratuit du serveur est à zéro.
+- **Sites à utiliser toi-même** (compte gratuit, pas d'installation possible) :
+  - Hailuo (hailuoai.video) : vidéo, crédits d'essai, filigrane, sans droits commerciaux ;
+  - Lovart (lovart.ai) : design, 500 crédits pour les nouveaux comptes ;
+  - Qwen Chat (chat.qwen.ai) : images en ligne, conditions non confirmées.
+  Bien pour tester des idées, **pas pour des vidéos monétisées**.
+- **ElevenLabs gratuit** : inutile pour nous, usage non commercial seulement.
+- **« Voice Studio »** : application non identifiée (plusieurs portent ce nom). Il faut le lien exact.

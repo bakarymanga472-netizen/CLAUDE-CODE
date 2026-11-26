@@ -15,5 +15,6 @@
 | photos-reelles | Vraies photos réutilisables (Openverse + Wikimedia Commons, licences libres seulement), planche de vérification, crédits automatiques (skill) | `.claude/skills/photos-reelles/` | — |
 | lemo-opuscar | Films animés dans 99 styles faits en code (tableau blanc, aquarelle, documentaire…), plugin gratuit ; règles maison dans `workflows/films-lemo-opuscar.md` | `.claude/settings.json` (plugin) | ffmpeg 7+ |
 | studio vidéo | HyperFrames, GSAP, video-shotcraft, motionmaxxing, threejs-game-skills (actifs) ; blender-mcp et blender-skills (désactivés, Blender requis) ; OpenMontage (application à part). Quel outil pour quelle vidéo : `workflows/studio-video.md` | `.claude/settings.json` + `.claude-plugin/marketplace.json` | selon l'outil |
+| image-qwen | Images d'illustration gratuites (Qwen-Image, Apache 2.0) via la démo Hugging Face ; jamais de fausse photo de personne réelle (skill) | `.claude/skills/image-qwen/` | `HF_TOKEN` (compte Hugging Face gratuit) |
 | regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |
