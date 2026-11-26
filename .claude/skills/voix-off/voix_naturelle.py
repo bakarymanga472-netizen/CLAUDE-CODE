@@ -118,15 +118,17 @@ def main():
                                       beam_size=5, word_timestamps=True)[0]
             mots = [(w.word, w.end) for s in segs_asr for w in s.words]
             hyp = "".join(w for w, _ in mots)
-            grands = lambda s: sorted(n for n in re.findall(r"\d+", s.replace("\u202f", "")) if len(n) >= 3)  # années, grands nombres
-            chiffres_ref = grands(ph)
+            # années et grands nombres ; « 3 560 » et « 3560 » comptent pour le même nombre
+            grands = lambda s: [n for n in re.findall(r"\d+", re.sub(r"(\d)[\s\u202f.](?=\d{3}\b)", r"\1", s)) if len(n) >= 3]
+            textes_ref = [" " + " ".join(normalise(x)) + " " for x in (ph, dit)]
 
             def erreur(h):
                 e = min(taux_erreur(normalise(ph), normalise(h)), taux_erreur(normalise(dit), normalise(h)))
                 # une date ou un nombre faux est grave (« 1854 » au lieu de « 1884 » ne compte que pour un mot) :
-                # si Whisper écrit des chiffres et qu'ils diffèrent du texte, la phrase est refusée
-                chiffres = grands(h)
-                return max(e, 0.5) if chiffres and chiffres != chiffres_ref else e
+                # chaque nombre que Whisper écrit en chiffres doit se retrouver, en toutes lettres, dans le texte
+                # (le texte peut l'écrire en chiffres, « 3 560 », ou en lettres, « trente-cinq mille »)
+                faux = [n for n in grands(h) if not any(" " + " ".join(normalise(n)) + " " in r for r in textes_ref)]
+                return max(e, 0.5) if faux else e
             e = erreur(hyp)
             # son parasite après la fin du texte (Chatterbox ajoute parfois une « queue ») : on coupe
             # On ne coupe que si le mot entendu à cet endroit est bien le dernier mot du texte : sinon un nom

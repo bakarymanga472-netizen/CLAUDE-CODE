@@ -5,7 +5,11 @@
     "voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json",
     "voix-rapide": "python3 ../../.claude/skills/voix-off/voix.py \"$(cat texte.txt)\" public/voix-metier.wav --timings src/phrases-metier.json --prononcer week-end=ouikènde",
     "studio": "remotion studio src/index.ts",
-    "rendu": "remotion render src/index.ts Metier out/video.mp4 --is-production=false"
+    "rendu": "remotion render src/index.ts Metier out/video.mp4 --is-production=false",
+    "journaliste-voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte-journaliste.txt)\" public/voix-journaliste.wav --timings public/phrases-voix-journaliste.json --energie 0.55 --prononcer \"CDD=cé dé dé\"",
+    "journaliste-caler": "python3 prep_journaliste.py texte-journaliste.txt public/phrases-voix-journaliste.json public/voix-journaliste.wav src",
+    "journaliste-mixer": "python3 mix_journaliste.py public/voix-journaliste.wav src/evts-journaliste.json src/phrases-journaliste.json public/journaliste-mix.wav",
+    "journaliste-rendu": "remotion render src/index.ts Journaliste out/journaliste.mp4 --is-production=false --crf=20"
   },
   "dependencies": {
     "@remotion/cli": "4.0.543",
