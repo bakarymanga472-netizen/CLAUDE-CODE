@@ -1,11 +1,11 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-11-26 (studio vidéo : 7 plugins installés)_
+_Dernière mise à jour : 2026-11-26 (vidéo « Journaliste depuis 10 ans », style anime)_
 
 ## En cours
 - Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
 - Production vidéo TikTok (Remotion + voix off) :
-  - `projets/videos-metiers/` : vidéo n°1 « Infirmière à l'hôpital » (30 s), rendue, non publiée.
+  - `projets/videos-metiers/` : n°1 « Infirmière à l'hôpital » (30 s) et n°2 « Journaliste depuis 10 ans » (72 s, style anime, scènes IA Z Image, voix 15), rendues, non publiées.
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.
   - `projets/videos-enquete/` : test « Qui a tracé les frontières de l'Afrique ? » (107 s, voix 15, 7 images d'archives), rendu, non publié.
   - `projets/videos-enquete/` : série « Sous scellés », partie 1 « Le sabotage du Rainbow Warrior » (65 s, voix 5 Brooks, vraies photos), rendue, non publiée. Partie 2 à écrire, même voix.
@@ -23,5 +23,7 @@ _Dernière mise à jour : 2026-11-26 (studio vidéo : 7 plugins installés)_
 - Remplir les 5 fichiers de `cerveau/contexte/`.
 
 ## Bloqué / en attente
-- Higgsfield : plan gratuit, environ 2,65 crédits restants (casting 4,2 + narration Brooks 3,15). Plus assez pour une vidéo avec une voix payante : plan payant ou voix 15.
+- Higgsfield : plan gratuit, environ 1 crédit restant (1,65 dépensé le 2026-11-26 pour 11 images Z Image à 0,15). Plus assez pour une voix payante : plan payant ou voix 15.
+- Qwen-Image (Hugging Face, gratuit) : quota ZeroGPU de quelques images par jour, épuisé le 2026-11-26.
+- Volume : avant le 2026-11-26, les vidéos sortaient à -11 LUFS au lieu de -14 (mono mesuré, stéréo joué). Corrigé dans `voix.py` et les scripts de mixage ; les vidéos déjà rendues sont à refaire au mixage avant publication.
 - YouTube et TikTok bloquent la lecture automatique sans compte connecté : pas d'analyse directe des vidéos d'autres créateurs depuis le serveur.

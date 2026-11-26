@@ -236,15 +236,19 @@ poser(fx, scintille(), ev["ouverts"], -16)
 poser(fx, scintille(), ph[15]["debut"] - 4 * F, -16)
 poser(fx, pop(), ph[15]["debut"], -13)
 
-# ─── Mixage final : −14 LUFS, crêtes −1 dBFS ─────────────────────────────────
+# ─── Mixage final : −14 LUFS, crêtes −1,5 dBFS ───────────────────────────────
+# La vidéo joue le son sur deux canaux : un mono à −14 LUFS y devient −11 LUFS (+3 dB).
+# On mesure donc la version stéréo, celle que TikTok recevra, et on écrit directement en stéréo.
 y = v + musique + fx
-lim, fen = 10 ** (-1 / 20), int(sr * 0.005)
+stereo = lambda x: np.stack([x, x], axis=1)
+volume = lambda x: meter.integrated_loudness(stereo(x))
+lim, fen = 10 ** (-1.5 / 20), int(sr * 0.005)  # 0,5 dB de marge : l'encodage AAC fait dépasser les crêtes
 for _ in range(6):
-    y = y * 10 ** ((-14 - meter.integrated_loudness(y)) / 20)
+    y = y * 10 ** ((-14 - volume(y)) / 20)
     g = np.minimum(1.0, lim / np.maximum(np.abs(y), 1e-9))
     y = y * uniform_filter1d(minimum_filter1d(g, 2 * fen + 1), 2 * fen + 1)
-    if abs(meter.integrated_loudness(y) + 14) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
+    if abs(volume(y) + 14) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
         break
 y = np.clip(y, -lim, lim)
-sf.write(sortie, y.astype(np.float32), sr)
-print(f"{sortie} : {DUREE:.1f} s, {meter.integrated_loudness(y):.1f} LUFS, crête {20 * np.log10(np.max(np.abs(y))):.1f} dBFS")
+sf.write(sortie, stereo(y).astype(np.float32), sr)
+print(f"{sortie} : {DUREE:.1f} s, {volume(y):.1f} LUFS (stéréo), crête {20 * np.log10(np.max(np.abs(y))):.1f} dBFS")

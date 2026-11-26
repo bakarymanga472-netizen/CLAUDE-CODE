@@ -146,14 +146,16 @@ activite = uniform_filter1d((np.abs(v) > 0.02).astype(float), int(0.3 * sr))
 nappe *= 1 - 0.37 * np.clip(activite * 3, 0, 1)
 
 # ─── Mixage final : −14 LUFS, crêtes −1 dBFS ─────────────────────────────────
+# la vidéo joue ce mono sur deux canaux (+3 dB) : on mesure la version stéréo
+volume = lambda x: meter.integrated_loudness(np.stack([x, x], axis=1))
 y = v + nappe + fx
 lim, fen = 10 ** (-1 / 20), int(sr * 0.005)
 for _ in range(6):
-    y = y * 10 ** ((-14 - meter.integrated_loudness(y)) / 20)
+    y = y * 10 ** ((-14 - volume(y)) / 20)
     g = np.minimum(1.0, lim / np.maximum(np.abs(y), 1e-9))
     y = y * uniform_filter1d(minimum_filter1d(g, 2 * fen + 1), 2 * fen + 1)
-    if abs(meter.integrated_loudness(y) + 14) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
+    if abs(volume(y) + 14) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
         break
 y = np.clip(y, -lim, lim)
 sf.write(sortie, y.astype(np.float32), sr)
-print(f"{sortie} : {N / sr:.1f} s, {meter.integrated_loudness(y):.1f} LUFS, crête {20 * np.log10(np.max(np.abs(y))):.1f} dBFS")
+print(f"{sortie} : {N / sr:.1f} s, {volume(y):.1f} LUFS, crête {20 * np.log10(np.max(np.abs(y))):.1f} dBFS")

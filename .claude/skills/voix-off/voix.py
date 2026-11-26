@@ -31,7 +31,10 @@ def modeles():
 
 
 def mastering(y, sr):
-    """Compresse, cale le volume sur -14 LUFS et limite les crêtes à -1,5 dBFS."""
+    """Compresse, cale le volume sur -14 LUFS et limite les crêtes à -1,5 dBFS.
+
+    Le volume est mesuré sur la version stéréo (le mono dupliqué sur deux canaux, comme dans la vidéo) :
+    mesuré en mono, un fichier à -14 LUFS sort à -11 LUFS dans la vidéo (+3 dB)."""
     import numpy as np, pyloudnorm as pyln
     from scipy.ndimage import minimum_filter1d, uniform_filter1d
     from pedalboard import Compressor, HighpassFilter, Pedalboard, Reverb
@@ -41,13 +44,14 @@ def mastering(y, sr):
                     Reverb(room_size=0.12, damping=0.6, wet_level=0.05, dry_level=1.0, width=0.6)])(
         y.astype(np.float32), sr).astype(np.float64)
     meter, lim = pyln.Meter(sr), 10 ** (CRETE_DB / 20)
+    volume = lambda x: meter.integrated_loudness(np.stack([x, x], axis=1))
     fen = int(sr * 0.005)
     for _ in range(5):  # gain vers la cible, puis limiteur doux (anticipation 5 ms), en quelques passes
-        y = y * 10 ** ((CIBLE_LUFS - meter.integrated_loudness(y)) / 20)
+        y = y * 10 ** ((CIBLE_LUFS - volume(y)) / 20)
         g = np.minimum(1.0, lim / np.maximum(np.abs(y), 1e-9))
         g = uniform_filter1d(minimum_filter1d(g, 2 * fen + 1), 2 * fen + 1)
         y = y * np.minimum(g, 1.0)
-        if abs(meter.integrated_loudness(y) - CIBLE_LUFS) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
+        if abs(volume(y) - CIBLE_LUFS) < 0.3 and np.max(np.abs(y)) <= lim * 1.01:
             break
     pic = float(np.max(np.abs(y)))
     return (y * (lim / pic) if pic > lim else y).astype(np.float32)
