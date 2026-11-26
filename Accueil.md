@@ -35,5 +35,6 @@ Le point d'entrée du coffre. Claude Code part d'ici, toi aussi.
 ## Procédures
 - [Démarrer une session](workflows/demarrer-session.md)
 - [Installer et synchroniser Obsidian](workflows/obsidian.md)
+- [Studio vidéo : quel outil pour quelle vidéo](workflows/studio-video.md)
 - [Films animés avec Lemo-Opuscar (99 styles)](workflows/films-lemo-opuscar.md)
 - Modèles de notes : [projet](modeles/projet.md) · [vidéo](modeles/video.md) · [session](modeles/session.md) · [idée](modeles/idee.md)

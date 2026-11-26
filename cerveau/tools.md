@@ -14,5 +14,6 @@
 | voix-off | Voix off : **uniquement les 4 voix choisies** (5 Brooks, 12 Desmond, 14 Nora via ElevenLabs/Higgsfield, payantes ; 15 SIWIS gratuite), voir `voix-choisies.md` (skill) | `.claude/skills/voix-off/` | crédits Higgsfield pour 5, 12, 14 |
 | photos-reelles | Vraies photos réutilisables (Openverse + Wikimedia Commons, licences libres seulement), planche de vérification, crédits automatiques (skill) | `.claude/skills/photos-reelles/` | — |
 | lemo-opuscar | Films animés dans 99 styles faits en code (tableau blanc, aquarelle, documentaire…), plugin gratuit ; règles maison dans `workflows/films-lemo-opuscar.md` | `.claude/settings.json` (plugin) | ffmpeg 7+ |
+| studio vidéo | HyperFrames, GSAP, video-shotcraft, motionmaxxing, threejs-game-skills (actifs) ; blender-mcp et blender-skills (désactivés, Blender requis) ; OpenMontage (application à part). Quel outil pour quelle vidéo : `workflows/studio-video.md` | `.claude/settings.json` + `.claude-plugin/marketplace.json` | selon l'outil |
 | regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |

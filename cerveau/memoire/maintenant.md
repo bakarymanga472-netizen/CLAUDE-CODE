@@ -1,6 +1,6 @@
 # Maintenant — mémoire court terme
 
-_Dernière mise à jour : 2026-11-26 (plugin Lemo-Opuscar installé)_
+_Dernière mise à jour : 2026-11-26 (studio vidéo : 7 plugins installés)_
 
 ## En cours
 - Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
