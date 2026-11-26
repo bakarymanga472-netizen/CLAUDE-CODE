@@ -51,7 +51,7 @@ Conclusion : nos voix restent les 4 choisies. Pour des voix payantes moins chèr
 
 ## Outils gratuits : ce qui est branché, ce qui reste à faire de ton côté (2026-11-26)
 - **Canva** : connecté et testé. Claude peut créer couvertures et miniatures dans ton compte.
-- **Qwen Image** : outil prêt (skill `image-qwen`, via la démo officielle Hugging Face). **Il te faut un compte Hugging Face gratuit et une clé de lecture** ; sans ça, le quota gratuit du serveur est à zéro.
+- **Qwen Image** : ✅ **fonctionne** (skill `image-qwen`, démo officielle Qwen-Image-2512, Apache 2.0). Clé Hugging Face enregistrée le 2026-11-26 ; environ 35 s par image, quelques images par jour. Ambiance et décor seulement : les textes et les cartes générés sont faux.
 - **Sites à utiliser toi-même** (compte gratuit, pas d'installation possible) :
   - Hailuo (hailuoai.video) : vidéo, crédits d'essai, filigrane, sans droits commerciaux ;
   - Lovart (lovart.ai) : design, 500 crédits pour les nouveaux comptes ;
