@@ -1,0 +1,26 @@
+{
+  "name": "coffre-video",
+  "owner": {"name": "Coffre Obsidian"},
+  "metadata": {"description": "Skills vidéo tiers vérifiés le 2026-11-26, téléchargés depuis leur dépôt d'origine à la version relue (rien n'est copié dans le coffre)."},
+  "plugins": [
+    {
+      "name": "video-shotcraft",
+      "source": {"source": "github", "repo": "Vincentwei1021/video-shotcraft", "sha": "1152363da5c824b32dba6d8a2ef7f935b677e445"},
+      "description": "Vidéos produit cinématographiques depuis un site web (captures réelles, 124 recettes de plans, Remotion). Apache 2.0."
+    },
+    {
+      "name": "motionmaxxing",
+      "source": {"source": "github", "repo": "Tejashmakwana/motionmaxxing", "sha": "8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c"},
+      "strict": false,
+      "skills": ["./"],
+      "description": "Films de motion design pro (lancements, promos, typographie animée) qui ne « sentent » pas l'IA. Apache 2.0."
+    },
+    {
+      "name": "threejs-game-skills",
+      "source": {"source": "github", "repo": "majidmanzarpour/threejs-game-skills", "sha": "8286774b22a2566bf894dbc825825c16921866af"},
+      "strict": false,
+      "skills": ["./skills/"],
+      "description": "Jeux 3D jouables dans le navigateur avec Three.js (9 skills). MIT."
+    }
+  ]
+}

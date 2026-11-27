@@ -1,3 +1,12 @@
+---
+type: projet
+statut: à confirmer
+domaine: paris sportifs
+maj: 2026-10-28
+prochaine_etape: "xG / blessures football, backtest NBA, Elo tennis, puis seulement alors parler de précision."
+tags: [projet]
+---
+
 # kickly-honnete (site "Verdict")
 
 ## Objectif

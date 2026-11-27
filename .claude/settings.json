@@ -1,0 +1,111 @@
+{
+  "enabledPlugins": {
+    "lemo-opuscar@lemolab": true,
+    "hyperframes@hyperframes": false,
+    "gsap-skills@gsap-skills": false,
+    "video-shotcraft@coffre-video": false,
+    "motionmaxxing@coffre-video": false,
+    "threejs-game-skills@coffre-video": false,
+    "mcp-for-blender@mcp-for-blender": false,
+    "blender-skills@blender-skills": false,
+    "sales@synced": false,
+    "activecampaign@synced": false,
+    "apollo@synced": false,
+    "bitcoin-companies@synced": false,
+    "blackrock-advisor-center-plugin@synced": false,
+    "brand-voice@synced": false,
+    "car-image@synced": false,
+    "common-room@synced": false,
+    "cowork-plugin-management@synced": false,
+    "customer-support@synced": false,
+    "data@synced": false,
+    "design@synced": false,
+    "engineering@synced": false,
+    "enterprise-search@synced": false,
+    "eodhd-api@synced": false,
+    "finance@synced": false,
+    "human-resources@synced": false,
+    "ip-legal@synced": false,
+    "legal@synced": false,
+    "marketing@synced": false,
+    "operations@synced": false,
+    "patent-intelligence@synced": false,
+    "product-management@synced": false,
+    "productivity@synced": false,
+    "qodo-standards@synced": false,
+    "security-guidance@synced": true,
+    "slack-by-salesforce@synced": false,
+    "unity@synced": false
+  },
+  "extraKnownMarketplaces": {
+    "lemolab": {
+      "source": {
+        "source": "github",
+        "repo": "lemomo-ai/lemo-opuscar"
+      }
+    },
+    "hyperframes": {
+      "source": {
+        "source": "github",
+        "repo": "heygen-com/hyperframes"
+      }
+    },
+    "gsap-skills": {
+      "source": {
+        "source": "github",
+        "repo": "greensock/gsap-skills"
+      }
+    },
+    "coffre-video": {
+      "source": {
+        "source": "github",
+        "repo": "bakarymanga472-netizen/CLAUDE-CODE"
+      }
+    },
+    "mcp-for-blender": {
+      "source": {
+        "source": "github",
+        "repo": "ahujasid/blender-mcp"
+      }
+    },
+    "blender-skills": {
+      "source": {
+        "source": "github",
+        "repo": "arjun988/blender-skills"
+      }
+    }
+  },
+  "permissions": {
+    "deny": [
+      "mcp__Shopify",
+      "mcp__Vercel",
+      "mcp__Supabase",
+      "mcp__Docusign",
+      "mcp__Jotform",
+      "mcp__Lovable",
+      "mcp__Magic_Patterns",
+      "mcp__Make",
+      "mcp__Linear",
+      "mcp__PostHog",
+      "mcp__Coupler_io",
+      "mcp__Supermetrics",
+      "mcp__Perspective_AI",
+      "mcp__LlamaParse",
+      "mcp__Kiwi_com",
+      "mcp__SlidesGPT",
+      "mcp__Gamma",
+      "mcp__Website_Generator_by_B12",
+      "mcp__Play_Sheet_Music",
+      "mcp__Granola",
+      "mcp__Health_Data_Avatar_HDA",
+      "mcp__Gmail",
+      "mcp__Google_Calendar",
+      "mcp__Google_Drive",
+      "mcp__Figma",
+      "mcp__tldraw",
+      "mcp__Three_js_3D_Viewer",
+      "mcp__Mermaid_Chart",
+      "mcp__HyperFrames_by_HeyGen"
+    ]
+  }
+}

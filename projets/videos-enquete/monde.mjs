@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import {geoDistance} from 'd3-geo';
+const [src, dst] = process.argv.slice(2);
+const g = JSON.parse(fs.readFileSync(src, 'utf8'));
+const r = (x) => Math.round(x * 100) / 100;
+const arr = (c) => (Array.isArray(c[0]) ? c.map(arr) : c.map(r));
+const out = {type: 'FeatureCollection', features: g.features.map((f) => ({type: 'Feature', properties: {a3: f.properties.ADM0_A3}, geometry: {type: f.geometry.type, coordinates: arr(f.geometry.coordinates)}}))};
+fs.writeFileSync(dst, JSON.stringify(out));
+const P = {Paris: [2.35, 48.86], Auckland: [174.76, -36.85], Mururoa: [-138.9, -21.83]};
+const km = (a, b) => Math.round(geoDistance(P[a], P[b]) * 6371);
+console.log('taille', fs.statSync(dst).size, 'Paris-Mururoa', km('Paris', 'Mururoa'), 'km ; Auckland-Mururoa', km('Auckland', 'Mururoa'), 'km');

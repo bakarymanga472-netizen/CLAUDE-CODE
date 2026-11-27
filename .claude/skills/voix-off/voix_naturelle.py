@@ -22,7 +22,7 @@ Installation (une fois, ~4 Go avec les modèles) :
   pip install chatterbox-tts faster-whisper num2words remotezip pedalboard pyloudnorm soundfile
 Sur CPU : environ 30 s de calcul par phrase.
 """
-import argparse, json, pathlib, re, sys
+import argparse, difflib, json, pathlib, re, sys
 
 CACHE = pathlib.Path.home() / ".cache" / "voix-off"
 SIWIS_ZIP = "https://datashare.ed.ac.uk/bitstreams/64de089d-0ad5-45cb-a1c0-b6b39ecf6225/download"
@@ -53,7 +53,7 @@ def normalise(s):
     s = re.sub(r"(\d+)\s*h\b", lambda m: num2words(int(m.group(1)), lang="fr") + " heures", s)
     s = re.sub(r"\d+", lambda m: num2words(int(m.group()), lang="fr"), s).replace("€", " euros ").replace("%", " pour cent ")
     s = s.lower().replace("'", " ").replace("’", " ").replace("-", "")
-    return re.sub(r"[^\w\s]", " ", s).split()
+    return [("euro" if m == "euros" else m) for m in re.sub(r"[^\w\s]", " ", s).split()]
 
 
 def taux_erreur(ref, hyp):
@@ -75,6 +75,8 @@ def main():
     p.add_argument("--energie", type=float, default=0.6, help="expressivité Chatterbox (0,5 calme, 0,7 très animé)")
     p.add_argument("--prononcer", action="append", default=[], metavar="MOT=SON",
                    help="corrige un mot mal prononcé, ex. --prononcer \"Africa Corps=Afrika Kor\" (audio seulement)")
+    p.add_argument("--graine", type=int, default=0,
+                   help="autre série d'essais pour les phrases refusées (les phrases déjà validées restent en cache)")
     a = p.parse_args()
 
     import numpy as np, torch, librosa, soundfile as sf
@@ -104,19 +106,46 @@ def main():
     segments = []
     for i, ph in enumerate(phrases):
         dit = prononce(ph)
-        cle = hashlib.sha1(f"{dit}|{empreinte_ref}|{a.energie}".encode()).hexdigest()[:16]
+        cle = hashlib.sha1(f"v2|{dit}|{empreinte_ref}|{a.energie}".encode()).hexdigest()[:16]
         if (cache_seg / f"{cle}.npy").exists():  # phrase déjà générée et vérifiée : on la réutilise
             segments.append(np.load(cache_seg / f"{cle}.npy"))
             print(f"{i}: (cache) {ph}", file=sys.stderr)
             continue
         meilleur = None
         for essai in range(4):
-            torch.manual_seed(100 * i + essai)
+            torch.manual_seed(100 * i + essai + 10000 * a.graine)
             y = tts.generate(dit, language_id="fr", audio_prompt_path=ref, exaggeration=a.energie, cfg_weight=0.5)
             y = librosa.effects.trim(y.squeeze(0).numpy(), top_db=35)[0]
-            hyp = " ".join(s.text for s in asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000),
-                                                          language="fr", beam_size=5)[0])
-            e = min(taux_erreur(normalise(ph), normalise(hyp)), taux_erreur(normalise(dit), normalise(hyp)))
+            segs_asr = asr.transcribe(librosa.resample(y, orig_sr=sr, target_sr=16000), language="fr",
+                                      beam_size=5, word_timestamps=True)[0]
+            mots = [(w.word, w.end) for s in segs_asr for w in s.words]
+            hyp = "".join(w for w, _ in mots)
+            # années et grands nombres ; « 3 560 » et « 3560 » comptent pour le même nombre
+            grands = lambda s: [n for n in re.findall(r"\d+", re.sub(r"(\d)[\s\u202f.](?=\d{3}\b)", r"\1", s)) if len(n) >= 3]
+            textes_ref = [" " + " ".join(normalise(x)) + " " for x in (ph, dit)]
+
+            def erreur(h):
+                e = min(taux_erreur(normalise(ph), normalise(h)), taux_erreur(normalise(dit), normalise(h)))
+                # une date ou un nombre faux est grave (« 1854 » au lieu de « 1884 » ne compte que pour un mot) :
+                # chaque nombre que Whisper écrit en chiffres doit se retrouver, en toutes lettres, dans le texte
+                # (le texte peut l'écrire en chiffres, « 3 560 », ou en lettres, « trente-cinq mille »)
+                faux = [n for n in grands(h) if not any(" " + " ".join(normalise(n)) + " " in r for r in textes_ref)]
+                return max(e, 0.5) if faux else e
+            e = erreur(hyp)
+            # son parasite après la fin du texte (Chatterbox ajoute parfois une « queue ») : on coupe
+            # On ne coupe que si le mot entendu à cet endroit est bien le dernier mot du texte : sinon un nom
+            # transcrit en deux morceaux (« Turenge » → « tu » + « renge ») serait coupé au milieu.
+            n_ref, cumul, dernier = len(normalise(dit)), 0, normalise(dit)[-1]
+            for k, (w, fin) in enumerate(mots):
+                cumul += len(normalise(w))
+                if cumul >= n_ref:
+                    entendu = (normalise(w) or [""])[-1]
+                    complet = difflib.SequenceMatcher(None, entendu, dernier).ratio() >= 0.75
+                    if complet and any(normalise(x) for x, _ in mots[k + 1:]):
+                        hyp_c = "".join(x for x, _ in mots[:k + 1])
+                        if erreur(hyp_c) < e:
+                            y, hyp, e = y[:int((fin + 0.15) * sr)], hyp_c + " [queue parasite coupée]", erreur(hyp_c)
+                    break
             if meilleur is None or e < meilleur[0]:
                 meilleur = (e, y, hyp)
             if e <= 0.10:

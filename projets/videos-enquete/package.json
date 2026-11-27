@@ -1,0 +1,27 @@
+{
+  "name": "videos-enquete",
+  "private": true,
+  "scripts": {
+    "carte": "curl -sSLf -o ne_110m.geojson https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson && node monde.mjs ne_110m.geojson src/monde.json",
+    "polices": "mkdir -p public/fonts && cd public/fonts && G=https://raw.githubusercontent.com/google/fonts/main/ofl && curl -sSLf -o Oswald.ttf \"$G/oswald/Oswald%5Bwght%5D.ttf\" && curl -sSLf -o CourierPrime.ttf $G/courierprime/CourierPrime-Regular.ttf && curl -sSLf -o CourierPrime-Bold.ttf $G/courierprime/CourierPrime-Bold.ttf && curl -sSLf -o Caveat.ttf \"$G/caveat/Caveat%5Bwght%5D.ttf\"",
+    "voix": "python3 ../../.claude/skills/voix-off/voix_externe.py narration.mp3 \"$(cat texte.txt)\" public/voix.wav --timings phrases.json --modele medium",
+    "caler": "python3 prep_enquete.py texte.txt phrases.json public/voix.wav src",
+    "mixer": "python3 mix_enquete.py public/voix.wav src/evts-enquete.json src/phrases-enquete.json public/enquete-mix.wav",
+    "studio": "remotion studio src/index.ts",
+    "rendu": "remotion render src/index.ts Enquete out/video.mp4 --is-production=false",
+    "voix-gratuite": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte.txt)\" public/voix.wav --timings phrases.json --energie 0.5 --prononcer \"Mafart=Maffar\" --prononcer \"Prieur=Prilleur\" --prononcer \"Rainbow Warrior=Reine-bo Ouarior\" --prononcer \"Charles Hernu=Charle Èrnu\"",
+    "afrique-carte": "python3 prep_carte.py ne_110m.geojson src/afrique-carte.json",
+    "afrique-voix": "python3 ../../.claude/skills/voix-off/voix_naturelle.py \"$(cat texte-afrique.txt)\" public/voix-afrique.wav --timings phrases-afrique.json --energie 0.5",
+    "afrique-caler": "python3 prep_afrique.py texte-afrique.txt phrases-afrique.json public/voix-afrique.wav src",
+    "afrique-mixer": "python3 mix_afrique.py public/voix-afrique.wav src/evts-afrique.json src/phrases-afrique.json public/afrique-mix.wav",
+    "afrique-rendu": "remotion render src/index.ts Afrique out/frontieres-afrique.mp4 --is-production=false"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.543",
+    "@remotion/media": "4.0.543",
+    "d3-geo": "3.1.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.543"
+  }
+}
