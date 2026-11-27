@@ -8,16 +8,21 @@
 | Obsidian | Ce dépôt est le coffre : accueil, vue Projets, modèles, inbox | Ouvrir le dossier cloné + extension Obsidian Git (voir `workflows/obsidian.md`) | — |
 | Notion | Tâches ouvertes par projet entre les sessions | Connecteur Notion (MCP) | `NOTION_TOKEN` (si API directe) |
 | Higgsfield | Génération image/vidéo, Marketing Studio | Connecteur claude.ai « H » (MCP) | — |
-| higgsfield-motion-design | Motion design / pub animée : brief → storyboard → vidéo (skill) | `.claude/skills/higgsfield-motion-design/` | — |
-| higgsfield-marketing-studio | Pubs vidéo Marketing Studio, 9 presets (skill) | `.claude/skills/higgsfield-marketing-studio/` | — |
 | remotion-best-practices | Vidéos en code React, rendu local gratuit (skill officiel Remotion 4.0.543) | `.claude/skills/remotion-best-practices/` | — |
 | voix-off | Voix off : **uniquement les 4 voix choisies** (5 Brooks, 12 Desmond, 14 Nora via ElevenLabs/Higgsfield, payantes ; 15 SIWIS gratuite), voir `voix-choisies.md` (skill) | `.claude/skills/voix-off/` | crédits Higgsfield pour 5, 12, 14 |
 | photos-reelles | Vraies photos réutilisables (Openverse + Wikimedia Commons, licences libres seulement), planche de vérification, crédits automatiques (skill) | `.claude/skills/photos-reelles/` | — |
 | lemo-opuscar | Films animés dans 99 styles faits en code (tableau blanc, aquarelle, documentaire…), plugin gratuit ; règles maison dans `workflows/films-lemo-opuscar.md` | `.claude/settings.json` (plugin) | ffmpeg 7+ |
-| studio vidéo | HyperFrames, GSAP, video-shotcraft, motionmaxxing, threejs-game-skills (actifs) ; blender-mcp et blender-skills (désactivés, Blender requis) ; OpenMontage (application à part). Quel outil pour quelle vidéo : `workflows/studio-video.md` | `.claude/settings.json` + `.claude-plugin/marketplace.json` | selon l'outil |
+| studio vidéo | HyperFrames, GSAP, video-shotcraft, motionmaxxing, threejs-game-skills, blender-mcp, blender-skills : **désactivés** le 2026-11-27 (réactivables avec `/plugin`) ; OpenMontage (application à part). Quel outil pour quelle vidéo : `workflows/studio-video.md` | `.claude/settings.json` + `.claude-plugin/marketplace.json` | selon l'outil |
 | image-qwen | Images d'illustration gratuites (Qwen-Image, Apache 2.0) via la démo Hugging Face ; jamais de fausse photo de personne réelle (skill) | `.claude/skills/image-qwen/` | `HF_TOKEN` (compte Hugging Face gratuit) |
 | regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |
+
+## Ménage du 2026-11-27 (fait)
+- **Supprimés du coffre** : skills `higgsfield-motion-design` et `higgsfield-marketing-studio`, jamais servis (récupérables dans l'historique Git). Le connecteur Higgsfield « H » reste.
+- **Désactivés dans `.claude/settings.json`** : les 27 plugins synchronisés depuis le compte claude.ai (vente, Unity, juridique, RH, finance…) et 5 plugins vidéo (HyperFrames, GSAP, video-shotcraft, motionmaxxing, threejs). Restent actifs : Lemo-Opuscar et `security-guidance` (relecture de sécurité du code, officiel Anthropic, aucun skill).
+- **Bloqués** (`permissions.deny`) : 29 connecteurs claude.ai jamais servis, dont Gmail, Google Drive, Agenda, Docusign, Shopify, Vercel, Supabase, Health Data Avatar. Testé : un outil bloqué est refusé et disparaît de la liste.
+- **Restent** : H (Higgsfield), GitHub, Canva, Exa, DeepL, Notion, Claude Docs, TEXT_TO_QUANT et Gemini (bot-trading).
+- **Limite** : ces réglages valent quand Claude Code est ouvert **dans le dossier du coffre** (ton ordinateur). Les sessions cloud démarrent un dossier plus haut et ne les lisent pas. Le vrai ménage, valable partout (claude.ai, appli, cloud), se fait dans ton compte : https://claude.ai/customize/connectors (connecteurs) et la page des plugins du compte.
 
 ## Inventaire complet (2026-11-27)
 Environ 290 skills et 90 serveurs MCP sont chargés à chaque session. Une quinzaine servent les projets en cours ; le reste encombre chaque session et donne des droits d'écriture inutiles (Gmail, Drive, Docusign, Shopify, Vercel, Supabase…).

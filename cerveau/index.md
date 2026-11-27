@@ -16,7 +16,7 @@
 | `cerveau/memoire/maintenant.md` | Mémoire court terme (en cours, prochaines actions) |
 | `cerveau/memoire/sessions/` | Journal long terme, un fichier par session |
 | `projets/<nom>/contexte.md` | État de chaque projet |
-| `.claude/skills/` | Skills `higgsfield-motion-design`, `higgsfield-marketing-studio` |
+| `.claude/skills/` | Skills : voix-off, photos-reelles, image-qwen, regarder-video, remotion-best-practices |
 | `workflows/` | Procédures pas-à-pas |
 | `scripts/` | Scripts pour tâches répétitives |
 | `.env` | Secrets (jamais commité) |

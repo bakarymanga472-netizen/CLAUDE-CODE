@@ -30,7 +30,7 @@ Le point d'entrée du coffre. Claude Code part d'ici, toi aussi.
 
 ## Outils
 - [Outils connectés](cerveau/tools.md)
-- Skills Claude : [regarder une vidéo](.claude/skills/regarder-video/SKILL.md) · [voix off](.claude/skills/voix-off/SKILL.md) ([les 4 voix choisies](.claude/skills/voix-off/voix-choisies.md)) · [photos réelles](.claude/skills/photos-reelles/SKILL.md) · [Remotion](.claude/skills/remotion-best-practices/SKILL.md) · [Higgsfield motion design](.claude/skills/higgsfield-motion-design/SKILL.md) · [Higgsfield Marketing Studio](.claude/skills/higgsfield-marketing-studio/SKILL.md)
+- Skills Claude : [regarder une vidéo](.claude/skills/regarder-video/SKILL.md) · [voix off](.claude/skills/voix-off/SKILL.md) ([les 4 voix choisies](.claude/skills/voix-off/voix-choisies.md)) · [photos réelles](.claude/skills/photos-reelles/SKILL.md) · [Remotion](.claude/skills/remotion-best-practices/SKILL.md) · [images Qwen](.claude/skills/image-qwen/SKILL.md)
 
 ## Procédures
 - [Démarrer une session](workflows/demarrer-session.md)

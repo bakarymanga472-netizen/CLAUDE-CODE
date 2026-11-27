@@ -3,7 +3,7 @@
 _Dernière mise à jour : 2026-11-26 (vidéo « Journaliste depuis 10 ans », style anime)_
 
 ## En cours
-- Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Skills restants : `higgsfield-motion-design`, `higgsfield-marketing-studio`, `remotion-best-practices`, `voix-off`. Tout l'ancien reste récupérable dans l'historique Git.
+- Configuration Claude remise à zéro (PR #13) : pas de réglages ni d'agents ; un `CLAUDE.md` court a été remis pour le coffre Obsidian (PR #15). Ménage du 2026-11-27 : 5 skills gardés (voix-off, photos-reelles, image-qwen, regarder-video, remotion), plugin Lemo-Opuscar et security-guidance actifs ; tout le reste désactivé ou bloqué dans `.claude/settings.json` (voir `cerveau/tools.md`). Tout reste récupérable dans l'historique Git.
 - Production vidéo TikTok (Remotion + voix off) :
   - `projets/videos-metiers/` : n°1 « Infirmière à l'hôpital » (30 s) et n°2 « Journaliste depuis 10 ans » (72 s, style anime, scènes IA Z Image, voix 15), rendues, non publiées.
   - `projets/videos-geopolitique/` : vidéo n°1 « La Russie en Afrique » (47 s), rendue, non publiée.

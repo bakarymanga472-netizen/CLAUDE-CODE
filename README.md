@@ -10,10 +10,11 @@ Ce dépôt est un coffre Obsidian : ouvre `Accueil.md`. Installation et synchron
 ```
 .
 ├── .claude/skills/
-│   ├── higgsfield-motion-design/     ← motion design : brief → storyboard → vidéo
-│   ├── higgsfield-marketing-studio/  ← pubs vidéo Marketing Studio (9 presets)
+│   ├── image-qwen/                   ← images d'illustration gratuites (Qwen-Image)
+│   ├── photos-reelles/               ← vraies photos libres, avec crédits
+│   ├── regarder-video/               ← analyser une vidéo TikTok, Instagram, YouTube
 │   ├── remotion-best-practices/      ← vidéos en code (React), rendu local gratuit
-│   └── voix-off/                     ← voix off gratuite en local (Kokoro)
+│   └── voix-off/                     ← voix off : les 4 voix choisies
 ├── cerveau/              ← notes et mémoire (données, plus chargées automatiquement)
 ├── projets/<nom>/        ← un dossier par projet, avec son contexte.md
 ├── workflows/            ← procédures
