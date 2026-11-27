@@ -18,3 +18,20 @@
 | image-qwen | Images d'illustration gratuites (Qwen-Image, Apache 2.0) via la démo Hugging Face ; jamais de fausse photo de personne réelle (skill) | `.claude/skills/image-qwen/` | `HF_TOKEN` (compte Hugging Face gratuit) |
 | regarder-video | Regarder une vidéo TikTok / Instagram / YouTube / fichier : images, transcription, stats ; Gemini en option (skill) | `.claude/skills/regarder-video/` | `GEMINI_API_KEY` (option) |
 | _ajoute ici_ | | | |
+
+## Inventaire complet (2026-11-27)
+Environ 290 skills et 90 serveurs MCP sont chargés à chaque session. Une quinzaine servent les projets en cours ; le reste encombre chaque session et donne des droits d'écriture inutiles (Gmail, Drive, Docusign, Shopify, Vercel, Supabase…).
+
+| Bloc | Nombre | Origine | Utilisé dans nos projets |
+|---|---|---|---|
+| Skills du coffre | 7 | `.claude/skills/` | Oui : voix-off, photos-reelles, image-qwen, regarder-video, remotion ; Higgsfield (2) jamais servis |
+| Plugins vidéo installés | 6 plugins, 29 skills | `.claude/settings.json` | Installés le 2026-11-26, pas encore servis en production (Remotion fait tout) |
+| Skills intégrés (Claude Code et Anthropic) | ≈ 35 | Claude Code | Ponctuellement (pdf, xlsx, deep-research, artifact…) |
+| Plugins synchronisés depuis le compte claude.ai | 28 plugins, ≈ 226 skills | Compte (sales 36, unity 33, eodhd 13, ip-legal 12…) | **Aucun** |
+| Connecteurs claude.ai connectés | ≈ 40 | claude.ai, Connecteurs | Utilisés : H (Higgsfield), GitHub ; testé : Canva ; le reste jamais servi |
+| Serveurs MCP des plugins, sans connexion | ≈ 46 | Plugins du compte | Aucun (connexion jamais faite) |
+| Serveurs MCP en panne | 4 | activecampaign, hubspot, definite, github (plugin engineering) | — |
+
+**À garder** : H (Higgsfield), GitHub, Canva, Exa (recherche), DeepL (sous-titres traduits) ; pour `bot-trading` : TEXT_TO_QUANT (backtests, crypto seulement, payant au crédit) et Gemini (données de marché, lecture seule) ; Notion seulement s'il sert vraiment au suivi des tâches.
+**À retirer** (jamais servis, sans rapport avec les projets) : les 28 plugins du compte, et les connecteurs Docusign, Jotform, Shopify, Supabase, Vercel, Lovable, Magic Patterns, Make, Linear, PostHog, Coupler.io, Supermetrics, Perspective AI, LlamaParse, Kiwi.com, SlidesGPT, Gamma, Website Generator B12, Play Sheet Music, Granola, Health Data Avatar (données de santé : à ne garder que par choix conscient).
+**Où** : https://claude.ai/customize/connectors (connecteurs et plugins du compte). Claude ne peut pas les retirer lui-même.
